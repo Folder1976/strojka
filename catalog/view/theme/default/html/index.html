@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8">
+    <title>Главная страница</title><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" type="text/css" href="css/main.css"><!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script><![endif]-->
+  </head>
+  <body class="index-page">
+    <div class="site">
+      <header class="site__header header">
+        <div class="container">
+          <div class="header__inner">
+            <div class="header__logo logo"><a class="logo__link" href="/"><img class="logo__img" src="img/logo.png"></a></div>
+            <div class="header__menu">
+              <ul class="menu" id="menu">
+                <li class="menu__item"><a class="menu__link" href="main.html"><span>Home</span></a></li>
+                <li class="menu__item menu__item--has-children"><a class="menu__link" href="list.html"><span>Test</span>
+                    <svg class="icon icon-angle-arrow-down menu__child-icon">
+                      <use xlink:href="img/sprite/symbol/sprite.svg#angle-arrow-down"></use>
+                    </svg></a>
+                  <ul class="submenu">
+                    <li class="menu__item"><a class="menu__link" href="submenu1.html"><span>submenu1</span></a></li>
+                    <li class="menu__item"><a class="menu__link" href="submenu2.html"><span>submenu2</span></a></li>
+                  </ul>
+                </li>
+                <li class="menu__item"><a class="menu__link" href="about.html"><span>About</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="site__content">
+        <section class="section s-about" id="about">
+          <div class="container">
+            <div class="section__title-wrap">
+              <h2 class="section__title">Accordion</h2>
+            </div>
+            <div class="accordion">
+              <div class="accordion__title">
+                <h3>accordion 1 title</h3>
+              </div>
+              <div class="accordion__panel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda animi quam voluptates, quidem. Quaerat mollitia praesentium autem laboriosam fugiat eius minus totam, porro molestiae commodi maiores dolores at pariatur harum dolorem enim vel sint delectus excepturi debitis similique, dolore. Dicta, beatae quae accusamus unde vero consequatur repellat, dolorum et animi.</p>
+              </div>
+            </div>
+            <div class="accordion">
+              <div class="accordion__title">
+                <h3>accordion 2 title</h3>
+              </div>
+              <div class="accordion__panel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus nobis omnis necessitatibus molestias, iste fuga inventore tempore quis voluptatibus deleniti qui temporibus debitis expedita eveniet consequatur earum itaque esse provident animi, facere, recusandae. Incidunt quaerat omnis maxime voluptas recusandae non vitae deserunt dignissimos blanditiis architecto, fugiat earum laudantium, ducimus harum atque quo voluptatibus est praesentium dicta iste velit id. Esse nesciunt deserunt sapiente aliquam praesentium corporis recusandae illo, error, porro incidunt molestiae est enim illum eveniet ipsum aspernatur neque similique. Illo molestiae rerum ipsa iure, ab cupiditate? Rerum, excepturi, sed!</p>
+              </div>
+            </div>
+            <div class="accordion">
+              <div class="accordion__title">
+                <h3>accordion 3 title</h3>
+              </div>
+              <div class="accordion__panel">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, optio?</p>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="section__title-wrap">
+              <h2 class="section__title">Tabs</h2>
+            </div>
+            <div class="tabs">
+              <ul class="tabs__links">
+                <li class="tab__link is-active" data-tab="tab-1">tab 1</li>
+                <li class="tab__link" data-tab="tab-2">tab 2</li>
+                <li class="tab__link" data-tab="tab-3">tab 3</li>
+              </ul>
+              <div class="tab__content is-active" id="tab-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo illum sint vero illo exercitationem cumque, nulla eius quos excepturi maxime temporibus ducimus commodi, perferendis consequuntur rem ullam amet eveniet molestias, animi. Eos tempore rerum porro unde alias ut officia commodi.</div>
+              <div class="tab__content" id="tab-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur explicabo fugiat facilis quae placeat suscipit, animi sit. Dolorum dicta reprehenderit dolore tempora, quisquam doloremque ullam, blanditiis quibusdam, omnis magnam molestiae quasi deserunt consequatur vitae fugit iure! Ea libero, necessitatibus. Quos nam consequuntur laborum neque nostrum aliquam, maiores inventore veritatis dolore tempora in. Sunt, qui, ea. Tenetur non laboriosam dolor placeat consectetur eos mollitia praesentium perspiciatis, optio quia iusto hic, voluptatum?</div>
+              <div class="tab__content" id="tab-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod voluptatum, quaerat harum minus. Laboriosam porro debitis a nulla adipisci hic.</div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="section__title-wrap">
+              <h2 class="section__title">slider</h2>
+            </div>
+            <div class="slider">
+              <div class="slider__item"><img class="slider__img" src="https://picsum.photos/200/300/?random&amp;image=0" alt="slider__img"></div>
+              <div class="slider__item"><img class="slider__img" src="https://picsum.photos/200/300/?random&amp;image=1" alt="slider__img"></div>
+              <div class="slider__item"><img class="slider__img" src="https://picsum.photos/200/300/?random&amp;image=2" alt="slider__img"></div>
+              <div class="slider__item"><img class="slider__img" src="https://picsum.photos/200/300/?random&amp;image=3" alt="slider__img"></div>
+              <div class="slider__item"><img class="slider__img" src="https://picsum.photos/200/300/?random&amp;image=4" alt="slider__img"></div>
+              <div class="slider__item"><img class="slider__img" src="https://picsum.photos/200/300/?random&amp;image=5" alt="slider__img"></div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="section__title-wrap">
+              <h2 class="section__title">Magnific popup</h2>
+            </div>
+            <div><a class="mf-popup" href="#test-form" data-effect="mfp-zoom-in">Open MFP form</a>
+              <div class="mf-popup-block mfp-hide mfp-with-anim" id="test-form">
+                <h3>MFP title</h3>
+                <p>MFP text</p>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="section__title-wrap">
+              <h2 class="section__title">Masked input</h2>
+            </div>
+            <div>
+              <input class="input input--phone" placeholder="+__ (___) ___-__-__">
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="back-to-top">
+        <div class="back-to-top__inner"></div>
+      </div>
+      <footer class="site__footer">
+        <p>site footer</p>
+      </footer>
+    </div>
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/libs.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

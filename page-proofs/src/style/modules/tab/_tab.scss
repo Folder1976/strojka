@@ -1,0 +1,43 @@
+.tabs {
+
+  &__links {
+    padding-bottom: 20px;
+  }
+}
+
+.tab {
+
+  &__link {
+    cursor: pointer;
+    border: 1px solid #000;
+    display: inline-block;
+    padding: 5px 10px;
+    margin-right: 20px;
+    transition: 0.3s;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      opacity: .7;
+    }
+
+    &.is-active {
+      border-color: #0f0;
+    }
+  }
+
+  &__content {
+    display: none;
+    border: 1px solid #c0c;
+    padding: 20px 10px;
+    animation: fadeIn 1s;
+
+    &.is-active {
+      display: block;
+    }
+  }
+}
+
+

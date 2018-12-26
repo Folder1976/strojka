@@ -1,0 +1,21 @@
+.btn,
+a.btn {
+  display: block;
+  cursor: pointer;
+  transition: all .3s;
+  text-decoration: none;
+
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  // border-radius: 50px;
+
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  text-align: center;
+  
+  &:hover {
+    opacity: .7;
+  }
+}

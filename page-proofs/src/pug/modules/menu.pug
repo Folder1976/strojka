@@ -1,0 +1,18 @@
+ul#menu.menu
+
+  each obj, name in nav.navPages
+
+    if ( obj.submenu !== undefined )
+      li.menu__item.menu__item--has-children
+        a(href=obj.href).menu__link
+          span #{name}
+          +icon('angle-arrow-down', 'menu__child-icon')
+        ul.submenu
+          each o, n in obj.submenu
+            li.menu__item
+              a(href=o.href).menu__link
+               span #{n}
+    else
+      li.menu__item
+        a(href=obj.href).menu__link
+          span #{name}

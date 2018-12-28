@@ -1,0 +1,69 @@
+.header {
+  color: #000;
+  font-size: 12px;
+  font-weight: 300;
+  text-transform: uppercase;
+
+  a {
+    color: #000;
+
+    &:hover {
+      color: $primary_color;
+      text-decoration: none;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+
+  &__top {
+    border-bottom: 1px solid $primary_color;
+  }
+
+  &__logo {
+    height: 40px;
+
+    .logo__link {
+      position: relative;
+      z-index: 10;
+    }
+  }
+
+  &__top-menu {
+    li {
+      display: inline-block;
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__cart {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    background: #fff;
+    padding: 5px;
+  }
+
+
+  &__bottom {
+    padding: 10px 0;
+  }
+
+  &__bottom-menu {
+    display: flex;
+    justify-content: space-between;
+
+    a {
+      font-size: 14px;
+      font-weight: 900;
+    }
+  }
+
+}

@@ -78,34 +78,34 @@ hr {
 }
 
 
-.container {
-  @include wrapper();
-}
+// .container {
+//   @include wrapper();
+// }
 
-.row {
-  @include row-flex();
-}
+// .row {
+//   @include row-flex();
+// }
 
-.col {
-  @include col();
-  @include size(12);
-}
+// .col {
+//   @include col();
+//   @include size(12);
+// }
 
-.col-10-center {
-  @include col();
-  @include shift(1);
-  @include shift-lg(0);
-  @include size(10);
-  @include size-lg(12);
-}
+// .col-10-center {
+//   @include col();
+//   @include shift(1);
+//   @include shift-lg(0);
+//   @include size(10);
+//   @include size-lg(12);
+// }
 
-.col-8-center {
-  @include col();
-  @include shift(2);
-  @include shift-md(0);
-  @include size(8);
-  @include size-md(12);
-}
+// .col-8-center {
+//   @include col();
+//   @include shift(2);
+//   @include shift-md(0);
+//   @include size(8);
+//   @include size-md(12);
+// }
 
 
 .text-center {

@@ -20,9 +20,10 @@
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
-<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+<!-- <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
+<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
+<!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
+<link href="catalog/view/theme/default/stylesheet/main.css" rel="stylesheet">
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -38,6 +39,60 @@
 <?php } ?>
 </head>
 <body class="<?php echo $class; ?>">
+  <header class="site__header header">
+    <div class="header__top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2">
+            <div class="header__logo logo">
+              <?php if ($logo) { ?>
+              <a href="<?php echo $home; ?>" class="logo__link"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="logo__img" /></a>
+              <?php } else { ?>
+              <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
+              <?php } ?>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="header__inner">
+              <ul class="header__top-menu">
+                <li><a href="#">Услуги</a></li>
+                <li><a href="#">Товары</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Наши работы</a></li>
+                <li><a href="#">Блог</a></li>
+              </ul>
+              <div class="header__top-text">работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="header__cart"><?php echo $cart; ?></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header__bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2"></div>
+          <div class="col-md-7">
+            <ul class="header__bottom-menu">
+              <li><a href="#">Кровля</a></li>
+              <li><a href="#">фундамент</a></li>
+              <li><a href="#">проектирование и дизайн</a></li>
+              <li><a href="#">строительство загородных домов</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+
+<?php if (false) { ?>
 <nav id="top">
   <div class="container">
     <?php echo $currency; ?>
@@ -116,3 +171,7 @@
   </nav>
 </div>
 <?php } ?>
+
+
+
+<?php } // end if ?>

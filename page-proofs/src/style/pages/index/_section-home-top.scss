@@ -1,0 +1,79 @@
+.section-home-top {
+  height: 600px;
+  background-image: url(../img/bg/house.png), url(../img/bg/home-top-bg.jpg);
+  background-position: left bottom, center top;
+  background-repeat: no-repeat;
+  background-size: none, cover;
+  position: relative;
+
+  &__content {
+    max-width: 900px;
+    margin: 6.5rem 5rem 0 auto;
+  }
+
+  &__desc {
+    text-align: right;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 6rem;
+
+    p {
+      margin: 0;
+    }
+
+    .btn {
+      margin-left: 3rem;
+    }
+  }
+
+  &__list {
+    font-size: 1.8rem;
+    font-weight: 700;
+    position: absolute;
+    z-index: 5;
+    bottom: 0;
+    left: 0;
+    padding: 20px 0;
+
+    li {
+      position: relative;
+      padding-left: 2.7rem;
+
+      &:before {
+        content: "";
+        width: 1.2rem;
+        height: 1.2rem;
+        position: absolute;
+        z-index: 1;
+        top: .7rem;
+        left: 0;
+        background: #000;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  // &__list-bg {
+  //   // &:before {
+  //   //   content: "";
+  //     z-index: 1;
+  //     display: block;
+  //     background: $primary_color;
+  //     opacity: .7;
+  //     top: 0;
+  //     right: 0;
+  //     left: 0;
+  //     bottom: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //   // }
+  // }
+
+  .site-title {
+    text-align: right;
+  }
+}

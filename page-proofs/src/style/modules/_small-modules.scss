@@ -1,13 +1,11 @@
 .logo {
   &__link {}
-  &__img {
-    width: 165px;
-    min-width: 130px;
-  }
+  &__img {}
 }
 
 .back-to-top {
   position: fixed;
+  z-index: 50;
   bottom: 40px;
   right: 40px;
   display: none;
@@ -15,6 +13,7 @@
   animation-duration: .5s;
   animation-fill-mode: both;
   animation-name: fadeInUp;
+
   &__inner {
     background: $primary_color;
     border-radius: 50%;
@@ -22,10 +21,20 @@
     height: 40px;
     transition: all .3s;
     text-align: center;
+    position: relative;
   }
+
+  &__icon {
+    fill: #fff;
+    height: 24px;
+    width: 24px;
+    @include absolute-center();
+  }
+
   &.is-active {
     display: block;
   }
+
   &:hover .back-to-top__inner {
     opacity: .7;
   }

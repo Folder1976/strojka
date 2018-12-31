@@ -8,14 +8,28 @@ a.btn {
   color: #000;
   background-color: #fff;
   border: 1px solid #000;
-  // border-radius: 50px;
+  // border-radius: 4px;
 
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 0.2px;
   text-align: center;
+  padding: 15px 20px;
   
   &:hover {
-    opacity: .7;
+    opacity: .8;
+  }
+
+  &--dib {
+    display: inline-block;
+  }
+
+  &--bold {
+    font-weight: 900;
+  }
+
+  &--orange {
+    background-color: $primary_color;
+    border-color: $primary_color;
   }
 }

@@ -4,7 +4,7 @@ $(document).ready(function() {
 
 
 // init page
-//= modules/init-page.js
+// modules/init-page.js
 
 
 // slicknav mobile menu
@@ -12,7 +12,7 @@ $(document).ready(function() {
 
 
 // fixed header after scroll
-//= modules/fixed-header.js
+// modules/fixed-header.js
 
 
 // back-to-top button
@@ -20,23 +20,23 @@ $(document).ready(function() {
 
 
 // маска для телефона
-//= modules/maskedinput.js
+// modules/maskedinput.js
 
 
 // Slick slider
-//= modules/slick-slider.js
+// modules/slick-slider.js
 
 
 // tabs
-//= modules/tabs.js
+// modules/tabs.js
 
 
 // accordion
-//= modules/accordion.js
+// modules/accordion.js
 
 
 // Magnific popup
-//= modules/magnific-popup.js
+// modules/magnific-popup.js
 
 
 });

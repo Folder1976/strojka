@@ -7,8 +7,16 @@
 
 html {
   font-size: 10px;
-  @media screen and (max-width: $break_sm) {
+  @media screen and (max-width: $break_md) {
     font-size: 9px;
+  }
+
+  @media screen and (max-width: $break_sm) {
+    font-size: 8px;
+  }
+
+  @media screen and (max-width: $break_xs) {
+    font-size: 7px;
   }
 }
 

@@ -38,7 +38,7 @@
 <?php echo $analytic; ?>
 <?php } ?>
 </head>
-<body class="<?php echo $class; ?>">
+<body class="site <?php echo $class; ?>">
   <header class="site__header header">
     <div class="header__top">
       <div class="container">
@@ -57,7 +57,7 @@
               <ul class="header__top-menu">
                 <li><a href="#">Услуги</a></li>
                 <li><a href="#">Товары</a></li>
-                <li><a href="#">Контакты</a></li>
+                <li><a href="<?php echo $contact; ?>">Контакты</a></li>
                 <li><a href="#">Наши работы</a></li>
                 <li><a href="#">Блог</a></li>
               </ul>
@@ -87,6 +87,30 @@
       </div>
     </div>
   </header>
+
+  <div class="site__content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

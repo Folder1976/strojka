@@ -41,3 +41,14 @@
 2018-12-20 17:04:08 - PHP Notice:  Undefined index: href in /home/c/cn08183/public_html/catalog/view/theme/default/template/checkout/onepagecheckout.tpl on line 57
 2018-12-20 17:05:19 - PHP Notice:  Undefined index: href in /home/c/cn08183/public_html/catalog/view/theme/default/template/checkout/onepagecheckout.tpl on line 57
 2018-12-20 17:14:23 - PHP Notice:  Undefined index: href in /home/c/cn08183/public_html/catalog/view/theme/default/template/checkout/onepagecheckout.tpl on line 57
+2018-12-31 8:49:54 - PHP Notice:  Undefined variable: text_contact in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 60
+2018-12-31 8:51:04 - PHP Notice:  Undefined variable: text_contact in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 60
+2018-12-31 8:51:10 - PHP Notice:  Undefined variable: text_contact in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 60
+2018-12-31 9:49:00 - PHP Notice:  Undefined variable: home in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\footer.tpl on line 8
+2018-12-31 9:49:00 - PHP Notice:  Undefined variable: logo in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\footer.tpl on line 8
+2018-12-31 9:49:00 - PHP Notice:  Undefined variable: name in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\footer.tpl on line 8
+2018-12-31 9:49:00 - PHP Notice:  Undefined variable: name in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\footer.tpl on line 8
+2018-12-31 9:49:50 - PHP Notice:  Undefined variable: home in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\footer.tpl on line 15
+2018-12-31 9:49:50 - PHP Notice:  Undefined variable: name in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\footer.tpl on line 15
+2018-12-31 9:49:50 - PHP Notice:  Undefined variable: name in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\footer.tpl on line 15
+2018-12-31 9:50:24 - PHP Notice:  Undefined variable: home in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\footer.tpl on line 16

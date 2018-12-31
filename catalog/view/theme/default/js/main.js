@@ -4,8 +4,7 @@ $(document).ready(function() {
 
 
 // init page
-// init page
-$('.header__menu .menu__item:first-child').addClass('is-active');
+// modules/init-page.js
 
 
 // slicknav mobile menu
@@ -13,14 +12,7 @@ $('.header__menu .menu__item:first-child').addClass('is-active');
 
 
 // fixed header after scroll
-// fixed header after scroll
-$(window).on('scroll', function() {
-  if ($(window).scrollTop() > 200) {
-    $('.header').addClass('header--fixed');
-  } else {
-    $('.header').removeClass('header--fixed');
-  }
-});
+// modules/fixed-header.js
 
 
 // back-to-top button
@@ -45,72 +37,23 @@ $('.back-to-top').on('click',function(event) {
 
 
 // маска для телефона
-// маска для телефона
-$(".input--phone").mask("+99 (999) 999-99-99");
+// modules/maskedinput.js
 
 
 // Slick slider
-/*
-slick slider documentation:   https://github.com/kenwheeler/slick
-or                            http://kenwheeler.github.io/slick/
-*/
-
-$('.slider').slick({
-  // dots: true,
-  slidesToShow: 5,
-  slidesToScroll: 1,
-  centerMode: true,
-  // autoplay: true,
-  autoplaySpeed: 2000,
-});
+// modules/slick-slider.js
 
 
 // tabs
-// Tabs
-
-$('.tabs').on('click', '.tab__link', function(){
-  let tabId = $(this).data('tab');
-
-  $(this).addClass('is-active').siblings().removeClass('is-active');
-  $('#' + tabId).addClass('is-active').siblings('.tab__content').removeClass('is-active');
-});
+// modules/tabs.js
 
 
 // accordion
-// Accordion
-
-$('.accordion').on('click', '.accordion__title', function(){
-  let panel = $(this).next('.accordion__panel');
-
-  $(this).toggleClass('is-active');
-  panel.toggleClass('is-active');
-  if ( panel.hasClass('is-active') ){
-    panel.css('max-height', panel.prop('scrollHeight') + "px");
-  } else {
-    panel.css('max-height', 0);
-  }
-
-});
+// modules/accordion.js
 
 
 // Magnific popup
-// github:         https://github.com/dimsemenov/Magnific-Popup
-// site:           http://dimsemenov.com/plugins/magnific-popup/
-// documentation:  http://dimsemenov.com/plugins/magnific-popup/documentation.html
-
-
-$('.mf-popup').magnificPopup({
-  type: 'inline',
-  preloader: true,
-  removalDelay: 100,
-
-  callbacks: {
-    beforeOpen: function() {
-       this.st.mainClass = this.st.el.attr('data-effect');
-    }
-  },
-
-});
+// modules/magnific-popup.js
 
 
 });

@@ -1,6 +1,6 @@
 <?php
 // временно:
-$logo = '//localhost:3000/image/catalog/logo.png';
+$logo = '/image/catalog/logo.png';
 $name = 'Your Store';
 $home = '/';
 ?>

@@ -1,0 +1,45 @@
+.section-services {
+  text-align: center;
+}
+
+.services-list {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+  text-align: left;
+
+  @media screen and (max-width: $bs_break_xs) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+   @media screen and (max-width: $break_xs) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.service-item {
+  background-color: $primary_color;
+  max-width: 37rem;
+  margin: 0 auto;
+
+  &__img {}
+
+  &__text {
+    padding: 3rem;
+  }
+
+  &__title {
+    color: #000;
+    font-size: 2rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+
+  &__desc {
+    color: #000;
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+}

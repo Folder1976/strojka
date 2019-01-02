@@ -1,0 +1,30 @@
+.product-layout {
+  border: 1px solid $primary_color;
+
+  &__image {
+    height: 27rem;
+    border-bottom: 1px solid $primary_color;
+  }
+
+  &__caption {
+    padding: 1rem;
+
+    &:after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid $primary_color;
+    }
+  }
+
+  &__button-group {
+    padding: 1rem;
+  }
+}
+
+
+.featured {
+  padding: 5rem 0;
+  &__slide {
+    padding: 0 1.5rem;
+  }
+}

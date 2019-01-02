@@ -1,0 +1,40 @@
+.section-our-products {}
+
+
+.product-catalog {
+  background: $primary_color;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 3rem;
+  padding: 30px 8.33333333%;
+
+
+  &__item {}
+
+  &__title {
+    font-size: 18px;
+    font-weight: 900;
+    // min-height: 2em;
+    height: 3.5em;
+    line-height: 1em;
+    display: flex;
+    border-bottom: 1px solid #000;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #000;
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 14px;
+      text-decoration: underline;
+    }
+  }
+}

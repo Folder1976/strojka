@@ -1,0 +1,9 @@
+.section-take-test {
+  text-align: center;
+
+  .btn--take-test {
+    @media screen and (max-width: $break_xs) {
+      width: 100%;
+    }
+  }
+}

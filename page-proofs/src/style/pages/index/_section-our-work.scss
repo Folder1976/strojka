@@ -1,0 +1,33 @@
+.section-our-work {
+  background-color: $primary_color;
+}
+
+.work-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 3rem;
+  grid-row-gap: 4rem;
+
+  margin-bottom: 5rem;
+
+  @media screen and (max-width: $bs_break_xs) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+
+.work-item {
+  font-size: 1.8rem;
+  font-weight: 900;
+  border-bottom: 1px solid #000;
+  padding-bottom: 15px;
+  margin: 0 auto;
+  max-width: 370px;
+
+  &__img {
+    margin-bottom: 3rem;
+  }
+  &__title {}
+
+}
+

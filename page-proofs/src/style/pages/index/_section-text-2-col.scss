@@ -1,0 +1,9 @@
+.section-text-2-col {
+  .content-style {
+    columns: 2;
+
+    @media screen and (max-width: $break_sm) {
+      columns: 1;
+    }
+  }
+}

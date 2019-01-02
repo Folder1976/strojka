@@ -19,6 +19,6 @@ $.fn.hasAttr = function(name) {
 // ../../node_modules/jquery.maskedinput/src/jquery.maskedinput.js
 
 // Slick slider
-// ../../node_modules/slick-carousel/slick/slick.min.js
+//= ../../node_modules/slick-carousel/slick/slick.min.js
 
 });

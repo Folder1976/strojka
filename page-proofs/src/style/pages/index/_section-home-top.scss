@@ -1,14 +1,78 @@
 .section-home-top {
-  height: 600px;
-  background-image: url(../img/bg/house.png), url(../img/bg/home-top-bg.jpg);
-  background-position: left bottom, center top;
+  height: 60rem;
+  background-image: url(../img/bg/home-top-bg.jpg);
+  background-position: center top;
   background-repeat: no-repeat;
-  background-size: none, cover;
+  background-size: cover;
   position: relative;
+  z-index: 1;
+
+  &__bg-house {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 6;
+    
+    .cont {
+      background-image: url(../img/bg/house.png);
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      background-size: auto;
+      height: 100%;
+
+      @media screen and (max-width: 1700px) {
+        background-position: -200px bottom;
+      }
+      @media screen and (max-width: 1350px) {
+        background-position: -300px bottom;
+      }
+      @media screen and (max-width: 1200px) {
+        background-position: -550px bottom;
+      }
+
+    }
+  }
+
+  &__bg-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    background-image: url(../img/bg/clouds.png);
+    background-position: 0 0;
+    background-repeat: repeat-x;
+    background-size: auto;
+
+    animation: clouds-anim 90s linear infinite;
+  }
+
+  @keyframes clouds-anim {
+    from {
+      background-position: 0px 0;
+    }
+    to {
+      background-position: -5000px 0;
+    }
+  }
 
   &__content {
     max-width: 900px;
     margin: 6.5rem 5rem 0 auto;
+    position: relative;
+    z-index: 10;
+
+    @media screen and (max-width: $bs_break_sm) {
+      margin-right: 0;
+      // max-width: 100%;
+    }
+
+    @media screen and (max-width: $break_xs) {
+      margin-top: 1rem;
+    }
   }
 
   &__desc {
@@ -21,6 +85,14 @@
     align-items: center;
     margin-top: 6rem;
 
+    @media screen and (max-width: $bs_break_xs) {
+      display: block;
+    }
+
+    @media screen and (max-width: $break_xs) {
+      margin-top: 1rem;
+    }
+
     p {
       margin: 0;
     }
@@ -30,14 +102,42 @@
     }
   }
 
+  &__list-bg {
+    background-color: $primary_color;
+    opacity: .7;
+    position: absolute;
+    // top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    height: 12.5rem;
+
+    @media screen and (max-width: $break_xs) {
+      display: none;
+    }
+  }
   &__list {
     font-size: 1.8rem;
     font-weight: 700;
     position: absolute;
-    z-index: 5;
+    z-index: 7;
     bottom: 0;
     left: 0;
-    padding: 20px 0;
+    right: 0;
+    padding: 5px 0;
+    min-height: 12.5rem;
+    display: flex;
+    align-items: center;
+
+    @media screen and (max-width: $break_xs) {
+      display: none;
+    }
+
+    ul {
+      position: relative;
+      z-index: 10;
+    }
 
     li {
       position: relative;

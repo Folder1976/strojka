@@ -8,6 +8,9 @@
 // небольшие модули
 @import '_small-modules';
 
+// content-style
+@import 'content-style';
+
 // Навигация
 @import 'navigation/_navigation';
 
@@ -28,4 +31,7 @@
 
 // sections
 @import '_sections';
+
+// product
+@import 'product/_product-layout';
 

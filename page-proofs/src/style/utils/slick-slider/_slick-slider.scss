@@ -82,12 +82,12 @@
 /* Dots */
 
 .slick-dotted.slick-slider {
-    margin-bottom: 30px;
+    margin-bottom: 100px;
 }
 
 .slick-dots {
     position: absolute;
-    bottom: -25px;
+    bottom: -50px;
     list-style: none;
     display: block;
     text-align: center;
@@ -114,6 +114,13 @@
             // color: transparent;
             padding: 5px;
             cursor: pointer;
+
+            border-radius: 50%;
+            border: 2px solid $primary_color;
+            background-color: #fff;
+            transition: all .3s;
+
+
             &:hover, &:focus {
                 outline: none;
                 &:before {
@@ -134,10 +141,11 @@
 //                 opacity: .25;
 //                 -webkit-font-smoothing: antialiased;
 //                 -moz-osx-font-smoothing: grayscale;
-//             }
+            }
         }
-//         &.slick-active button:before {
-//             color: #fff;
+        &.slick-active button {
+            background-color: #000;
+            border-color: #000;
 //             opacity: .75;
         }
     }

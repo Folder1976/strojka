@@ -1,0 +1,40 @@
+.section-our-advantages {}
+
+.advantages-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 3rem;
+
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+
+  @media screen and (max-width: $bs_break_xs) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 5rem;
+  }
+}
+
+.advantage-item {
+  font-size: 1.8rem;
+  font-weight: 300;
+
+  &__icon-wrap {
+    border-bottom: 1px solid #000;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    text-align: center;
+  }
+
+  &__icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-weight: 900;
+    margin-bottom: 3rem;
+  }
+
+  &__text {}
+}

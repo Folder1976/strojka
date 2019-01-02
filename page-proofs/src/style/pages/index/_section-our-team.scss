@@ -1,0 +1,31 @@
+.section-our-team {}
+
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 3rem;
+
+  margin-bottom: 5rem;
+
+  @media screen and (max-width: $bs_break_sm) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: $bs_break_xs) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.team-member {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 300;
+
+  &__foto {
+    margin-bottom: 3rem;
+  }
+  &__name {
+    font-weight: 900;
+  }
+  &__position {}
+}

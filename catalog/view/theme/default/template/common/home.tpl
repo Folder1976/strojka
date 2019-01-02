@@ -1,5 +1,114 @@
 <?php echo $header; ?>
-<div class="section section--p0 section-home-top">
+
+<?php
+$team = array(
+  array(
+    'foto' => 'catalog/view/theme/default/img/tmpimg/team-1.jpg',
+    'name' => 'Алексей Иванов',
+    'position' => 'Технический директор'
+  ),
+  array(
+    'foto' => 'catalog/view/theme/default/img/tmpimg/team-2.jpg',
+    'name' => 'Максимилиан Пак',
+    'position' => 'Прораб'
+  ),
+  array(
+    'foto' => 'catalog/view/theme/default/img/tmpimg/team-3.jpg',
+    'name' => 'Александра Попович',
+    'position' => 'Cпециалист отдела сбыта'
+  ),
+  array(
+    'foto' => 'catalog/view/theme/default/img/tmpimg/team-4.jpg',
+    'name' => 'Иннокентий Гаврилов',
+    'position' => 'Начальник службы доставки'
+  ),
+);
+
+$works = array(
+  array(
+    'img' => 'catalog/view/theme/default/img/tmpimg/work-1.jpg',
+    'title' => 'Строительство сложной кровли.<br>Фальц и чешуя.',
+  ),
+  array(
+    'img' => 'catalog/view/theme/default/img/tmpimg/work-2.jpg',
+    'title' => 'Реконструкция крыши.<br>Монтаж пфальцевой кровли',
+  ),
+  array(
+    'img' => 'catalog/view/theme/default/img/tmpimg/work-3.jpg',
+    'title' => 'Замена глиняной черепицы на мягкую черепицу',
+  ),
+);
+
+$reviews_slider = array(
+  array(
+    'title' => 'Пётр Мамонов',
+    'text' => 'Работа выполнялась своевременно и качественно. О бригаде у нас очень хорошие отзывы.Ребята добросовестные и старательные, мастера своего дела. Нам работа по заданному проекту понравилась. Впечатления только положительные.',
+    'img' => 'catalog/view/theme/default/img/tmpimg/reviews-slider-1.jpg',
+    'client-foto' => 'catalog/view/theme/default/img/tmpimg/reviews-slider-1-client-foto.jpg',
+    'info' => array('Тип работ: Строительство кровли', 'Адрес объекта: МО, пос. Глухово', 'Площадь кровли: 250м2', 'Стоимость работ: 250 000 Р'),
+  ),
+  array(
+    'title' => 'Пётр Мамонов 2',
+    'text' => '2Работа выполнялась своевременно и качественно. О бригаде у нас очень хорошие отзывы.Ребята добросовестные и старательные, мастера своего дела. Нам работа по заданному проекту понравилась. Впечатления только положительные.',
+    'img' => 'catalog/view/theme/default/img/tmpimg/reviews-slider-2.jpg',
+    'client-foto' => 'catalog/view/theme/default/img/tmpimg/reviews-slider-2-client-foto.jpg',
+    'info' => array('Тип работ: 2Строительство кровли', 'Адрес объекта: МО, пос. Глухово', 'Площадь кровли: 250м2', 'Стоимость работ: 250 000 Р'),
+  ),
+);
+
+$our_product = array(
+  array(
+    'name' => 'Кровельные материалы',
+    'list' => array(
+      array('name' => 'Гибкая черепица', 'href' => '#'),
+      array('name' => 'Композитная черепица', 'href' => '#'),
+      array('name' => 'Фальцевая кровля', 'href' => '#'),
+      array('name' => 'Керамическая черепица', 'href' => '#'),
+      array('name' => 'Цементно-песчаная черепица', 'href' => '#'),
+    ),
+  ),
+  array(
+    'name' => 'Дымоходы',
+    'list' => array(
+      array('name' => 'Дымоход Schiedel Uni', 'href' => '#'),
+      array('name' => 'Блоки Schiedel Vent', 'href' => '#'),
+      array('name' => 'Дымоходы Schiedel Permeter', 'href' => '#'),
+    ),
+  ),
+  array(
+    'name' => 'Водостоки',
+    'list' => array(
+      array('name' => 'Медные водостоки', 'href' => '#'),
+      array('name' => 'Пластиковые водостоки', 'href' => '#'),
+      array('name' => 'Металлические водостоки', 'href' => '#'),
+    ),
+  ),
+  array(
+    'name' => 'Мансардные окна',
+    'list' => array(
+      array('name' => 'Мансардные окна Fakro', 'href' => '#'),
+      array('name' => 'Мансардные окна Velux', 'href' => '#'),
+    ),
+  ),
+  array(
+    'name' => 'Комплектующие для кровли',
+    'list' => array(
+      array('name' => 'Кровельные элементы вент', 'href' => '#'),
+    ),
+  ),
+);
+
+?>
+
+
+
+
+
+
+<section class="section section--p0 section-home-top">
+  <div class="section-home-top__bg-house"><div class="cont"></div></div>
+  <div class="section-home-top__bg-clouds"></div>
+  <div class="section-home-top__list-bg"></div>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -15,10 +124,9 @@
   </div>
 
   <div class="section-home-top__list">
-    <div class="section-home-top__list-bg"></div>
     <div class="container">
       <div class="row">
-        <div class="col-md-9 col-md-offset-3">
+        <div class="col-lg-9 col-lg-offset-3 ">
           <ul>
             <li>Работаем с 15 сертифицированными поставщиками</li>
             <li>Специалисты по кровле и фасаду граждане РФ и РБ, с опытом от 5 лет</li>
@@ -28,10 +136,322 @@
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<section class="section section-take-test">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Выберите интересующие работы</div>
+        <div class="section-subtitle text-gray">Пройдите тест за 2 минуты и узнайте стоимость работ</div>
+        <a href="#" class="btn btn--take-test">кровельные работы</a><a href="#" class="btn btn--take-test">подшивка кровли</a><a href="#" class="btn btn--take-test">монтаж снегозадержателей</a><a href="#" class="btn btn--take-test">монтаж водостоков</a>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
+<section class="section section-services">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Услуги</div>
+        <div class="section-subtitle">Наш профиль - это Фасады и Кровля. Мы занимаемся проектированием,<br> дизайном, монтажем, обслуживанием и поставкой материала</div>
+        <a href="#calc" class="btn btn--dib text-center">Точный онлайн расчёт за 20 секунд</a>
+        <div class="services-list">
+          <div class="services-list__item service-item">
+            <div class="service-item__img">
+              <img src="catalog/view/theme/default/img/tmpimg/serv-1.jpg" alt="">
+            </div>
+            <div class="service-item__text">
+              <div class="service-item__title">Кровля</div>
+              <div class="service-item__desc">Заказчик часто сталкивается с неквалифицированными мастерами, лишь на словах обещающими качественный монтаж.</div>
+            </div>
+          </div>
+          <div class="services-list__item service-item">
+            <div class="service-item__img">
+              <img src="catalog/view/theme/default/img/tmpimg/serv-2.jpg" alt="">
+            </div>
+            <div class="service-item__text">
+              <div class="service-item__title">Проектирование и дизайн</div>
+              <div class="service-item__desc">Проектирование — сложная работа, требующяя обширных знаний в области строительства крыши и учета множества важных факторов.</div>
+            </div>
+          </div>
+          <div class="services-list__item service-item">
+            <div class="service-item__img">
+              <img src="catalog/view/theme/default/img/tmpimg/serv-3.jpg" alt="">
+            </div>
+            <div class="service-item__text">
+              <div class="service-item__title">Строительство загородных домов</div>
+              <div class="service-item__desc">Да, это мы тоже делаем. Качественно, быстро и за разумные деньги.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-text-2-col">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Кровельные работы под ключ</div>
+        <div class="content-style">
+          <p>Хорошее решение заказывать кровельные работы под ключ. И дело тут не только в том, что это удобно для клиента — весь процесс он доверяет одному коллективу и получает уже готовую крышу. Услуга «под ключ» стоит дешевле.</p>
+          <p>Компании выгодно получить весь заказ, и мы готовы делать скидки. Еще один плюс такого варианта – уменьшение сроков работ.</p>
+          <p>Каждый сотрудник занимается своим делом: конструктор разрабатывает проект, водители подвозят материалы, кровельщики осуществляют монтаж, прораб контролирует каждый этап работ.</p>
+          <p>Если вас интересует ремонт крыши, такую услугу тоже выполняет «Строй кровля» быстро и недорого.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-calc">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Онлайн калькулятор</div>
+        <div class="section-subtitle text-gray">За несколько минут узнаете стоимость работ и получите<br>индвидуальный расчет вашего объекта</div>
+
+        <div id="calc" class="calc">
+          <div class="tabs">
+            <ul class="tabs__links">
+              <li class="tab__link is-active" data-tab="tab-1">Калькулятор кровли</li>
+              <li class="tab__link" data-tab="tab-2">Водосточные системы</li>
+              <li class="tab__link" data-tab="tab-3">Калькулятор софитов</li>
+            </ul>
+              
+            <div id="tab-1" class="tab__content is-active">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
+
+                  <p>tab 1</p>
+                </div>
+              </div>
+            </div>
+            <div id="tab-2" class="tab__content">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
+
+                  <p>tab 2</p>
+                </div>
+              </div>
+            </div>
+            <div id="tab-3" class="tab__content">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
+
+                  <p>tab 3</p>
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-our-team">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Наша команда</div>
+        <div class="section-subtitle text-gray">Опытные специалисты, прорабы с опытом от 9 лет, молодые стажеры.<br> Наши менеджерды проконсультирую вас по выбору услуги.</div>
+
+        <div class="team-list">
+
+          <?php foreach ($team as $key => $value) { ?>
+            <div class="team-list__item team-member">
+              <div class="team-member__foto">
+                <img src="<?php echo $value['foto']?>" alt="<?php echo $value['name'].' '.$value['position']; ?>">
+              </div>
+              <div class="team-member__name"><?php echo $value['name']?></div>
+              <div class="team-member__position"><?php echo $value['position']?></div>
+            </div>
+          <?php } ?>
+        </div>
+
+        <div class="btn-wrap text-center">
+          <a href="#" class="btn btn--dib btn--orange">Подробнее о нашей команде</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-our-work">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Наши работы</div>
+
+        <div class="work-list">
+
+          <?php foreach ($works as $work) { ?>
+            <div class="work-list__item work-item">
+              <div class="work-item__img">
+                <img src="<?php echo $work['img']; ?>" alt="<?php echo $work['title']; ?>">
+              </div>
+              <div class="work-item__title"><?php echo $work['title']; ?></div>
+            </div>
+          <?php } ?>
+
+        </div>
+
+        <div class="btn-wrap text-center">
+          <a href="#" class="btn btn--dib btn--black">посмотреть все наши работы</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-our-advantages">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Наши Преимущества</div>
+        <div class="section-subtitle">Строим кровлю 10 лет, за это время смонтировали 1 200 000 км2 кровли,<br> знаем тонкости строительства и качество материалов</div>
+
+        <div class="advantages-list">
+          <div class="advantages-list__item advantage-item">
+            <div class="advantage-item__icon-wrap"><div class="advantage-item__icon">icon</div></div>
+            <div class="advantage-item__title">Юридическая гарантия сроков</div>
+            <div class="advantage-item__text">Мы даем юридическую гарантию соблюдение сроков и качество монтажа, по окончанию работ вы получаете официальный сертификат.</div>
+          </div>
+          <div class="advantages-list__item advantage-item">
+            <div class="advantage-item__icon-wrap"><div class="advantage-item__icon">icon</div></div>
+            <div class="advantage-item__title">15 партнеров поставщиков материалов</div>
+            <div class="advantage-item__text">За счет наших партнеров мы помогаем экономить клиентам до 23% на покупку строительных материалов</div>
+          </div>
+          <div class="advantages-list__item advantage-item">
+            <div class="advantage-item__icon-wrap"><div class="advantage-item__icon">icon</div></div>
+            <div class="advantage-item__title">Специалисты с опытом работы от 5 лет</div>
+            <div class="advantage-item__text">Контроль за выполнением работы бригады ведет прораб со стажем минимум 10 лет. Перед этим, каждый работники проходят 3-х месячную школу монтажников внутри компании, и проходят аттестацию по 178 пунктам.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section--p0 section-our-map">
+  <div id="map" class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2251.8891984676925!2d37.639178315644166!3d55.63874168052294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab306f0d13c69%3A0x596d52dd0829983e!2z0JrQsNC90YLQtdC80LjRgNC-0LLRgdC60LDRjyDRg9C7LiwgNzEsINCc0L7RgdC60LLQsCwg0KDQvtGB0ZbRjywgMTE1NDc3!5e0!3m2!1suk!2sua!4v1535544776690" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="map__info map-info">
+      <div class="map-info__title">1 500 000 м<sup>2</sup></div>
+      <div class="map-info__subtitle">Кровли смонтированно нашими специалистами за время существования компании.</div>
+      <div class="map-info__list-item map-info-list-item">
+        <div class="map-info-list-item__text">
+          <div class="map-info-list-item__title">Сэкономили</div>
+          <div class="map-info-list-item__desc">клиентам на материалах</div>
+        </div>
+        <div class="map-info-list-item__number">11 млн.</div>
+      </div>
+      <div class="map-info__list-item map-info-list-item">
+        <div class="map-info-list-item__text">
+          <div class="map-info-list-item__title">Выполнили</div>
+          <div class="map-info-list-item__desc">заказов в 5 городах</div>
+        </div>
+        <div class="map-info-list-item__number">1589</div>
+      </div>
+      <div class="map-info__list-item map-info-list-item">
+        <div class="map-info-list-item__text">
+          <div class="map-info-list-item__title">Работников компании</div>
+        </div>
+        <div class="map-info-list-item__number">80+</div>
+        <div class="map-info-list-item__desc"></div>
+      </div>
+      <div class="btn-wrap text-center">
+        <a href="#" class="btn btn--dib btn--black">посмотреть все наши работы</a>
+      </div>
+  </div>
+</section>
+
+
+<section class="section section-reviews">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Отзывы</div>
+        <div class="section-subtitle text-gray">Более 350 пложительных отзывов, вот некоторые из них</div>
+
+        <div class="reviews-slider js-reviews-slider">
+          <?php foreach ($reviews_slider as $slide) { ?>
+            <div class="reviews-slider__item reviews-slide">
+              <div class="reviews-slide__row">
+                <div class="reviews-slide__img">
+                  <img src="<?php echo $slide['img']; ?>" alt="<?php echo $slide['title']; ?>">
+                </div>
+                <div class="reviews-slide__review">
+                  <div class="reviews-slide__title"><?php echo $slide['title']; ?></div>
+                  <div class="reviews-slide__text"><?php echo $slide['text']; ?></div>
+                </div>
+                <div class="reviews-slide__client-foto">
+                  <img src="<?php echo $slide['client-foto']; ?>" alt="<?php echo $slide['title']; ?>">
+                </div>
+              </div>
+              <div class="reviews-slide__info-list">
+                <?php for ($i=0; $i < count($slide['info']); $i++) { ?>
+                  <div><?php echo $slide['info'][$i]; ?></div>
+                  <?php if ( $i != count($slide['info'])-1 ) { ?>
+                    <div class="delimiter">|</div>
+                  <?php } ?>
+                <?php } ?>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+
+        <hr class="hr--black">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="section section-our-products">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-title">Товары</div>
+        <div class="section-subtitle">За счет большой сети партнеров мы предлагаем<br>каталог материалов по выгодной цене</div>
+
+        <div class="product-catalog">
+          <?php foreach ($our_product as $cat) { ?>
+            <div class="product-catalog__item">
+              <div class="product-catalog__title"><?php echo $cat['name']; ?></div>
+              <ul class="product-catalog__list">
+              <?php foreach ($cat['list'] as $key => $val) { ?>
+                <li><a href="<?php echo $val['href']; ?>"><?php echo $val['name']; ?></a></li>
+              <?php } ?>
+              </ul>
+            </div>
+          <?php } ?>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<?php if (true) { ?>
 <div class="container">
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
@@ -44,4 +464,7 @@
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?><?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<?php } ?>
+
+
 <?php echo $footer; ?>

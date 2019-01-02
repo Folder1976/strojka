@@ -24,11 +24,11 @@ $(document).ready(function() {
 
 
 // Slick slider
-// modules/slick-slider.js
+//= modules/slick-slider.js
 
 
 // tabs
-// modules/tabs.js
+//= modules/tabs.js
 
 
 // accordion

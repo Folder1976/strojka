@@ -47,6 +47,13 @@ img {
   height: auto;
 }
 
+.img--cover {
+  object-fit: cover;
+  max-width: none;
+  overflow: hidden;
+}
+
+
 textarea:focus,
 input:focus {
   outline: none;
@@ -90,57 +97,16 @@ hr,
   &__header {}
   &__content {
     flex-grow: 1;
+    margin-bottom: 5rem;
   }
   &__footer {}
+
+  &:not(.common-home) .site__header {
+    border-bottom: 61px solid #e4e4e4;
+  }
 }
 
 
-// .container {
-//   @include wrapper();
-// }
-
-// .row {
-//   @include row-flex();
-// }
-
-// .col {
-//   @include col();
-//   @include size(12);
-// }
-
-// .col-10-center {
-//   @include col();
-//   @include shift(1);
-//   @include shift-lg(0);
-//   @include size(10);
-//   @include size-lg(12);
-// }
-
-// .col-8-center {
-//   @include col();
-//   @include shift(2);
-//   @include shift-md(0);
-//   @include size(8);
-//   @include size-md(12);
-// }
-
-
-.text-center {
-  text-align: center;
-}
-.text-right {
-  text-align: right;
-}
-.text-left {
-  text-align: left;
-}
-
-.text-gray {
-  color: #9c9c9c;
-}
-// .pos-relative {
-//   position: relative;
-// }
 
 
 // pngSprite
@@ -160,9 +126,28 @@ hr,
 @import "./modules/_modules";
 
 
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.text-gray {
+  color: #9c9c9c;
+}
+.text-bold {
+  font-weight: 900;
+}
+
+
 /******************** СТРАНИЦЫ ********************/
 // Главная страница
 @import './pages/index/_index';
+@import './pages/contact/_contact';
 
 
 

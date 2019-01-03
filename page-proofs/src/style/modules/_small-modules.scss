@@ -39,3 +39,28 @@
     opacity: .7;
   }
 }
+
+.breadcrumb {
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 2.5rem 0 0;
+
+  a {
+    color: #b3b3b3;
+    text-decoration: underline;
+  }
+
+  & > li + li::before {
+    content: "\003E";
+  }
+
+  & > li:last-child a {
+    color: #000;
+    text-decoration: none;
+  }
+
+
+}
+
+

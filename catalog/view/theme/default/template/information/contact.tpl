@@ -1,4 +1,118 @@
 <?php echo $header; ?>
+
+<?php
+$contact_list = array(
+  array(
+    'title' => 'Главный офис',
+    'text' => 'Москва, Зеленоград, ул. Конструктора Гуськова, 6с1, офис 213<br>ПН-ПТ: 08:00 — 18:00<br>+7(495) 204 15 21',
+    'link' => '#',
+  ),
+  array(
+    'title' => 'лобня',
+    'text' => 'Село Озерецкое — 6 км. от г.Лобня по Рогачевскому шоссе в сторону области, справа будет магазин Стройматериалы.<br>ПН-ПТ: 08:00 — 19:00<br>СБ-ВС: 10:00 — 18:00<br> +7(495) 204 15 21',
+    'link' => '#',
+  ),
+  array(
+    'title' => 'Клин',
+    'text' => 'ул. Высоковская, 3, Московская обл., 141607<br>ПН-ПТ: 08:00 — 20:00<br>СБ-ВС: 10:00 — 18:00<br>+7(495)127-09-46',
+    'link' => '#',
+  ),
+  array(
+    'title' => 'Сергиев Посад',
+    'text' => 'ул.Строительная, 11, Московская обл., 141304<br>ПН-ПТ: 09:00 — 18:00<br>СБ-ВС: 09:00 — 18:00<br>+7 (499) 404-24-74',
+    'link' => '#',
+  ),
+  array(
+    'title' => 'Дмитров',
+    'text' => 'Профессиональная ул., 169, Московская обл., 141801<br>ПН-ВС: 09:00 — 18:00<br>+7 (495) 204-15-21',
+    'link' => '#',
+  ),
+);
+
+
+
+$news = array(
+  array(
+    'title' => 'Название новости',
+    'date' => '1.12.2018',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-1.jpg',
+    'link' => '#',
+  ),
+  array(
+    'title' => 'Название новости',
+    'date' => '1.12.2018',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-2.jpg',
+    'link' => '#',
+  ),
+  array(
+    'title' => 'Название новости',
+    'date' => '1.12.2018',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-3.jpg',
+    'link' => '#',
+  ),
+);
+?>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <ul class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-9 col-md-push-3">
+      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+
+      <?php foreach ($contact_list as $contact) { ?>
+        <div class="contact-item">
+          <div class="contact-item__title"><?php echo $contact['title']; ?></div>
+          <a href="<?php echo $contact['link']; ?>" class="contact-item__link">Посмотреть на карте</a>
+          <div class="contact-item__text"><?php echo $contact['text']; ?></div>
+        </div>
+      <?php } ?>
+    </div>
+
+    <div class="col-md-3 col-md-pull-9">
+      <h3 class="widget-title">Новости компании</h3>
+      <div class="news-list">
+        
+        <?php foreach ($news as $new) { ?>
+          <div class="news-list__item news-item">
+            <div class="news-item__img">
+              <a href="<?php echo $new['link']; ?>"><img class="img--cover" src="<?php echo $new['foto']; ?>" alt="<?php echo $new['title']; ?>"></a>
+            </div>
+            <div class="news-item__desc">
+              <div class="news-item__title"><a href="<?php echo $new['link']; ?>"><?php echo $new['title']; ?></a></div>
+              <div class="news-item__date"><?php echo $new['date']; ?></div>
+            </div>
+          </div>
+        <?php } ?>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<?php if (false) { ?>
+
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -141,4 +255,7 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+
+<?php } ?>
+
 <?php echo $footer; ?>

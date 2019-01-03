@@ -3698,6 +3698,12 @@ img {
   border-style: none;
   height: auto; }
 
+.img--cover {
+  -o-object-fit: cover;
+     object-fit: cover;
+  max-width: none;
+  overflow: hidden; }
+
 textarea:focus,
 input:focus {
   outline: none; }
@@ -3739,19 +3745,10 @@ hr,
   .site__content {
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
-            flex-grow: 1; }
-
-.text-center {
-  text-align: center; }
-
-.text-right {
-  text-align: right; }
-
-.text-left {
-  text-align: left; }
-
-.text-gray {
-  color: #9c9c9c; }
+            flex-grow: 1;
+    margin-bottom: 5rem; }
+  .site:not(.common-home) .site__header {
+    border-bottom: 61px solid #e4e4e4; }
 
 [class*="ico-"] {
   display: inline-block;
@@ -4013,6 +4010,20 @@ hr,
     display: block; }
   .back-to-top:hover .back-to-top__inner {
     opacity: .7; }
+
+.breadcrumb {
+  background-color: transparent;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 2.5rem 0 0; }
+  .breadcrumb a {
+    color: #b3b3b3;
+    text-decoration: underline; }
+  .breadcrumb > li + li::before {
+    content: "\003E"; }
+  .breadcrumb > li:last-child a {
+    color: #000;
+    text-decoration: none; }
 
 .content-style p {
   margin-top: 0;
@@ -4297,6 +4308,15 @@ a.btn {
   margin-bottom: 2rem;
   text-align: center; }
 
+.widget-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  border-bottom: 1px solid #000;
+  padding-bottom: 2rem; }
+
 .table-responsive {
   width: 100%;
   overflow-x: auto;
@@ -4356,6 +4376,21 @@ a.btn {
   padding: 5rem 0; }
   .featured__slide {
     padding: 0 1.5rem; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
+.text-left {
+  text-align: left; }
+
+.text-gray {
+  color: #9c9c9c; }
+
+.text-bold {
+  font-weight: 900; }
 
 /******************** СТРАНИЦЫ ********************/
 .section-home-top {
@@ -4808,5 +4843,66 @@ a.btn {
     font-weight: 300;
     line-height: 14px;
     text-decoration: underline; }
+
+.information-contact .section-title {
+  margin-bottom: 2rem; }
+
+.contact-item {
+  margin-bottom: 2.5rem;
+  position: relative; }
+  .contact-item__title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #000; }
+  .contact-item__text {
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.2em; }
+  .contact-item__link {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-decoration: underline;
+    float: right;
+    margin-left: 17%; }
+
+.news-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .news-list > * {
+    margin-bottom: 1.5rem;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 270px;
+            flex: 0 1 270px; }
+    .news-list > *:last-child {
+      margin-bottom: 0; }
+
+.news-item {
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin-left: auto;
+  margin-right: auto; }
+  .news-item__desc {
+    background-color: #fbbe18;
+    padding: 5px 15px; }
+  .news-item__title {
+    font-weight: 900;
+    text-decoration: underline;
+    margin-bottom: 5px; }
+    .news-item__title a {
+      color: inherit; }
+  .news-item__img img {
+    width: 100%;
+    height: 200px; }
 
 /*# sourceMappingURL=main.css.map */

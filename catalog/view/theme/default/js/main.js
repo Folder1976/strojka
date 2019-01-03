@@ -10,6 +10,11 @@ $(document).ready(function() {
 // slicknav mobile menu
 // modules/slicknav.js
 
+// mob-menu
+$('.mob-menu__btn').on('click', function(){
+  $(this).toggleClass('is-open');
+  $('.js-mob-menu').toggleClass('mob-menu-is-open');
+});
 
 // fixed header after scroll
 // modules/fixed-header.js
@@ -60,9 +65,10 @@ $('.js-reviews-slider').slick({
   dots: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  // centerMode: true,
   autoplay: true,
   autoplaySpeed: 3000,
+  arrows: false,
+  adaptiveHeight: true,
 });
 
 $('.js-featured').slick({

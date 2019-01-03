@@ -1,6 +1,25 @@
 <?php echo $header; ?>
 
 <?php
+
+$services = array(
+  array(
+    'title' => 'Кровля',
+    'desc' => 'Заказчик часто сталкивается с неквалифицированными мастерами, лишь на словах обещающими качественный монтаж.',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/serv-1.jpg',
+  ),
+  array(
+    'title' => 'Проектирование и дизайн',
+    'desc' => 'Проектирование — сложная работа, требующяя обширных знаний в области строительства крыши и учета множества важных факторов.',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/serv-1.jpg',
+  ),
+  array(
+    'title' => 'Строительство загородных домов',
+    'desc' => 'Да, это мы тоже делаем. Качественно, быстро и за разумные деньги.',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/serv-1.jpg',
+  ),
+);
+
 $team = array(
   array(
     'foto' => 'catalog/view/theme/default/img/tmpimg/team-1.jpg',
@@ -56,47 +75,6 @@ $reviews_slider = array(
   ),
 );
 
-$our_product = array(
-  array(
-    'name' => 'Кровельные материалы',
-    'list' => array(
-      array('name' => 'Гибкая черепица', 'href' => '#'),
-      array('name' => 'Композитная черепица', 'href' => '#'),
-      array('name' => 'Фальцевая кровля', 'href' => '#'),
-      array('name' => 'Керамическая черепица', 'href' => '#'),
-      array('name' => 'Цементно-песчаная черепица', 'href' => '#'),
-    ),
-  ),
-  array(
-    'name' => 'Дымоходы',
-    'list' => array(
-      array('name' => 'Дымоход Schiedel Uni', 'href' => '#'),
-      array('name' => 'Блоки Schiedel Vent', 'href' => '#'),
-      array('name' => 'Дымоходы Schiedel Permeter', 'href' => '#'),
-    ),
-  ),
-  array(
-    'name' => 'Водостоки',
-    'list' => array(
-      array('name' => 'Медные водостоки', 'href' => '#'),
-      array('name' => 'Пластиковые водостоки', 'href' => '#'),
-      array('name' => 'Металлические водостоки', 'href' => '#'),
-    ),
-  ),
-  array(
-    'name' => 'Мансардные окна',
-    'list' => array(
-      array('name' => 'Мансардные окна Fakro', 'href' => '#'),
-      array('name' => 'Мансардные окна Velux', 'href' => '#'),
-    ),
-  ),
-  array(
-    'name' => 'Комплектующие для кровли',
-    'list' => array(
-      array('name' => 'Кровельные элементы вент', 'href' => '#'),
-    ),
-  ),
-);
 
 ?>
 
@@ -160,33 +138,19 @@ $our_product = array(
         <div class="section-subtitle">Наш профиль - это Фасады и Кровля. Мы занимаемся проектированием,<br> дизайном, монтажем, обслуживанием и поставкой материала</div>
         <a href="#calc" class="btn btn--dib text-center">Точный онлайн расчёт за 20 секунд</a>
         <div class="services-list">
-          <div class="services-list__item service-item">
-            <div class="service-item__img">
-              <img src="catalog/view/theme/default/img/tmpimg/serv-1.jpg" alt="">
+
+          <?php foreach ($services as $serv) { ?>
+            <div class="services-list__item service-item">
+              <div class="service-item__img">
+                <img src="<?php echo $serv['foto']; ?>" alt="<?php echo $serv['title']; ?>">
+              </div>
+              <div class="service-item__text">
+                <div class="service-item__title"><?php echo $serv['title']; ?></div>
+                <div class="service-item__desc"><?php echo $serv['desc']; ?></div>
+              </div>
             </div>
-            <div class="service-item__text">
-              <div class="service-item__title">Кровля</div>
-              <div class="service-item__desc">Заказчик часто сталкивается с неквалифицированными мастерами, лишь на словах обещающими качественный монтаж.</div>
-            </div>
-          </div>
-          <div class="services-list__item service-item">
-            <div class="service-item__img">
-              <img src="catalog/view/theme/default/img/tmpimg/serv-2.jpg" alt="">
-            </div>
-            <div class="service-item__text">
-              <div class="service-item__title">Проектирование и дизайн</div>
-              <div class="service-item__desc">Проектирование — сложная работа, требующяя обширных знаний в области строительства крыши и учета множества важных факторов.</div>
-            </div>
-          </div>
-          <div class="services-list__item service-item">
-            <div class="service-item__img">
-              <img src="catalog/view/theme/default/img/tmpimg/serv-3.jpg" alt="">
-            </div>
-            <div class="service-item__text">
-              <div class="service-item__title">Строительство загородных домов</div>
-              <div class="service-item__desc">Да, это мы тоже делаем. Качественно, быстро и за разумные деньги.</div>
-            </div>
-          </div>
+          <?php } ?>
+
         </div>
       </div>
     </div>
@@ -423,35 +387,6 @@ $our_product = array(
 
 
 
-
-<section class="section section-our-products">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-title">Товары</div>
-        <div class="section-subtitle">За счет большой сети партнеров мы предлагаем<br>каталог материалов по выгодной цене</div>
-
-        <div class="product-catalog">
-          <?php foreach ($our_product as $cat) { ?>
-            <div class="product-catalog__item">
-              <div class="product-catalog__title"><?php echo $cat['name']; ?></div>
-              <ul class="product-catalog__list">
-              <?php foreach ($cat['list'] as $key => $val) { ?>
-                <li><a href="<?php echo $val['href']; ?>"><?php echo $val['name']; ?></a></li>
-              <?php } ?>
-              </ul>
-            </div>
-          <?php } ?>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-<?php if (true) { ?>
 <div class="container">
   <div class="row"><?php echo $column_left; ?>
     <?php if ($column_left && $column_right) { ?>
@@ -464,7 +399,6 @@ $our_product = array(
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?><?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
-<?php } ?>
 
 
 <?php echo $footer; ?>

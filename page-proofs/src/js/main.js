@@ -10,6 +10,8 @@ $(document).ready(function() {
 // slicknav mobile menu
 // modules/slicknav.js
 
+// mob-menu
+//= modules/mob-menu.js
 
 // fixed header after scroll
 // modules/fixed-header.js

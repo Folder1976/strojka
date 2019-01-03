@@ -17,9 +17,10 @@ $('.js-reviews-slider').slick({
   dots: true,
   slidesToShow: 1,
   slidesToScroll: 1,
-  // centerMode: true,
   autoplay: true,
   autoplaySpeed: 3000,
+  arrows: false,
+  adaptiveHeight: true,
 });
 
 $('.js-featured').slick({

@@ -43,7 +43,7 @@
     <div class="header__top">
       <div class="container">
         <div class="row">
-          <div class="col-md-2">
+          <div class="col-xs-4 col-sm-2">
             <div class="header__logo logo">
               <?php if ($logo) { ?>
               <a href="<?php echo $home; ?>" class="logo__link"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="logo__img" /></a>
@@ -52,7 +52,7 @@
               <?php } ?>
             </div>
           </div>
-          <div class="col-md-7">
+          <div class="col-xs-8 col-sm-5 col-md-7">
             <div class="header__inner">
               <ul class="header__top-menu">
                 <li><a href="#">Услуги</a></li>
@@ -64,7 +64,7 @@
               <div class="header__top-text">работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></div>
             </div>
           </div>
-          <div class="col-md-3">
+          <div class="col-xs-12 col-sm-5 col-md-3">
             <div class="header__cart"><?php echo $cart; ?></div>
           </div>
         </div>
@@ -73,16 +73,21 @@
     <div class="header__bottom">
       <div class="container">
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-7">
-            <ul class="header__bottom-menu">
+          <div class="hidden-xs col-sm-2"></div>
+          <div class="col-xs-12 col-sm-10 col-lg-7">
+            <div class="header__mob-menu-btn mob-menu__btn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <ul class="header__bottom-menu js-mob-menu">
               <li><a href="#">Кровля</a></li>
               <li><a href="#">фундамент</a></li>
               <li><a href="#">проектирование и дизайн</a></li>
               <li><a href="#">строительство загородных домов</a></li>
             </ul>
           </div>
-          <div class="col-md-3"></div>
+          <div class="hidden-xs col-sm-3"></div>
         </div>
       </div>
     </div>

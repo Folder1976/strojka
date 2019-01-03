@@ -1,6 +1,10 @@
 .header-cart {
   display: flex;
 
+  @media screen and (max-width: $bs_break_xs) {
+    justify-content: flex-end;
+  }
+
 
   &__left-col {
     width: 76px;

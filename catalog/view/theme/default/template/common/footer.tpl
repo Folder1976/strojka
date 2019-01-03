@@ -30,7 +30,7 @@ $home = '/';
             <p class="footer__powered"><?php echo $powered; ?></p>
           </div>
 
-          <div class="">
+          <div class="footer__col-products">
             <div class="footer__title">Товары</div>
             <ul class="footer__menu">
               <li><a href="#">Сайдинг</a></li>
@@ -44,7 +44,7 @@ $home = '/';
             </ul>
           </div>
 
-          <div class="">
+          <div class="footer__col-services">
             <div class="footer__title">Услуги</div>
             <ul class="footer__menu">
               <li><a href="#">Кровля</a></li>
@@ -54,7 +54,7 @@ $home = '/';
             </ul>
           </div>
 
-          <div class="">
+          <div class="footer__col-nav">
             <div class="footer__title">Навигация</div>
             <ul class="footer__menu">
               <li><a href="#">Услуги</a></li>
@@ -68,7 +68,7 @@ $home = '/';
             </ul>
           </div>
 
-          <div class="">
+          <div class="footer__col-address">
             <div class="row">
               <div class="col-md-6">
                 <div class="footer__title">Наш адрес</div>

@@ -1,6 +1,6 @@
 .footer {
   background-color: #e4e4e4;
-  padding: 70px 0;
+  padding: 7rem 0;
   color: #000;
   font-size: 14px;
   font-weight: 400;
@@ -18,18 +18,55 @@
   &__container {
     display: grid;
     grid-template-columns: 2fr 2fr 2fr 2fr 4fr;
-    gap: 15px;
+    gap: 1.5rem;
 
-    @media screen and (max-width: 992px) {}
+    @media screen and (max-width: 992px) {
+      grid-template-columns: 2fr 3fr 3fr 3fr;
+    }
+
+    @media screen and (max-width: $bs_break_xs) {
+      grid-template-columns: 2fr 3fr 3fr;
+    }
+
+    @media screen and (max-width: $break_xs) {
+      display: block;
+
+      & > * {
+        margin-bottom: 3rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
   }
-
-
 
 
   &__logo-col {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+  }
+
+  &__col-products {}
+
+  &__col-services {}
+
+  &__col-nav {
+    @media screen and (max-width: $bs_break_xs) {
+      grid-column-start: 2;
+    }
+  }
+
+  &__col-address {
+    @media screen and (max-width: $bs_break_sm) {
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+
+    @media screen and (max-width: $bs_break_xs) {
+      grid-column-start: 3;
+    }
   }
 
   &__logo {
@@ -41,6 +78,10 @@
       top: -70px;
       left: 0;
       z-index: 1;
+
+      @media screen and (max-width: $break_xs) {
+        position: static;
+      }
     }
   }
 

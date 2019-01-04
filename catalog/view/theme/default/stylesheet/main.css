@@ -3274,11 +3274,16 @@ img.mfp-img {
 
 .mf-popup-block {
   background: #fff;
-  padding: 20px 30px;
-  text-align: left;
-  max-width: 650px;
-  margin: 40px auto;
+  padding: 3rem;
+  max-width: 77rem;
+  margin: 4rem auto;
   position: relative; }
+  .mf-popup-block a {
+    color: #000;
+    text-decoration: underline; }
+
+.mf-get-consultation__foto {
+  margin-bottom: 30px; }
 
 /*====== Zoom effect ======*/
 .mfp-zoom-in {
@@ -4244,6 +4249,71 @@ a.btn {
       border-color: #000;
       opacity: 1; }
 
+.input {
+  height: 4.2rem;
+  border: 1px solid #000000;
+  color: #000000;
+  font-size: 2rem;
+  letter-spacing: 0.2px;
+  padding: 0 1.5rem;
+  max-width: 100%; }
+  .input--file {
+    display: none; }
+
+.textarea {
+  border: 1px solid #000000;
+  color: #000000;
+  font-size: 2rem;
+  letter-spacing: 0.2px;
+  padding: 0.5rem 1.5rem;
+  resize: vertical;
+  max-width: 100%; }
+
+.form-label {
+  color: #000;
+  font-size: 1.6rem;
+  font-weight: 300;
+  cursor: pointer; }
+  .form-label--file {
+    text-decoration: underline;
+    padding-left: 2.5rem; }
+
+.checkbox {
+  display: none; }
+  .checkbox + label {
+    position: relative;
+    padding: 0 0 0 2.5rem;
+    -webkit-transition: all .3;
+    transition: all .3;
+    display: inline-block; }
+    .checkbox + label:hover {
+      opacity: .8; }
+  .checkbox + label:before,
+  .checkbox + label:after {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: 1; }
+  .checkbox + label:before {
+    top: .4rem;
+    left: 0;
+    width: 1.6rem;
+    height: 1.6rem;
+    border: 1px solid #000; }
+  .checkbox + label:after {
+    top: .4rem;
+    left: 0;
+    width: 1.6rem;
+    height: 1.6rem; }
+  .checkbox:checked + label:after {
+    background-color: #fbbe18; }
+
+.form__group {
+  margin-bottom: 15px; }
+
+.form--mf-popup .form__group > * {
+  width: 100%; }
+
 .ul-list {
   font-size: 18px;
   letter-spacing: 0.36px;
@@ -4375,6 +4445,13 @@ ol li {
   text-align: left;
   border-bottom: 1px solid #000;
   padding-bottom: 2rem; }
+
+.mf-title {
+  color: #000;
+  font-size: 4.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 3rem; }
 
 .table-responsive {
   width: 100%;

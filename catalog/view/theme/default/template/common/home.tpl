@@ -94,7 +94,7 @@ $reviews_slider = array(
           <h1 class="site-title">Монтаж и строительство<br>скатной кровли под ключ.<br>Возведение мансард.</h1>
           <div class="section-home-top__desc">
             <p>Выполняем работы на загородных<br>домах и коммерческой недвижимости</p>
-            <a href="#" class="btn btn--orange btn--dib btn--bold">получить консультацию</a>
+            <a href="#get-consultation" class="btn btn--orange btn--dib btn--bold mf-popup" data-effect="mfp-zoom-in">получить консультацию</a>
           </div>
         </div>
       </div>

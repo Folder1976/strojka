@@ -13,10 +13,10 @@ $.fn.hasAttr = function(name) {
 // ../../node_modules/slicknav/dist/jquery.slicknav.min.js
 
 // Magnific popup
-// ../../node_modules/magnific-popup/dist/jquery.magnific-popup.min.js
+//= ../../node_modules/magnific-popup/dist/jquery.magnific-popup.min.js
 
 // MaskedInput
-// ../../node_modules/jquery.maskedinput/src/jquery.maskedinput.js
+//= ../../node_modules/jquery.maskedinput/src/jquery.maskedinput.js
 
 // Slick slider
 //= ../../node_modules/slick-carousel/slick/slick.min.js

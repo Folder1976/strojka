@@ -4,11 +4,21 @@
 
 .mf-popup-block {
   background: #fff;
-  padding: 20px 30px;
-  text-align: left;
-  max-width: 650px;
-  margin: 40px auto;
+  padding: 3rem;
+  max-width: 77rem;
+  margin: 4rem auto;
   position: relative;
+
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+}
+
+.mf-get-consultation {
+  &__foto {
+    margin-bottom: 30px;
+  }
 }
 
 

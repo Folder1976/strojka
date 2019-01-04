@@ -22,7 +22,7 @@ $(document).ready(function() {
 
 
 // маска для телефона
-// modules/maskedinput.js
+//= modules/maskedinput.js
 
 
 // Slick slider
@@ -38,7 +38,7 @@ $(document).ready(function() {
 
 
 // Magnific popup
-// modules/magnific-popup.js
+//= modules/magnific-popup.js
 
 
 });

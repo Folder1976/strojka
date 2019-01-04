@@ -10,6 +10,42 @@ $home = '/';
 </div> <!-- ./ site__content -->
 
 <footer class="footer">
+  <!-- popups -->
+  <div id="get-consultation" class="mf-popup-block mf-get-consultation mfp-hide mfp-with-anim">
+    <h3 class="mf-title">консультация</h3>
+    <div class="row">
+      <div class="col-md-7">
+        <form action="/index.php?route=account/universalform" method="post" enctype="multipart/form-data" class="form form--mf-popup">
+          <input type="hidden" name="formname" value="get-consultation">
+          <div class="form__group">
+            <input type="text" class="input" name="name" placeholder="Имя">
+          </div>
+          <div class="form__group">
+            <input type="text" class="input input--phone" name="phone" placeholder="Телефон">
+          </div>
+          <div class="form__group">
+            <textarea name="comment" rows="5" class="textarea" placeholder="Информация о проекте"></textarea>
+          </div>
+          <div class="form__group">
+            <div class="hidden"><input type="file" class="input input--file" id="get-consultation__file"></div>
+            <label for="get-consultation__file" class="form-label form-label--file">Прикрепить файл</a> 
+          </div>
+          <div class="form__group">
+            <input type="checkbox" class="checkbox" value="1" name="agree" id="get-consultation__agree">
+            <label for="get-consultation__agree" class="form-label">С <a href="#">политикой конфиденциальности</a> ознакомлен</label>
+          </div>
+          <div class="form__group">
+            <button class="btn btn--black">связаться</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-5 text-center">
+        <img class="mf-get-consultation__foto" src="catalog/view/theme/default/img/foto/sales-manager.jpg" alt="sales-manager">
+        <p>Вас будет обслуживать<br>менеджер отдела продаж:<br><b>Иннокентий Гаврилов</b></p>
+      </div>
+    </div>
+  </div>
+
   <div class="back-to-top">
     <div class="back-to-top__inner">
       <svg class="icon icon-chevron-up back-to-top__icon">

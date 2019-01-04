@@ -42,7 +42,8 @@ $('.back-to-top').on('click',function(event) {
 
 
 // маска для телефона
-// modules/maskedinput.js
+// маска для телефона
+$(".input--phone").mask("+99 (999) 999-99-99");
 
 
 // Slick slider
@@ -96,7 +97,23 @@ $('.tabs').on('click', '.tab__link', function(){
 
 
 // Magnific popup
-// modules/magnific-popup.js
+// github:         https://github.com/dimsemenov/Magnific-Popup
+// site:           http://dimsemenov.com/plugins/magnific-popup/
+// documentation:  http://dimsemenov.com/plugins/magnific-popup/documentation.html
+
+
+$('.mf-popup').magnificPopup({
+  type: 'inline',
+  preloader: true,
+  removalDelay: 100,
+
+  callbacks: {
+    beforeOpen: function() {
+       this.st.mainClass = this.st.el.attr('data-effect');
+    }
+  },
+
+});
 
 
 });

@@ -39,6 +39,232 @@
 <?php } ?>
 </head>
 <body class="site <?php echo $class; ?>">
+
+<?php
+$top_menu = array(
+  array (
+    'name' => 'Услуги',
+    'href' => '#',
+    'children' => array(
+      array(
+        'name' => 'item 1',
+        'href' => '#',
+        'children' => array(
+          array(
+            'name' => 'item 1 1',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 1 2',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 1 3',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 1 4',
+            'href' => '#',
+          ),
+        ),
+      ),
+      array(
+        'name' => 'item 2item 2item 2item 2item 2item 2',
+        'href' => '#',
+        'children' => array(
+          array(
+            'name' => 'item 2 1',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 2 2',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 2 3',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 2 2',
+            'href' => '#',
+          ),
+        ),
+      ),
+      array(
+        'name' => 'item 3',
+        'href' => '#',
+        'children' => array(
+          array(
+            'name' => 'item 3 1',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 3 2',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 3 3',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 3 4',
+            'href' => '#',
+          ),
+        ),
+      ),
+      array(
+        'name' => 'item 4',
+        'href' => '#',
+        'children' => array(
+          array(
+            'name' => 'item 4 1',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 4 2',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 4 3',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 4 4',
+            'href' => '#',
+          ),
+        ),
+      ),
+    )
+  ),
+  array (
+    'name' => 'Товары',
+    'href' => '',
+    'children' => array()
+  ),
+  array (
+    'name' => 'Контакты',
+    'href' => $contact,
+  ),
+  array (
+    'name' => 'Наши работы',
+    'href' => '#',
+  ),
+  array (
+    'name' => 'Блог',
+    'href' => '#',
+  ),
+);
+$bottom_menu = array(
+  array (
+    'name' => 'Кровля',
+    'href' => '#',
+    'children' => array(
+      array(
+        'name' => 'item 1',
+        'href' => '#',
+        'children' => array(
+          array(
+            'name' => 'item 1 1',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 1 2',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 1 3',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 1 4',
+            'href' => '#',
+          ),
+        ),
+      ),
+      array(
+        'name' => 'item 2item 2item 2item 2item 2item 2',
+        'href' => '#',
+        'children' => array(
+          array(
+            'name' => 'item 2 1',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 2 2',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 2 3',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 2 2',
+            'href' => '#',
+          ),
+        ),
+      ),
+      array(
+        'name' => 'item 3',
+        'href' => '#',
+        'children' => array(
+          array(
+            'name' => 'item 3 1',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 3 2',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 3 3',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 3 4',
+            'href' => '#',
+          ),
+        ),
+      ),
+      array(
+        'name' => 'item 4',
+        'href' => '#',
+        'children' => array(
+          array(
+            'name' => 'item 4 1',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 4 2',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 4 3',
+            'href' => '#',
+          ),
+          array(
+            'name' => 'item 4 4',
+            'href' => '#',
+          ),
+        ),
+      ),
+    )
+  ),
+  array (
+    'name' => 'фундамент',
+    'href' => '',
+    'children' => array()
+  ),
+  array (
+    'name' => 'проектирование и дизайн',
+    'href' => '#',
+  ),
+  array (
+    'name' => 'строительство загородных домов',
+    'href' => '#',
+  ),
+);
+?>
+
   <header class="site__header header">
     <div class="header__top">
       <div class="container">
@@ -55,11 +281,34 @@
           <div class="col-xs-8 col-sm-5 col-md-7">
             <div class="header__inner">
               <ul class="header__top-menu">
-                <li><a href="#">Услуги</a></li>
-                <li><a href="#">Товары</a></li>
-                <li><a href="<?php echo $contact; ?>">Контакты</a></li>
-                <li><a href="#">Наши работы</a></li>
-                <li><a href="#">Блог</a></li>
+
+                <?php
+                foreach ($top_menu as $mitem) {
+                  if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
+                    echo '<li class="dropdown"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a>';
+                    echo '<ul class="dropdown-menu">';
+
+                    foreach ( $mitem['children'] as $child) {
+
+                      if ( isset($child['children']) && count($child['children']) > 0 ) {
+                        echo '<li class="dropdown"><a href="'.$child['href'].'">'.$child['name'].'</a>';
+                        echo '<ul class="dropdown-menu dropdown-menu-2">';
+                        foreach ( $child['children'] as $ch) {
+                          echo '<li><a href="'.$ch['href'].'">'.$ch['name'].'</a></li>';
+                        }
+                        echo '</ul></li>';
+                      } else {
+                        echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
+                      }
+                    }
+
+                    echo '</ul></li>';
+                  } else {
+                    echo '<li><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></li>';
+                  }
+                }
+                ?>
+
               </ul>
               <div class="header__top-text">работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></div>
             </div>
@@ -81,10 +330,34 @@
               <span></span>
             </div>
             <ul class="header__bottom-menu js-mob-menu">
-              <li><a href="#">Кровля</a></li>
-              <li><a href="#">фундамент</a></li>
-              <li><a href="#">проектирование и дизайн</a></li>
-              <li><a href="#">строительство загородных домов</a></li>
+
+              <?php
+              foreach ($bottom_menu as $mitem) {
+                if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
+                  echo '<li class="dropdown"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a>';
+                  echo '<ul class="dropdown-menu">';
+
+                  foreach ( $mitem['children'] as $child) {
+
+                    if ( isset($child['children']) && count($child['children']) > 0 ) {
+                      echo '<li class="dropdown"><a href="'.$child['href'].'">'.$child['name'].'</a>';
+                      echo '<ul class="dropdown-menu dropdown-menu-2">';
+                      foreach ( $child['children'] as $ch) {
+                        echo '<li><a href="'.$ch['href'].'">'.$ch['name'].'</a></li>';
+                      }
+                      echo '</ul></li>';
+                    } else {
+                      echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
+                    }
+                  }
+
+                  echo '</ul></li>';
+                } else {
+                  echo '<li><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></li>';
+                }
+              }
+              ?>
+
             </ul>
           </div>
           <div class="hidden-xs col-sm-3"></div>

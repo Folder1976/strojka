@@ -1,0 +1,28 @@
+.section-economize-banner {
+  background-color: $primary_color;
+
+  &__title {
+    font-size: 2.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.3px;
+    margin-bottom: 2rem;
+  }
+
+  &__subtitle {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.11px;
+    margin-bottom: 3rem;
+  }
+
+  p, ul {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18px;
+    margin: 0;
+  }
+
+}

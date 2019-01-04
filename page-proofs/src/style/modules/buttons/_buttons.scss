@@ -28,9 +28,20 @@ a.btn {
     font-weight: 900;
   }
 
+  &--bdrs0 {
+    border-radius: 0;
+  }
+
   &--orange {
     background-color: $primary_color;
     border-color: $primary_color;
+  }
+
+  &--hover-orange:hover {
+    background-color: $primary_color;
+    border-color: $primary_color;
+    color: #1a1d20;
+    opacity: 1;
   }
 
   &--black {

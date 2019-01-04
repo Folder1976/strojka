@@ -1,0 +1,174 @@
+// .input {
+//   height: 4.2rem;
+//   border: 1px solid #000000;
+//   color: #000000;
+//   font-size: 2rem;
+//   letter-spacing: 0.2px;
+//   padding: 0 1.5rem;
+//   max-width: 100%;
+
+//   &--w300 {
+//     width: 300px;
+//     @media screen and (max-width: $break_xs) {
+//       width: 80%;
+//     }
+//   }
+// }
+
+// .textarea {
+//   border: 1px solid #000000;
+//   color: #000000;
+//   font-size: 2rem;
+//   letter-spacing: 0.2px;
+//   padding: 0.5rem 1.5rem;
+//   resize: vertical;
+//   max-width: 100%;
+// }
+
+// // .select
+
+// .radio-group {
+//   display: inline-block;
+//   min-width: 10rem;
+//   margin-bottom: 1.5rem;
+// }
+// .radio {
+//   display: none;
+
+//   & + .label {
+//     position: relative;
+//     padding: 0 0 0 30px;
+//     transition: all .3;
+//     display: inline-block;
+
+//     font-size: 2rem;
+//     text-transform: uppercase;
+//     letter-spacing: 0.2px;
+//     cursor: pointer;
+
+//     &:hover {
+//       opacity: .8;
+//     }
+//   }
+
+//   & + .label:before,
+//   & + .label:after {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     z-index: 1;
+//     border-radius: 50%;
+//   }
+
+//   & + .label:before {
+//     top: 0;
+//     left: 0;
+//     width: 12px;
+//     height: 12px;
+//     border: 1px solid #000;
+//   }
+
+//   & + .label:after {
+//     top: 2px;
+//     left: 2px;
+//     width: 8px;
+//     height: 8px;
+//   }
+
+//   &:checked + .label:before {}
+//   &:checked + .label:after {
+//     background-color: #000;
+//   }
+// }
+
+// .checkbox {
+//   display: none;
+
+//   & + .label {
+//     position: relative;
+//     padding: 0 0 0 3rem;
+//     transition: all .3;
+//     display: inline-block;
+
+//     font-size: 2rem;
+//     text-transform: uppercase;
+//     letter-spacing: 0.2px;
+//     cursor: pointer;
+
+//     &:hover {
+//       opacity: .8;
+//     }
+//   }
+
+//   & + .label:before,
+//   & + .label:after {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     z-index: 1;
+//     // border-radius: 50%;
+//   }
+
+//   & + .label:before {
+//     top: 0;
+//     left: 0;
+//     width: 12px;
+//     height: 12px;
+//     border: 1px solid #000;
+//   }
+
+//   & + .label:after {
+//     top: 2px;
+//     left: 2px;
+//     width: 8px;
+//     height: 8px;
+//   }
+
+//   &:checked + .label:before {}
+//   &:checked + .label:after {
+//     background-color: #000;
+//   }
+
+//   &--no-label + .label {
+//     height: 12px;
+//   }
+// }
+
+
+// .form {
+//   &__group {
+//     margin-bottom: 15px;
+//   }
+
+//   &--mf-popup {
+//     .form__group > * {
+//       width: 100%;
+//     }
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+// .call-back-form {
+//   padding: 29px 34px;
+//   background-color: $primary_color;
+
+//   & > * {
+//     width: 100%;
+//     max-width: 100%;
+//     margin-bottom: 15px;
+
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+
+// }
+

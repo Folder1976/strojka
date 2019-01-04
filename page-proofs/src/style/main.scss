@@ -142,12 +142,19 @@ hr,
 .text-bold {
   font-weight: 900;
 }
+.flr {
+  float: right;
+}
 
 
 /******************** СТРАНИЦЫ ********************/
 // Главная страница
 @import './pages/index/_index';
 @import './pages/contact/_contact';
+@import './pages/fund-index/_fund-index';
+
+
+
 
 
 

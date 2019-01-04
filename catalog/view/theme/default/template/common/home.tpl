@@ -11,12 +11,12 @@ $services = array(
   array(
     'title' => 'Проектирование и дизайн',
     'desc' => 'Проектирование — сложная работа, требующяя обширных знаний в области строительства крыши и учета множества важных факторов.',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/serv-1.jpg',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/serv-2.jpg',
   ),
   array(
     'title' => 'Строительство загородных домов',
     'desc' => 'Да, это мы тоже делаем. Качественно, быстро и за разумные деньги.',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/serv-1.jpg',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/serv-3.jpg',
   ),
 );
 

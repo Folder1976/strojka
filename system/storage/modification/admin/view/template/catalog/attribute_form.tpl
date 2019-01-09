@@ -63,6 +63,16 @@
             </div>
           </div>
 
+				<!-- attribute_image * * * Start -->
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Image</label>
+					<div class="col-sm-10"><a href="" id="thumb-image" data-toggle="image" class="img-thumbnail"><img src="<?php echo $thumb; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a>
+					  <input type="hidden" name="image" value="<?php echo $image; ?>" id="input-image" />
+					</div>
+				</div>
+  				<!-- attribute_image * * * End -->
+					  
+
 				<!-- attribute_filter * * * Start -->
 				<div class="form-group">
 					<label class="col-sm-2 control-label" for="input-isfilter">Фильтр (ДА - 1)</label>

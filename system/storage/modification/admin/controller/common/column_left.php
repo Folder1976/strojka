@@ -134,6 +134,31 @@ class ControllerCommonColumnLeft extends Controller {
 				);		
 			}
 			
+
+				//<!-- Blogi * * * Start -->
+			    if ($this->user->hasPermission('access', 'catalog/blog_category')) {
+					
+					$blogs = array();
+					
+					$blogs[] = array(
+						'name'	   => 'Категории',
+						'href'     => $this->url->link('catalog/blog_category', 'token=' . $this->session->data['token'], true),
+						'children' => array()		
+					);
+					$blogs[] = array(
+						'name'	   => 'Статьи',
+						'href'     => $this->url->link('catalog/blog_product', 'token=' . $this->session->data['token'], true),
+						'children' => array()		
+					);
+					
+					$catalog[] = array(
+						'name'	   => 'Расширенные статьи',
+						'href'     => '',
+						'children' => $blogs		
+					);					
+				}
+				//<!-- Blogi * * * End -->
+					  
 			if ($this->user->hasPermission('access', 'catalog/information')) {		
 				$catalog[] = array(
 					'name'	   => $this->language->get('text_information'),

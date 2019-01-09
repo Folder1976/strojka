@@ -21,6 +21,21 @@ class ControllerStartupSeoUrl extends Controller {
 				if ($query->num_rows) {
 					$url = explode('=', $query->row['query']);
 
+
+				//<!-- Blogi * * * Start -->
+				if ($url[0] == 'blog_product_id') {
+					$this->request->get['blog_product_id'] = $url[1];
+				}
+
+				if ($url[0] == 'blog_category_id') {
+					if (!isset($this->request->get['blogpath'])) {
+						$this->request->get['blogpath'] = $url[1];
+					} else {
+						$this->request->get['blogpath'] .= '_' . $url[1];
+					}
+				}
+				//<!-- Blogi * * * End -->
+					  
 					if ($url[0] == 'product_id') {
 						$this->request->get['product_id'] = $url[1];
 					}
@@ -51,9 +66,24 @@ class ControllerStartupSeoUrl extends Controller {
 				}
 			}
 
+
+				//<!-- Blogi * * * Start -->
+				if ($query->row['query'] && ($url[0] != 'blog_product_id' || $url[0] != 'blog_category_id' )) {
+					unset($this->request->get['route']);
+				}
+				//<!-- Blogi * * * End -->
+					  
 			if (!isset($this->request->get['route'])) {
 				if (isset($this->request->get['product_id'])) {
 					$this->request->get['route'] = 'product/product';
+
+				//<!-- Blogi * * * Start -->
+				} elseif (isset($this->request->get['blog_product_id'])) {
+					$this->request->get['route'] = 'product/blog_product';
+				} elseif (isset($this->request->get['blogpath'])) {
+					$this->request->get['route'] = 'product/blog_category';
+				//<!-- Blogi * * * End -->
+					  
 				} elseif (isset($this->request->get['path'])) {
 					$this->request->get['route'] = 'product/category';
 				} elseif (isset($this->request->get['manufacturer_id'])) {
@@ -84,6 +114,35 @@ class ControllerStartupSeoUrl extends Controller {
 
 						unset($data[$key]);
 					}
+
+				//<!-- Blogi * * * Start -->
+				}elseif ($data['route'] == 'product/blog_product' && $key == 'blog_product_id') {
+					$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($key . '=' . (int)$value) . "'");
+
+					if ($query->num_rows && $query->row['keyword']) {
+						$url .= '/' . $query->row['keyword'];
+
+						unset($data[$key]);
+					}
+				} elseif ($key == 'blogpath') {
+					$categories = explode('_', $value);
+
+					foreach ($categories as $category) {
+						$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'blog_category_id=" . (int)$category . "'");
+
+						if ($query->num_rows && $query->row['keyword']) {
+							$url .= '/' . $query->row['keyword'];
+						} else {
+							$url = '';
+
+							break;
+						}
+					}
+
+					unset($data[$key]);
+				
+				//<!-- Blogi * * * End -->
+					  
 				} elseif ($key == 'path') {
 					$categories = explode('_', $value);
 

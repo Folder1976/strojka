@@ -77,12 +77,22 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
                 <?php foreach ($attribute_groups as $attribute_group) { ?>
                 <thead>
                   <tr>
+
+				<!-- attribute_image * * * Start -->
+				<td colspan="3"><strong><?php echo $attribute_group['name']; ?></strong></td>
+				<!-- attribute_image * * * End -->
+					  
                     <td colspan="2"><strong><?php echo $attribute_group['name']; ?></strong></td>
                   </tr>
                 </thead>
                 <tbody>
                   <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
                   <tr>
+
+				<!-- attribute_image * * * Start -->
+				<td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td>
+				<!-- attribute_image * * * End -->
+					  
                     <td><?php echo $attribute['name']; ?></td>
                     <td><?php echo $attribute['text']; ?></td>
                   </tr>

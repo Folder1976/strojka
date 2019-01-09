@@ -1,4 +1,184 @@
 <?php echo $header; ?>
+
+<?php
+$frequently_visited_pages = array(
+  array( 'href' => '#', 'name' => 'Гибкая черепица' ),
+  array( 'href' => '#', 'name' => 'Композитная черепица' ),
+  array( 'href' => '#', 'name' => 'Фальцевая кровля' ),
+  array( 'href' => '#', 'name' => 'Керамическая черепица' ),
+  array( 'href' => '#', 'name' => 'Цементно-песчаная черепица' ),
+);
+?>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <ul class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-9 col-md-push-3">
+      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+
+      <?php if ( isset($frequently_visited_pages) && count($frequently_visited_pages) > 0 ) { ?>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="h3-title">Часто посещаемые страницы</div>
+
+            <ul class="pages-list">
+            <?php foreach ($frequently_visited_pages as $page) { ?>
+              <li><a href="<?php echo $page['href']; ?>"><?php echo $page['name']; ?></a></li>
+            <?php } ?>
+            </ul>
+
+          </div>
+        </div>
+      <?php } // end.frequently_visited_pages ?>
+
+      <?php if ($products) { ?>
+        <div class="row" style="display: none;">
+          <div class="col-md-2 col-sm-6 hidden-xs">
+            <div class="btn-group btn-group-sm">
+              <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
+              <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="form-group">
+              <a href="<?php echo $compare; ?>" id="compare-total" class="btn btn-link"><?php echo $text_compare; ?></a>
+            </div>
+          </div>
+          <div class="col-md-4 col-xs-6">
+            <div class="form-group input-group input-group-sm">
+              <label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
+              <select id="input-sort" class="form-control" onchange="location = this.value;">
+                <?php foreach ($sorts as $sorts) { ?>
+                <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
+                <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
+                <?php } else { ?>
+                <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
+                <?php } ?>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3 col-xs-6">
+            <div class="form-group input-group input-group-sm">
+              <label class="input-group-addon" for="input-limit"><?php echo $text_limit; ?></label>
+              <select id="input-limit" class="form-control" onchange="location = this.value;">
+                <?php foreach ($limits as $limits) { ?>
+                <?php if ($limits['value'] == $limit) { ?>
+                <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
+                <?php } else { ?>
+                <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+                <?php } ?>
+                <?php } ?>
+              </select>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="product-list">
+              <?php foreach ($products as $product) { ?>
+
+                <div class="product-layout">
+                  <div class="product-layout__image product-thumb">
+                    <!-- Product edit link on front * * * Start -->
+                    <?php if(isset($token) AND $token){ ?>
+                    <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
+                      <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
+                    </div>
+                    <?php } ?>
+                    <!-- Product edit link on front * * * End -->
+                    <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
+                  </div>
+                  <div class="product-layout__caption">
+                    <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+                    <?php if ($product['rating']) { ?>
+                    <div class="rating">
+                      <?php for ($i = 1; $i <= 5; $i++) { ?>
+                      <?php if ($product['rating'] < $i) { ?>
+                      <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                      <?php } else { ?>
+                      <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                      <?php } ?>
+                      <?php } ?>
+                    </div>
+                    <?php } ?>
+                  </div>
+                  <div class="product-layout__button-group">
+                    <?php if ($product['price']) { ?>
+                    <p class="price">
+                      <?php if (!$product['special']) { ?>
+                      <?php echo $product['price']; ?>
+                      <?php } else { ?>
+                      <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
+                      <?php } ?>
+                    </p>
+                    <?php } ?>
+                    <button type="button" class="btn btn--black btn--dib" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
+                    <button type="button" class="btn btn--transparent btn--dib"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Купить в 1 клик</span></button>
+                  </div>
+                </div>
+              <?php } ?>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
+            <div class="col-sm-6 text-right"><?php echo $results; ?></div>
+          </div>
+        </div>
+      <?php } ?>
+      <?php if (!$categories && !$products) { ?>
+        <div class="row">
+          <div class="col-md-12">
+            <p><?php echo $text_empty; ?></p>
+            <div class="buttons">
+              <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
+            </div>
+          </div>
+        </div>
+      <?php } ?>
+    </div>
+
+    <div class="col-md-3 col-md-pull-9">
+      <h3 class="widget-title">Подобрать товар</h3>
+
+      <!-- code -->
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if (false) { ?>
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -160,4 +340,11 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<?php } ?>
+
+
+
+
+
+
 <?php echo $footer; ?>

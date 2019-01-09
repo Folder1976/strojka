@@ -4338,6 +4338,29 @@ a.btn {
 ol li {
   list-style: decimal; }
 
+.pages-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+  .pages-list li {
+    display: inline;
+    margin-right: 1px; }
+    .pages-list li:last-child {
+      margin-right: 0; }
+  .pages-list a {
+    padding: .4rem 1rem;
+    margin-bottom: .5rem;
+    text-align: center;
+    display: inline-block;
+    min-width: 173px;
+    color: #000;
+    border: 1px solid #000;
+    font-size: 10px; }
+    .pages-list a:hover {
+      color: #fbbe18;
+      border-color: #fbbe18;
+      text-decoration: none; }
+
 .tabs__links {
   padding-bottom: 20px;
   font-size: 0; }
@@ -4437,6 +4460,12 @@ ol li {
   .section-subtitle--white {
     color: #fff; }
 
+.h3-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem; }
+
 .widget-title {
   font-size: 1.8rem;
   font-weight: 900;
@@ -4493,6 +4522,11 @@ ol li {
     padding-top: 0; }
   .section--pb0 {
     padding-bottom: 0; }
+
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem; }
 
 .product-layout {
   border: 1px solid #fbbe18; }

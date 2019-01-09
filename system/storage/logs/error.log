@@ -196,3 +196,117 @@
 2019-01-02 14:09:24 - PHP Notice:  Undefined index: key in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 444
 2019-01-02 14:09:24 - PHP Notice:  Undefined index: val in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 444
 2019-01-02 14:09:24 - PHP Notice:  Undefined index: key in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 444
+2019-01-09 10:14:44 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 10:23:10 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 10:23:14 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 10:23:37 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 12:18:54 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 12:19:22 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 12:19:35 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 228
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 231
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 231
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 228
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 231
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 231
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 228
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 231
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 231
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 242
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 245
+2019-01-09 12:19:36 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 245
+2019-01-09 14:13:50 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 263
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 266
+2019-01-09 14:13:50 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 266
+2019-01-09 14:15:08 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 263
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 266
+2019-01-09 14:15:08 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 266
+2019-01-09 14:19:16 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 249
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 252
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 263
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 266
+2019-01-09 14:19:16 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 266
+2019-01-09 14:19:37 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 265
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 268
+2019-01-09 14:19:37 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 268
+2019-01-09 14:19:47 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 265
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 268
+2019-01-09 14:19:47 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 268
+2019-01-09 14:22:57 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 251
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 254
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 265
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 268
+2019-01-09 14:22:58 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 268
+2019-01-09 15:43:50 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 242
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 245
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 245
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 242
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 245
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 245
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 242
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 245
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 245
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 256
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 259
+2019-01-09 15:43:50 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 259
+2019-01-09 15:50:27 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 15:51:20 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 15:52:41 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-09 15:53:57 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461

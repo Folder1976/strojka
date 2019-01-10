@@ -67,4 +67,40 @@ ol li {
   }
 }
 
+.anchor-list {
+  border-bottom: 1px solid #000;
+  margin-bottom: 2rem;
+
+  li {
+    display: inline;
+    margin-right: 1px;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  a {
+    padding: .4rem 1rem;
+    // margin-bottom: .5rem;
+    text-align: center;
+    display: inline-block;
+    // min-width: 173px;
+    color: #000;
+    border: 1px solid $primary_color;
+    background: $primary_color;
+    font-size: 10px;
+    font-weight: 300;
+    text-transform: uppercase;
+
+    &:hover {
+      color: #fff;
+      border-color: #000;
+      background-color: #000;
+      text-decoration: none;
+      opacity: 1;
+    }
+  }
+}
+
+
 

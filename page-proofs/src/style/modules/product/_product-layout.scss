@@ -48,9 +48,18 @@
   }
 
   &__stock {
+    font-weight: 900;
+
     &.is-instock {
       color: $primary_color;
-      font-weight: 900;
+    }
+
+    &.is-under-order {
+      color: #666666;
+    }
+
+    &.is-not-available {
+      color: #c60000;
     }
   }
 
@@ -116,3 +125,12 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+

@@ -9,6 +9,13 @@ $frequently_visited_pages = array(
   array( 'href' => '#', 'name' => 'Цементно-песчаная черепица' ),
 );
 
+$anchor_list = array(
+  array( 'href' => $_SERVER['REQUEST_URI'].'#description', 'name' => 'Описание' ),
+  array( 'href' => $_SERVER['REQUEST_URI'].'#video', 'name' => 'видео' ),
+  array( 'href' => '#', 'name' => 'примеры объектов' ),
+  array( 'href' => '#', 'name' => 'цена' ),
+);
+
 $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 ?>
 
@@ -29,6 +36,18 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
     <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+
+      <?php if ( isset($anchor_list) && count($anchor_list) > 0 ) { ?>
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="anchor-list">
+              <?php foreach ($anchor_list as $link) { ?>
+                <li><a href="<?php echo $link['href']; ?>"><?php echo $link['name']; ?></a></li>
+              <?php } ?>
+            </ul>
+          </div>
+        </div>
+      <?php } ?>
 
       <?php if ( isset($frequently_visited_pages) && count($frequently_visited_pages) > 0 ) { ?>
         <div class="row">
@@ -176,7 +195,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
 
       <?php if ($thumb || $description) { ?>
-        <h3 class="h3-title">Описание</h3>
+        <h3 class="h3-title" id="description">Описание</h3>
         <div class="row">
           <?php if ($thumb) { ?>
           <div class="col-sm-3"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
@@ -192,7 +211,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
 
       <?php if ($video) { ?>
-        <h3 class="h3-title">Видео</h3>
+        <h3 class="h3-title" id="video">Видео</h3>
         <div class="row">
           <div class="col-sm-3"><iframe src="<?php echo $video; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
         </div>
@@ -336,6 +355,15 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
+
+      <!-- Product edit link on front * * * Start -->
+      <?php if(isset($token) AND $token){ ?>
+      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
+        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
+      </div>
+      <?php } ?>
+      <!-- Product edit link on front * * * End -->
+            
 
       <!-- Product edit link on front * * * Start -->
       <?php if(isset($token) AND $token){ ?>

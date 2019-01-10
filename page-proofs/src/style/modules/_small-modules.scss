@@ -59,8 +59,49 @@
     color: #000;
     text-decoration: none;
   }
+}
 
 
+.seller {
+  font-size: 1.8rem;
+
+  @media screen and (max-width: $break_xs) {
+    text-align: center;
+  }
+
+  &__img {
+    margin-bottom: 1.5rem;
+
+    @media screen and (max-width: $bs_break_sm) {
+      float: left;
+      margin-right: 30px;
+    }
+
+    @media screen and (max-width: $break_xs) {
+      float: none;
+      margin: 0 auto 1.5rem;
+      text-align: center;
+    }
+  }
+
+  &__name {
+    font-weight: 900;
+    text-align: center;
+  }
+
+  &__post {
+    text-align: center;
+  }
+
+  &__text {
+    margin: 3rem 0;
+  }
+
+  a {
+    color: #000;
+    font-size: 1.6rem;
+    text-decoration: underline;
+  }
 }
 
 

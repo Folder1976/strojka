@@ -73,4 +73,26 @@ a.btn {
       opacity: 1;
     }
   }
+
+  &--buy {
+    &:hover {
+      color: #000;
+      background-color: $primary_color;
+      border-color: $primary_color;
+      opacity: 1;
+    }
+  }
+
+  &--buy-click {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-decoration: underline;
+    text-transform: none;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

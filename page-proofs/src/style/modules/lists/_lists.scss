@@ -38,6 +38,8 @@ ol li {
 
 .pages-list {
   display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
 
   li {
     display: inline;

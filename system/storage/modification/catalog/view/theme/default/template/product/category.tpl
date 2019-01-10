@@ -8,6 +8,8 @@ $frequently_visited_pages = array(
   array( 'href' => '#', 'name' => 'Керамическая черепица' ),
   array( 'href' => '#', 'name' => 'Цементно-песчаная черепица' ),
 );
+
+$video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 ?>
 
 <div class="container">
@@ -31,7 +33,7 @@ $frequently_visited_pages = array(
       <?php if ( isset($frequently_visited_pages) && count($frequently_visited_pages) > 0 ) { ?>
         <div class="row">
           <div class="col-md-12">
-            <div class="h3-title">Часто посещаемые страницы</div>
+            <h3 class="h3-title">Часто посещаемые страницы</h3>
 
             <ul class="pages-list">
             <?php foreach ($frequently_visited_pages as $page) { ?>
@@ -104,7 +106,7 @@ $frequently_visited_pages = array(
                     <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
                   </div>
                   <div class="product-layout__caption">
-                    <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+                    <h4 class="product-layout__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
                     <?php if ($product['rating']) { ?>
                     <div class="rating">
                       <?php for ($i = 1; $i <= 5; $i++) { ?>
@@ -116,19 +118,32 @@ $frequently_visited_pages = array(
                       <?php } ?>
                     </div>
                     <?php } ?>
-                  </div>
-                  <div class="product-layout__button-group">
-                    <?php if ($product['price']) { ?>
-                    <p class="price">
-                      <?php if (!$product['special']) { ?>
-                      <?php echo $product['price']; ?>
-                      <?php } else { ?>
-                      <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-                      <?php } ?>
-                    </p>
+
+
+                    <div class="product-layout__attr-list">
+                      <div class="product-layout-attr"><span class="product-layout-attr__title">Гарантия (лет):</span> 25</div>
+                      <div class="product-layout-attr"><span class="product-layout-attr__title">Полезная площадь (одной упаковки), кв.м.:</span> 3 кв.м.</div>
+                    </div>
+
+                    <div class="product-layout__stock is-instock">Есть в наличии</div>
+
+                    <?php if ($product['special']) { ?>
+                      <div class="product-layout__special-price">
+                        <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
+                        <div class="product-layout__special-percent">-50%</div>
+                      </div>
                     <?php } ?>
-                    <button type="button" class="btn btn--black btn--dib" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
-                    <button type="button" class="btn btn--transparent btn--dib"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Купить в 1 клик</span></button>
+
+                  </div>
+                  <div class="product-layout__bottom">
+
+                    <?php if ($product['price']) { ?>
+                      <div class="product-layout__price"><?php echo $product['price']; ?></div>
+                    <?php } ?>
+                    <div class="product-layout__button-group">
+                      <button type="button" class="btn btn--black btn--dib btn--buy" onclick="cart.add('<?php echo $product['product_id']; ?>');"><?php echo $button_cart; ?></button>
+                      <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+                    </div>
                   </div>
                 </div>
               <?php } ?>
@@ -138,7 +153,6 @@ $frequently_visited_pages = array(
         <div class="row">
           <div class="col-md-12">
             <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-            <div class="col-sm-6 text-right"><?php echo $results; ?></div>
           </div>
         </div>
       <?php } ?>
@@ -152,12 +166,56 @@ $frequently_visited_pages = array(
           </div>
         </div>
       <?php } ?>
+
+      <br>
+      <hr class="hr--black">
+      <br>
+      <br>
+      <br>
+
+
+
+      <?php if ($thumb || $description) { ?>
+        <h3 class="h3-title">Описание</h3>
+        <div class="row">
+          <?php if ($thumb) { ?>
+          <div class="col-sm-3"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
+          <?php } ?>
+          <?php if (!$thumb && $description) { ?>
+            <div class="col-sm-12"><?php echo $description; ?></div>
+          <?php } else { ?>
+            <div class="col-sm-9"><?php echo $description; ?></div>
+          <?php } ?>
+        </div>
+        <br>
+      <?php } ?>
+
+
+      <?php if ($video) { ?>
+        <h3 class="h3-title">Видео</h3>
+        <div class="row">
+          <div class="col-sm-3"><iframe src="<?php echo $video; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        </div>
+        <br>
+      <?php } ?>
+
     </div>
 
     <div class="col-md-3 col-md-pull-9">
       <h3 class="widget-title">Подобрать товар</h3>
 
-      <!-- code -->
+      <?php echo $column_left; ?>
+
+      <div class="seller">
+        <div class="seller__img">
+          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Иннокентий Гаврилов. Менеджер отдела продаж">
+        </div>
+        <div class="seller__name">Иннокентий Гаврилов</div>
+        <div class="seller__post">Менеджер отдела продаж</div>
+        <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
+        <p><a href="#">Калькулятор и составление КП</a></p>
+        <p><a href="#">Закажите замер по Москве и МО</a></p>
+      </div>
     </div>
   </div>
 
@@ -278,6 +336,15 @@ $frequently_visited_pages = array(
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
+
+      <!-- Product edit link on front * * * Start -->
+      <?php if(isset($token) AND $token){ ?>
+      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
+        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
+      </div>
+      <?php } ?>
+      <!-- Product edit link on front * * * End -->
+            
 
 			<!-- Product edit link on front * * * Start -->
 			<?php if(isset($token) AND $token){ ?>

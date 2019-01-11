@@ -104,4 +104,52 @@
   }
 }
 
+.pagination-wrap {
+  margin: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+ul.pagination {
+  color: #a2a2a2;
+  font-size: 1.8rem;
+  font-weight: 300;
+  margin: 0;
 
+  & > li {
+    & > span, & > a {
+      border: none;
+      color: #a2a2a2;
+    }
+
+    &:first-child > span, &:first-child > a,
+    &:last-child > span, &:last-child > a {
+      border-radius: 0;
+    }
+
+    &.active span,
+    &.active span:hover {
+      color: #ffffff;
+      background-color: #a8a8a8;
+    }
+  }
+
+}
+
+.limit-per-page {
+  display: flex;
+  align-items: center;
+  max-width: 200px;
+
+  label {
+    white-space: nowrap;
+    margin-right: 1.5rem;
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    font-weight: 300;
+  }
+  select.form-control {
+    font-size: 1.6rem;
+    padding: .5rem;
+  }
+}

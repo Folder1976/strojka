@@ -5,10 +5,10 @@ class Pagination {
 	public $limit = 20;
 	public $num_links = 8;
 	public $url = '';
-	public $text_first = '|&lt;';
-	public $text_last = '&gt;|';
-	public $text_next = '&gt;';
-	public $text_prev = '&lt;';
+	public $text_first = '';//'|&lt;';
+	public $text_last = '';//'&gt;|';
+	public $text_next = '...';//'&gt;';
+	public $text_prev = '...';//'&lt;';
 
 	public function render() {
 		$total = $this->total;

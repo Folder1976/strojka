@@ -285,7 +285,7 @@ $reviews_slider = array(
         </div>
 
         <div class="btn-wrap text-center">
-          <a href="#" class="btn btn--dib btn--orange">Подробнее о нашей команде</a>
+          <a href="/our-team" class="btn btn--dib btn--orange">Подробнее о нашей команде</a>
         </div>
       </div>
     </div>
@@ -313,7 +313,7 @@ $reviews_slider = array(
         </div>
 
         <div class="btn-wrap text-center">
-          <a href="#" class="btn btn--dib btn--black">посмотреть все наши работы</a>
+          <a href="/our-works" class="btn btn--dib btn--black">посмотреть все наши работы</a>
         </div>
       </div>
     </div>

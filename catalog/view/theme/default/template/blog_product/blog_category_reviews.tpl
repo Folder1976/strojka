@@ -1,4 +1,123 @@
 <?php echo $header; ?>
+
+<?php
+$news = array(
+  array(
+    'title' => 'Название новости',
+    'date' => '1.12.2018',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-1.jpg',
+    'link' => '#',
+  ),
+  array(
+    'title' => 'Название новости',
+    'date' => '1.12.2018',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-2.jpg',
+    'link' => '#',
+  ),
+  array(
+    'title' => 'Название новости',
+    'date' => '1.12.2018',
+    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-3.jpg',
+    'link' => '#',
+  ),
+);
+?>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <ul class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row" id="content">
+
+    <div class="col-md-9 col-md-push-3">
+      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+
+      <?php if ($description) { ?>
+        <div class="description"><?php echo $description; ?></div>
+      <?php } ?>
+
+      <?php if ($categories) { ?>
+        <?php foreach ($categories as $category) { ?>
+          <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+        <?php } ?>
+      <?php } ?>
+
+
+      <?php if ($products) { ?>
+        <ul class="company-reviews-list">
+          <?php foreach ($products as $product) { ?>
+            <li>
+              <a href="<?php echo $product['href']; ?>">01.08.15 Марат Исмаилов<?php //echo $product['date'].' '.$product['author']; ?></a>
+            </li>
+          <?php } ?>
+        </ul>
+      <?php } ?>
+
+      <div class="pagination-wrap">
+        <div class=""><?php echo $pagination; ?></div>
+
+        <?php if (false) { ?>
+        <div class="form-group input-group input-group-sm limit-per-page">
+          <label for="input-limit"><?php echo $text_limit; ?></label>
+          <select id="input-limit" class="form-control" onchange="location = this.value;">
+            <?php foreach ($limits as $limits) { ?>
+            <?php if ($limits['value'] == $limit) { ?>
+            <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
+            <?php } else { ?>
+            <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+            <?php } ?>
+            <?php } ?>
+          </select>
+        </div>
+        <?php } ?>
+
+      </div>      
+
+      <hr class="hr--black">
+      <br>
+
+    </div>
+
+    <div class="col-md-3 col-md-pull-9">
+      <?php echo $column_left; ?>
+
+      <h3 class="widget-title">Новости компании</h3>
+      <div class="news-list">
+        
+        <?php foreach ($news as $new) { ?>
+          <div class="news-list__item news-item">
+            <div class="news-item__img">
+              <a href="<?php echo $new['link']; ?>"><img class="img--cover" src="<?php echo $new['foto']; ?>" alt="<?php echo $new['title']; ?>"></a>
+            </div>
+            <div class="news-item__desc">
+              <div class="news-item__title"><a href="<?php echo $new['link']; ?>"><?php echo $new['title']; ?></a></div>
+              <div class="news-item__date"><?php echo $new['date']; ?></div>
+            </div>
+          </div>
+        <?php } ?>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<?php if (false) { ?>
+
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -151,4 +270,8 @@
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<?php } ?>
+
+
+
 <?php echo $footer; ?>

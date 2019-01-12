@@ -4803,6 +4803,59 @@ ol li {
       padding: 1.5rem; }
     .news-list--blog .news-item__date {
       margin-bottom: 2rem; }
+  .news-list--works .news-item__desc {
+    background-color: #e4e4e4; }
+
+.company-works-list li {
+  margin-bottom: 1rem; }
+
+.company-works-list a {
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-decoration: underline; }
+
+.company-reviews-list {
+  -webkit-columns: 3;
+          columns: 3; }
+  .company-reviews-list li {
+    margin-bottom: 1rem; }
+  .company-reviews-list a {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-decoration: underline; }
+
+.company-review-date {
+  font-size: 1.8rem; }
+
+.company-review-author {
+  font-size: 1.8rem; }
+
+.company-review-thumb {
+  margin: 2rem 0; }
+
+.company-review-info {
+  font-size: 1.8rem;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 2rem 0 3rem; }
+  .company-review-info > * {
+    line-height: 2.6rem; }
+  .company-review-info__icon {
+    width: 2.6rem;
+    height: 2.6rem;
+    display: inline-block;
+    margin-right: 2rem;
+    position: relative;
+    z-index: 1;
+    top: .5rem;
+    left: 0; }
 
 .text-center {
   text-align: center; }

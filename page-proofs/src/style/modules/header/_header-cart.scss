@@ -37,7 +37,16 @@
     background-color: transparent;
     border: 1px solid $primary_color;
     padding: 10px;
+    padding-left: 50px;
     width: 132px;
+    position: relative;
+
+    &:hover {
+      // .header-cart__icon {}
+      & > .icon {
+        fill: $primary_color;
+      }
+    }
   }
 
   &__total {}
@@ -45,5 +54,16 @@
   &__text {
     font-size: 10px;
     text-decoration: underline;
+    text-align: left;
+  }
+
+  &__icon {
+    width: 29px;
+    height: 26px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translate(0, -50%);
+    transition: all .3s;
   }
 }

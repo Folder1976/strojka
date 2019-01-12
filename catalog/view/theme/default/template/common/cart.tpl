@@ -4,7 +4,7 @@
     <a href="#">Товары</a>
   </div>
   <div class="header-cart__right-col">
-    <button type="button" data-toggle="dropdown" data-loading-text="<?php echo $text_loading; ?>" class="header-cart__btn dropdown-toggle"><i class="fa fa-shopping-cart"></i> <span id="cart-total"><span class="header-cart__total">999 999 р</span><br><span class="header-cart__text">в корзину<?php //echo $text_items; ?></span></span></button>
+    <button type="button" data-toggle="dropdown" data-loading-text="<?php echo $text_loading; ?>" class="header-cart__btn dropdown-toggle"><svg class="icon icon-cart header-cart__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#cart"></use></svg> <span id="cart-total"><span class="header-cart__total">999 999 р</span><br><span class="header-cart__text">в корзину<?php //echo $text_items; ?></span></span></button>
     <ul class="dropdown-menu pull-right">
       <?php if ($products || $vouchers) { ?>
       <li>

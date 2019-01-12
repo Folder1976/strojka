@@ -17,9 +17,9 @@ var svgSpriteTask = function() {
     }))
     .pipe(g.gp.cheerio({
       run: function($) {
-        $('[fill]').removeAttr('fill');
+        // $('[fill]').removeAttr('fill');
         $('[stroke]').removeAttr('stroke');
-        $('[style]').removeAttr('style');
+        // $('[style]').removeAttr('style');
       },
       parserOptions: { xmlMode: true }
     }))

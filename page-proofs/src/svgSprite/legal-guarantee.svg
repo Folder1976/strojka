@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: SketchAPI 5.1.316 <https://api.sketch.io/> -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketchjs="https://sketch.io/dtd/" style="" sketchjs:metadata="eyJ0aXRsZSI6IkRyYXdpbmciLCJkZXNjcmlwdGlvbiI6Ik1hZGUgd2l0aCBTa2V0Y2hwYWQgLSBodHRwczovL3NrZXRjaC5pby9za2V0Y2hwYWQiLCJtZXRhZGF0YSI6e30sImNsaXBQYXRoIjp7ImVuYWJsZWQiOnRydWUsInN0eWxlIjp7InN0cm9rZVN0eWxlIjoiYmxhY2siLCJsaW5lV2lkdGgiOjF9fSwiZXhwb3J0RFBJIjo3MiwiZXhwb3J0Rm9ybWF0IjoicG5nIiwiZXhwb3J0UXVhbGl0eSI6MC45NSwidW5pdHMiOiJweCIsIndpZHRoIjoyOTMuOTk5OTk5OTk5OTk5OTQsImhlaWdodCI6Mjk0LCJwYWdlcyI6eyJsZW5ndGgiOjEsImRhdGEiOlt7IndpZHRoIjoyOTMuOTk5OTk5OTk5OTk5OTQsImhlaWdodCI6Mjk0fV19fQ==" width="293.99999999999994" height="294" viewBox="0 0 293.99999999999994 294" sketchjs:version="5.1.316">
+<g sketchjs:tool="clipart" style="mix-blend-mode: source-over;" transform="matrix(0.9762543937748391,0,0,0.9762543937748391,-240.8734409435627,-213.73356879662217)">
+	<circle cx="396.8" cy="369" r="147" sketchjs:uid="1" style="fill: #FBBE18; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<g sketchjs:uid="2" style="">
+		<path d="M285.9,334.2c7.4-2.5,13.6-4.6,19.8-6.8   c29-9.8,57.9-19.7,86.9-29.3c2.6-0.9,6-1,8.5-0.1c34,11.3,68,22.9,102,34.5c1.2,0.4,2.4,1,4.7,1.9c-2.1,0.9-3.3,1.6-4.6,2   c-34.3,11.6-68.6,23.3-102.9,34.8c-1.9,0.6-4.3,0.7-6.2,0.1c-34.5-11.6-69-23.3-103.4-35C289.4,335.9,288.3,335.3,285.9,334.2z" sketchjs:uid="3" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<path d="M345.7,366.7c10,3.3,18.9,6.3,27.9,9.3   c0.5,0.2,0.9,0.3,1.4,0.5c22.2,7.8,22.2,7.8,44.5-0.1c8-2.8,16-5.4,24.1-8.1c1.4-0.5,2.8-0.7,4.8-1.3c0,14.5,0.1,28.5-0.1,42.4   c0,1.1-1.7,2.8-3,3.3c-19.3,7.9-39.5,11-60.1,8.5c-11.6-1.4-23-5-34.4-7.7c-3.6-0.9-5.2-2.9-5.1-7.1   C345.9,393.7,345.7,380.7,345.7,366.7z" sketchjs:uid="4" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<path d="M480.1,364.1c0,6.6-0.2,12.9,0.1,19.1   c0.1,2,1.2,4.4,2.7,5.7c5.3,4.8,5.9,11.1,1.5,16.8c-1.2,1.5-1.8,4.1-1.4,6.1c1.6,9.5,3.6,18.8,5.5,28.8c-8,0-15.5,0-23.9,0   c1.2-6.3,2.3-12.4,3.5-18.5c0.5-2.4,1-4.9,1.6-7.3c1-4,1.1-7.2-2.2-10.7c-4-4.2-2.6-11.4,2.4-14.9c2.6-1.8,3.2-3.7,3.1-6.6   c-0.2-4.5-0.1-9,0-13.5C472.9,363.1,473,363.1,480.1,364.1z" sketchjs:uid="5" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	</g>
+</g>
+</svg>

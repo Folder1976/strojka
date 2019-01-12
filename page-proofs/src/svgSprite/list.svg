@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: SketchAPI 5.1.316 <https://api.sketch.io/> -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketchjs="https://sketch.io/dtd/" style="" sketchjs:metadata="eyJ0aXRsZSI6IkRyYXdpbmciLCJkZXNjcmlwdGlvbiI6Ik1hZGUgd2l0aCBTa2V0Y2hwYWQgLSBodHRwczovL3NrZXRjaC5pby9za2V0Y2hwYWQiLCJtZXRhZGF0YSI6e30sImNsaXBQYXRoIjp7ImVuYWJsZWQiOnRydWUsInN0eWxlIjp7InN0cm9rZVN0eWxlIjoiYmxhY2siLCJsaW5lV2lkdGgiOjF9fSwiZXhwb3J0RFBJIjo3MiwiZXhwb3J0Rm9ybWF0IjoicG5nIiwiZXhwb3J0UXVhbGl0eSI6MC45NSwidW5pdHMiOiJweCIsIndpZHRoIjoyMjYuMTAwMDAwMDAwMDAwMDIsImhlaWdodCI6MjczLjksInBhZ2VzIjp7Imxlbmd0aCI6MSwiZGF0YSI6W3sid2lkdGgiOjIyNi4xMDAwMDAwMDAwMDAwMiwiaGVpZ2h0IjoyNzMuOX1dfX0=" width="226.10000000000002" height="273.9" viewBox="0 0 226.10000000000002 273.9" sketchjs:version="5.1.316">
+<g sketchjs:tool="clipart" style="mix-blend-mode: source-over;" transform="matrix(0.9710087145762372,0,0,0.9710087145762372,-271.8776697403489,-221.27591367357897)">
+	<path d="M456.8,244.5h24.3c15.6,0,28.3,12.8,28.3,28.3v204.8  c0,15.6-12.8,28.3-28.3,28.3H311.6c-15.6,0-28.3-12.8-28.3-28.3V272.8c0-15.6,12.8-28.3,28.3-28.3h24.2" sketchjs:uid="1" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<polyline points="456.9,263.1 478.6,263.1 478.6,477.7 314.1,477.7 314.1,263.1 335.8,263.1" sketchjs:uid="2" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="336.3" y1="301.7" x2="456.3" y2="301.7" sketchjs:uid="3" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="336.3" y1="325.5" x2="456.3" y2="325.5" sketchjs:uid="4" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="336.3" y1="349.3" x2="456.3" y2="349.3" sketchjs:uid="5" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="336.3" y1="373" x2="456.3" y2="373" sketchjs:uid="6" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="336.3" y1="396.8" x2="456.3" y2="396.8" sketchjs:uid="7" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="336.3" y1="420.5" x2="456.3" y2="420.5" sketchjs:uid="8" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M442.7,279.6h-92.7c-7.8,0-14.2-6.4-14.2-14.2v-19.2  c0-7.8,6.4-14.2,14.2-14.2h92.7c7.8,0,14.2,6.4,14.2,14.2v19.2C456.9,273.2,450.5,279.6,442.7,279.6z" sketchjs:uid="9" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+</g>
+</svg>

@@ -2,8 +2,32 @@
   text-align: center;
 
   .btn--take-test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     @media screen and (max-width: $break_xs) {
       width: 100%;
     }
+
+    &:hover .icon {
+      stroke: #fff;
+      fill: #fff;
+    }
   }
+
+  .take-test-list {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.icon-take-test {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: inline-block;
+  margin-right: 1.5rem;
+  stroke: #000;
+  // fill: none;
+  transition: all .3s;
 }

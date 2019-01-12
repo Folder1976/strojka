@@ -9,5 +9,29 @@
     font-weight: 300;
     text-transform: uppercase;
   }
+
+  .icon-calc-tab {
+    width: 3.6rem;
+    height: 3.6rem;
+    display: inline-block;
+    margin-right: 1.5rem;
+    stroke: #000;
+    // fill: none;
+    transition: all .3s;
+  }
+
+  .tab__link {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    &.is-active {
+      .icon {
+        fill: #fff;
+        stroke: #fff;
+      }
+    }
+  }
 }
 

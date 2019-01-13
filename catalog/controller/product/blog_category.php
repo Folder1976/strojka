@@ -215,6 +215,7 @@ class ControllerProductBlogCategory extends Controller {
 				$data['products'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
 					'thumb'       => $image,
+					'date_added'  => date('d.m.Y', strtotime($result['date_added'])),
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
@@ -376,7 +377,13 @@ class ControllerProductBlogCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('blog_product/blog_category', $data));
+			if($category_info['template'] != ''){
+				$this->response->setOutput($this->load->view('blog_product/'.str_replace('.tpl', '', $category_info['template']), $data));
+			}else{
+				$this->response->setOutput($this->load->view('blog_product/blog_category', $data));	
+			}
+			
+			
 		} else {
 			$url = '';
 
@@ -432,3 +439,4 @@ class ControllerProductBlogCategory extends Controller {
 		}
 	}
 }
+

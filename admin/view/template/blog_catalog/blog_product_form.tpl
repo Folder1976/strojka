@@ -104,6 +104,15 @@
                   <?php } ?>
                 </div>
               </div>
+              
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-template"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>">Индивидуальный шаблон</span></label>
+                <div class="col-sm-10">
+                  путь - <?php echo 'template/blog_catalog/blog_product.tpl'; ?>
+                  <input type="text" name="template" value="<?php echo $template; ?>" placeholder="<?php echo 'blog_product.tpl'; ?>" id="input-template" class="form-control" />
+                 </div>
+              </div>
+      
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-sku"><span data-toggle="tooltip" title="<?php echo $help_sku; ?>"><?php echo $entry_sku; ?></span></label>
                 <div class="col-sm-10">
@@ -111,27 +120,27 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-upc"><span data-toggle="tooltip" title="<?php echo $help_upc; ?>"><?php echo $entry_upc; ?></span></label>
+                <label class="col-sm-2 control-label" for="input-upc"><span data-toggle="tooltip" title="<?php echo $help_upc; ?>">Срок</span></label>
                 <div class="col-sm-10">
-                  <input type="text" name="upc" value="<?php echo $upc; ?>" placeholder="<?php echo $entry_upc; ?>" id="input-upc" class="form-control" />
+                  <input type="text" name="upc" value="<?php echo $upc; ?>" placeholder="<?php echo 'Срок - $upc'; ?>" id="input-upc" class="form-control" />
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-ean"><span data-toggle="tooltip" title="<?php echo $help_ean; ?>"><?php echo $entry_ean; ?></span></label>
+                <label class="col-sm-2 control-label" for="input-ean"><span data-toggle="tooltip" title="<?php echo $help_ean; ?>">Площадь</span></label>
                 <div class="col-sm-10">
-                  <input type="text" name="ean" value="<?php echo $ean; ?>" placeholder="<?php echo $entry_ean; ?>" id="input-ean" class="form-control" />
+                  <input type="text" name="ean" value="<?php echo $ean; ?>" placeholder="<?php echo 'Площадь - $ean'; ?>" id="input-ean" class="form-control" />
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-jan"><span data-toggle="tooltip" title="<?php echo $help_jan; ?>"><?php echo $entry_jan; ?></span></label>
+                <label class="col-sm-2 control-label" for="input-jan"><span data-toggle="tooltip" title="<?php echo $help_jan; ?>">Место</span></label>
                 <div class="col-sm-10">
-                  <input type="text" name="jan" value="<?php echo $jan; ?>" placeholder="<?php echo $entry_jan; ?>" id="input-jan" class="form-control" />
+                  <input type="text" name="jan" value="<?php echo $jan; ?>" placeholder="<?php echo 'Место - $jan'; ?>" id="input-jan" class="form-control" />
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-isbn"><span data-toggle="tooltip" title="<?php echo $help_isbn; ?>"><?php echo $entry_isbn; ?></span></label>
+                <label class="col-sm-2 control-label" for="input-isbn"><span data-toggle="tooltip" title="<?php echo $help_isbn; ?>">Автор</span></label>
                 <div class="col-sm-10">
-                  <input type="text" name="isbn" value="<?php echo $isbn; ?>" placeholder="<?php echo $entry_isbn; ?>" id="input-isbn" class="form-control" />
+                  <input type="text" name="isbn" value="<?php echo $isbn; ?>" placeholder="<?php echo 'Автор - $isbn'; ?>" id="input-isbn" class="form-control" />
                 </div>
               </div>
               <div class="form-group">
@@ -230,16 +239,6 @@
                   </label>
                 </div>
               </div>
- 
- 
-              <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-template"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>">Индивидуальный шаблон</span></label>
-                <div class="col-sm-10">
-                  путь - <?php echo DIR_TEMPLATE.'template/blog_catalog/blog_category_form.tpl'; ?>
-                  <input type="text" name="template" value="<?php echo $template; ?>" placeholder="<?php echo 'blog_category_form.tpl'; ?>" id="input-template" class="form-control" />
-                 </div>
-              </div>
-
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
                 <div class="col-sm-10">
@@ -344,8 +343,8 @@
                   <input type="text" name="category" value="" placeholder="<?php echo $entry_category; ?>" id="input-category" class="form-control" />
                   <div id="product-category" class="well well-sm" style="height: 150px; overflow: auto;">
                     <?php foreach ($product_categories as $product_category) { ?>
-                    <div id="product-category<?php echo $product_category['blog_category_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_category['name']; ?>
-                      <input type="hidden" name="product_category[]" value="<?php echo $product_category['blog_category_id']; ?>" />
+                    <div id="product-category<?php echo $product_category['category_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_category['name']; ?>
+                      <input type="hidden" name="product_category[]" value="<?php echo $product_category['category_id']; ?>" />
                     </div>
                     <?php } ?>
                   </div>
@@ -414,8 +413,8 @@
                   <input type="text" name="related" value="" placeholder="<?php echo $entry_related; ?>" id="input-related" class="form-control" />
                   <div id="product-related" class="well well-sm" style="height: 150px; overflow: auto;">
                     <?php foreach ($product_relateds as $product_related) { ?>
-                    <div id="product-related<?php echo $product_related['product_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_related['name']; ?>
-                      <input type="hidden" name="product_related[]" value="<?php echo $product_related['product_id']; ?>" />
+                    <div id="product-related<?php echo $product_related['blog_product_id']; ?>"><i class="fa fa-minus-circle"></i> <?php echo $product_related['name']; ?>
+                      <input type="hidden" name="product_related[]" value="<?php echo $product_related['blog_product_id']; ?>" />
                     </div>
                     <?php } ?>
                   </div>
@@ -835,6 +834,7 @@
                   <thead>
                     <tr>
                       <td class="text-left"><?php echo $entry_additional_image; ?></td>
+                      <td class="text-left">Тексты</td>
                       <td class="text-right"><?php echo $entry_sort_order; ?></td>
                       <td></td>
                     </tr>
@@ -844,6 +844,11 @@
                     <?php foreach ($product_images as $product_image) { ?>
                     <tr id="image-row<?php echo $image_row; ?>">
                       <td class="text-left"><a href="" id="thumb-image<?php echo $image_row; ?>" data-toggle="image" class="img-thumbnail"><img src="<?php echo $product_image['thumb']; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a><input type="hidden" name="product_image[<?php echo $image_row; ?>][image]" value="<?php echo $product_image['image']; ?>" id="input-image<?php echo $image_row; ?>" /></td>
+                      <td class="text-right"><input type="text" name="product_image[<?php echo $image_row; ?>][text1]" value="<?php echo $product_image['text1']; ?>" placeholder="text1" class="form-control" />
+                        <br><input type="text" name="product_image[<?php echo $image_row; ?>][text2]" value="<?php echo $product_image['text2']; ?>" placeholder="text2" class="form-control" />
+                        <br><input type="text" name="product_image[<?php echo $image_row; ?>][text3]" value="<?php echo $product_image['text3']; ?>" placeholder="text3" class="form-control" />
+                        
+                      </td>
                       <td class="text-right"><input type="text" name="product_image[<?php echo $image_row; ?>][sort_order]" value="<?php echo $product_image['sort_order']; ?>" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>
                       <td class="text-left"><button type="button" onclick="$('#image-row<?php echo $image_row; ?>').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
                     </tr>
@@ -852,7 +857,7 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <td colspan="2"></td>
+                      <td colspan="3"></td>
                       <td class="text-left"><button type="button" onclick="addImage();" data-toggle="tooltip" title="<?php echo $button_image_add; ?>" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
                     </tr>
                   </tfoot>
@@ -973,7 +978,7 @@ $('input[name=\'category\']').autocomplete({
 				response($.map(json, function(item) {
 					return {
 						label: item['name'],
-						value: item['blog_category_id']
+						value: item['category_id']
 					}
 				}));
 			}
@@ -1057,10 +1062,15 @@ $('input[name=\'related\']').autocomplete({
 			url: 'index.php?route=catalog/blog_product/autocomplete&token=<?php echo $token; ?>&filter_name=' +  encodeURIComponent(request),
 			dataType: 'json',
 			success: function(json) {
-				response($.map(json, function(item) {
+        
+        //console.log(json);
+        
+      	response($.map(json, function(item) {
+          
+          //console.log(item);
 					return {
 						label: item['name'],
-						value: item['product_id']
+						value: item['blog_product_id']
 					}
 				}));
 			}
@@ -1365,7 +1375,12 @@ var image_row = <?php echo $image_row; ?>;
 function addImage() {
 	html  = '<tr id="image-row' + image_row + '">';
 	html += '  <td class="text-left"><a href="" id="thumb-image' + image_row + '"data-toggle="image" class="img-thumbnail"><img src="<?php echo $placeholder; ?>" alt="" title="" data-placeholder="<?php echo $placeholder; ?>" /></a><input type="hidden" name="product_image[' + image_row + '][image]" value="" id="input-image' + image_row + '" /></td>';
-	html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>';
+	
+  html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][text1]" value="" placeholder="text1" class="form-control" />';
+	html += '  <br><input type="text" name="product_image[' + image_row + '][text2]" value="" placeholder="text2" class="form-control" />';
+	html += '  <br><input type="text" name="product_image[' + image_row + '][text3]" value="" placeholder="text3" class="form-control" /></td>';
+	
+  html += '  <td class="text-right"><input type="text" name="product_image[' + image_row + '][sort_order]" value="" placeholder="<?php echo $entry_sort_order; ?>" class="form-control" /></td>';
 	html += '  <td class="text-left"><button type="button" onclick="$(\'#image-row' + image_row  + '\').remove();" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
 	html += '</tr>';
 
@@ -1422,3 +1437,4 @@ $('#language a:first').tab('show');
 $('#option a:first').tab('show');
 //--></script></div>
 <?php echo $footer; ?>
+

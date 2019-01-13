@@ -159,6 +159,11 @@ class ControllerProductBlogProduct extends Controller {
 		$product_info = $this->model_catalog_blog_product->getProduct($blog_product_id);
 
 		if ($product_info) {
+			
+			$data['date_added'] = date('d.m.Y', strtotime($product_info['date_added']));
+			$data['date_modified'] = date('d.m.Y', strtotime($product_info['date_modified']));
+
+			
 			$url = '';
 
 			if (isset($this->request->get['blogpath'])) {
@@ -299,6 +304,9 @@ class ControllerProductBlogProduct extends Controller {
 
 			foreach ($results as $result) {
 				$data['images'][] = array(
+					'text1' => $result['text1'],
+					'text2' => $result['text2'],
+					'text3' => $result['text3'],
 					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height')),
 					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
 				);
@@ -475,7 +483,14 @@ class ControllerProductBlogProduct extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
-			$this->response->setOutput($this->load->view('blog_product/blog_product', $data));
+			
+			if($category_info['blog_template'] != ''){
+				$this->response->setOutput($this->load->view('blog_product/'.str_replace('.tpl', '', $category_info['blog_template']), $data));
+			}elseif($product_info['template'] != ''){
+				$this->response->setOutput($this->load->view('blog_product/'.str_replace('.tpl', '', $product_info['template']), $data));
+			}else{
+				$this->response->setOutput($this->load->view('blog_product/blog_product', $data));
+			}
 		} else {
 			$url = '';
 
@@ -696,3 +711,4 @@ class ControllerProductBlogProduct extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
+

@@ -13,6 +13,10 @@ class ModelCatalogBlogCategory extends Model {
 			$this->db->query("UPDATE " . DB_PREFIX . "blog_category SET template = '" . $this->db->escape($data['template']) . "' WHERE blog_category_id = '" . (int)$blog_category_id . "'");
 		}
 
+		if (isset($data['blog_template'])) {
+			$this->db->query("UPDATE " . DB_PREFIX . "blog_category SET blog_template = '" . $this->db->escape($data['blog_template']) . "' WHERE blog_category_id = '" . (int)$blog_category_id . "'");
+		}
+
 		foreach ($data['category_description'] as $language_id => $value) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "blog_category_description SET blog_category_id = '" . (int)$blog_category_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', description = '" . $this->db->escape($value['description']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
 		}
@@ -67,6 +71,10 @@ class ModelCatalogBlogCategory extends Model {
 
 		if (isset($data['template'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "blog_category SET template = '" . $this->db->escape($data['template']) . "' WHERE blog_category_id = '" . (int)$blog_category_id . "'");
+		}
+
+		if (isset($data['blog_template'])) {
+			$this->db->query("UPDATE " . DB_PREFIX . "blog_category SET blog_template = '" . $this->db->escape($data['blog_template']) . "' WHERE blog_category_id = '" . (int)$blog_category_id . "'");
 		}
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_category_description WHERE blog_category_id = '" . (int)$blog_category_id . "'");
@@ -325,3 +333,4 @@ class ModelCatalogBlogCategory extends Model {
 		return $query->row['total'];
 	}	
 }
+

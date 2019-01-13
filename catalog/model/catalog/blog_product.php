@@ -11,6 +11,7 @@ class ModelCatalogBlogProduct extends Model {
 			return array(
 				'blog_product_id'       => $query->row['blog_product_id'],
 				'name'             => $query->row['name'],
+				'template'      => $query->row['template'],
 				'description'      => $query->row['description'],
 				'meta_title'       => $query->row['meta_title'],
 				'meta_description' => $query->row['meta_description'],
@@ -524,3 +525,4 @@ class ModelCatalogBlogProduct extends Model {
 		}
 	}
 }
+

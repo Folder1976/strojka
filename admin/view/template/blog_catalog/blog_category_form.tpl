@@ -136,12 +136,21 @@
                 </div>
               </div>
               <div class="form-group">
-                <label class="col-sm-2 control-label" for="input-template"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>">Индивидуальный шаблон</span></label>
+                <label class="col-sm-2 control-label" for="input-template"><span data-toggle="tooltip" title="">Индивидуальный шаблон</span></label>
                 <div class="col-sm-10">
-                  путь - <?php echo DIR_TEMPLATE.'template/blog_catalog/blog_category_form.tpl'; ?>
-                  <input type="text" name="template" value="<?php echo $template; ?>" placeholder="<?php echo 'blog_category_form.tpl'; ?>" id="input-template" class="form-control" />
+                  путь - <?php echo 'template/blog_catalog/blog_category.tpl'; ?>
+                  <input type="text" name="template" value="<?php echo $template; ?>" placeholder="<?php echo 'blog_category.tpl'; ?>" id="input-template" class="form-control" />
                  </div>
               </div>
+              
+              <div class="form-group">
+                <label class="col-sm-2 control-label" for="input-blog_template"><span data-toggle="tooltip" title="">Индивидуальный шаблон для статей</span></label>
+                <div class="col-sm-10">
+                  путь - <?php echo 'template/blog_catalog/blog_product.tpl'; ?>
+                  <input type="text" name="blog_template" value="<?php echo $blog_template; ?>" placeholder="<?php echo 'blog_product.tpl'; ?>" id="input-blog_template" class="form-control" />
+                 </div>
+              </div>
+  
               <div class="form-group">
                 <label class="col-sm-2 control-label" for="input-keyword"><span data-toggle="tooltip" title="<?php echo $help_keyword; ?>"><?php echo $entry_keyword; ?></span></label>
                 <div class="col-sm-10">
@@ -263,7 +272,7 @@ $('input[name=\'path\']').autocomplete({
 				response($.map(json, function(item) {
 					return {
 						label: item['name'],
-						value: item['category_id']
+						value: item['blog_category_id']
 					}
 				}));
 			}

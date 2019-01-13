@@ -1249,6 +1249,9 @@ class ControllerCatalogBlogProduct extends Controller {
 			$data['product_images'][] = array(
 				'image'      => $image,
 				'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
+				'text1' => $product_image['text1'],
+				'text2' => $product_image['text2'],
+				'text3' => $product_image['text3'],
 				'sort_order' => $product_image['sort_order']
 			);
 		}
@@ -1474,3 +1477,4 @@ class ControllerCatalogBlogProduct extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
+

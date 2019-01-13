@@ -10,17 +10,20 @@ class ModelCatalogBlogProduct extends Model {
 		}
 
 		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "blog_product_description SET blog_product_id = '" . (int)$blog_product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', description = '" . $this->db->escape($value['description']) . "', tag = '" . $this->db->escape($value['tag']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "blog_product_description SET
+							 blog_product_id = '" . (int)$blog_product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "',
+							 description = '" . $this->db->escape($value['description']) . "',
+							 tag = '" . $this->db->escape($value['tag']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "',
+							 meta_description = '" . $this->db->escape($value['meta_description']) . "',
+							 meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'
+							 ");
 		}
 
 		if (isset($data['image'])) {
 			$this->db->query("UPDATE " . DB_PREFIX . "blog_product SET image = '" . $this->db->escape($data['image']) . "' WHERE blog_product_id = '" . (int)$blog_product_id . "'");
 		}
 
-		foreach ($data['product_description'] as $language_id => $value) {
-			$this->db->query("INSERT INTO " . DB_PREFIX . "blog_product_description SET blog_product_id = '" . (int)$blog_product_id . "', language_id = '" . (int)$language_id . "', name = '" . $this->db->escape($value['name']) . "', description = '" . $this->db->escape($value['description']) . "', tag = '" . $this->db->escape($value['tag']) . "', meta_title = '" . $this->db->escape($value['meta_title']) . "', meta_description = '" . $this->db->escape($value['meta_description']) . "', meta_keyword = '" . $this->db->escape($value['meta_keyword']) . "'");
-		}
-
+		
 		if (isset($data['blog_product_store'])) {
 			foreach ($data['blog_product_store'] as $store_id) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "blog_product_to_store SET blog_product_id = '" . (int)$blog_product_id . "', store_id = '" . (int)$store_id . "'");
@@ -74,7 +77,12 @@ class ModelCatalogBlogProduct extends Model {
 
 		if (isset($data['product_image'])) {
 			foreach ($data['product_image'] as $product_image) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "blog_product_image SET blog_product_id = '" . (int)$blog_product_id . "', image = '" . $this->db->escape($product_image['image']) . "', sort_order = '" . (int)$product_image['sort_order'] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "blog_product_image SET blog_product_id = '" . (int)$blog_product_id . "',
+								 text1 = '" . $this->db->escape($product_image['text1']) . "',
+								 text2 = '" . $this->db->escape($product_image['text2']) . "',
+								 text3 = '" . $this->db->escape($product_image['text3']) . "',
+								 image = '" . $this->db->escape($product_image['image']) . "',
+								 sort_order = '" . (int)$product_image['sort_order'] . "'");
 			}
 		}
 
@@ -215,7 +223,12 @@ class ModelCatalogBlogProduct extends Model {
 
 		if (isset($data['product_image'])) {
 			foreach ($data['product_image'] as $product_image) {
-				$this->db->query("INSERT INTO " . DB_PREFIX . "blog_product_image SET blog_product_id = '" . (int)$blog_product_id . "', image = '" . $this->db->escape($product_image['image']) . "', sort_order = '" . (int)$product_image['sort_order'] . "'");
+				$this->db->query("INSERT INTO " . DB_PREFIX . "blog_product_image SET blog_product_id = '" . (int)$blog_product_id . "',
+								 text1 = '" . $this->db->escape($product_image['text1']) . "',
+								 text2 = '" . $this->db->escape($product_image['text2']) . "',
+								 text3 = '" . $this->db->escape($product_image['text3']) . "',
+								 image = '" . $this->db->escape($product_image['image']) . "',
+								 sort_order = '" . (int)$product_image['sort_order'] . "'");
 			}
 		}
 
@@ -339,7 +352,7 @@ class ModelCatalogBlogProduct extends Model {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_product_to_layout WHERE blog_product_id = '" . (int)$blog_product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_product_to_store WHERE blog_product_id = '" . (int)$blog_product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_product_recurring WHERE blog_product_id = " . (int)$blog_product_id);
-		$this->db->query("DELETE FROM " . DB_PREFIX . "review WHERE blog_product_id = '" . (int)$blog_product_id . "'");
+		$this->db->query("DELETE FROM " . DB_PREFIX . "blog_review WHERE blog_product_id = '" . (int)$blog_product_id . "'");
 		$this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE query = 'blog_product_id=" . (int)$blog_product_id . "'");
 		//$this->db->query("DELETE FROM " . DB_PREFIX . "coupon_blog_product WHERE product_id = '" . (int)$product_id . "'");
 
@@ -722,3 +735,4 @@ class ModelCatalogBlogProduct extends Model {
 		return $query->row['total'];
 	}
 }
+

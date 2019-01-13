@@ -122,7 +122,32 @@ $reviews_slider = array(
       <div class="col-md-12">
         <div class="section-title">Выберите интересующие работы</div>
         <div class="section-subtitle text-gray">Пройдите тест за 2 минуты и узнайте стоимость работ</div>
-        <a href="#" class="btn btn--take-test">кровельные работы</a><a href="#" class="btn btn--take-test">подшивка кровли</a><a href="#" class="btn btn--take-test">монтаж снегозадержателей</a><a href="#" class="btn btn--take-test">монтаж водостоков</a>
+        <div class="take-test-list">
+          <a href="#" class="btn btn--take-test">
+            <svg class="icon icon-take-test">
+              <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-works"></use>
+            </svg>
+            <span>кровельные работы</span>
+          </a>
+          <a href="#" class="btn btn--take-test">
+            <svg class="icon icon-take-test">
+              <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-binder"></use>
+            </svg>
+            <span>подшивка кровли</span>
+          </a>
+          <a href="#" class="btn btn--take-test">
+            <svg class="icon icon-take-test">
+              <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#snow-guard"></use>
+            </svg>
+            <span>монтаж снегозадержателей</span>
+          </a>
+          <a href="#" class="btn btn--take-test">
+            <svg class="icon icon-take-test">
+              <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#gully"></use>
+            </svg>
+            <span>монтаж водостоков</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -185,9 +210,24 @@ $reviews_slider = array(
         <div id="calc" class="calc">
           <div class="tabs">
             <ul class="tabs__links">
-              <li class="tab__link is-active" data-tab="tab-1">Калькулятор кровли</li>
-              <li class="tab__link" data-tab="tab-2">Водосточные системы</li>
-              <li class="tab__link" data-tab="tab-3">Калькулятор софитов</li>
+              <li class="tab__link is-active" data-tab="tab-1">
+                <svg class="icon icon-calc-tab">
+                  <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-works"></use>
+                </svg>
+                <span>Калькулятор кровли</span>
+              </li>
+              <li class="tab__link" data-tab="tab-2">
+                <svg class="icon icon-calc-tab">
+                  <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#gully"></use>
+                </svg>
+                <span>Водосточные системы</span>
+              </li>
+              <li class="tab__link" data-tab="tab-3">
+                <svg class="icon icon-calc-tab">
+                  <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-binder"></use>
+                </svg>
+                <span>Калькулятор софитов</span>
+              </li>
             </ul>
               
             <div id="tab-1" class="tab__content is-active">
@@ -245,7 +285,7 @@ $reviews_slider = array(
         </div>
 
         <div class="btn-wrap text-center">
-          <a href="#" class="btn btn--dib btn--orange">Подробнее о нашей команде</a>
+          <a href="/our-team" class="btn btn--dib btn--orange">Подробнее о нашей команде</a>
         </div>
       </div>
     </div>
@@ -273,7 +313,7 @@ $reviews_slider = array(
         </div>
 
         <div class="btn-wrap text-center">
-          <a href="#" class="btn btn--dib btn--black">посмотреть все наши работы</a>
+          <a href="/our-works" class="btn btn--dib btn--black">посмотреть все наши работы</a>
         </div>
       </div>
     </div>
@@ -290,17 +330,29 @@ $reviews_slider = array(
 
         <div class="advantages-list">
           <div class="advantages-list__item advantage-item">
-            <div class="advantage-item__icon-wrap"><div class="advantage-item__icon">icon</div></div>
+            <div class="advantage-item__icon-wrap">
+              <svg class="icon advantage-item__icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#legal-guarantee"></use>
+              </svg>
+            </div>
             <div class="advantage-item__title">Юридическая гарантия сроков</div>
             <div class="advantage-item__text">Мы даем юридическую гарантию соблюдение сроков и качество монтажа, по окончанию работ вы получаете официальный сертификат.</div>
           </div>
           <div class="advantages-list__item advantage-item">
-            <div class="advantage-item__icon-wrap"><div class="advantage-item__icon">icon</div></div>
+            <div class="advantage-item__icon-wrap">
+              <svg class="icon advantage-item__icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#supplier"></use>
+              </svg>
+            </div>
             <div class="advantage-item__title">15 партнеров поставщиков материалов</div>
             <div class="advantage-item__text">За счет наших партнеров мы помогаем экономить клиентам до 23% на покупку строительных материалов</div>
           </div>
           <div class="advantages-list__item advantage-item">
-            <div class="advantage-item__icon-wrap"><div class="advantage-item__icon">icon</div></div>
+            <div class="advantage-item__icon-wrap">
+              <svg class="icon advantage-item__icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#expert"></use>
+              </svg>
+            </div>
             <div class="advantage-item__title">Специалисты с опытом работы от 5 лет</div>
             <div class="advantage-item__text">Контроль за выполнением работы бригады ведет прораб со стажем минимум 10 лет. Перед этим, каждый работники проходят 3-х месячную школу монтажников внутри компании, и проходят аттестацию по 178 пунктам.</div>
           </div>

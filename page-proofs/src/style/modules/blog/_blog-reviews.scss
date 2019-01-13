@@ -1,0 +1,52 @@
+.company-reviews-list {
+  columns: 3;
+
+  li {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 300;
+    // line-height: 3.3rem;
+    text-decoration: underline;
+  }
+}
+
+.company-review-date {
+  font-size: 1.8rem;
+}
+
+.company-review-author {
+  font-size: 1.8rem;
+}
+
+.company-review-thumb {
+  margin: 2rem 0;
+}
+
+.company-review-info {
+  font-size: 1.8rem;
+  font-weight: 300;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 0 3rem;
+
+  & > * {
+    line-height: 2.6rem;
+  }
+
+  &__icon {
+    width: 2.6rem;
+    height: 2.6rem;
+    display: inline-block;
+    margin-right: 2rem;
+    position: relative;
+    z-index: 1;
+    top: .5rem;
+    left: 0;
+  }
+}
+
+

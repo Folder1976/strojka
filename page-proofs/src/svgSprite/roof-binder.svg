@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: SketchAPI 5.1.316 <https://api.sketch.io/> -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketchjs="https://sketch.io/dtd/" style="" sketchjs:metadata="eyJ0aXRsZSI6IkRyYXdpbmciLCJkZXNjcmlwdGlvbiI6Ik1hZGUgd2l0aCBTa2V0Y2hwYWQgLSBodHRwczovL3NrZXRjaC5pby9za2V0Y2hwYWQiLCJtZXRhZGF0YSI6e30sImNsaXBQYXRoIjp7ImVuYWJsZWQiOnRydWUsInN0eWxlIjp7InN0cm9rZVN0eWxlIjoiYmxhY2siLCJsaW5lV2lkdGgiOjF9fSwiZXhwb3J0RFBJIjo3MiwiZXhwb3J0Rm9ybWF0IjoicG5nIiwiZXhwb3J0UXVhbGl0eSI6MC45NSwidW5pdHMiOiJweCIsIndpZHRoIjoyNTMuMDk5OTk5OTk5OTk5OTcsImhlaWdodCI6MjA4LjgsInBhZ2VzIjp7Imxlbmd0aCI6MSwiZGF0YSI6W3sid2lkdGgiOjI1My4wOTk5OTk5OTk5OTk5NywiaGVpZ2h0IjoyMDguOH1dfX0=" width="253.09999999999997" height="208.8" viewBox="0 0 253.09999999999997 208.8" sketchjs:version="5.1.316">
+<g sketchjs:tool="clipart" style="mix-blend-mode: source-over;" transform="matrix(0.9724478828736624,0,0,0.9724478828736624,-259.996761391735,-254.6600993463634)">
+	<line x1="271.5" y1="390.2" x2="524" y2="390.2" sketchjs:uid="1" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="271.5" y1="410.9" x2="524" y2="410.9" sketchjs:uid="2" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="271.5" y1="430.2" x2="524" y2="430.2" sketchjs:uid="3" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<line x1="271.5" y1="453.5" x2="524" y2="453.5" sketchjs:uid="4" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<rect x="271" y="264" width="252.5" height="208.8" sketchjs:uid="5" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M353.3,264c0,22.7-18.4,41.2-41.2,41.2  c-22.7,0-41.2-18.4-41.2-41.2" sketchjs:uid="6" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M438,264c0,22.7-18.4,41.2-41.2,41.2  c-22.7,0-41.2-18.4-41.2-41.2" sketchjs:uid="7" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M520.9,264c0,22.7-18.4,41.2-41.2,41.2  s-41.2-18.4-41.2-41.2" sketchjs:uid="8" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M353.3,347.9c0,22.7-18.4,41.2-41.2,41.2  c-22.7,0-41.2-18.4-41.2-41.2" sketchjs:uid="9" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M438,347.9c0,22.7-18.4,41.2-41.2,41.2  c-22.7,0-41.2-18.4-41.2-41.2" sketchjs:uid="10" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M520.9,347.9c0,22.7-18.4,41.2-41.2,41.2  s-41.2-18.4-41.2-41.2" sketchjs:uid="11" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M395.6,306.2c0,22.7-18.4,41.2-41.2,41.2  s-41.2-18.4-41.2-41.2" sketchjs:uid="12" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M480.2,306.2c0,22.7-18.4,41.2-41.2,41.2  s-41.2-18.4-41.2-41.2" sketchjs:uid="13" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M521.9,347.3c-22.7,0-41.2-18.4-41.2-41.2" sketchjs:uid="14" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M271,347.3c22.7,0,41.2-18.4,41.2-41.2" sketchjs:uid="15" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+</g>
+</svg>

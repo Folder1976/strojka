@@ -67,5 +67,11 @@
       }
     }
   }
+
+  &--works {
+    .news-item__desc {
+      background-color: #e4e4e4;
+    }
+  }
 }
 

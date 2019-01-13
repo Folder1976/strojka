@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: SketchAPI 5.1.316 <https://api.sketch.io/> -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketchjs="https://sketch.io/dtd/" style="" sketchjs:metadata="eyJ0aXRsZSI6IkRyYXdpbmciLCJkZXNjcmlwdGlvbiI6Ik1hZGUgd2l0aCBTa2V0Y2hwYWQgLSBodHRwczovL3NrZXRjaC5pby9za2V0Y2hwYWQiLCJtZXRhZGF0YSI6e30sImNsaXBQYXRoIjp7ImVuYWJsZWQiOnRydWUsInN0eWxlIjp7InN0cm9rZVN0eWxlIjoiYmxhY2siLCJsaW5lV2lkdGgiOjF9fSwiZXhwb3J0RFBJIjo3MiwiZXhwb3J0Rm9ybWF0IjoicG5nIiwiZXhwb3J0UXVhbGl0eSI6MC45NSwidW5pdHMiOiJweCIsIndpZHRoIjoyMjYuMTAwMDAwMDAwMDAwMDIsImhlaWdodCI6MjczLjksInBhZ2VzIjp7Imxlbmd0aCI6MSwiZGF0YSI6W3sid2lkdGgiOjIyNi4xMDAwMDAwMDAwMDAwMiwiaGVpZ2h0IjoyNzMuOX1dfX0=" width="226.10000000000002" height="273.9" viewBox="0 0 226.10000000000002 273.9" sketchjs:version="5.1.316">
+<g sketchjs:tool="clipart" style="mix-blend-mode: source-over;" transform="matrix(0.9614003284741235,0,0,0.964092972115081,-268.43843159645724,-218.09707042613016)">
+	<path d="M457.7,243.9H482c15.6,0,28.3,12.8,28.3,28.3v204.8  c0,15.6-12.8,28.3-28.3,28.3H312.5c-15.6,0-28.3-12.8-28.3-28.3V272.3c0-15.6,12.8-28.3,28.3-28.3h24.2" sketchjs:uid="1" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<polyline points="457.8,262.5 479.5,262.5 479.5,477.2 315,477.2 315,262.5 336.7,262.5" sketchjs:uid="2" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<path d="M443.6,279h-92.7c-7.8,0-14.2-6.4-14.2-14.2v-19.2  c0-7.8,6.4-14.2,14.2-14.2h92.7c7.8,0,14.2,6.4,14.2,14.2v19.2C457.8,272.7,451.4,279,443.6,279z" sketchjs:uid="3" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	<g sketchjs:uid="4" style="">
+		<line x1="372.3" y1="301.2" x2="457.5" y2="301.2" sketchjs:uid="5" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="372.3" y1="324.9" x2="457.5" y2="324.9" sketchjs:uid="6" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="372.3" y1="348.7" x2="457.5" y2="348.7" sketchjs:uid="7" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="372.3" y1="372.4" x2="457.5" y2="372.4" sketchjs:uid="8" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="372.3" y1="396.2" x2="457.5" y2="396.2" sketchjs:uid="9" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="372.3" y1="419.9" x2="457.5" y2="419.9" sketchjs:uid="10" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<rect x="337" y="298.5" width="21" height="21" sketchjs:uid="11" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<rect x="337" y="332.5" width="21" height="21" sketchjs:uid="12" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<rect x="337" y="366.5" width="21" height="21" sketchjs:uid="13" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<rect x="337" y="400.6" width="21" height="21" sketchjs:uid="14" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: SketchAPI 5.1.316 <https://api.sketch.io/> -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketchjs="https://sketch.io/dtd/" style="" sketchjs:metadata="eyJ0aXRsZSI6IkRyYXdpbmciLCJkZXNjcmlwdGlvbiI6Ik1hZGUgd2l0aCBTa2V0Y2hwYWQgLSBodHRwczovL3NrZXRjaC5pby9za2V0Y2hwYWQiLCJtZXRhZGF0YSI6e30sImNsaXBQYXRoIjp7ImVuYWJsZWQiOnRydWUsInN0eWxlIjp7InN0cm9rZVN0eWxlIjoiYmxhY2siLCJsaW5lV2lkdGgiOjF9fSwiZXhwb3J0RFBJIjo3MiwiZXhwb3J0Rm9ybWF0IjoicG5nIiwiZXhwb3J0UXVhbGl0eSI6MC45NSwidW5pdHMiOiJweCIsIndpZHRoIjoyNTIuNSwiaGVpZ2h0IjoyMDguOCwicGFnZXMiOnsibGVuZ3RoIjoxLCJkYXRhIjpbeyJ3aWR0aCI6MjUyLjUsImhlaWdodCI6MjA4Ljh9XX19" width="252.5" height="208.8" viewBox="0 0 252.5 208.8" sketchjs:version="5.1.316">
+<g sketchjs:tool="clipart" style="mix-blend-mode: source-over;" transform="matrix(0.9724183958694682,0,0,0.9724183958694682,-259.2155562903483,-253.8302675331617)">
+	<g sketchjs:uid="1" style="">
+		<polygon points="360.6,472.8 360.6,375.7 288.3,333.1 288.3,264 270.4,264 270.4,322.6 270.4,341.9 270.4,342.7 343.2,385.6 343.2,472.8" sketchjs:uid="2" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<polygon points="432.7,472.8 432.7,375.7 505,333.1 505,264 522.9,264 522.9,322.6 522.9,341.9 522.9,342.7 450.1,385.6 450.1,472.8" sketchjs:uid="3" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="270.4" y1="264" x2="505" y2="264" sketchjs:uid="4" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="288.3" y1="332" x2="505" y2="332" sketchjs:uid="5" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="360.5" y1="377" x2="432.7" y2="377" sketchjs:uid="6" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+		<line x1="360.5" y1="472.8" x2="432.7" y2="472.8" sketchjs:uid="7" style="fill: none; stroke: #000000; stroke-width: 5; stroke-miterlimit: 10;"/>
+	</g>
+</g>
+</svg>

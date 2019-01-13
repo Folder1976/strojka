@@ -3909,10 +3909,26 @@ hr,
     background-color: transparent;
     border: 1px solid #fbbe18;
     padding: 10px;
-    width: 132px; }
+    padding-left: 50px;
+    width: 132px;
+    position: relative; }
+    .header-cart__btn:hover > .icon {
+      fill: #fbbe18; }
   .header-cart__text {
     font-size: 10px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    text-align: left; }
+  .header-cart__icon {
+    width: 29px;
+    height: 26px;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    -webkit-transition: all .3s;
+    transition: all .3s; }
 
 .footer {
   background-color: #e4e4e4;
@@ -4315,7 +4331,7 @@ a.btn {
     border-radius: 0;
     font-size: 1.6rem;
     font-weight: 900;
-    padding: 2.2rem 2rem; }
+    padding: 1.2rem 2rem; }
     .btn--take-test:hover,
     a.btn--take-test:hover {
       color: #fff;
@@ -4787,6 +4803,59 @@ ol li {
       padding: 1.5rem; }
     .news-list--blog .news-item__date {
       margin-bottom: 2rem; }
+  .news-list--works .news-item__desc {
+    background-color: #e4e4e4; }
+
+.company-works-list li {
+  margin-bottom: 1rem; }
+
+.company-works-list a {
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-decoration: underline; }
+
+.company-reviews-list {
+  -webkit-columns: 3;
+          columns: 3; }
+  .company-reviews-list li {
+    margin-bottom: 1rem; }
+  .company-reviews-list a {
+    color: #000;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-decoration: underline; }
+
+.company-review-date {
+  font-size: 1.8rem; }
+
+.company-review-author {
+  font-size: 1.8rem; }
+
+.company-review-thumb {
+  margin: 2rem 0; }
+
+.company-review-info {
+  font-size: 1.8rem;
+  font-weight: 300;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 2rem 0 3rem; }
+  .company-review-info > * {
+    line-height: 2.6rem; }
+  .company-review-info__icon {
+    width: 2.6rem;
+    height: 2.6rem;
+    display: inline-block;
+    margin-right: 2rem;
+    position: relative;
+    z-index: 1;
+    top: .5rem;
+    left: 0; }
 
 .text-center {
   text-align: center; }
@@ -4950,9 +5019,38 @@ ol li {
 
 .section-take-test {
   text-align: center; }
-  @media screen and (max-width: 560px) {
-    .section-take-test .btn--take-test {
-      width: 100%; } }
+  .section-take-test .btn--take-test {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    @media screen and (max-width: 560px) {
+      .section-take-test .btn--take-test {
+        width: 100%; } }
+    .section-take-test .btn--take-test:hover .icon {
+      stroke: #fff;
+      fill: #fff; }
+  .section-take-test .take-test-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+
+.icon-take-test {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: inline-block;
+  margin-right: 1.5rem;
+  stroke: #000;
+  -webkit-transition: all .3s;
+  transition: all .3s; }
 
 .section-services {
   text-align: center; }
@@ -5002,6 +5100,31 @@ ol li {
   font-size: 18px;
   font-weight: 300;
   text-transform: uppercase; }
+
+.calc .icon-calc-tab {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: inline-block;
+  margin-right: 1.5rem;
+  stroke: #000;
+  -webkit-transition: all .3s;
+  transition: all .3s; }
+
+.calc .tab__link {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .calc .tab__link.is-active .icon {
+    fill: #fff;
+    stroke: #fff; }
 
 .team-list {
   display: grid;
@@ -5069,7 +5192,8 @@ ol li {
   .advantage-item__icon {
     width: 70px;
     height: 70px;
-    margin: 0 auto; }
+    margin: 0 auto;
+    stroke: #000; }
   .advantage-item__title {
     font-weight: 900;
     margin-bottom: 3rem; }

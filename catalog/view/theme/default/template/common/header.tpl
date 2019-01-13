@@ -47,8 +47,8 @@ $top_menu = array(
     'href' => '#',
     'children' => array(
       array(
-        'name' => 'item 1',
-        'href' => '#',
+        'name' => 'Отзывы о компании',
+        'href' => '/company-reviews',
         'children' => array(
           array(
             'name' => 'item 1 1',
@@ -69,8 +69,8 @@ $top_menu = array(
         ),
       ),
       array(
-        'name' => 'item 2item 2item 2item 2item 2item 2',
-        'href' => '#',
+        'name' => 'Наши работы',
+        'href' => '/our-works',
         'children' => array(
           array(
             'name' => 'item 2 1',
@@ -91,8 +91,8 @@ $top_menu = array(
         ),
       ),
       array(
-        'name' => 'item 3',
-        'href' => '#',
+        'name' => 'Новости компании',
+        'href' => '/news',
         'children' => array(
           array(
             'name' => 'item 3 1',
@@ -113,8 +113,8 @@ $top_menu = array(
         ),
       ),
       array(
-        'name' => 'item 4',
-        'href' => '#',
+        'name' => 'Наша команда',
+        'href' => '/our-team',
         'children' => array(
           array(
             'name' => 'item 4 1',
@@ -147,11 +147,11 @@ $top_menu = array(
   ),
   array (
     'name' => 'Наши работы',
-    'href' => '#',
+    'href' => '/our-works',
   ),
   array (
     'name' => 'Блог',
-    'href' => '#',
+    'href' => '/news',
   ),
 );
 $bottom_menu = array(

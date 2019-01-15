@@ -978,7 +978,7 @@ $('input[name=\'category\']').autocomplete({
 				response($.map(json, function(item) {
 					return {
 						label: item['name'],
-						value: item['category_id']
+						value: item['blog_category_id']
 					}
 				}));
 			}

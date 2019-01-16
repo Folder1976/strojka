@@ -43,12 +43,18 @@
     }
   }
 
-  &__item {}
+  &__item {
+    background-color: #fbbe18;
+  }
 
   &--blog {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 3rem;
+
+    & > * {
+      margin-bottom: 0;
+    }
 
     @media screen and (max-width: $bs_break_xs) {
       grid-template-columns: 1fr 1fr;
@@ -69,6 +75,14 @@
   }
 
   &--works {
+    & > * {
+      margin-bottom: 0;
+    }
+
+    .news-item {
+      background-color: #e4e4e4;
+    }
+
     .news-item__desc {
       background-color: #e4e4e4;
     }

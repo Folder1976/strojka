@@ -4789,10 +4789,14 @@ ol li {
             flex: 0 1 270px; }
     .news-list > *:last-child {
       margin-bottom: 0; }
+  .news-list__item {
+    background-color: #fbbe18; }
   .news-list--blog {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 3rem; }
+    .news-list--blog > * {
+      margin-bottom: 0; }
     @media screen and (max-width: 768px) {
       .news-list--blog {
         grid-template-columns: 1fr 1fr; } }
@@ -4803,6 +4807,10 @@ ol li {
       padding: 1.5rem; }
     .news-list--blog .news-item__date {
       margin-bottom: 2rem; }
+  .news-list--works > * {
+    margin-bottom: 0; }
+  .news-list--works .news-item {
+    background-color: #e4e4e4; }
   .news-list--works .news-item__desc {
     background-color: #e4e4e4; }
 
@@ -4845,6 +4853,9 @@ ol li {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 2rem 0 3rem; }
+  @media screen and (max-width: 768px) {
+    .company-review-info {
+      display: block; } }
   .company-review-info > * {
     line-height: 2.6rem; }
   .company-review-info__icon {
@@ -4856,6 +4867,39 @@ ol li {
     z-index: 1;
     top: .5rem;
     left: 0; }
+
+.img-stages {
+  font-size: 1.8rem;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-gap: 3rem;
+  margin-bottom: 3rem; }
+  .img-stages__title {
+    font-weight: 900;
+    text-transform: uppercase;
+    grid-column-start: 1;
+    grid-column-end: 10; }
+  .img-stages__img {
+    grid-column-start: 1;
+    grid-column-end: 7; }
+    @media screen and (max-width: 768px) {
+      .img-stages__img {
+        grid-column-end: 10; } }
+    .img-stages__img img {
+      width: 100%; }
+  .img-stages__text {
+    font-weight: 300;
+    padding-bottom: 4rem;
+    grid-column-start: 7;
+    grid-column-end: 10; }
+    @media screen and (max-width: 768px) {
+      .img-stages__text {
+        grid-column-start: 1; } }
+    .img-stages__text:after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid #000;
+      margin-top: 4rem; }
 
 .text-center {
   text-align: center; }

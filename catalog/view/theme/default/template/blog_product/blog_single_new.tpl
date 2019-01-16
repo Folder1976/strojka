@@ -45,16 +45,22 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
     <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
+      <div class="company-review-date"><?php echo $date_added; ?></div>
+
+      <?php if ($popup) { ?>
+        <img src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" />
+      <?php } ?>
+
+      <?php if ($description) { ?>
+        <div class="description"><?php echo $description; ?></div>
+      <?php } ?>
+
       <?php if ($images) { ?>
         <ul>
           <?php foreach ($images as $image) { ?>
           <li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
           <?php } ?>
         </ul>
-      <?php } ?>
-
-      <?php if ($description) { ?>
-        <div class="description"><?php echo $description; ?></div>
       <?php } ?>
 
     </div>

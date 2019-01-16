@@ -43,6 +43,7 @@ $news = array();
 
       <?php if ($categories) { ?>
         <?php foreach ($categories as $category) { ?>
+<<<<<<< HEAD
           <h3 class="widget-title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h3>
            <?php if ($products) { ?>
             <div class="news-list news-list--blog">
@@ -59,6 +60,23 @@ $news = array();
                   </div>
                 <?php } ?>
               <?php } ?>
+=======
+          <h3 class="widget-title"><?php echo $category['name']; ?></h3>
+        <?php } ?>
+      <?php } ?>
+
+      <?php if ($products) { ?>
+        <div class="news-list news-list--blog">
+          <?php foreach ($products as $product) { ?>
+            <div class="news-list__item news-item">
+              <div class="news-item__img">
+                <a href="<?php echo $product['href']; ?>"><img class="img--cover" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
+              </div>
+              <div class="news-item__desc">
+                <div class="news-item__date"><?php echo '1.12.2018';//$product['date']; ?></div>
+                <div class="news-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+              </div>
+>>>>>>> 859db469116723ef96e9fed1c5cc5cbb1b47e3fb
             </div>
           <?php } ?>
         <?php } ?>

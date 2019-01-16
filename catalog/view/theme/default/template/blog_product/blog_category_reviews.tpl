@@ -47,7 +47,7 @@ $news = array(
 
       <?php if ($categories) { ?>
         <?php foreach ($categories as $category) { ?>
-          <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+          <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
         <?php } ?>
       <?php } ?>
 
@@ -56,7 +56,7 @@ $news = array(
         <ul class="company-reviews-list">
           <?php foreach ($products as $product) { ?>
             <li>
-              <a href="<?php echo $product['href']; ?>">01.08.15 Марат Исмаилов<?php //echo $product['date'].' '.$product['author']; ?></a>
+              <a href="<?php echo $product['href']; ?>"><?php echo $product['date_added'].' '.$product['isbn']; ?></a>
             </li>
           <?php } ?>
         </ul>

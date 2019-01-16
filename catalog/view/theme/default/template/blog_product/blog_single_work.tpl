@@ -51,12 +51,6 @@ $news = array(
 );
 
 
-$project_more = array(
-  'Водосточные работы. СНТ Ивушка',
-  'Москва. Фальцевая кровля.Демонтаж старого покрытия. Монтаж нового.',
-  'Огуднево. Утепление кровли.',
-  'Москва. Монтаж мягкой черепицы.',
-);
 ?>
 
 
@@ -78,16 +72,16 @@ $project_more = array(
     <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
-      <div class="company-review-date">12.07.2018</div>
+      <div class="company-review-date"><?php echo $date_added; ?></div>
 
-      <?php if ($thumb) { ?>
-      <div class="company-review-thumb"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></div>
+      <?php if ($popup) { ?>
+        <div class="company-review-thumb"><img src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></div>
       <?php } ?>
 
       <div class="company-review-info">
-        <div class="company-review-info__time"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#clock-circular"></use></svg>Срок: 11 дней</div>
-        <div class="company-review-info__area"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#area"></use></svg>Площадь: 320 м2</div>
-        <div class="company-review-info__location"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#location"></use></svg>Место: Зеленоград</div>
+        <div class="company-review-info__time"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#clock-circular"></use></svg>Срок: <?php echo $upc; ?></div>
+        <div class="company-review-info__area"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#area"></use></svg>Площадь: <?php echo $ean; ?></div>
+        <div class="company-review-info__location"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#location"></use></svg>Место: <?php echo $jan; ?></div>
       </div>
 
       <?php if ($description) { ?>
@@ -96,11 +90,13 @@ $project_more = array(
 
 
 
-      <?php if ($images) { ?>
-        <div class="slider">
-
+      <?php if ( $images && count($images) > 0 ) { ?>
+        <div class="slider slider--work js-slider">
+          
           <?php foreach ($images as $image) { ?>
-          <li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
+            <div class="slider__item slider-item">
+              <div class="slider-item__img"><a href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a></div>
+            </div>
           <?php } ?>
 
         </div>
@@ -112,9 +108,9 @@ $project_more = array(
       <div class="h3-title">Еще проекты</div>
 
       <ul class="company-works-list">
-        <?php foreach ($project_more as $pr) { ?>
+        <?php foreach ($products as $pr) { ?>
           <li>
-            <a href="#"><?php echo $pr; ?><?php //echo $pr['date'].' '.$pr['author']; ?></a>
+            <a href="<?php echo $pr['href']; ?>"><?php echo $pr['name']; ?></a>
           </li>
         <?php } ?>
       </ul>

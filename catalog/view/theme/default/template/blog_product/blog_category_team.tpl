@@ -48,7 +48,7 @@ $news = array(
 
       <?php if ($categories) { ?>
         <?php foreach ($categories as $category) { ?>
-          <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+          <h3 class="widget-title"><?php echo $category['name']; ?></h3>
         <?php } ?>
       <?php } ?>
 

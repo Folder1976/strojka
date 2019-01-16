@@ -317,3 +317,4 @@ $('#category-filter').delegate('.fa-minus-circle', 'click', function() {
 $('#language a:first').tab('show');
 //--></script></div>
 <?php echo $footer; ?>
+

@@ -1,26 +1,21 @@
 <?php echo $header; ?>
 
 <?php
-$news = array(
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-1.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-2.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-3.jpg',
-    'link' => '#',
-  ),
-);
+
+$news = array();
+ if ($products1) {
+    foreach ($products1 as $product) {
+      
+      $news[] = array(
+                    'title' => $product['name'],
+                    'date' => $product['date_added'],
+                    'foto' => $product['thumb'],
+                    'link' => $product['href'],
+                      );
+ 
+    }
+ }
+ 
 
 ?>
 
@@ -48,27 +43,31 @@ $news = array(
 
       <?php if ($categories) { ?>
         <?php foreach ($categories as $category) { ?>
-          <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+          <h3 class="widget-title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h3>
+           <?php if ($products) { ?>
+            <div class="news-list news-list--blog">
+              <?php foreach ($products as $product) { ?>
+                <?php if($product['sku'] == $category['keyword']){ ?>
+                  <div class="news-list__item news-item">
+                    <div class="news-item__img">
+                      <a href="<?php echo $product['href']; ?>"><img class="img--cover" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
+                    </div>
+                    <div class="news-item__desc">
+                      <div class="news-item__date"><?php echo '1.12.2018';//$product['date']; ?></div>
+                      <div class="news-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+                    </div>
+                  </div>
+                <?php } ?>
+              <?php } ?>
+            </div>
+          <?php } ?>
         <?php } ?>
       <?php } ?>
 
-      <?php if ($products) { ?>
-        <div class="news-list news-list--blog">
-          <?php foreach ($products as $product) { ?>
-            <div class="news-list__item news-item">
-              <div class="news-item__img">
-                <a href="<?php echo $product['href']; ?>"><img class="img--cover" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
-              </div>
-              <div class="news-item__desc">
-                <div class="news-item__date"><?php echo '1.12.2018';//$product['date']; ?></div>
-                <div class="news-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-              </div>
-            </div>
-          <?php } ?>
-        </div>
-      <?php } ?>
+   
+     
 
-      <div class="pagination-wrap">
+      <!--div class="pagination-wrap">
         <div class=""><?php echo $pagination; ?></div>
         <div class="form-group input-group input-group-sm limit-per-page">
           <label for="input-limit"><?php echo $text_limit; ?></label>
@@ -82,7 +81,7 @@ $news = array(
             <?php } ?>
           </select>
         </div>
-      </div>      
+      </div-->      
 
       <hr class="hr--black">
       <br>
@@ -277,3 +276,4 @@ $news = array(
 
 
 <?php echo $footer; ?>
+

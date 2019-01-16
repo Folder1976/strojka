@@ -79,7 +79,7 @@ class ControllerProductBlogCategory extends Controller {
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
 						'text' => $category_info['name'],
-						'href' => $this->url->link('product/blog_category', 'path=' . $path . $url)
+						'href' => $this->url->link('product/blog_category', 'blogpath=' . $path . $url)
 					);
 				}
 			}
@@ -161,16 +161,86 @@ class ControllerProductBlogCategory extends Controller {
 				);
 
 				$data['categories'][] = array(
+					'blog_category_id' => $result['blog_category_id'] ,
+					'keyword' => $result['keyword'] ,
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_blog_product->getTotalProducts($filter_data) . ')' : ''),
-					'href' => $this->url->link('product/blog_category', 'path=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id'] . $url)
+					'href' => $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id'] . $url)
 				);
 			}
 
+			$data['products1'] = array();
+
+			$filter_data = array(
+				'filter_category_id' =>  5,
+				'filter_sub_category' => true,
+				'sort'               => 'p.blog_product_id',
+				'order'              => 'DESC',
+				'start'              => 1,
+				'limit'              => 3
+			);
+
+			$results = $this->model_catalog_blog_product->getProducts($filter_data);
+
+			
+			foreach ($results as $result) {
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
+				}
+
+				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
+					$price = $this->currency->format($this->tax->calculate($result['price'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				} else {
+					$price = false;
+				}
+
+				if ((float)$result['special']) {
+					$special = $this->currency->format($this->tax->calculate($result['special'], $result['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+				} else {
+					$special = false;
+				}
+
+				if ($this->config->get('config_tax')) {
+					$tax = $this->currency->format((float)$result['special'] ? $result['special'] : $result['price'], $this->session->data['currency']);
+				} else {
+					$tax = false;
+				}
+
+				if ($this->config->get('config_review_status')) {
+					$rating = (int)$result['rating'];
+				} else {
+					$rating = false;
+				}
+
+				$data['products1'][] = array(
+					'blog_product_id'  => $result['blog_product_id'],
+					'sku'  => $result['sku'],
+					'upc'  => $result['upc'],
+					'ean'  => $result['ean'],
+					'jan'  => $result['jan'],
+					'isbn'  => $result['isbn'],
+					'date_added'  => $result['date_added'],
+					'thumb'       => $image,
+					'date_added'  => date('d.m.Y', strtotime($result['date_added'])),
+					'name'        => $result['name'],
+					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+					'price'       => $price,
+					'special'     => $special,
+					'tax'         => $tax,
+					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
+					'rating'      => $result['rating'],
+					'href'        => $this->url->link('product/blog_product', 'blogpath=5&blog_product_id=' . $result['blog_product_id'] . $url)
+				);
+			}
+
+			
 			$data['products'] = array();
 
 			$filter_data = array(
 				'filter_category_id' => $blog_category_id,
 				'filter_filter'      => $filter,
+				'filter_sub_category' => true,
 				'sort'               => $sort,
 				'order'              => $order,
 				'start'              => ($page - 1) * $limit,
@@ -181,6 +251,7 @@ class ControllerProductBlogCategory extends Controller {
 
 			$results = $this->model_catalog_blog_product->getProducts($filter_data);
 
+			
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
@@ -214,6 +285,12 @@ class ControllerProductBlogCategory extends Controller {
 
 				$data['products'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
+					'sku'  => $result['sku'],
+					'upc'  => $result['upc'],
+					'ean'  => $result['ean'],
+					'jan'  => $result['jan'],
+					'isbn'  => $result['isbn'],
+					'date_added'  => $result['date_added'],
 					'thumb'       => $image,
 					'date_added'  => date('d.m.Y', strtotime($result['date_added'])),
 					'name'        => $result['name'],
@@ -227,6 +304,8 @@ class ControllerProductBlogCategory extends Controller {
 				);
 			}
 
+			
+			
 			$url = '';
 
 			if (isset($this->request->get['filter'])) {

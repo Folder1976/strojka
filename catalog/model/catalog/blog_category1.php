@@ -668,6 +668,7 @@ class ControllerCatalogBlogCategory extends Controller {
 				`blog_category_id` int(11) NOT NULL AUTO_INCREMENT,
 				`image` varchar(255) DEFAULT NULL,
 				`template` varchar(255) DEFAULT NULL,
+				`blog_template` varchar(255) DEFAULT NULL,
 				`parent_id` int(11) NOT NULL DEFAULT '0',
 				`top` tinyint(1) NOT NULL,
 				`column` int(3) NOT NULL,
@@ -820,6 +821,9 @@ class ControllerCatalogBlogCategory extends Controller {
 				`blog_product_image_id` int(11) NOT NULL AUTO_INCREMENT,
 				`blog_product_id` int(11) NOT NULL,
 				`image` varchar(255) DEFAULT NULL,
+				`text1` varchar(255) DEFAULT NULL,
+				`text2` varchar(255) DEFAULT NULL,
+				`text3` varchar(255) DEFAULT NULL,
 				`sort_order` int(3) NOT NULL DEFAULT '0',
 				PRIMARY KEY (`blog_product_image_id`),
 				KEY `blog_product_id` (`blog_product_id`)

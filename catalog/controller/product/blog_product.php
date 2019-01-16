@@ -160,6 +160,14 @@ class ControllerProductBlogProduct extends Controller {
 
 		if ($product_info) {
 			
+			
+			$data['upc'] = $product_info['upc'];
+			$data['ean'] = $product_info['ean'];
+			$data['jan'] = $product_info['jan'];
+			$data['isbn'] = $product_info['isbn'];
+			$data['date_added'] = $product_info['date_added'];
+		
+			
 			$data['date_added'] = date('d.m.Y', strtotime($product_info['date_added']));
 			$data['date_modified'] = date('d.m.Y', strtotime($product_info['date_modified']));
 
@@ -448,6 +456,12 @@ class ControllerProductBlogProduct extends Controller {
 				$data['products'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
 					'thumb'       => $image,
+					'upc'  => $result['upc'],
+					'ean'  => $result['ean'],
+					'jan'  => $result['jan'],
+					'isbn'  => $result['isbn'],
+					'date_added'  => $result['date_added'],
+				
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
@@ -484,7 +498,7 @@ class ControllerProductBlogProduct extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			
-			if($category_info['blog_template'] != ''){
+			if(isset($category_info) AND $category_info['blog_template'] != ''){
 				$this->response->setOutput($this->load->view('blog_product/'.str_replace('.tpl', '', $category_info['blog_template']), $data));
 			}elseif($product_info['template'] != ''){
 				$this->response->setOutput($this->load->view('blog_product/'.str_replace('.tpl', '', $product_info['template']), $data));

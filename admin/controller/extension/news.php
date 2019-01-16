@@ -3,6 +3,27 @@ class ControllerExtensionNews extends Controller {
 	private $error = array();
 	
 	public function index() {
+		
+		$sql = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "news` (
+					`news_id` int(11) NOT NULL AUTO_INCREMENT,
+					`image` varchar(255) NOT NULL,
+					`date_added` datetime NOT NULL,
+					`status` tinyint(1) NOT NULL,
+					PRIMARY KEY (`news_id`)
+				  ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;";
+		$this->db->query($sql);
+		
+			$sql = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "news_description` (
+					`news_description_id` int(11) NOT NULL AUTO_INCREMENT,
+					`news_id` int(11) NOT NULL,
+					`language_id` int(11) NOT NULL,
+					`title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+					`description` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+					`short_description` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+					PRIMARY KEY (`news_description_id`)
+				  ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;";
+		$this->db->query($sql);
+		
 		$this->language->load('extension/news');
 		
 		$this->load->model('extension/news');

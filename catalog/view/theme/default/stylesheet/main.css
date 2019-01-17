@@ -5175,6 +5175,8 @@ ol li {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 3rem;
   margin-bottom: 5rem; }
+  .team-list--col3 {
+    grid-template-columns: repeat(3, 1fr); }
   @media screen and (max-width: 992px) {
     .team-list {
       grid-template-columns: repeat(3, 1fr); } }
@@ -5188,6 +5190,8 @@ ol li {
   font-weight: 300; }
   .team-member__foto {
     margin-bottom: 3rem; }
+    .team-member__foto img {
+      width: 100%; }
   .team-member__name {
     font-weight: 900; }
 

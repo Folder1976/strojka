@@ -294,6 +294,7 @@ class ControllerProductCategory extends Controller {
 			$filter_data = array(
 				'filter_category_id' => $category_id,
 				'filter_filter'      => $filter,
+				'filter_sub_category' => true,
 				'sort'               => $sort,
 				'order'              => $order,
 				'start'              => ($page - 1) * $limit,
@@ -809,3 +810,4 @@ class ControllerProductCategory extends Controller {
 		}
 	}
 }
+

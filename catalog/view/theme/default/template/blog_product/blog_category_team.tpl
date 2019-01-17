@@ -43,65 +43,26 @@ $news = array();
 
       <?php if ($categories) { ?>
         <?php foreach ($categories as $category) { ?>
-<<<<<<< HEAD
-          <h3 class="widget-title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h3>
+          <h3 class="widget-title"><?php echo $category['name']; ?></h3>
            <?php if ($products) { ?>
-            <div class="news-list news-list--blog">
+            <div class="team-list team-list--col3">
               <?php foreach ($products as $product) { ?>
                 <?php if($product['sku'] == $category['keyword']){ ?>
-                  <div class="news-list__item news-item">
-                    <div class="news-item__img">
-                      <a href="<?php echo $product['href']; ?>"><img class="img--cover" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
+                  <div class="team-list__item team-member">
+                    <div class="team-member__foto">
+                      <img class="img--cover" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>">
                     </div>
-                    <div class="news-item__desc">
-                      <div class="news-item__date"><?php echo '1.12.2018';//$product['date']; ?></div>
-                      <div class="news-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-                    </div>
+                    <div class="team-member__name"><?php echo $product['name']; ?></div>
+                    <div class="team-member__position"><?php echo $product['description']; ?></div>
                   </div>
                 <?php } ?>
               <?php } ?>
-=======
-          <h3 class="widget-title"><?php echo $category['name']; ?></h3>
-        <?php } ?>
-      <?php } ?>
-
-      <?php if ($products) { ?>
-        <div class="news-list news-list--blog">
-          <?php foreach ($products as $product) { ?>
-            <div class="news-list__item news-item">
-              <div class="news-item__img">
-                <a href="<?php echo $product['href']; ?>"><img class="img--cover" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
-              </div>
-              <div class="news-item__desc">
-                <div class="news-item__date"><?php echo '1.12.2018';//$product['date']; ?></div>
-                <div class="news-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-              </div>
->>>>>>> 859db469116723ef96e9fed1c5cc5cbb1b47e3fb
             </div>
           <?php } ?>
         <?php } ?>
       <?php } ?>
 
-   
-     
 
-      <!--div class="pagination-wrap">
-        <div class=""><?php echo $pagination; ?></div>
-        <div class="form-group input-group input-group-sm limit-per-page">
-          <label for="input-limit"><?php echo $text_limit; ?></label>
-          <select id="input-limit" class="form-control" onchange="location = this.value;">
-            <?php foreach ($limits as $limits) { ?>
-            <?php if ($limits['value'] == $limit) { ?>
-            <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-            <?php } else { ?>
-            <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-            <?php } ?>
-            <?php } ?>
-          </select>
-        </div>
-      </div-->      
-
-      <hr class="hr--black">
       <br>
 
     </div>
@@ -294,4 +255,3 @@ $news = array();
 
 
 <?php echo $footer; ?>
-

@@ -34,7 +34,9 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
   <div class="row">
 
-    <div class="col-md-9 col-md-push-3">
+    <?php echo $column_left; ?>
+
+    <div class="col-md-9">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
       <?php if ( isset($anchor_list) && count($anchor_list) > 0 ) { ?>
@@ -220,23 +222,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
     </div>
 
-    <div class="col-md-3 col-md-pull-9">
-     
-      <h3 class="widget-title">Подобрать товар</h3>
 
-      <?php echo $column_left; ?>
-
-      <div class="seller">
-        <div class="seller__img">
-          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Иннокентий Гаврилов. Менеджер отдела продаж">
-        </div>
-        <div class="seller__name">Иннокентий Гаврилов</div>
-        <div class="seller__post">Менеджер отдела продаж</div>
-        <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
-        <p><a href="#">Калькулятор и составление КП</a></p>
-        <p><a href="#">Закажите замер по Москве и МО</a></p>
-      </div>
-    </div>
   </div>
 
 </div>

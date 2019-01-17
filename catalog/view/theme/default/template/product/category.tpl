@@ -221,6 +221,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
     </div>
 
     <div class="col-md-3 col-md-pull-9">
+     
       <h3 class="widget-title">Подобрать товар</h3>
 
       <?php echo $column_left; ?>
@@ -434,3 +435,4 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
 
 <?php echo $footer; ?>
+

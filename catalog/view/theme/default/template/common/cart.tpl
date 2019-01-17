@@ -1,10 +1,8 @@
-<div id="cart" class="btn-group btn-block header-cart">
-  <div class="header-cart__left-col">
-    <a href="#">Услуги</a>
-    <a href="#">Товары</a>
-  </div>
-  <div class="header-cart__right-col">
-    <button type="button" data-toggle="dropdown" data-loading-text="<?php echo $text_loading; ?>" class="header-cart__btn dropdown-toggle"><svg class="icon icon-cart header-cart__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#cart"></use></svg> <span id="cart-total"><span class="header-cart__total">999 999 р</span><br><span class="header-cart__text">в корзину<?php //echo $text_items; ?></span></span></button>
+  <div class="header-cart__right-col" id="cart">
+    <button type="button" data-toggle="dropdown" data-loading-text="<?php echo $text_loading; ?>" class="header-cart__btn dropdown-toggle">
+    <svg class="icon icon-cart header-cart__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#cart"></use></svg>
+    <span id="cart-total"><span class="header-cart__total" id="cart_total_target"><?php echo $total; ?></span><br><span class="header-cart__text"><?php echo $text_cart;?>
+    </span></span></button>
     <ul class="dropdown-menu pull-right">
       <?php if ($products || $vouchers) { ?>
       <li>
@@ -61,4 +59,4 @@
       <?php } ?>
     </ul>
   </div>
-</div>
+

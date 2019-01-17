@@ -314,7 +314,16 @@ $bottom_menu = array(
             </div>
           </div>
           <div class="col-xs-12 col-sm-5 col-md-3">
-            <div class="header__cart"><?php echo $cart; ?></div>
+            <div class="header__cart" id="cart_wrapper">
+            <div id="cart_wrapper2" class="btn-group btn-block header-cart">
+              <div class="header-cart__left-col">
+                <a href="#">Услуги</a>
+                <a href="#">Товары</a>
+              </div>
+              <div id="cart_wrapper3">
+                <?php echo $cart; ?>
+              </div>
+            </div>
           </div>
         </div>
       </div>

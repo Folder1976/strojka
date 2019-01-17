@@ -4682,6 +4682,7 @@ ol li {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   .product-layout__image {
+    min-height: 27rem;
     border-bottom: 1px solid #fbbe18; }
     .product-layout__image a {
       display: block; }
@@ -4739,6 +4740,22 @@ ol li {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between; }
+
+.product-layout--cat {
+  border-color: transparent;
+  margin-bottom: 5rem; }
+  .product-layout--cat .product-layout__image {
+    border: 0; }
+  .product-layout--cat .product-layout__caption,
+  .product-layout--cat .product-layout__bottom {
+    background-color: #fbbe18; }
+  .product-layout--cat .product-layout__bottom::before {
+    border: 0; }
+  .product-layout--cat .product-layout__price {
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-align: left;
+    margin-bottom: 0; }
 
 .product-layout-attr__title {
   font-weight: 900; }

@@ -66,6 +66,31 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         </div>
       <?php } // end.frequently_visited_pages ?>
 
+
+
+      <?php if ( isset($categories) and count($categories) > 0 ) { ?>
+        <div class="product-list">
+          <?php foreach ($categories as $category) { ?>
+            <div class="product-layout product-layout--cat">
+              <div class="product-layout__image product-thumb">
+                <a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['name']; ?>" title="<?php echo $category['name']; ?>" class="img-responsive" /></a>
+              </div>
+              <div class="product-layout__caption">
+                <h4 class="product-layout__title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h4>
+              </div>
+              <div class="product-layout__bottom">
+                <div class="product-layout__price">(от 447 руб.)</div>
+              <?php if ( isset($category['price']) && $category['price'] != '' ) { ?>
+                <div class="product-layout__price"><?php echo $category['price']; ?></div>
+              <?php } ?>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      <?php } ?>
+
+
+
       <?php if ($products) { ?>
         <div class="row" style="display: none;">
           <div class="col-md-2 col-sm-6 hidden-xs">
@@ -171,9 +196,19 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
+        <div class="pagination-wrap">
+          <div class=""><?php echo $pagination; ?></div>
+          <div class="form-group input-group input-group-sm limit-per-page">
+            <label for="input-limit"><?php echo $text_limit; ?></label>
+            <select id="input-limit" class="form-control" onchange="location = this.value;">
+              <?php foreach ($limits as $limits) { ?>
+              <?php if ($limits['value'] == $limit) { ?>
+              <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
+              <?php } else { ?>
+              <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+              <?php } ?>
+              <?php } ?>
+            </select>
           </div>
         </div>
       <?php } ?>

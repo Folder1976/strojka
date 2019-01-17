@@ -3787,8 +3787,6 @@ hr,
       .header__inner {
         display: block;
         text-align: right; } }
-  .header__top {
-    border-bottom: 1px solid #fbbe18; }
   .header__logo {
     height: 40px; }
     @media screen and (max-width: 768px) {
@@ -3827,7 +3825,8 @@ hr,
       .header__cart {
         position: static; } }
   .header__bottom {
-    padding: 10px 0; }
+    padding: 10px 0;
+    border-top: 1px solid #fbbe18; }
   .header__bottom-menu {
     display: -webkit-box;
     display: -ms-flexbox;

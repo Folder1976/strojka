@@ -4392,7 +4392,8 @@ a.btn {
     padding: 0 0 0 2.5rem;
     -webkit-transition: all .3;
     transition: all .3;
-    display: inline-block; }
+    display: inline-block;
+    cursor: pointer; }
     .checkbox + label:hover {
       opacity: .8; }
   .checkbox + label:before,
@@ -4753,6 +4754,90 @@ ol li {
 .cat-description__thumb {
   margin: 0 3rem 1.5rem 0;
   float: left; }
+
+.filter__form {
+  margin-bottom: 3rem; }
+
+.filter__btn-group {
+  background: #e4e4e4;
+  padding: 1.8rem 2.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+
+.filter__btn {
+  font-size: 14px;
+  font-weight: 300;
+  text-transform: uppercase;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 2px 0;
+  width: 100%; }
+
+.filter__btn-submit {
+  color: #ffffff;
+  background: #000; }
+
+.filter__btn-reset {
+  color: #000000;
+  background: #fbbe18; }
+
+.filter-group__title {
+  color: #000;
+  font-size: 1.8rem;
+  font-weight: 900;
+  display: block;
+  position: relative;
+  padding: 1rem 3rem 1rem 0;
+  border-top: 1px solid #000;
+  margin-top: 1rem; }
+  .filter-group__title:first-child {
+    border-top: 0;
+    margin-top: 0; }
+  .filter-group__title:hover {
+    color: #000;
+    cursor: pointer;
+    text-decoration: none; }
+  .filter-group__title:after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 1.2rem;
+    right: 8px;
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+    width: 12px;
+    height: 12px;
+    -webkit-transform: rotate(-135deg);
+        -ms-transform: rotate(-135deg);
+            transform: rotate(-135deg);
+    -webkit-transition: all .3s;
+    transition: all .3s; }
+  .filter-group__title.is-open:after {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    top: 1.9rem; }
+
+.filter-group:last-children .filter-group__content {
+  border-bottom: 0;
+  margin-bottom: 0; }
+
+.filter-item {
+  font-size: 12px;
+  font-weight: 300; }
+  .filter-item .checkbox + label {
+    padding: 0 0 0 4rem; }
+    .filter-item .checkbox + label:before, .filter-item .checkbox + label:after {
+      width: 1.2rem;
+      height: 1.2rem;
+      top: .2rem; }
 
 .news-item {
   color: #000;

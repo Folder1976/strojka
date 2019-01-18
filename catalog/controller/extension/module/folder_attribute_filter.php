@@ -2,6 +2,8 @@
 class ControllerExtensionModuleFolderAttributeFilter extends Controller {
 	public function index() {
         
+	
+		
         $data = array();
         $data['filter_manufactures'] = array();
         $data['filter_attributes'] = array();
@@ -13,6 +15,9 @@ class ControllerExtensionModuleFolderAttributeFilter extends Controller {
         
         $data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path']));
       
+        if(isset($this->session->data['prices']))
+            $data['prices'] = $this->session->data['prices'];
+            
         if(isset($this->session->data['filter_manufactures']))
             $data['filter_manufactures'] = $this->session->data['filter_manufactures'];
             
@@ -52,3 +57,4 @@ class ControllerExtensionModuleFolderAttributeFilter extends Controller {
         return '';
 	}
 }
+

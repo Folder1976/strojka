@@ -1,26 +1,19 @@
 <?php echo $header; ?>
 
 <?php
-$news = array(
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-1.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-2.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-3.jpg',
-    'link' => '#',
-  ),
-);
+$news = array();
+ if ($products1) {
+    foreach ($products1 as $product) {
+      
+      $news[] = array(
+                    'title' => $product['name'],
+                    'date' => $product['date_added'],
+                    'foto' => $product['thumb'],
+                    'link' => $product['href'],
+                      );
+ 
+    }
+ }
 ?>
 
 <div class="container">
@@ -88,7 +81,7 @@ $news = array(
     </div>
 
     <div class="col-md-3 col-md-pull-9">
-      <?php echo $column_left; ?>
+      <?php //echo $column_left; ?>
 
       <h3 class="widget-title">Новости компании</h3>
       <div class="news-list">
@@ -275,3 +268,4 @@ $news = array(
 
 
 <?php echo $footer; ?>
+

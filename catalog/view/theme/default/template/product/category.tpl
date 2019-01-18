@@ -64,6 +64,30 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         </div>
       <?php } // end.frequently_visited_pages ?>
 
+
+
+      <?php if ( isset($categories) and count($categories) > 0 ) { ?>
+        <div class="product-list">
+          <?php foreach ($categories as $category) { ?>
+            <div class="product-layout product-layout--cat">
+              <div class="product-layout__image product-thumb">
+                <a href="<?php echo $category['href']; ?>"><img src="<?php echo $category['thumb']; ?>" alt="<?php echo $category['name']; ?>" title="<?php echo $category['name']; ?>" class="img-responsive" /></a>
+              </div>
+              <div class="product-layout__caption">
+                <h4 class="product-layout__title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h4>
+              </div>
+              <div class="product-layout__bottom">
+              <?php if ( $category['price'] ) { ?>
+                <div class="product-layout__price">(от <?php echo $category['price']; ?>)</div>
+              <?php } ?>
+              </div>
+            </div>
+          <?php } ?>
+        </div>
+      <?php } ?>
+
+
+
       <?php if ($products) { ?>
         <div class="row" style="display: none;">
           <div class="col-md-2 col-sm-6 hidden-xs">
@@ -138,13 +162,23 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
                     </div>
                     <?php } ?>
 
-
                     <div class="product-layout__attr-list">
-                      <div class="product-layout-attr"><span class="product-layout-attr__title">Гарантия (лет):</span> 25</div>
-                      <div class="product-layout-attr"><span class="product-layout-attr__title">Полезная площадь (одной упаковки), кв.м.:</span> 3 кв.м.</div>
+                      
+                      <?php $show_attributes = array('23', '29'); $i = 1; ?>
+                      
+                      <?php foreach($product['attributes'] as $attr){ ?>
+                      <?php foreach($attr['attribute'] as $attribute){ ?>
+                      
+                        <?php //Пока не определились какие атрибуты выводить - просто два первых ?>
+                        <?php if($i++ < 3){ ?>
+                        <?php //if(in_array($attribute['attribute_id'], $show_attributes)){ ?>
+                          <div class="product-layout-attr"><span class="product-layout-attr__title"><?php echo $attribute['name']; ?>:</span> <?php echo $attribute['text']; ?></div>
+                        <?php } ?>
+                      <?php } ?>
+                      <?php } ?>
                     </div>
 
-                    <div class="product-layout__stock is-instock">Есть в наличии</div>
+                    <div class="product-layout__stock is-instock"><?php echo $product['stock']; ?></div>
 
                     <?php if ($product['special']) { ?>
                       <div class="product-layout__special-price">
@@ -169,9 +203,19 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
+        <div class="pagination-wrap">
+          <div class=""><?php echo $pagination; ?></div>
+          <div class="form-group input-group input-group-sm limit-per-page">
+            <!--label for="input-limit"><?php echo $text_limit; ?></label>
+            <select id="input-limit" class="form-control" onchange="location = this.value;">
+              <?php foreach ($limits as $limits) { ?>
+              <?php if ($limits['value'] == $limit) { ?>
+              <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
+              <?php } else { ?>
+              <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+              <?php } ?>
+              <?php } ?>
+            </select-->
           </div>
         </div>
       <?php } ?>
@@ -220,23 +264,10 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
     </div>
 
-    <div class="col-md-3 col-md-pull-9">
-     
-      <h3 class="widget-title">Подобрать товар</h3>
-
+    <aside id="column-left" class="col-md-3 col-md-pull-9">
       <?php echo $column_left; ?>
+    </aside>
 
-      <div class="seller">
-        <div class="seller__img">
-          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Иннокентий Гаврилов. Менеджер отдела продаж">
-        </div>
-        <div class="seller__name">Иннокентий Гаврилов</div>
-        <div class="seller__post">Менеджер отдела продаж</div>
-        <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
-        <p><a href="#">Калькулятор и составление КП</a></p>
-        <p><a href="#">Закажите замер по Москве и МО</a></p>
-      </div>
-    </div>
   </div>
 
 </div>
@@ -364,15 +395,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
       </div>
       <?php } ?>
       <!-- Product edit link on front * * * End -->
-            
 
-      <!-- Product edit link on front * * * Start -->
-      <?php if(isset($token) AND $token){ ?>
-      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
-        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
-      </div>
-      <?php } ?>
-      <!-- Product edit link on front * * * End -->
             
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
             <div>
@@ -414,8 +437,8 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         <?php } ?>
       </div>
       <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
+        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div><!--
+        --><div class="col-sm-6 text-right"><?php echo $results; ?></div>
       </div>
       <?php } ?>
       <?php if (!$categories && !$products) { ?>
@@ -435,4 +458,5 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
 
 <?php echo $footer; ?>
+
 

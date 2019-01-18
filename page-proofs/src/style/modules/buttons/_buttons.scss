@@ -32,6 +32,10 @@ a.btn {
     border-radius: 0;
   }
 
+  &--w100 {
+    width: 100%;
+  }
+
   &--orange {
     background-color: $primary_color;
     border-color: $primary_color;

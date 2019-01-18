@@ -1,0 +1,53 @@
+.ui-slider {
+  left: -5px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 5px;
+    right: -5px;
+    height: 4px;
+    width: 100%;
+    background: #ededed;
+    border: 1px solid #000;
+  }
+}
+
+.ui-slider .ui-slider-handle {
+
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+
+  &:before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 50%;
+    height: 2.6rem;
+    width: .6rem;
+    background: #000;
+    transform: translate(-50%, 0);
+    transition: all .3s;
+  }
+
+  &.ui-state-hover,
+  &.ui-state-active,
+  &.ui-state-focus {
+    &:before {
+      background: $primary_color;
+    }
+  }
+
+  span {
+    position: relative;
+    top: 7px;
+    left: 25px;
+    white-space: nowrap;
+    font-size: 1.8rem;
+    font-weight: 300;
+  }
+}

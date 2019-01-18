@@ -25,7 +25,7 @@
   }
 
   &__top {
-    border-bottom: 1px solid $primary_color;
+    // border-bottom: 1px solid $primary_color;
   }
 
   &__logo {
@@ -95,6 +95,7 @@
 
   &__bottom {
     padding: 10px 0;
+    border-top: 1px solid $primary_color;
   }
 
   &__bottom-menu {

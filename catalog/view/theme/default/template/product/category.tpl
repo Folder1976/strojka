@@ -78,7 +78,11 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
               </div>
               <div class="product-layout__bottom">
               <?php if ( $category['price'] ) { ?>
+<<<<<<< HEAD
                 <div class="product-layout__price">(от <?php echo $category['price']; ?>)</div>
+=======
+                <div class="product-layout__price"><?php echo $category['price']; ?></div>
+>>>>>>> 1633efe5935c4637d10b7da436c903250c21c6ee
               <?php } ?>
               </div>
             </div>
@@ -206,7 +210,11 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         <div class="pagination-wrap">
           <div class=""><?php echo $pagination; ?></div>
           <div class="form-group input-group input-group-sm limit-per-page">
+<<<<<<< HEAD
             <!--label for="input-limit"><?php echo $text_limit; ?></label>
+=======
+            <label for="input-limit"><?php echo $text_limit; ?></label>
+>>>>>>> 1633efe5935c4637d10b7da436c903250c21c6ee
             <select id="input-limit" class="form-control" onchange="location = this.value;">
               <?php foreach ($limits as $limits) { ?>
               <?php if ($limits['value'] == $limit) { ?>
@@ -215,7 +223,11 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
               <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
               <?php } ?>
               <?php } ?>
+<<<<<<< HEAD
             </select-->
+=======
+            </select>
+>>>>>>> 1633efe5935c4637d10b7da436c903250c21c6ee
           </div>
         </div>
       <?php } ?>

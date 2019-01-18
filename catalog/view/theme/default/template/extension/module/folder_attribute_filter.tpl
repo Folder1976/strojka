@@ -4,6 +4,7 @@
   <div class="widget-title"><?php echo $heading_title; ?></div>
   <div class="list-group">
 
+<<<<<<< HEAD
 
     <?php if(isset($prices) AND count($prices) > 1){ ?>
       <a class="filter-group__title">Цена</a>
@@ -15,6 +16,8 @@
       </div>
     <?php } ?>
 
+=======
+>>>>>>> 1633efe5935c4637d10b7da436c903250c21c6ee
 		<?php if(isset($filter_manufactures) AND count($filter_manufactures) > 1){ ?>
 				<a class="filter-group__title"><?php echo $manufacture_title; ?></a>
 				<div class="filter-group__content">

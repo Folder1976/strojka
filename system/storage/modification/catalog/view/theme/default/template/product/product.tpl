@@ -9,7 +9,7 @@ else {
 $id_como_string = (string)$product_id;
 $array_produtos = $_COOKIE['IdProduto'];
 if(strpos($array_produtos,','.$id_como_string.',')==strlen($array_produtos)-strlen($id_como_string)-2){   
-}		
+}   
 else if(strpos($array_produtos,$id_como_string.',') === 0){ 
 $array_produtos = str_replace($id_como_string.',','',$array_produtos);
 $array_produtos .= $id_como_string . ',';
@@ -26,6 +26,228 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 }
 }
 ?>
+
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <ul class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row prod-page" id="content">
+
+    <div class="col-md-9 col-md-push-3">
+
+			<!-- Product edit link on front * * * Start -->
+			<?php if(isset($token) AND $token){ ?>
+			<div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;margin-top: -30px;">
+				<a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product_id; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
+			</div>
+			<?php } ?>
+			<!-- Product edit link on front * * * End -->
+					  
+      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+
+      <div id="product" class="row prod-page__prod-info prod-info">
+        <div class="col-md-4">
+
+          <?php if ($thumb) { ?>
+            <a class="prod-page__thumb" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
+          <?php } ?>
+        </div>
+
+        <div class="col-md-8">
+          <ul class="anchor-list">
+
+            <?php if ($attribute_groups) { ?>
+              <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#specification'; ?>">характеристики</a></li>
+            <?php } ?>
+
+            <?php if ($products) { ?>
+              <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#related'; ?>">с этим материалом покупают</a></li>
+            <?php } ?>
+
+            <?php // if ($????) { ?>
+            <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#accessories'; ?>">Аксессуары</a></li>
+            <?php // } ?>
+          </ul>
+
+
+          <?php if ($price) { ?>
+          <div class="prod-info__row prod-info__row--bdb">
+            <div class="prod-info__col prod-info__col--100">
+              <div class="prod-info__col-title">Цена за штуку:</div>
+              <?php if (!$special) { ?>
+                <div class="prod-info__price"><?php echo $price; ?></div>
+              <?php } else { ?>
+                <div class="prod-info__price"><?php echo $special; ?></div>
+                <div class="prod-info__olp-price"><?php echo $price; ?></div>
+              <?php } ?>
+            </div>
+
+            <div class="prod-info__col prod-info__col--100">
+              <div class="prod-info__col-title"><?php echo $entry_qty; ?></div>
+              <div class="form-group">
+                <div class="input-count">
+                  <button class="input-count__btn js-input-count-minus">-</button>
+                  <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="input-count__num">
+                  <button class="input-count__btn js-input-count-plus">+</button>
+                  
+                  <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-info__col prod-info__col--100">
+              <div class="prod-info__col-title">Итого:</div>
+              <?php
+              if (!$special) {
+                $total_price = floatval($price) * $minimum;
+              } else {
+                $total_price = floatval($special) * $minimum;
+              }
+              ?>
+              <div class="prod-info__price js-total-price"><?php echo $total_price.' руб.'; ?></div>
+            </div>
+          </div>
+          <?php } ?>
+
+          <div class="prod-info__row">
+            <div class="prod-info__col">
+              <div><b>Под заказ 3-4 рабочих дня</b></div>
+              <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+            </div>
+            <div class="prod-info__col">
+              <button type="button" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--dib btn--buy">Поторговаться</button>
+              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--black btn--dib btn--buy"><?php echo $button_cart; ?></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <?php if ($attribute_groups) { ?>
+      <div id="specification" class="prod-page__specification">
+        <div class="tab-pane" id="tab-specification">
+          <table class="table table--prod-specification">
+            <?php foreach ($attribute_groups as $attribute_group) { ?>
+            <thead>
+              <tr>
+                <th><?php echo $attribute_group['name']; ?></th>
+                <th>Значения</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+              <tr>
+
+				<!-- attribute_image * * * Start -->
+				<td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td>
+				<!-- attribute_image * * * End -->
+					  
+                <td><?php echo $attribute['name']; ?></td>
+                <td><?php echo $attribute['text']; ?></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+            <?php } ?>
+          </table>
+        </div>
+      </div>
+      <?php } ?>
+
+
+      <?php if ($products) { ?>
+      <div id="related" class="prod-page__related">
+        <h3 class="h3-title"><?php echo $text_related; ?></h3>
+        <div class="product-list">
+        <?php foreach ($products as $product) { ?>
+          <div class="product-layout">
+            <div class="product-layout__image product-thumb">
+              <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
+            </div>
+            <div class="product-layout__caption">
+              <h4 class="product-layout__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+              <?php if ($product['rating']) { ?>
+              <div class="rating">
+                <?php for ($i = 1; $i <= 5; $i++) { ?>
+                <?php if ($product['rating'] < $i) { ?>
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                <?php } else { ?>
+                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                <?php } ?>
+                <?php } ?>
+              </div>
+              <?php } ?>
+
+
+              <div class="product-layout__attr-list">
+                <div class="product-layout-attr"><span class="product-layout-attr__title">Гарантия (лет):</span> 25</div>
+                <div class="product-layout-attr"><span class="product-layout-attr__title">Полезная площадь (одной упаковки), кв.м.:</span> 3 кв.м.</div>
+              </div>
+
+              <div class="product-layout__stock is-instock">Есть в наличии</div>
+
+              <?php if ($product['special']) { ?>
+                <div class="product-layout__special-price">
+                  <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
+                  <div class="product-layout__special-percent">-50%</div>
+                </div>
+              <?php } ?>
+
+            </div>
+            <div class="product-layout__bottom">
+
+              <?php if ($product['price']) { ?>
+                <div class="product-layout__price"><?php echo $product['price']; ?></div>
+              <?php } ?>
+              <div class="product-layout__button-group">
+                <button type="button" class="btn btn--black btn--dib btn--buy" onclick="cart.add('<?php echo $product['product_id']; ?>');"><?php echo $button_cart; ?></button>
+                <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+        </div>
+      </div>
+      <?php } ?>
+
+    </div>
+
+    <aside id="column-left" class="col-md-3 col-md-pull-9">
+      <?php echo $column_left; ?>
+    </aside>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if (false) { ?>
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -78,6 +300,11 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
                 <thead>
                   <tr>
 
+        <!-- attribute_image * * * Start -->
+        <td colspan="3"><strong><?php echo $attribute_group['name']; ?></strong></td>
+        <!-- attribute_image * * * End -->
+            
+
 				<!-- attribute_image * * * Start -->
 				<td colspan="3"><strong><?php echo $attribute_group['name']; ?></strong></td>
 				<!-- attribute_image * * * End -->
@@ -88,6 +315,11 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
                 <tbody>
                   <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
                   <tr>
+
+        <!-- attribute_image * * * Start -->
+        <td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td>
+        <!-- attribute_image * * * End -->
+            
 
 				<!-- attribute_image * * * Start -->
 				<td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td>
@@ -160,6 +392,15 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product_id; ?>');"><i class="fa fa-heart"></i></button>
             <button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>
           </div>
+
+      <!-- Product edit link on front * * * Start -->
+      <?php if(isset($token) AND $token){ ?>
+      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;margin-top: -30px;">
+        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product_id; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
+      </div>
+      <?php } ?>
+      <!-- Product edit link on front * * * End -->
+            
 
 			<!-- Product edit link on front * * * Start -->
 			<?php if(isset($token) AND $token){ ?>
@@ -439,144 +680,198 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script><!--
+function updateTotal(q) {
+  var p = parseFloat( '<?php if (!$special) {
+    echo $price;
+  } else {
+   echo $price;
+  } ?>');
+
+  $('.js-total-price').html( p*q+' руб.');
+}
+
+$('.input-count').on('click', '.js-input-count-minus', function(e) {
+  e.preventDefault;
+
+  var value = $(this).siblings('.input-count__num');
+  var q = parseInt( value.val() );
+
+  if ( q > 1) {
+    value.val(q-1);
+  }
+
+  updateTotal(q);
+});
+
+$('.input-count').on('click', '.js-input-count-plus', function(e) {
+  e.preventDefault;
+
+  var value = $(this).siblings('.input-count__num');
+  var q = parseInt( value.val() );
+
+  value.val(q+1);
+
+  updateTotal(q);
+});
+// updateTotal(<?php echo $minimum; ?>);
+//--></script>
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
-	$.ajax({
-		url: 'index.php?route=product/product/getRecurringDescription',
-		type: 'post',
-		data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
-		dataType: 'json',
-		beforeSend: function() {
-			$('#recurring-description').html('');
-		},
-		success: function(json) {
-			$('.alert, .text-danger').remove();
+  $.ajax({
+    url: 'index.php?route=product/product/getRecurringDescription',
+    type: 'post',
+    data: $('input[name=\'product_id\'], input[name=\'quantity\'], select[name=\'recurring_id\']'),
+    dataType: 'json',
+    beforeSend: function() {
+      $('#recurring-description').html('');
+    },
+    success: function(json) {
+      $('.alert, .text-danger').remove();
 
-			if (json['success']) {
-				$('#recurring-description').html(json['success']);
-			}
-		}
-	});
+      if (json['success']) {
+        $('#recurring-description').html(json['success']);
+      }
+    }
+  });
 });
 //--></script>
 <script type="text/javascript"><!--
 $('#button-cart').on('click', function() {
-	$.ajax({
-		url: 'index.php?route=checkout/cart/add',
-		type: 'post',
-		data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
-		dataType: 'json',
-		beforeSend: function() {
-			$('#button-cart').button('loading');
-		},
-		complete: function() {
-			$('#button-cart').button('reset');
-		},
-		success: function(json) {
-			$('.alert, .text-danger').remove();
-			$('.form-group').removeClass('has-error');
+  $.ajax({
+    url: 'index.php?route=checkout/cart/add',
+    type: 'post',
+    data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+    dataType: 'json',
+    beforeSend: function() {
+      $('#button-cart').button('loading');
+    },
+    complete: function() {
+      $('#button-cart').button('reset');
+    },
+    success: function(json) {
+      $('.alert, .text-danger').remove();
+      $('.form-group').removeClass('has-error');
 
-			if (json['error']) {
-				if (json['error']['option']) {
-					for (i in json['error']['option']) {
-						var element = $('#input-option' + i.replace('_', '-'));
+      if (json['error']) {
+        if (json['error']['option']) {
+          for (i in json['error']['option']) {
+            var element = $('#input-option' + i.replace('_', '-'));
 
-						if (element.parent().hasClass('input-group')) {
-							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						} else {
-							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
-						}
-					}
-				}
+            if (element.parent().hasClass('input-group')) {
+              element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+            } else {
+              element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+            }
+          }
+        }
 
-				if (json['error']['recurring']) {
-					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
-				}
+        if (json['error']['recurring']) {
+          $('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+        }
 
-				// Highlight any found errors
-				$('.text-danger').parent().addClass('has-error');
-			}
+        // Highlight any found errors
+        $('.text-danger').parent().addClass('has-error');
+      }
 
-			if (json['success']) {
-				$('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+      if (json['success']) {
+        $('.breadcrumb').after('<div class="alert alert-success">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
 
-				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+        $('#cart_total_target').html(json['total']);
 
-				$('html, body').animate({ scrollTop: 0 }, 'slow');
+       
+        
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
 
-				$('#cart > ul').load('index.php?route=common/cart/info ul li');
-			}
-		},
+        $('#cart > ul').load('index.php?route=common/cart/info ul li');
+      }
+    },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
         }
-	});
+  });
 });
 //--></script>
 <script type="text/javascript"><!--
 $('.date').datetimepicker({
-	pickTime: false
+  pickTime: false
 });
 
 $('.datetime').datetimepicker({
-	pickDate: true,
-	pickTime: true
+  pickDate: true,
+  pickTime: true
 });
 
 $('.time').datetimepicker({
-	pickDate: false
+  pickDate: false
 });
 
 $('button[id^=\'button-upload\']').on('click', function() {
-	var node = this;
+  var node = this;
 
-	$('#form-upload').remove();
+  $('#form-upload').remove();
 
-	$('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
+  $('body').prepend('<form enctype="multipart/form-data" id="form-upload" style="display: none;"><input type="file" name="file" /></form>');
 
-	$('#form-upload input[name=\'file\']').trigger('click');
+  $('#form-upload input[name=\'file\']').trigger('click');
 
-	if (typeof timer != 'undefined') {
-    	clearInterval(timer);
-	}
+  if (typeof timer != 'undefined') {
+      clearInterval(timer);
+  }
 
-	timer = setInterval(function() {
-		if ($('#form-upload input[name=\'file\']').val() != '') {
-			clearInterval(timer);
+  timer = setInterval(function() {
+    if ($('#form-upload input[name=\'file\']').val() != '') {
+      clearInterval(timer);
 
-			$.ajax({
-				url: 'index.php?route=tool/upload',
-				type: 'post',
-				dataType: 'json',
-				data: new FormData($('#form-upload')[0]),
-				cache: false,
-				contentType: false,
-				processData: false,
-				beforeSend: function() {
-					$(node).button('loading');
-				},
-				complete: function() {
-					$(node).button('reset');
-				},
-				success: function(json) {
-					$('.text-danger').remove();
+      $.ajax({
+        url: 'index.php?route=tool/upload',
+        type: 'post',
+        dataType: 'json',
+        data: new FormData($('#form-upload')[0]),
+        cache: false,
+        contentType: false,
+        processData: false,
+        beforeSend: function() {
+          $(node).button('loading');
+        },
+        complete: function() {
+          $(node).button('reset');
+        },
+        success: function(json) {
+          $('.text-danger').remove();
 
-					if (json['error']) {
-						$(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
-					}
+          if (json['error']) {
+            $(node).parent().find('input').after('<div class="text-danger">' + json['error'] + '</div>');
+          }
 
-					if (json['success']) {
-						alert(json['success']);
+          if (json['success']) {
+            alert(json['success']);
 
-						$(node).parent().find('input').val(json['code']);
-					}
-				},
-				error: function(xhr, ajaxOptions, thrownError) {
-					alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
-				}
-			});
-		}
-	}, 500);
+            $(node).parent().find('input').val(json['code']);
+          }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+          alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+      });
+    }
+  }, 500);
 });
 //--></script>
 <script type="text/javascript"><!--
@@ -593,43 +888,44 @@ $('#review').delegate('.pagination a', 'click', function(e) {
 $('#review').load('index.php?route=product/product/review&product_id=<?php echo $product_id; ?>');
 
 $('#button-review').on('click', function() {
-	$.ajax({
-		url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
-		type: 'post',
-		dataType: 'json',
-		data: $("#form-review").serialize(),
-		beforeSend: function() {
-			$('#button-review').button('loading');
-		},
-		complete: function() {
-			$('#button-review').button('reset');
-		},
-		success: function(json) {
-			$('.alert-success, .alert-danger').remove();
+  $.ajax({
+    url: 'index.php?route=product/product/write&product_id=<?php echo $product_id; ?>',
+    type: 'post',
+    dataType: 'json',
+    data: $("#form-review").serialize(),
+    beforeSend: function() {
+      $('#button-review').button('loading');
+    },
+    complete: function() {
+      $('#button-review').button('reset');
+    },
+    success: function(json) {
+      $('.alert-success, .alert-danger').remove();
 
-			if (json['error']) {
-				$('#review').after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
-			}
+      if (json['error']) {
+        $('#review').after('<div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> ' + json['error'] + '</div>');
+      }
 
-			if (json['success']) {
-				$('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
+      if (json['success']) {
+        $('#review').after('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + '</div>');
 
-				$('input[name=\'name\']').val('');
-				$('textarea[name=\'text\']').val('');
-				$('input[name=\'rating\']:checked').prop('checked', false);
-			}
-		}
-	});
+        $('input[name=\'name\']').val('');
+        $('textarea[name=\'text\']').val('');
+        $('input[name=\'rating\']:checked').prop('checked', false);
+      }
+    }
+  });
 });
 
 $(document).ready(function() {
-	$('.thumbnails').magnificPopup({
-		type:'image',
-		delegate: 'a',
-		gallery: {
-			enabled:true
-		}
-	});
+  $('.thumbnails').magnificPopup({
+    type:'image',
+    delegate: 'a',
+    gallery: {
+      enabled:true
+    }
+  });
 });
 //--></script>
 <?php echo $footer; ?>
+

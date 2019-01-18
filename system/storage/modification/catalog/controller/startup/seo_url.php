@@ -7,7 +7,14 @@ class ControllerStartupSeoUrl extends Controller {
 		}
 
 		// Decode URL
-		if (isset($this->request->get['_route_'])) {
+		if (isset($this->request->get['_route_']) AND (
+					strpos($this->request->get['_route_'], 'calc/') !== false
+					OR $this->request->get['_route_'] == 'calc')) {
+			
+			$this->request->get['route'] = 'calculator/calculator';
+			
+		// Decode URL
+		}elseif (isset($this->request->get['_route_'])) {
 			$parts = explode('/', $this->request->get['_route_']);
 
 			// remove any empty arrays from trailing
@@ -66,9 +73,11 @@ class ControllerStartupSeoUrl extends Controller {
 				}
 			}
 
+			
+			
 
 				//<!-- Blogi * * * Start -->
-				if ($query->row['query'] && ($url[0] != 'blog_product_id' || $url[0] != 'blog_category_id' )) {
+				if (isset($query->row['query']) && ($url[0] != 'blog_product_id' || $url[0] != 'blog_category_id' )) {
 					unset($this->request->get['route']);
 				}
 				//<!-- Blogi * * * End -->
@@ -196,3 +205,4 @@ class ControllerStartupSeoUrl extends Controller {
 		}
 	}
 }
+

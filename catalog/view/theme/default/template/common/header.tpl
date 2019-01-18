@@ -49,97 +49,25 @@ $top_menu = array(
       array(
         'name' => 'Отзывы о компании',
         'href' => '/company-reviews',
-        'children' => array(
-          array(
-            'name' => 'item 1 1',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 1 2',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 1 3',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 1 4',
-            'href' => '#',
-          ),
-        ),
       ),
       array(
         'name' => 'Наши работы',
         'href' => '/our-works',
-        'children' => array(
-          array(
-            'name' => 'item 2 1',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 2 2',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 2 3',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 2 2',
-            'href' => '#',
-          ),
-        ),
       ),
       array(
         'name' => 'Новости компании',
         'href' => '/news',
-        'children' => array(
-          array(
-            'name' => 'item 3 1',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 3 2',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 3 3',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 3 4',
-            'href' => '#',
-          ),
-        ),
       ),
       array(
         'name' => 'Наша команда',
         'href' => '/our-team',
-        'children' => array(
-          array(
-            'name' => 'item 4 1',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 4 2',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 4 3',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 4 4',
-            'href' => '#',
-          ),
-        ),
       ),
     )
   ),
   array (
     'name' => 'Товары',
     'href' => '',
-    'children' => array()
+    'children' => $categories
   ),
   array (
     'name' => 'Контакты',

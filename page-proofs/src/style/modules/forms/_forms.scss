@@ -147,6 +147,38 @@
 }
 
 
+
+.input-count {
+  display: inline-flex;
+  background-color: #e4e4e4;
+  font-weight: 900;
+  font-size: 1.8rem;
+  padding: .5rem;
+
+  &__btn {
+    border: 0;
+    background-color: transparent;
+    color: #000;    
+    font-size: 2rem;
+  }
+  &__num {
+    text-align: center;
+    background-color: #e4e4e4;
+    border: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 .form {
   &__group {
     margin-bottom: 15px;

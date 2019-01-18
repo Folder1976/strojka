@@ -34,9 +34,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
   <div class="row">
 
-    <?php echo $column_left; ?>
-
-    <div class="col-md-9">
+    <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
       <?php if ( isset($anchor_list) && count($anchor_list) > 0 ) { ?>
@@ -79,8 +77,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
                 <h4 class="product-layout__title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></h4>
               </div>
               <div class="product-layout__bottom">
-                <div class="product-layout__price">(от 447 руб.)</div>
-              <?php if ( isset($category['price']) && $category['price'] != '' ) { ?>
+              <?php if ( $category['price'] ) { ?>
                 <div class="product-layout__price"><?php echo $category['price']; ?></div>
               <?php } ?>
               </div>
@@ -257,6 +254,9 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
     </div>
 
+    <aside id="column-left" class="col-md-3 col-md-pull-9">
+      <?php echo $column_left; ?>
+    </aside>
 
   </div>
 
@@ -377,6 +377,15 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         <?php foreach ($products as $product) { ?>
         <div class="product-layout product-list col-xs-12">
           <div class="product-thumb">
+
+      <!-- Product edit link on front * * * Start -->
+      <?php if(isset($token) AND $token){ ?>
+      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
+        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
+      </div>
+      <?php } ?>
+      <!-- Product edit link on front * * * End -->
+            
 
       <!-- Product edit link on front * * * Start -->
       <?php if(isset($token) AND $token){ ?>

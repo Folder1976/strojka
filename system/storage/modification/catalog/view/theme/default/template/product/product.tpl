@@ -26,6 +26,224 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 }
 }
 ?>
+
+
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <ul class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row prod-page" id="content">
+
+    <div class="col-md-9 col-md-push-3">
+      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+
+      <!-- Product edit link on front * * * Start -->
+      <?php if(isset($token) AND $token){ ?>
+      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;margin-top: -30px;">
+        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product_id; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
+      </div>
+      <?php } ?>
+      <!-- Product edit link on front * * * End -->
+
+
+      <div id="product" class="row prod-page__prod-info prod-info">
+        <div class="col-md-4">
+
+          <a class="prod-page__thumb" href="http://cn08183.tmweb.ru/image/cache/catalog/product/3968aedd344d25f941c6c90e9f79c867-500x500.jpg" title="<?php echo $heading_title; ?>"><img src="http://cn08183.tmweb.ru/image/cache/catalog/product/3968aedd344d25f941c6c90e9f79c867-228x228.jpg" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
+          <?php if ($thumb) { ?>
+            <a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
+          <?php } ?>
+        </div>
+
+        <div class="col-md-8">
+          <ul class="anchor-list">
+
+            <?php if ($attribute_groups) { ?>
+              <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#specification'; ?>">характеристики</a></li>
+            <?php } ?>
+
+            <?php if ($products) { ?>
+              <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#related'; ?>">с этим материалом покупают</a></li>
+            <?php } ?>
+
+            <?php // if ($????) { ?>
+            <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#accessories'; ?>">Аксессуары</a></li>
+            <?php // } ?>
+          </ul>
+
+
+          <?php if ($price) { ?>
+          <div class="prod-info__row prod-info__row--bdb">
+            <div class="prod-info__col prod-info__col--100">
+              <div class="prod-info__col-title">Цена за штуку:</div>
+              <?php if (!$special) { ?>
+                <div class="prod-info__price"><?php echo $price; ?></div>
+              <?php } else { ?>
+                <div class="prod-info__price"><?php echo $special; ?></div>
+                <div class="prod-info__olp-price"><?php echo $price; ?></div>
+              <?php } ?>
+            </div>
+
+            <div class="prod-info__col prod-info__col--100">
+              <div class="prod-info__col-title"><?php echo $entry_qty; ?></div>
+              <div class="form-group">
+                <div class="input-count">
+                  <button class="input-count__btn js-input-count-minus">-</button>
+                  <input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="input-count__num">
+                  <button class="input-count__btn js-input-count-plus">+</button>
+                  
+                  <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                </div>
+              </div>
+            </div>
+
+            <div class="prod-info__col prod-info__col--100">
+              <div class="prod-info__col-title">Итого:</div>
+              <?php
+              if (!$special) {
+                $total_price = floatval($price) * $minimum;
+              } else {
+                $total_price = floatval($special) * $minimum;
+              }
+              ?>
+              <div class="prod-info__price js-total-price"><?php echo $total_price.' руб.'; ?></div>
+            </div>
+          </div>
+          <?php } ?>
+
+          <div class="prod-info__row">
+            <div class="prod-info__col">
+              <div><b>Под заказ 3-4 рабочих дня</b></div>
+              <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+            </div>
+            <div class="prod-info__col">
+              <button type="button" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--dib btn--buy">Поторговаться</button>
+              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--black btn--dib btn--buy"><?php echo $button_cart; ?></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <?php if ($attribute_groups) { ?>
+      <div id="specification" class="prod-page__specification">
+        <div class="tab-pane" id="tab-specification">
+          <table class="table table--prod-specification">
+            <?php foreach ($attribute_groups as $attribute_group) { ?>
+            <thead>
+              <tr>
+                <th><?php echo $attribute_group['name']; ?></th>
+                <th>Значения</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
+              <tr>
+                <td><?php echo $attribute['name']; ?></td>
+                <td><?php echo $attribute['text']; ?></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+            <?php } ?>
+          </table>
+        </div>
+      </div>
+      <?php } ?>
+
+
+      <?php if ($products) { ?>
+      <div id="related" class="prod-page__related">
+        <h3 class="h3-title"><?php echo $text_related; ?></h3>
+        <div class="product-list">
+        <?php foreach ($products as $product) { ?>
+          <div class="product-layout">
+            <div class="product-layout__image product-thumb">
+              <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
+            </div>
+            <div class="product-layout__caption">
+              <h4 class="product-layout__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+              <?php if ($product['rating']) { ?>
+              <div class="rating">
+                <?php for ($i = 1; $i <= 5; $i++) { ?>
+                <?php if ($product['rating'] < $i) { ?>
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                <?php } else { ?>
+                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                <?php } ?>
+                <?php } ?>
+              </div>
+              <?php } ?>
+
+
+              <div class="product-layout__attr-list">
+                <div class="product-layout-attr"><span class="product-layout-attr__title">Гарантия (лет):</span> 25</div>
+                <div class="product-layout-attr"><span class="product-layout-attr__title">Полезная площадь (одной упаковки), кв.м.:</span> 3 кв.м.</div>
+              </div>
+
+              <div class="product-layout__stock is-instock">Есть в наличии</div>
+
+              <?php if ($product['special']) { ?>
+                <div class="product-layout__special-price">
+                  <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
+                  <div class="product-layout__special-percent">-50%</div>
+                </div>
+              <?php } ?>
+
+            </div>
+            <div class="product-layout__bottom">
+
+              <?php if ($product['price']) { ?>
+                <div class="product-layout__price"><?php echo $product['price']; ?></div>
+              <?php } ?>
+              <div class="product-layout__button-group">
+                <button type="button" class="btn btn--black btn--dib btn--buy" onclick="cart.add('<?php echo $product['product_id']; ?>');"><?php echo $button_cart; ?></button>
+                <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+        </div>
+      </div>
+      <?php } ?>
+
+    </div>
+
+    <aside id="column-left" class="col-md-3 col-md-pull-9">
+      <?php echo $column_left; ?>
+    </aside>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if (false) { ?>
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -439,6 +657,58 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
       <?php echo $content_bottom; ?></div>
     <?php echo $column_right; ?></div>
 </div>
+<?php } ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script><!--
+function updateTotal(q) {
+  var p = parseFloat( '<?php if (!$special) {
+    echo $price;
+  } else {
+   echo $price;
+  } ?>');
+
+  $('.js-total-price').html( p*q+' руб.');
+}
+
+$('.input-count').on('click', '.js-input-count-minus', function(e) {
+  e.preventDefault;
+
+  var value = $(this).siblings('.input-count__num');
+  var q = parseInt( value.val() );
+
+  if ( q > 1) {
+    value.val(q-1);
+  }
+
+  updateTotal(q);
+});
+
+$('.input-count').on('click', '.js-input-count-plus', function(e) {
+  e.preventDefault;
+
+  var value = $(this).siblings('.input-count__num');
+  var q = parseInt( value.val() );
+
+  value.val(q+1);
+
+  updateTotal(q);
+});
+// updateTotal(<?php echo $minimum; ?>);
+//--></script>
 <script type="text/javascript"><!--
 $('select[name=\'recurring_id\'], input[name="quantity"]').change(function(){
 	$.ajax({

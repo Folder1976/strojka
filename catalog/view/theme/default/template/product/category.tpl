@@ -34,9 +34,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
   <div class="row">
 
-    <?php echo $column_left; ?>
-
-    <div class="col-md-9">
+    <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
       <?php if ( isset($anchor_list) && count($anchor_list) > 0 ) { ?>
@@ -256,6 +254,9 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
     </div>
 
+    <aside id="column-left" class="col-md-3 col-md-pull-9">
+      <?php echo $column_left; ?>
+    </aside>
 
   </div>
 
@@ -384,24 +385,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
       </div>
       <?php } ?>
       <!-- Product edit link on front * * * End -->
-            
 
-      <!-- Product edit link on front * * * Start -->
-      <?php if(isset($token) AND $token){ ?>
-      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
-        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
-      </div>
-      <?php } ?>
-      <!-- Product edit link on front * * * End -->
-            
-
-      <!-- Product edit link on front * * * Start -->
-      <?php if(isset($token) AND $token){ ?>
-      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
-        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
-      </div>
-      <?php } ?>
-      <!-- Product edit link on front * * * End -->
             
             <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
             <div>

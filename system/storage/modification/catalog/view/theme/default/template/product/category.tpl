@@ -385,24 +385,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
       </div>
       <?php } ?>
       <!-- Product edit link on front * * * End -->
-            
 
-      <!-- Product edit link on front * * * Start -->
-      <?php if(isset($token) AND $token){ ?>
-      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
-        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
-      </div>
-      <?php } ?>
-      <!-- Product edit link on front * * * End -->
-            
-
-      <!-- Product edit link on front * * * Start -->
-      <?php if(isset($token) AND $token){ ?>
-      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;">
-        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product['product_id']; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
-      </div>
-      <?php } ?>
-      <!-- Product edit link on front * * * End -->
             
 
 			<!-- Product edit link on front * * * Start -->

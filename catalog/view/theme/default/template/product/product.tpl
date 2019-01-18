@@ -48,21 +48,11 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
     <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
-      <!-- Product edit link on front * * * Start -->
-      <?php if(isset($token) AND $token){ ?>
-      <div style="position: absolute;border: 1px solid red;padding: 2px;z-index: 999;background-color: #ffe0e0;margin-top: -30px;">
-        <a style="margin: 2px;" href="/admin/index.php?route=catalog/product/edit&product_id=<?php echo $product_id; ?>&token=<?php echo $token; ?>" target="_blank">edit</a>
-      </div>
-      <?php } ?>
-      <!-- Product edit link on front * * * End -->
-
-
       <div id="product" class="row prod-page__prod-info prod-info">
         <div class="col-md-4">
 
-          <a class="prod-page__thumb" href="http://cn08183.tmweb.ru/image/cache/catalog/product/3968aedd344d25f941c6c90e9f79c867-500x500.jpg" title="<?php echo $heading_title; ?>"><img src="http://cn08183.tmweb.ru/image/cache/catalog/product/3968aedd344d25f941c6c90e9f79c867-228x228.jpg" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
           <?php if ($thumb) { ?>
-            <a class="thumbnail" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
+            <a class="prod-page__thumb" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
           <?php } ?>
         </div>
 

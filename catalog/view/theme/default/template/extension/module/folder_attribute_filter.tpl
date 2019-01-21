@@ -4,7 +4,6 @@
   <div class="widget-title"><?php echo $heading_title; ?></div>
   <div class="list-group">
 
-<<<<<<< HEAD
 
     <?php if(isset($prices) AND count($prices) > 1){ ?>
       <a class="filter-group__title">Цена</a>
@@ -16,13 +15,12 @@
       </div>
     <?php } ?>
 
-=======
->>>>>>> 1633efe5935c4637d10b7da436c903250c21c6ee
 		<?php if(isset($filter_manufactures) AND count($filter_manufactures) > 1){ ?>
 				<a class="filter-group__title"><?php echo $manufacture_title; ?></a>
 				<div class="filter-group__content">
 					<div id="filter-group-manufacture">
-						<?php foreach ($filter_manufactures as $filter) { ?>
+       		<?php foreach ($filter_manufactures as $filter) { ?>
+            <?php if(isset($filter['manufacturer_id'])){ ?>
 						<div class="filter-item">
 								<?php if (in_array($filter['manufacturer_id'], $ffilter_manufacturer)) { ?>
 								<input type="checkbox" id="filter_manufacturer_<?php echo $filter['manufacturer_id']; ?>" name="manufacturer_id[]" value="<?php echo $filter['manufacturer_id']; ?>" checked="checked" />
@@ -31,6 +29,7 @@
 								<?php } ?>
                 <label for="filter_manufacturer_<?php echo $filter['manufacturer_id']; ?>"><?php echo $filter['name']; ?></label>
 						</div>
+            <?php } ?>
 						<?php } ?>
 					</div>
 				</div>

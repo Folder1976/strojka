@@ -129,7 +129,8 @@ class ControllerProductCategory extends Controller {
 
 			$data['description'] = html_entity_decode($category_info['description'], ENT_QUOTES, 'UTF-8');
 			$data['compare'] = $this->url->link('product/compare');
-
+			$data['style'] = $category_info['style'];
+			
 			$url = '';
 
 			if (isset($this->request->get['filter'])) {

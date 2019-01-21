@@ -500,6 +500,14 @@ class ControllerCatalogCategory extends Controller {
 			$data['top'] = 0;
 		}
 
+		if (isset($this->request->post['style'])) {
+			$data['style'] = $this->request->post['style'];
+		} elseif (!empty($category_info)) {
+			$data['style'] = $category_info['style'];
+		} else {
+			$data['style'] = 0;
+		}
+
 		if (isset($this->request->post['column'])) {
 			$data['column'] = $this->request->post['column'];
 		} elseif (!empty($category_info)) {
@@ -643,3 +651,4 @@ class ControllerCatalogCategory extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
+

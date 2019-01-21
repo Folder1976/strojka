@@ -41,4 +41,11 @@ $(document).ready(function() {
 //= modules/magnific-popup.js
 
 
+// jQuery-ui
+//= modules/jquery-ui/slider-range.js
+
+// toggle block
+//= modules/toggle.js
+
+
 });

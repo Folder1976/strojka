@@ -21,4 +21,7 @@ $.fn.hasAttr = function(name) {
 // Slick slider
 //= ../../node_modules/slick-carousel/slick/slick.min.js
 
+// jquery-ui. Range. https://jqueryui.com/slider/#range
+//= libs/jquery-ui-1.12.1.custom/jquery-ui.min.js
+
 });

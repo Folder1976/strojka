@@ -28,8 +28,6 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 ?>
 
 
-
-
 <div class="container">
 
   <div class="row">
@@ -151,7 +149,7 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
               <tr>
 
 				<!-- attribute_image * * * Start -->
-				<td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td>
+				<!--td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td-->
 				<!-- attribute_image * * * End -->
 					  
                 <td><?php echo $attribute['name']; ?></td>
@@ -322,7 +320,7 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
             
 
 				<!-- attribute_image * * * Start -->
-				<td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td>
+				<!--td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td-->
 				<!-- attribute_image * * * End -->
 					  
                     <td><?php echo $attribute['name']; ?></td>
@@ -928,4 +926,5 @@ $(document).ready(function() {
 });
 //--></script>
 <?php echo $footer; ?>
+
 

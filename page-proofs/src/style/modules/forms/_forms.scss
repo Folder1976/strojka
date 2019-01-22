@@ -1,3 +1,11 @@
+.form-control {
+  border-radius: 0;
+  border-color: #000;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  padding: .4rem 1.2rem;
+}
+
 .input {
   height: 4.2rem;
   border: 1px solid #000000;
@@ -195,6 +203,11 @@
     background-color: transparent;
     color: #000;    
     font-size: 2rem;
+    transition: all .3s;
+
+    &:hover {
+      color: $primary_color;
+    }
   }
   &__num {
     text-align: center;

@@ -49,13 +49,14 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         </div>
       <?php } ?>
 
-      <?php if ( isset($frequently_visited_pages) && count($frequently_visited_pages) > 0 ) { ?>
+    <?php if(isset($style) and $style == 0){ ?>
+      <?php if ( isset($categories) and count($categories) > 0 ) { ?>
         <div class="row">
           <div class="col-md-12">
             <h3 class="h3-title">Часто посещаемые страницы</h3>
 
             <ul class="pages-list">
-            <?php foreach ($frequently_visited_pages as $page) { ?>
+            <?php foreach ($categories as $page) { ?>
               <li><a href="<?php echo $page['href']; ?>"><?php echo $page['name']; ?></a></li>
             <?php } ?>
             </ul>
@@ -64,7 +65,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         </div>
       <?php } // end.frequently_visited_pages ?>
 
-
+    <?php }else{ ?>
 
       <?php if ( isset($categories) and count($categories) > 0 ) { ?>
         <div class="product-list">
@@ -78,7 +79,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
               </div>
               <div class="product-layout__bottom">
               <?php if ( $category['price'] ) { ?>
-                <div class="product-layout__price"><?php echo $category['price']; ?></div>
+                <div class="product-layout__price">(от <?php echo $category['price']; ?>)</div>
               <?php } ?>
               </div>
             </div>
@@ -86,7 +87,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         </div>
       <?php } ?>
 
-
+    <?php } ?>
 
       <?php if ($products) { ?>
         <div class="row" style="display: none;">
@@ -162,13 +163,23 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
                     </div>
                     <?php } ?>
 
-
                     <div class="product-layout__attr-list">
-                      <div class="product-layout-attr"><span class="product-layout-attr__title">Гарантия (лет):</span> 25</div>
-                      <div class="product-layout-attr"><span class="product-layout-attr__title">Полезная площадь (одной упаковки), кв.м.:</span> 3 кв.м.</div>
+                      
+                      <?php $show_attributes = array('23', '29'); $i = 1; ?>
+                      
+                      <?php foreach($product['attributes'] as $attr){ ?>
+                      <?php foreach($attr['attribute'] as $attribute){ ?>
+                      
+                        <?php //Пока не определились какие атрибуты выводить - просто два первых ?>
+                        <?php if($i++ < 3){ ?>
+                        <?php //if(in_array($attribute['attribute_id'], $show_attributes)){ ?>
+                          <div class="product-layout-attr"><span class="product-layout-attr__title"><?php echo $attribute['name']; ?>:</span> <?php echo $attribute['text']; ?></div>
+                        <?php } ?>
+                      <?php } ?>
+                      <?php } ?>
                     </div>
 
-                    <div class="product-layout__stock is-instock">Есть в наличии</div>
+                    <div class="product-layout__stock is-instock"><?php echo $product['stock']; ?></div>
 
                     <?php if ($product['special']) { ?>
                       <div class="product-layout__special-price">
@@ -196,7 +207,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         <div class="pagination-wrap">
           <div class=""><?php echo $pagination; ?></div>
           <div class="form-group input-group input-group-sm limit-per-page">
-            <label for="input-limit"><?php echo $text_limit; ?></label>
+            <!--label for="input-limit"><?php echo $text_limit; ?></label>
             <select id="input-limit" class="form-control" onchange="location = this.value;">
               <?php foreach ($limits as $limits) { ?>
               <?php if ($limits['value'] == $limit) { ?>
@@ -205,7 +216,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
               <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
               <?php } ?>
               <?php } ?>
-            </select>
+            </select-->
           </div>
         </div>
       <?php } ?>
@@ -436,8 +447,8 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         <?php } ?>
       </div>
       <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
+        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div><!--
+        --><div class="col-sm-6 text-right"><?php echo $results; ?></div>
       </div>
       <?php } ?>
       <?php if (!$categories && !$products) { ?>
@@ -457,4 +468,5 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
 
 <?php echo $footer; ?>
+
 

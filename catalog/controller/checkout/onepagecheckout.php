@@ -7,6 +7,11 @@ class ControllerCheckoutOnepagecheckout extends Controller
     public function index()
     {
         
+        $this->request->post['city'] = 'none';
+        
+       //echo '<pre>'; printf(var_dump($this->request->post));
+       
+       
        
        $data['cart'] = $this->url->link('checkout/cart');
         // Validate cart has products and has stock.
@@ -70,6 +75,7 @@ class ControllerCheckoutOnepagecheckout extends Controller
         /* login translate END*/
 
         $this->load->model('tool/image');
+        $this->load->model('catalog/product');
 
         foreach ($products as $i => $product) {
             if($this->request->server['REQUEST_METHOD'] != 'POST')
@@ -90,6 +96,7 @@ class ControllerCheckoutOnepagecheckout extends Controller
             }
             
             $products[$i]['image'] = $image;
+            $products[$i]['attributes']  = $this->model_catalog_product->getProductAttributes($product['product_id']);
             
             foreach ($product['option'] as $option) {
                 $option_data[] = array(
@@ -510,6 +517,8 @@ class ControllerCheckoutOnepagecheckout extends Controller
             }
 
 
+
+
             $data['modules'] = array();
 
             $files = glob(DIR_APPLICATION . '/controller/extension/total/*.php');
@@ -601,9 +610,9 @@ class ControllerCheckoutOnepagecheckout extends Controller
         if ((utf8_strlen(trim($this->request->post['address_1'])) < 1) || (utf8_strlen(trim($this->request->post['address_1'])) > 92)) {
             $data['error']['address_1'] = $this->language->get('error_address_1');
         }
-        if ((utf8_strlen(trim($this->request->post['city'])) < 1) || (utf8_strlen(trim($this->request->post['city'])) > 32)) {
-            $data['error']['city'] = $this->language->get('error_city');
-        }
+        //if ((utf8_strlen(trim($this->request->post['city'])) < 1) || (utf8_strlen(trim($this->request->post['city'])) > 32)) {
+         //   $data['error']['city'] = $this->language->get('error_city');
+        //}
         if (!empty($data['error'])) {
             $this->errors = $data['error'];
             return false;
@@ -653,7 +662,7 @@ class ControllerCheckoutOnepagecheckout extends Controller
 
         }
         if( $this->errors)
-        $loginData['errors'] = $this->errors;
+            $loginData['errors'] = $this->errors;
         else
             $loginData['errors']=0;
             
@@ -663,6 +672,7 @@ class ControllerCheckoutOnepagecheckout extends Controller
         $this->response->setOutput(json_encode($loginData));
     }
     protected function validateLogin() {
+        
         // Check how many login attempts have been made.
         $this->load->model('account/customer');
         $this->load->language('account/login');
@@ -747,3 +757,4 @@ class ControllerCheckoutOnepagecheckout extends Controller
     }
 
 }
+

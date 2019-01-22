@@ -191,11 +191,15 @@ class ControllerProductCategory extends Controller {
 			$data['lates_products'] = array();
 			$results = array();
 			
+			if(isset($_COOKIE['IdProduto'])){
 			$ids = explode(',', $_COOKIE['IdProduto']);
 			foreach($ids as $id){
 				if((int)$id > 0){
 					$results[] = $this->model_catalog_product->getProduct($id);
 				}
+			}
+			}else{
+				$results = array();
 			}
 			
 			foreach ($results as $result) {

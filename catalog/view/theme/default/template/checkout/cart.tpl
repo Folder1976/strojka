@@ -54,7 +54,11 @@
 
 
 
+<<<<<<< HEAD
 <?php if (true) { ?>
+=======
+<?php if (false) { ?>
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>

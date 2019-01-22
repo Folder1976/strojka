@@ -63,9 +63,13 @@
             <div id="specification" class="prod-page__specification">
               <div class="tab-pane" id="tab-specification">
                 <table class="table table--prod-specification">
+<<<<<<< HEAD
                   <?php if(isset($product['attributes'])){ ?>
                   
                   <?php foreach ($product['attributes'] as $attribute_group) { ?>
+=======
+                  <?php foreach ($product['attribute_groups'] as $attribute_group) { ?>
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
                   <thead>
                     <tr>
                       <th><?php echo $attribute_group['name']; ?></th>
@@ -81,7 +85,10 @@
                     <?php } ?>
                   </tbody>
                   <?php } ?>
+<<<<<<< HEAD
                   <?php } ?>
+=======
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
                 </table>
               </div>
             </div>
@@ -115,8 +122,13 @@
                 </div>
 
                 <div class="fields-group col-md-4">
+<<<<<<< HEAD
                   <!--label for="telephone-ch"><span class="required">*</span>   <?=$text_telephone?>:</label><br-->
                   <input type="text" required="required" id="telephone-ch"  name="telephone"  value="<?php echo $telephone; ?>" class="input--phone form-control large-field" placeholder="Телефон">
+=======
+                  <!-- <label for="telephone-ch"><span class="required">*</span>   <?=$text_telephone?>:</label><br> -->
+                  <input type="text" required="required" id="num-place" name="telephone" value="<?php echo $telephone; ?>" class="input--phone form-control large-field" placeholder="Телефон">
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
                   <span class="error"></span>
                 </div>
 
@@ -144,6 +156,7 @@
               </div>
 
               <div class="row">
+<<<<<<< HEAD
                 
                       <div class="fields-group col-12 col-md-4">
                          <div>
@@ -184,6 +197,9 @@
                          </div>
                       </div>
                 <!--div class="fields-group col-md-6">
+=======
+                <div class="fields-group col-md-6">
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
                   <div class="h3-title"><?=$text_payment_method?></div>
                   <select name="payment_method" id="payment_select" class="form-control <?php echo $payment_method['code']?>">
                   <?php foreach ($payment_methods as $payment_method) { ?>
@@ -194,13 +210,21 @@
 
                 <div class="fields-group col-md-6">
                   <div class="h3-title"><?=$text_delivery_method?></div>
+<<<<<<< HEAD
                   <select name="shipping_method" id="shipping-method" class="form-control delivery-type delivery_set" onChange="updateShipping(this)">
+=======
+                  <select name="shipping_method" id="shipping-method" class="form-control delivery-type delivery_set">
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
                   <?php foreach ($shippig_methods as $shipping_method) { ?>
                     <option value='{"title": "<?php echo $shipping_method['title'] ?>", "code": "<?php echo $shipping_method['value'] ?>", "comment":"", "shipping_method":"<?php echo $shipping_method['value'] ?>", "cost":"<?php echo $shipping_method['cost'] ?>","tax_class_id":""}'><?php echo $shipping_method['title'] ?></option>
                   <?php } ?>
                   </select>
                   <input type='hidden' name='delivery-type' value='delivery'/>
+<<<<<<< HEAD
                 </div-->
+=======
+                </div>
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
               </div>
 
               <div class="row">
@@ -214,6 +238,7 @@
           </div>
         </div>  <!-- /#payment-address -->
       </div>  <!-- /.cart__client-info -->
+<<<<<<< HEAD
       <?php if ($modules) { ?>
       <div class="panel-group" id="accordion">
         <?php foreach ($modules as $module) { ?>
@@ -237,6 +262,11 @@
       </div>
       
       <!--div class="cart__result cart-result">
+=======
+
+      
+      <div class="cart__result cart-result">
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
         <div class="cart-result__row">
           <div class="cart-result__col-l">Общая сумма заказа без учета стоимости доставки:</div>
           <div class="cart-result__col-r cart-result__total">1 589 900.00<span>Р</span></div>
@@ -257,7 +287,11 @@
       <div class="buttons clearfix" style="margin-bottom: 5rem;">
         <div class="pull-l-lg pull-l-md pull-l-sm"><a href="#" class="btn btn--transparent">Очистить корзину</a></div>
         <div class="pull-r-lg pull-r-md pull-r-sm"><div id="ajax-button-confirm" class="btn btn--black"><?=$text_confirm?></div></div>
+<<<<<<< HEAD
       </div-->
+=======
+      </div>
+>>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
 
 
 

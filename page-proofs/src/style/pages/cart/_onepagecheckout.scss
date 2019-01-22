@@ -1,0 +1,148 @@
+.cart {
+
+  &__product-title {
+    // color: #000;
+    font-size: 2rem;
+    font-weight: 900;
+    border-bottom: 1px solid;
+    padding-bottom: 2rem;
+    padding-right: 40px;
+    position: relative;
+
+
+    a {
+      color: inherit;
+    }
+  }
+
+  &__remove-product {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #e4e4e4;
+    transition: all .3s;
+    cursor: pointer;
+
+    // &:after,
+    &:before {
+      content: "X";
+      position: absolute;
+      // z-index: 1;
+      // width: 10px;
+      // height: 1px;
+      // background-color: #fff;
+      color: #fff;
+      line-height: 20px;
+      font-size: 16px;
+      font-weight: 500;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+    }
+
+    &:after {}
+    &:before {}
+
+    &:hover {
+      background-color: $primary_color;
+    }
+  }
+
+  &__prod-info {
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+
+  &__client-info {
+    border: 1px solid #000;
+    padding: 2rem 2.4rem;
+  }
+
+  &__accept-privacy-policy {
+    .checkbox + label {
+      font-size: 1.6rem;
+      font-weight: 300;
+      
+    }
+    a {
+      color: $primary_color;
+      text-decoration: underline;
+    }
+  }
+
+
+  &__result {
+    background: #e4e4e4;
+    padding: 3rem 7rem;
+    margin-bottom: 3rem;
+
+    @media screen and (max-width: $bs_break_xs) {
+      padding: 3rem 1rem 2rem;
+    }
+  }
+}
+
+
+.cart-result {
+  font-size: 1.8rem;
+  font-weight: 300;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @media screen and (max-width: $bs_break_md) {
+      display: block;
+    }
+
+    @media screen and (max-width: $bs_break_md) {
+      &:last-of-type .cart-result__total {
+        border-bottom: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__col-l {
+    width: 100%;
+  }
+
+  &__col-r {}
+
+  &__promo-code {
+    width: 100px;
+    display: inline-block;
+    margin-bottom: 0;
+    border: 0;
+  }
+
+  &__total {
+    font-size: 35px;
+    font-weight: 300;
+    text-transform: uppercase;
+    text-align: right;
+    white-space: nowrap;
+    // width: 28rem;
+    flex: 0 0 28rem;
+
+    @media screen and (max-width: $bs_break_md) {
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 1rem;
+    }
+
+    span {
+      font-size: 23px;
+    }
+
+    &--discount {
+      color: #939393;
+    }
+  }
+  
+
+}

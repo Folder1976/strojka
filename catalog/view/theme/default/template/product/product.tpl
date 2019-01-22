@@ -28,11 +28,6 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 ?>
 
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 1633efe5935c4637d10b7da436c903250c21c6ee
 <div class="container">
 
   <div class="row">

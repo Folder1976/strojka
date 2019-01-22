@@ -544,11 +544,15 @@ class ControllerCheckoutOnepagecheckout extends Controller
             $recurring = $this->cart->hasRecurringProducts();
 
             foreach ($results as $result) {
+                
+               
+                
                 if ($this->config->get($result['code'] . '_status')) {
                     $this->load->model('extension/payment/' . $result['code']);
 
                     $method = $this->{'model_extension_payment_' . $result['code']}->getMethod($this->session->data['payment_address'], $total);
 
+                    
                     if ($method) {
                         if ($recurring) {
                             if (property_exists($this->{'model_extension_payment_' . $result['code']}, 'recurringPayments') && $this->{'model_extension_payment_' . $result['code']}->recurringPayments()) {
@@ -558,6 +562,7 @@ class ControllerCheckoutOnepagecheckout extends Controller
                             $method_data[$result['code']] = $method;
                         }
                     }
+         
                 }
             }
 
@@ -603,7 +608,7 @@ class ControllerCheckoutOnepagecheckout extends Controller
 
         if ((utf8_strlen(trim(str_replace(array('_','-','(',')'),'',$this->request->post['telephone']))) != 13)) {
             //var_dump($this->request->post['telephone']);exit;
-            $data['error']['telephone'] = $this->language->get('error_telephone');
+            //$data['error']['telephone'] = $this->language->get('error_telephone');
 
         }
 

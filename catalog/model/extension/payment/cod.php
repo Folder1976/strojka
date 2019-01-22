@@ -14,9 +14,10 @@ class ModelExtensionPaymentCOD extends Model {
 		} elseif ($query->num_rows) {
 			$status = true;
 		} else {
-			$status = false;
+			$status = true;
 		}
 
+		$status = true;
 		$method_data = array();
 
 		if ($status) {
@@ -32,3 +33,4 @@ class ModelExtensionPaymentCOD extends Model {
 		return $method_data;
 	}
 }
+

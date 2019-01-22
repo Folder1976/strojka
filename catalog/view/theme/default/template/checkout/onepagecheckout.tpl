@@ -113,7 +113,7 @@
 
                 <div class="fields-group col-md-4">
                   <!-- <label for="telephone-ch"><span class="required">*</span>   <?=$text_telephone?>:</label><br> -->
-                  <input type="text" required="required" id="num-place" name="telephone" value="<?php echo $telephone; ?>" class="form-control large-field" placeholder="Телефон">
+                  <input type="text" required="required" id="num-place" name="telephone" value="<?php echo $telephone; ?>" class="input--phone form-control large-field" placeholder="Телефон">
                   <span class="error"></span>
                 </div>
 
@@ -506,7 +506,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $("#telephone-ch").inputmask("+99(999)999-99-99")
+        // $("#telephone-ch").mask("+99(999)999-99-99")
     });
     $(document).on('change', '#telephone-ch', function(){
 

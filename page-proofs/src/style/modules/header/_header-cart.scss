@@ -66,4 +66,16 @@
     transform: translate(0, -50%);
     transition: all .3s;
   }
+
+
+
+  .dropdown-menu {
+    padding: 1rem;
+    min-width: 290px;
+    width: 60vw;
+
+    .btn-danger {
+      padding: 5px;
+    }
+  }
 }

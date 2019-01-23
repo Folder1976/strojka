@@ -1,0 +1,45 @@
+.mf-menu-prod,
+.mf-menu-serv {
+  max-width: 1380px;  
+}
+
+.mf-prod-lists {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.mf-prod-list {
+  margin-bottom: 5rem;
+  margin-right: 3rem;
+  flex: 0 0 30rem;
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+
+    &:after {
+      content: "";
+      display: block;
+      background-color: $primary_color;
+      width: 4rem;
+      height: 2px;
+      position: relative;
+      top: .5rem;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &__list {
+    li {
+      margin-bottom: .5rem;
+    }
+    a {
+      text-decoration: none;
+    }
+  }
+}
+

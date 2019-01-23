@@ -4116,6 +4116,12 @@ hr,
             transform: translate(0, -50%);
     -webkit-transition: all .3s;
     transition: all .3s; }
+  .header-cart .dropdown-menu {
+    padding: 1rem;
+    min-width: 290px;
+    width: 60vw; }
+    .header-cart .dropdown-menu .btn-danger {
+      padding: 5px; }
 
 .footer {
   background-color: #e4e4e4;
@@ -4462,6 +4468,42 @@ ul.pagination {
   .mob-menu__btn.is-open + div .menu {
     display: block; }
 
+.mf-menu-prod,
+.mf-menu-serv {
+  max-width: 1380px; }
+
+.mf-prod-lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+
+.mf-prod-list {
+  margin-bottom: 5rem;
+  margin-right: 3rem;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 30rem;
+          flex: 0 0 30rem; }
+  .mf-prod-list__title {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 2rem; }
+    .mf-prod-list__title:after {
+      content: "";
+      display: block;
+      background-color: #fbbe18;
+      width: 4rem;
+      height: 2px;
+      position: relative;
+      top: .5rem; }
+    .mf-prod-list__title a {
+      text-decoration: none; }
+  .mf-prod-list__list li {
+    margin-bottom: .5rem; }
+  .mf-prod-list__list a {
+    text-decoration: none; }
+
 .btn,
 a.btn {
   display: block;
@@ -4492,6 +4534,19 @@ a.btn {
   .btn--w100,
   a.btn--w100 {
     width: 100%; }
+  .btn--small,
+  a.btn--small {
+    font-size: 1.6rem;
+    text-transform: none;
+    padding: 5px;
+    text-align: center;
+    border: 0;
+    background-color: transparent;
+    margin: 5px auto; }
+    .btn--small:hover,
+    a.btn--small:hover {
+      background-color: #f00;
+      color: #fff; }
   .btn--orange,
   a.btn--orange {
     background-color: #fbbe18;
@@ -4546,10 +4601,16 @@ a.btn {
     a.btn--buy-click:hover {
       opacity: 1; }
 
+.btn-primary:hover {
+  background-color: #fbbe18;
+  color: #000; }
+
+.fields-group .error {
+  color: #f00; }
+
 .form-control {
   border-radius: 0;
   border-color: #000;
-  margin-bottom: 2rem;
   font-size: 1.8rem;
   padding: .4rem 1.2rem; }
 
@@ -4581,6 +4642,14 @@ a.btn {
   .form-label--file {
     text-decoration: underline;
     padding-left: 2.5rem; }
+
+.container-radio {
+  cursor: pointer; }
+  .container-radio input {
+    margin-right: 1rem;
+    margin-top: 0;
+    position: relative;
+    top: 1px; }
 
 .radio-btn-group {
   display: -webkit-box;
@@ -4874,7 +4943,7 @@ ol li {
   font-weight: 400;
   letter-spacing: 0.32px; }
   .table thead tr {
-    background: #b98a38; }
+    background: #fbbe18; }
   .table thead th {
     color: #060400;
     font-weight: 400;
@@ -6284,6 +6353,8 @@ ol li {
 .cart__client-info {
   border: 1px solid #000;
   padding: 2rem 2.4rem; }
+  .cart__client-info .fields-group {
+    margin-bottom: 2rem; }
 
 .cart__accept-privacy-policy .checkbox + label {
   font-size: 1.6rem;
@@ -6346,5 +6417,9 @@ ol li {
       font-size: 23px; }
     .cart-result__total--discount {
       color: #939393; }
+
+.cart-modul-panel .btn-primary {
+  height: 34px;
+  padding: 0 2rem; }
 
 /*# sourceMappingURL=main.css.map */

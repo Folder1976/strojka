@@ -36,6 +36,21 @@ a.btn {
     width: 100%;
   }
 
+  &--small {
+    font-size: 1.6rem;
+    text-transform: none;
+    padding: 5px;
+    text-align: center;
+    border: 0;
+    background-color: transparent;
+    margin: 5px auto;
+
+    &:hover {
+      background-color: #f00;
+      color: #fff;
+    }
+  }
+
   &--orange {
     background-color: $primary_color;
     border-color: $primary_color;
@@ -98,5 +113,12 @@ a.btn {
     &:hover {
       opacity: 1;
     }
+  }
+}
+
+.btn-primary {
+  &:hover {
+    background-color: $primary_color;
+    color: #000;
   }
 }

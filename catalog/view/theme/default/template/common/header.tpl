@@ -20,7 +20,7 @@
 <script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<!-- <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /> -->
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
 <!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
 <link href="catalog/view/theme/default/stylesheet/main.css" rel="stylesheet">
@@ -245,8 +245,8 @@ $bottom_menu = array(
             <div class="header__cart" id="cart_wrapper">
             <div id="cart_wrapper2" class="btn-group btn-block header-cart">
               <div class="header-cart__left-col">
-                <a href="#">Услуги</a>
-                <a href="#">Товары</a>
+                <a href="#menu-serv" class="mf-popup" data-effect="mfp-zoom-in">Услуги</a>
+                <a href="#menu-prod" class="mf-popup" data-effect="mfp-zoom-in">Товары</a>
               </div>
               <div id="cart_wrapper3">
                 <?php echo $cart; ?>
@@ -302,6 +302,65 @@ $bottom_menu = array(
       </div>
     </div>
   </header>
+
+  <?php // popups: ?>
+  <div id="menu-prod" class="mf-popup-block mf-menu-prod mfp-hide mfp-with-anim">
+    <h3 class="mf-title">Товары</h3>
+
+    <div class="mf-prod-lists">
+      <?php
+      foreach ($categories as $mitem) {
+        if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
+          echo '<div class="mf-prod-list">';
+          echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
+          echo '<ul class="mf-prod-list__list">';
+
+          foreach ( $mitem['children'] as $child) {
+            echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
+          }
+
+          echo '</ul></div>';
+        } else {
+          echo '<div class="mf-prod-list">';
+          echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
+          echo '</div>';
+        }
+      }
+      ?>
+    </div>
+    
+    
+  </div>
+
+  <div id="menu-serv" class="mf-popup-block mf-menu-serv mfp-hide mfp-with-anim">
+    <h3 class="mf-title">Услуги</h3>
+    
+    <div class="mf-prod-lists">
+      <?php
+      foreach ($categories as $mitem) {
+        if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
+          echo '<div class="mf-prod-list">';
+          echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
+          echo '<ul class="mf-prod-list__list">';
+
+          foreach ( $mitem['children'] as $child) {
+            echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
+          }
+
+          echo '</ul></div>';
+        } else {
+          echo '<div class="mf-prod-list">';
+          echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
+          echo '</div>';
+        }
+      }
+      ?>
+    </div>
+
+  </div>
+
+
+
 
   <div class="site__content">
 

@@ -151,44 +151,48 @@
 
               <div class="row">
                 
-                      <div class="fields-group col-12 col-md-4">
-                         <div>
-                             <label for="payment_select">  <?=$text_payment_method?>:</label><br>
-                             <?php foreach ($payment_methods as $payment_method) { ?>
-                             <div class="group-check">
-                                 <label class="container-radio">
+                <div class="fields-group col-md-6">
+                    <div class="h3-title"><?=$text_payment_method?>:</div>
+                      <?php foreach ($payment_methods as $payment_method) { ?>
+                      <div class="group-check">
+                        <label class="container-radio">
 
-                                 	<input class="payment_method_value <?php echo $payment_method['code']?> payment_set"
-                                               type="radio"
-                                               id="payment_select"
-                                               name="payment_method"
-                                               value='{"title": "<?php echo $payment_method['title'] ?>", "code": "<?php echo $payment_method['code'] ?>"}'
-                                     ><?php echo $payment_method['title'] ?>
+                          <input class="payment_method_value <?php echo $payment_method['code']?> payment_set"
+                                     type="radio"
+                                     id="payment_select"
+                                     name="payment_method"
+                                     value='{"title": "<?php echo $payment_method['title'] ?>", "code": "<?php echo $payment_method['code'] ?>"}'
+                          ><?php echo $payment_method['title'] ?>
 
-                                     <span class="checkmark"></span>
+                          <span class="checkmark"></span>
 
-                                 </label> &nbsp;&nbsp;
-                             </div>
-                             <?php } ?>
-
-
-                             <label for="delivery">  <?=$text_delivery_method?>:</label><br>
-                             <?php foreach ($shippig_methods as $shipping_method) { ?>
-                             <div class="group-check">
-                                 <label class="container-radio">
-                                 	<input class="delivery-type delivery_set" type="radio" onChange="updateShipping(this)"
-                                               id="shipping-method"
-                                               name="shipping_method"
-                                               value='{"title": "<?php echo $shipping_method['title'] ?>", "code": "<?php echo $shipping_method['value'] ?>", "comment":"", "shipping_method":"<?php echo $shipping_method['value'] ?>", "cost":"<?php echo $shipping_method['cost'] ?>","tax_class_id":""}'
-                                     ><?php echo $shipping_method['title'] ?>
-
-                                     <span class="checkmark"></span>
-
-                                 </label> &nbsp;&nbsp;
-                             </div>
-                             <?php } ?>
-                         </div>
+                        </label> &nbsp;&nbsp;
                       </div>
+                      <?php } ?>
+                    <br>
+                </div>
+
+                <div class="fields-group col-md-6">
+                    <div class="h3-title"><?=$text_delivery_method?>:</div>
+                      <?php foreach ($shippig_methods as $shipping_method) { ?>
+                      <div class="group-check">
+                           <label class="container-radio">
+                           	<input class="delivery-type delivery_set" type="radio" onChange="updateShipping(this)"
+                                         id="shipping-method"
+                                         name="shipping_method"
+                                         value='{"title": "<?php echo $shipping_method['title'] ?>", "code": "<?php echo $shipping_method['value'] ?>", "comment":"", "shipping_method":"<?php echo $shipping_method['value'] ?>", "cost":"<?php echo $shipping_method['cost'] ?>","tax_class_id":""}'
+                               ><?php echo $shipping_method['title'] ?>
+
+                               <span class="checkmark"></span>
+
+                           </label> &nbsp;&nbsp;
+                      </div>
+                      <?php } ?>
+                    <br>
+                </div>
+
+              </div>
+
                 <!--div class="fields-group col-md-6">
                   <div class="h3-title"><?=$text_payment_method?></div>
                   <select name="payment_method" id="payment_select" class="form-control <?php echo $payment_method['code']?>">
@@ -207,7 +211,6 @@
                   </select>
                   <input type='hidden' name='delivery-type' value='delivery'/>
                 </div-->
-              </div>
 
               <div class="row">
                 <div class="fields-group col-md-12 cart__accept-privacy-policy">
@@ -221,7 +224,7 @@
         </div>  <!-- /#payment-address -->
       </div>  <!-- /.cart__client-info -->
       <?php if ($modules) { ?>
-      <div class="panel-group" id="accordion">
+      <div class="panel-group cart-modul-panel" id="accordion">
         <?php foreach ($modules as $module) { ?>
         <?php echo $module; ?>
         <?php } ?>
@@ -229,12 +232,12 @@
       <?php } ?>
       <div class="cart__result cart-result">
       
-        <table id='totals' class='table mt-4'>
+        <table id='totals' class='table cart__result cart-result'>
             <tbody>
             <?php foreach ($totals as $total) { ?>
             <tr class="subtotal">
                 <td class="name subtotal"><strong><?php echo $total['title']; ?>:</strong></td>
-                <td class="price"><?php echo $total['text']; ?></td>
+                <td class="price cart-result__total"><?php echo $total['text']; ?></td>
             </tr>
             <?php } ?>
 
@@ -770,4 +773,3 @@ error: function (xhr, ajaxOptions, thrownError) {
     //--></script>
 
     <?php echo $footer; ?>
-

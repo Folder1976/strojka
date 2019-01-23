@@ -35,6 +35,105 @@
       <?php } ?>
 
 
+      <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="cart-form">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <td class="text-center"><?php echo $column_image; ?></td>
+                <td class="text-left"><?php echo $column_name; ?></td>
+                <td class="text-left"><?php echo $column_model; ?></td>
+                <td class="text-center"><?php echo $column_quantity; ?></td>
+                <td class="text-right"><?php echo $column_price; ?></td>
+                <td class="text-right"><?php echo $column_total; ?></td>
+              </tr>
+            </thead>
+            <tbody>
+              <?php foreach ($products as $product) { ?>
+              <tr>
+                <td class="text-center"><?php if ($product['thumb']) { ?>
+                  <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" /></a>
+                  <?php } ?></td>
+                <td class="text-left"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                  <?php if (!$product['stock']) { ?>
+                  <span class="text-danger">***</span>
+                  <?php } ?>
+                  <?php if ($product['option']) { ?>
+                  <?php foreach ($product['option'] as $option) { ?>
+                  <br />
+                  <small><?php echo $option['name']; ?>: <?php echo $option['value']; ?></small>
+                  <?php } ?>
+                  <?php } ?>
+                  <?php if ($product['reward']) { ?>
+                  <br />
+                  <small><?php echo $product['reward']; ?></small>
+                  <?php } ?>
+                  <?php if ($product['recurring']) { ?>
+                  <br />
+                  <span class="label label-info"><?php echo $text_recurring_item; ?></span> <small><?php echo $product['recurring']; ?></small>
+                  <?php } ?></td>
+                <td class="text-left"><?php echo $product['model']; ?></td>
+                <td class="text-left">
+                  <div class="input-count">
+                    <button class="input-count__btn js-input-count-minus">-</button>
+                    <input type="text" name="quantity[<?php echo $product['cart_id']; ?>]" value="<?php echo $product['quantity']; ?>" size="2" id="input-quantity" class="input-count__num">
+                    <button class="input-count__btn js-input-count-plus">+</button>
+                    
+                    <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                  </div>
+                  <br>
+                  <button type="button" class="btn btn--small" onclick="cart.remove('<?php echo $product['cart_id']; ?>');"><?php echo $button_remove; ?></button>
+                </td>
+                <td class="text-right"><?php echo $product['price']; ?></td>
+                <td class="text-right"><?php echo $product['total']; ?></td>
+              </tr>
+              <?php } ?>
+              <?php foreach ($vouchers as $voucher) { ?>
+              <tr>
+                <td></td>
+                <td class="text-left"><?php echo $voucher['description']; ?></td>
+                <td class="text-left"></td>
+                <td class="text-left"><div class="input-group btn-block" style="max-width: 200px;">
+                    <input type="text" name="" value="1" size="1" disabled="disabled" class="form-control" />
+                    <span class="input-group-btn">
+                    <button type="button" data-toggle="tooltip" title="<?php echo $button_remove; ?>" class="btn btn-danger" onclick="voucher.remove('<?php echo $voucher['key']; ?>');"><i class="fa fa-times-circle"></i></button>
+                    </span></div></td>
+                <td class="text-right"><?php echo $voucher['amount']; ?></td>
+                <td class="text-right"><?php echo $voucher['amount']; ?></td>
+              </tr>
+              <?php } ?>
+            </tbody>
+          </table>
+        </div>
+      </form>
+      <?php if ($modules) { ?>
+      <h2><?php echo $text_next; ?></h2>
+      <p><?php echo $text_next_choice; ?></p>
+      <div class="panel-group cart-modul-panel" id="accordion">
+        <?php foreach ($modules as $module) { ?>
+        <?php echo $module; ?>
+        <?php } ?>
+      </div>
+      <?php } ?>
+      <br />
+      <div class="row">
+        <div class="col-sm-12">
+          <table class="table table-bordered">
+            <?php foreach ($totals as $total) { ?>
+            <tr>
+              <td class="text-right"><strong><?php echo $total['title']; ?>:</strong></td>
+              <td class="text-right"><?php echo $total['text']; ?></td>
+            </tr>
+            <?php } ?>
+          </table>
+        </div>
+      </div>
+      <div class="buttons clearfix">
+        <div class="pull-left"><a href="<?php echo $continue; ?>" class="btn btn-default"><?php echo $button_shopping; ?></a></div>
+        <div class="pull-right"><a href="<?php echo $checkout; ?>" class="btn btn-primary"><?php echo $button_checkout; ?></a></div>
+      </div>
+      <br>
+      <br>
 
 
     </div>
@@ -54,11 +153,7 @@
 
 
 
-<<<<<<< HEAD
-<?php if (true) { ?>
-=======
 <?php if (false) { ?>
->>>>>>> 216feb822520c3eaa378ad6668449323e8e8fe29
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -194,5 +289,27 @@
 
 
 
-<?php echo $footer; ?>
 
+<script><!--
+$('.input-count').on('click', '.js-input-count-minus', function(e) {
+  e.preventDefault;
+
+  var value = $(this).siblings('.input-count__num');
+  var q = parseInt( value.val() );
+
+  value.val(q-1);
+  $('#cart-form').submit();
+});
+
+$('.input-count').on('click', '.js-input-count-plus', function(e) {
+  e.preventDefault;
+
+  var value = $(this).siblings('.input-count__num');
+  var q = parseInt( value.val() );
+
+  value.val(q+1);
+  $('#cart-form').submit();
+});
+//--></script>
+
+<?php echo $footer; ?>

@@ -1,7 +1,13 @@
+.fields-group {
+  .error {
+    color: #f00;
+  }
+}
+
 .form-control {
   border-radius: 0;
   border-color: #000;
-  margin-bottom: 2rem;
+  // margin-bottom: 2rem;
   font-size: 1.8rem;
   padding: .4rem 1.2rem;
 }
@@ -104,6 +110,17 @@
 //     background-color: #000;
 //   }
 // }
+
+.container-radio {
+  cursor: pointer;
+
+  input {
+    margin-right: 1rem;
+    margin-top: 0;
+    position: relative;
+    top: 1px;
+  }
+}
 
 .radio-btn-group {
   display: flex;

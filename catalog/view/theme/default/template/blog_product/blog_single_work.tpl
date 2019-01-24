@@ -29,28 +29,19 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 
 
 <?php
-$news = array(
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-1.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-2.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-3.jpg',
-    'link' => '#',
-  ),
-);
-
-
+$news = array();
+ if ($products1) {
+    foreach ($products1 as $product) {
+      
+      $news[] = array(
+                    'title' => $product['name'],
+                    'date' => $product['date_added'],
+                    'foto' => $product['thumb'],
+                    'link' => $product['href'],
+                      );
+ 
+    }
+ }
 ?>
 
 
@@ -79,9 +70,17 @@ $news = array(
       <?php } ?>
 
       <div class="company-review-info">
+        <?php if ($upc) { ?>
         <div class="company-review-info__time"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#clock-circular"></use></svg>Срок: <?php echo $upc; ?></div>
+        <?php } ?>
+        
+        <?php if ($ean) { ?>
         <div class="company-review-info__area"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#area"></use></svg>Площадь: <?php echo $ean; ?></div>
+        <?php } ?>
+        
+        <?php if ($jan) { ?>
         <div class="company-review-info__location"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#location"></use></svg>Место: <?php echo $jan; ?></div>
+        <?php } ?>
       </div>
 
       <?php if ($description) { ?>
@@ -89,15 +88,29 @@ $news = array(
       <?php } ?>
 
 
-
       <?php if ( $images && count($images) > 0 ) { ?>
         <div class="slider slider--work js-slider">
-          
-          <?php foreach ($images as $image) { ?>
-            <div class="slider__item slider-item">
-              <div class="slider-item__img"><a href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a></div>
+          <div class="slider__arrows">
+            <div class="slider__arrow slider__arrow--prev">
+              <svg class="icon slider__arrow-icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-prev"></use>
+              </svg>
             </div>
-          <?php } ?>
+            <div class="slider__arrow slider__arrow--next">
+              <svg class="icon slider__arrow-icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-next"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="slider__list">          
+            <?php foreach ($images as $image) { ?>
+              <div class="slider__item slider-item">
+
+                <div class="slider-item__img img--cover"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
+              </div>
+            <?php } ?>
+          </div>
 
         </div>
       <?php } ?>
@@ -106,7 +119,6 @@ $news = array(
       <br>
       <br>
       <div class="h3-title">Еще проекты</div>
-
       <ul class="company-works-list">
         <?php foreach ($products as $pr) { ?>
           <li>
@@ -114,12 +126,14 @@ $news = array(
           </li>
         <?php } ?>
       </ul>
+      <br>
 
     </div>
 
     <div class="col-md-3 col-md-pull-9">
-      <?php echo $column_left; ?>
+      <?php // echo $column_left; ?>
 
+      <h3 class="widget-title">Новости компании</h3>
       <div class="news-list">
         
         <?php foreach ($news as $new) { ?>
@@ -139,6 +153,20 @@ $news = array(
   </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

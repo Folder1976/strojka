@@ -150,3 +150,52 @@
         }
     }
 }
+
+
+
+// custom styles
+.slider { 
+    position: relative;
+
+    &__arrows {}
+
+    &__arrow {
+        position: absolute;
+        z-index: 1;
+        cursor: pointer;
+        top: 50%;
+        transform: translate(0, -50%);
+
+        &--prev {
+            left: 0;
+        }
+        &--next {
+            right: 0;
+        }
+    }
+
+    &__arrow-icon {
+        width: 27px;
+        height: 85px;
+        stroke: #000;
+        stroke-width: 2;
+        transition: all .3s;
+
+        &:hover {
+            // opacity: .8;
+            stroke: $primary_color;
+        }
+    }
+
+    &__list {
+        margin: 0 5rem;
+    }
+
+    &--work {
+        .slider-item__img {
+            width: 17rem;
+            height: 17rem;
+            margin: 0 auto;
+        }
+    }
+}

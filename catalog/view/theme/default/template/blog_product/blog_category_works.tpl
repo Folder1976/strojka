@@ -82,7 +82,7 @@ $news = array();
     </div>
 
     <div class="col-md-3 col-md-pull-9">
-      <?php echo $column_left; ?>
+      <?php // echo $column_left; ?>
 
       <div class="news-list">
         

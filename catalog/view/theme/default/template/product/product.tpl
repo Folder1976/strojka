@@ -205,6 +205,63 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
       </div>
       <?php } ?>
 
+
+      <?php if ($lates_products) { ?>
+      <div id="related" class="prod-page__related">
+        <h3 class="h3-title">Вы недавно просматривали</h3>
+        <div class="product-list">
+        <?php foreach ($lates_products as $product) { ?>
+          <div class="product-layout">
+            <div class="product-layout__image product-thumb">
+              <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a>
+            </div>
+            <div class="product-layout__caption">
+              <h4 class="product-layout__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
+              <?php if ($product['rating']) { ?>
+              <div class="rating">
+                <?php for ($i = 1; $i <= 5; $i++) { ?>
+                <?php if ($product['rating'] < $i) { ?>
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                <?php } else { ?>
+                <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                <?php } ?>
+                <?php } ?>
+              </div>
+              <?php } ?>
+
+
+              <div class="product-layout__attr-list">
+                <div class="product-layout-attr"><span class="product-layout-attr__title">Гарантия (лет):</span> 25</div>
+                <div class="product-layout-attr"><span class="product-layout-attr__title">Полезная площадь (одной упаковки), кв.м.:</span> 3 кв.м.</div>
+              </div>
+
+              <div class="product-layout__stock is-instock">Есть в наличии</div>
+
+              <?php if ($product['special']) { ?>
+                <div class="product-layout__special-price">
+                  <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
+                  <div class="product-layout__special-percent">-50%</div>
+                </div>
+              <?php } ?>
+
+            </div>
+            <div class="product-layout__bottom">
+
+              <?php if ($product['price']) { ?>
+                <div class="product-layout__price"><?php echo $product['price']; ?></div>
+              <?php } ?>
+              <div class="product-layout__button-group">
+                <button type="button" class="btn btn--black btn--dib btn--buy" onclick="cart.add('<?php echo $product['product_id']; ?>');"><?php echo $button_cart; ?></button>
+                <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+        </div>
+      </div>
+      <?php } ?>
+
+
     </div>
 
     <aside id="column-left" class="col-md-3 col-md-pull-9">

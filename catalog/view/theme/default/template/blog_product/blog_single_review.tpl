@@ -28,65 +28,19 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 ?>
 
 <?php
-$news = array(
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-1.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-2.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-3.jpg',
-    'link' => '#',
-  ),
-);
-
-$review_more = array(
-'01.08.15 Марат Исмаилов',
-'03.12.15 Сергей Степанович',
-'28.06.16 Елизавета Петровна',
-'12.07.16. Антон Игоревич',
-'01.08.17 Марат Исмаилов',
-'03.12.17 Семен Петров',
-'28.06.18 Иван Иванович',
-'12.07.18. Лев Чехов',
-'01.08.18 Пётр Пустров',
-'03.12.18 Лев Толстой',
-'28.06.19 Зинаида Михайловна',
-'12.07.19. Григорий Аркадьевич',
-'01.08.15 Марат Исмаилов',
-'03.12.15 Сергей Степанович',
-'28.06.16 Елизавета Петровна',
-'12.07.16. Антон Игоревич',
-'01.08.17 Марат Исмаилов',
-'03.12.17 Семен Петров',
-'28.06.18 Иван Иванович',
-'12.07.18. Лев Чехов',
-'01.08.18 Пётр Пустров',
-'03.12.18 Лев Толстой',
-'28.06.19 Зинаида Михайловна',
-'12.07.19. Григорий Аркадьевич',
-'01.08.15 Марат Исмаилов',
-'03.12.15 Сергей Степанович',
-'28.06.16 Елизавета Петровна',
-'12.07.16. Антон Игоревич',
-'01.08.17 Марат Исмаилов',
-'03.12.17 Семен Петров',
-'28.06.18 Иван Иванович',
-'12.07.18. Лев Чехов',
-'01.08.18 Пётр Пустров',
-'03.12.18 Лев Толстой',
-'28.06.19 Зинаида Михайловна',
-'12.07.19. Григорий Аркадьевич',
-);
+$news = array();
+ if ($products1) {
+    foreach ($products1 as $product) {
+      
+      $news[] = array(
+                    'title' => $product['name'],
+                    'date' => $product['date_added'],
+                    'foto' => $product['thumb'],
+                    'link' => $product['href'],
+                      );
+ 
+    }
+ }
 
 ?>
 
@@ -116,9 +70,17 @@ $review_more = array(
       <?php } ?>
 
       <div class="company-review-info">
+        <?php if ($upc) { ?>
         <div class="company-review-info__time"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#clock-circular"></use></svg>Срок: <?php echo $upc; ?></div>
+        <?php } ?>
+
+        <?php if ($ean) { ?>
         <div class="company-review-info__area"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#area"></use></svg>Площадь: <?php echo $ean; ?></div>
+        <?php } ?>
+
+        <?php if ($jan) { ?>
         <div class="company-review-info__location"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#location"></use></svg>Место: <?php echo $jan; ?></div>
+        <?php } ?>
       </div>
 
       <?php if ($description) { ?>
@@ -158,7 +120,7 @@ $review_more = array(
     </div>
 
     <div class="col-md-3 col-md-pull-9">
-      <?php echo $column_left; ?>
+      <?php // echo $column_left; ?>
 
       <h3 class="widget-title">Новости компании</h3>
       <div class="news-list">
@@ -180,6 +142,19 @@ $review_more = array(
   </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -80,31 +80,73 @@ $('.js-featured').slick({
   autoplaySpeed: 3000,
 });
 
-$('.js-slider').slick({
-  dots: false,
-  arrows: true,
-  slidesToShow: 4,
-  slidesToScroll: 1,
-  autoplay: false,
-  centerPadding: '40px',
-  // responsive: [{
-  //   breakpoint: 768,
-  //   settings: {
-  //     arrows: false,
-  //     centerMode: true,
-  //     centerPadding: '40px',
-  //     slidesToShow: 3
-  //   }
-  // },{
-  //   breakpoint: 480,
-  //   settings: {
-  //     arrows: false,
-  //     centerMode: true,
-  //     centerPadding: '40px',
-  //     slidesToShow: 1
-  //   }
-  // }],
+function sliderInit(sId){
+  $('#' + sId).find('.slider__list').slick({
+    dots: false,
+    appendArrows: '#' + sId + ' .slider__arrows',
+    prevArrow: '#' + sId + ' .slider__arrow--prev',
+    nextArrow: '#' + sId + ' .slider__arrow--next',
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    autoplay: false,
+    centerPadding: '40px',
+    responsive: [{
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3
+      }
+    },{
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 2
+      }
+    },{
+      breakpoint: 340,
+      settings: {
+        slidesToShow: 1
+      }
+    }],
+  });
+}
+
+$('.js-slider').each(function(idx){
+  var sId = $(this).attr('id');
+  if ( ! sId ) {
+    sId = 'jsl-' + idx;
+    $(this).attr('id', sId);
+  }
+
+  sliderInit(sId);
 });
+
+
+// $('.js-slider').slick({
+//   dots: false,
+//   appendArrows: '#' + wsId + ' .slider__arrows',
+//   prevArrow: '#' + wsId + ' .slider__arrow--prev',
+//   nextArrow: '#' + wsId + ' .slider__arrow--next',
+//   slidesToShow: 4,
+//   slidesToScroll: 1,
+//   autoplay: false,
+//   centerPadding: '40px',
+//   // responsive: [{
+//   //   breakpoint: 768,
+//   //   settings: {
+//   //     arrows: false,
+//   //     centerMode: true,
+//   //     centerPadding: '40px',
+//   //     slidesToShow: 3
+//   //   }
+//   // },{
+//   //   breakpoint: 480,
+//   //   settings: {
+//   //     arrows: false,
+//   //     centerMode: true,
+//   //     centerPadding: '40px',
+//   //     slidesToShow: 1
+//   //   }
+//   // }],
+// });
 
 
 // tabs

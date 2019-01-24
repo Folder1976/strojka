@@ -55,18 +55,37 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
         <div class="description"><?php echo $description; ?></div>
       <?php } ?>
 
-      <?php if ($images) { ?>
-        <ul>
-          <?php foreach ($images as $image) { ?>
-          <li class="image-additional"><a class="thumbnail" href="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>"> <img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a></li>
-          <?php } ?>
-        </ul>
+      <?php if ( $images && count($images) > 0 ) { ?>
+        <div class="slider slider--work js-slider">
+          <div class="slider__arrows">
+            <div class="slider__arrow slider__arrow--prev">
+              <svg class="icon slider__arrow-icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-prev"></use>
+              </svg>
+            </div>
+            <div class="slider__arrow slider__arrow--next">
+              <svg class="icon slider__arrow-icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-next"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="slider__list">          
+            <?php foreach ($images as $image) { ?>
+              <div class="slider__item slider-item">
+
+                <div class="slider-item__img img--cover"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
+              </div>
+            <?php } ?>
+          </div>
+
+        </div>
       <?php } ?>
 
     </div>
 
     <div class="col-md-3 col-md-pull-9">
-      <?php echo $column_left; ?>
+      <?php // echo $column_left; ?>
 
       <div class="seller">
         <div class="seller__img">

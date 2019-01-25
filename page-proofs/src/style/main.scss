@@ -78,6 +78,10 @@ a {
   &:hover {
     opacity: .7;
   }
+
+  &[href^="tel:"] {
+    white-space: nowrap;
+  }
 }
 
 p {
@@ -203,11 +207,18 @@ hr,
 /******************** СТРАНИЦЫ ********************/
 // Главная страница
 @import './pages/index/_index';
+
+// Страница контактов
 @import './pages/contact/_contact';
+
+// Главная страница для фундамента
 @import './pages/fund-index/_fund-index';
+
+// Корзины
 @import './pages/cart/_cart-index';
 
-
+// Главная страница для кровли
+@import './pages/roof-index/_roof-index';
 
 
 

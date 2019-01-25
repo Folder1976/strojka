@@ -18,6 +18,10 @@
   margin-bottom: 1rem;
   word-wrap: break-word;
 
+  @media screen and (max-width: $break_xs) {
+    font-size: 3.8rem;
+  }
+
   &--white {
     color: #fff;
   }

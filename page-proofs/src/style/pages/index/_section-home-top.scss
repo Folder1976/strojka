@@ -21,7 +21,7 @@
       background-repeat: no-repeat;
       background-size: auto;
       height: 100%;
-
+      
       @media screen and (max-width: 1700px) {
         background-position: -200px bottom;
       }
@@ -142,38 +142,53 @@
     li {
       position: relative;
       padding-left: 2.7rem;
+    }
 
-      &:before {
-        content: "";
-        width: 1.2rem;
-        height: 1.2rem;
-        position: absolute;
-        z-index: 1;
-        top: .7rem;
-        left: 0;
-        background: #000;
-        border-radius: 50%;
+    &--inline {
+      li {
+        display: inline-block;
+        margin-right: 25px;
       }
     }
   }
 
-  // &__list-bg {
-  //   // &:before {
-  //   //   content: "";
-  //     z-index: 1;
-  //     display: block;
-  //     background: $primary_color;
-  //     opacity: .7;
-  //     top: 0;
-  //     right: 0;
-  //     left: 0;
-  //     bottom: 0;
-  //     width: 100%;
-  //     height: 100%;
-  //   // }
-  // }
 
   .site-title {
     text-align: right;
+  }
+}
+
+
+.section-home-top--roof {
+  background-image: url(../img/bg/home-top-roof-bg.jpg);
+
+  .section-home-top__bg-house {
+    .cont {
+      background-image: url(../img/bg/house-roof.png);
+
+      @media screen and (max-width: 1700px) {
+        background-position: -200px bottom;
+      }
+      @media screen and (max-width: 1350px) {
+        background-position: -300px bottom;
+      }
+      @media screen and (max-width: 1200px) {
+        background-position: -550px bottom;
+      }
+      @media screen and (max-width: $bs_break_xs) {
+        background-position: -700px bottom;
+      }
+    }
+  }
+
+  .section-home-top__desc {
+    display: block;
+    max-width: 47rem;
+    margin-left: auto;
+    margin-top: 2rem;
+    text-transform: none;
+
+    p {text-align: left;}
+    .btn {margin-left: 0;}
   }
 }

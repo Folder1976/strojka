@@ -1,0 +1,58 @@
+.section-calculate-the-cost {
+  position: relative;
+
+  .section-title {
+    text-align: left;
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.46px;
+    margin-bottom: 2rem;
+
+    @media screen and (max-width: $bs_break_sm) {
+      text-align: center;
+    }
+  }
+
+  &__bg-man {
+    position: absolute;
+    height: 40rem;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+    background-repeat: no-repeat;
+    background-position: bottom right 22%;
+    background-size: contain;
+
+    @media screen and (max-width: $bs_break_sm) {
+      display: none;
+    }
+  }
+
+  &__text {
+    @media screen and (max-width: $bs_break_sm) {
+      text-align: center;
+    }
+  }
+
+  &__p {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    line-height: 1.2em;
+
+    &--small {
+      color: #000;
+      font-weight: 300;
+
+      a {
+        color: inherit;
+        text-decoration: underline;
+      }
+    }
+  }
+
+}

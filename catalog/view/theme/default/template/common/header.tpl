@@ -260,7 +260,7 @@ $bottom_menu = array(
       <div class="container">
         <div class="row">
           <div class="hidden-xs col-sm-2"></div>
-          <div class="col-xs-12 col-sm-10 col-lg-7">
+          <div class="col-xs-12 col-sm-5 col-lg-7">
             <div class="header__mob-menu-btn mob-menu__btn">
               <span></span>
               <span></span>

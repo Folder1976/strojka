@@ -1,5 +1,11 @@
 .section-services {
   text-align: center;
+
+  &--grey {
+    .service-item {
+      background-color: #e4e4e4;
+    }
+  }
 }
 
 .services-list {

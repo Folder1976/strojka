@@ -1,4 +1,22 @@
 .filter {
+  position: relative;
+
+  @media screen and (max-width: $bs_break_sm) {
+    display: none;
+  }
+
+  &__mob-btn,
+  ul > &__mob-btn {
+    display: none;
+
+    @media screen and (max-width: $bs_break_sm) {
+      display: inline;
+    }
+  }
+
+  &__close {
+    display: none;
+  }
 
   &__form {
     margin-bottom: 3rem;
@@ -103,3 +121,16 @@
   }
 }
 
+#filter-mob.mfp-hide {
+  display: block !important;
+}
+
+@media screen and (max-width: $bs_break_sm) {
+  .filter-mob {
+    background-color: #fff;
+    max-width: 320px;
+    padding: 2rem;
+    margin: 2rem auto;
+    position: relative;
+  }
+}

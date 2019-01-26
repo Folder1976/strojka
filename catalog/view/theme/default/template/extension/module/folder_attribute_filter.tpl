@@ -1,5 +1,6 @@
-<div class="mobile-category-two">
-<div class="mobile-category-close"><i class="fa fa-times" aria-hidden="true"></i></div>
+<div class="filter" id="filter">
+<div id="filter-mob" class="filter-mob">
+<div class="filter__close"><i class="fa fa-times" aria-hidden="true"></i></div>
 <form method=GET action="<?php echo $action; ?>" class="filter__form">
   <div class="widget-title"><?php echo $heading_title; ?></div>
   <div class="list-group">
@@ -8,9 +9,18 @@
     <?php if(isset($prices) AND count($prices) > 1){ ?>
       <a class="filter-group__title">Цена</a>
       <div class="filter-group__content">
-        <div id="filter-group-price">
-          <input type="text" id="min_price" name="min_price" value="<?php echo $prices['min_price']; ?>"  />
-          <input type="text" id="max_price" name="max_price" value="<?php echo $prices['max_price']; ?>" " />
+        <div id="filter-group-price" class="js-range-price range-price" data-min="<?php echo $prices['min_price']; ?>" data-max="<?php echo $prices['max_price']; ?>" data-value-min="<?php echo $prices['min_price']; ?>" data-value-max="<?php echo $prices['max_price']; ?>" data-step="0.01">
+          <div class="range-price__input-wrap">
+            <input type="text" id="min_price" name="min_price" class="range-price__input range-price__input--min" value="<?php echo $prices['min_price']; ?>"  />
+            <input type="text" id="max_price" name="max_price" class="range-price__input range-price__input--max" value="<?php echo $prices['max_price']; ?>" " />
+          </div>
+
+          <span class="range-price__text range-price__text--min"><?php echo $prices['min_price']; ?></span>
+          <span class="range-price__text range-price__text--max"><?php echo $prices['max_price']; ?></span>
+
+          <div class="ui-slider-handle range-price__handle range-price__handle--min"></div>
+          <div class="ui-slider-handle range-price__handle range-price__handle--max"></div>
+          
         </div>
       </div>
     <?php } ?>
@@ -23,9 +33,9 @@
             <?php if(isset($filter['manufacturer_id'])){ ?>
 						<div class="filter-item">
 								<?php if (in_array($filter['manufacturer_id'], $ffilter_manufacturer)) { ?>
-								<input type="checkbox" id="filter_manufacturer_<?php echo $filter['manufacturer_id']; ?>" name="manufacturer_id[]" value="<?php echo $filter['manufacturer_id']; ?>" checked="checked" />
+								<input class="checkbox" type="checkbox" id="filter_manufacturer_<?php echo $filter['manufacturer_id']; ?>" name="manufacturer_id[]" value="<?php echo $filter['manufacturer_id']; ?>" checked="checked" />
 								<?php } else { ?>
-								<input type="checkbox" id="filter_manufacturer_<?php echo $filter['manufacturer_id']; ?>" name="manufacturer_id[]" value="<?php echo $filter['manufacturer_id']; ?>" />
+								<input class="checkbox" type="checkbox" id="filter_manufacturer_<?php echo $filter['manufacturer_id']; ?>" name="manufacturer_id[]" value="<?php echo $filter['manufacturer_id']; ?>" />
 								<?php } ?>
                 <label for="filter_manufacturer_<?php echo $filter['manufacturer_id']; ?>"><?php echo $filter['name']; ?></label>
 						</div>
@@ -101,6 +111,7 @@
     <button type="reset" id="button-reset" class="btn filter__btn filter__btn-reset">Сбросить</button>
   </div>
 </form>
+</div>
 <script type="text/javascript"><!--
 $('#button-ffilter1111').on('click', function() {
 	ffilter = [];
@@ -114,6 +125,15 @@ $('#button-ffilter1111').on('click', function() {
 
 $('.filter-group__title').on('click', function(){
   $(this).toggleClass('is-open').next().toggle('300');
+});
+
+$('#button-reset').on('click', function(){
+  var rp = $('#filter-group-price');
+  var min = parseFloat( rp.data('min') );
+  var max = parseFloat( rp.data('max') );
+
+  rp.slider("values", 0, min);
+  rp.slider("values", 1, max);
 });
 //--></script>
 

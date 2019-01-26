@@ -41,6 +41,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         <div class="row">
           <div class="col-md-12">
             <ul class="anchor-list">
+              <li class="filter__mob-btn"><a href="#filter-mob" class="mf-popup" data-effect="mfp-zoom-in">Подобрать товар</a></li>
               <?php foreach ($anchor_list as $link) { ?>
                 <li><a href="<?php echo $link['href']; ?>"><?php echo $link['name']; ?></a></li>
               <?php } ?>

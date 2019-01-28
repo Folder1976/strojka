@@ -213,6 +213,12 @@ class ControllerProductBlogCategory extends Controller {
 					$rating = false;
 				}
 
+				if(mb_strlen($result['description']) > $this->config->get($this->config->get('config_theme') . '_product_description_length')){
+					$short_description = utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..';
+				}else{
+					$short_description = strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'));
+				}
+				
 				$data['products1'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
 					'sku'  => $result['sku'],
@@ -224,7 +230,7 @@ class ControllerProductBlogCategory extends Controller {
 					'thumb'       => $image,
 					'date_added'  => date('d.m.Y', strtotime($result['date_added'])),
 					'name'        => $result['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+					'description' => $short_description,
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
@@ -282,6 +288,13 @@ class ControllerProductBlogCategory extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				if(mb_strlen($result['description']) > $this->config->get($this->config->get('config_theme') . '_product_description_length')){
+					$short_description = utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..';
+				}else{
+					$short_description = strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'));
+				}
+
 
 				$data['products'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
@@ -294,7 +307,7 @@ class ControllerProductBlogCategory extends Controller {
 					'thumb'       => $image,
 					'date_added'  => date('d.m.Y', strtotime($result['date_added'])),
 					'name'        => $result['name'],
-					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
+					'description' => $short_description,
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,

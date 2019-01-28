@@ -15,9 +15,13 @@ class ControllerExtensionModuleFolderAttributeFilter extends Controller {
         
         $data['action'] = str_replace('&amp;', '&', $this->url->link('product/category', 'path=' . $this->request->get['path']));
       
-        if(isset($this->session->data['prices']))
+        if(isset($this->session->data['prices'])){
             $data['prices'] = $this->session->data['prices'];
-            
+			
+			$data['prices']['min_price'] = (int)$data['prices']['min_price'];
+			$data['prices']['max_price'] = (int)$data['prices']['max_price'];
+			
+		}
         if(isset($this->session->data['filter_manufactures']))
             $data['filter_manufactures'] = $this->session->data['filter_manufactures'];
             

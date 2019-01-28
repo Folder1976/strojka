@@ -256,10 +256,24 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
       <?php } ?>
 
 
-      <?php if ($video) { ?>
+      <?php if (isset($videos)) { ?>
         <h3 class="h3-title" id="video">Видео</h3>
         <div class="row">
+          <?php foreach($videos as $video){ ?>
           <div class="col-sm-3"><iframe src="<?php echo $video; ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+          <?php } ?>
+        </div>
+        <br>
+      <?php } ?>
+
+      <?php if (isset($images)) { ?>
+        <h3 class="h3-title" id="images">Картинки</h3>
+        <div class="row">
+          <?php foreach($images as $image){ ?>
+          <div class="col-sm-3"><img src="<?php echo $image['popup']; ?>" >
+          <!-- ПОЛНЫЙ РАЗМЕР img src="<?php echo $image['thumb']; ?>" -->
+          </div>
+          <?php } ?>
         </div>
         <br>
       <?php } ?>
@@ -460,5 +474,6 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
 
 
 <?php echo $footer; ?>
+
 
 

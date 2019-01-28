@@ -318,6 +318,8 @@ class ControllerCatalogCategory extends Controller {
 		$data['entry_sort_order'] = $this->language->get('entry_sort_order');
 		$data['entry_status'] = $this->language->get('entry_status');
 		$data['entry_layout'] = $this->language->get('entry_layout');
+		$data['entry_additional_image'] = $this->language->get('entry_additional_image');
+		$data['button_image_add'] = $this->language->get('button_image_add');
 
 		$data['help_filter'] = $this->language->get('help_filter');
 		$data['help_keyword'] = $this->language->get('help_keyword');
@@ -492,6 +494,44 @@ class ControllerCatalogCategory extends Controller {
 
 		$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
 
+				// Images
+		if (isset($this->request->post['category_image'])) {
+			$category_images = $this->request->post['category_image'];
+		} elseif (isset($this->request->get['category_id'])) {
+			$category_images = $this->model_catalog_category->getCategoryImages($this->request->get['category_id']);
+		} else {
+			$category_images = array();
+		}
+		
+		$data['category_videos'] = array();
+		if (isset($this->request->post['category_video'])) {
+			$category_video = $this->request->post['category_video'];
+		} elseif (isset($this->request->get['category_id'])) {
+			$category_video = $this->model_catalog_category->getVideoImages($this->request->get['category_id']);
+		} else {
+			$category_video = array();
+		}
+		$data['category_videos'] = $category_video;
+
+
+		$data['category_images'] = array();
+
+		foreach ($category_images as $category_image) {
+			if (is_file(DIR_IMAGE . $category_image['image'])) {
+				$image = $category_image['image'];
+				$thumb = $category_image['image'];
+			} else {
+				$image = '';
+				$thumb = 'no_image.png';
+			}
+
+			$data['category_images'][] = array(
+				'image'      => $image,
+				'thumb'      => $this->model_tool_image->resize($thumb, 100, 100),
+				'sort_order' => $category_image['sort_order']
+			);
+		}
+		
 		if (isset($this->request->post['top'])) {
 			$data['top'] = $this->request->post['top'];
 		} elseif (!empty($category_info)) {

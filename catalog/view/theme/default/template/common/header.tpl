@@ -45,24 +45,7 @@ $top_menu = array(
   array (
     'name' => 'Услуги',
     'href' => '#',
-    'children' => array(
-      array(
-        'name' => 'Отзывы о компании',
-        'href' => '/company-reviews',
-      ),
-      array(
-        'name' => 'Наши работы',
-        'href' => '/our-works',
-      ),
-      array(
-        'name' => 'Новости компании',
-        'href' => '/news',
-      ),
-      array(
-        'name' => 'Наша команда',
-        'href' => '/our-team',
-      ),
-    )
+    'children' => $blog_categories,
   ),
   array (
     'name' => 'Товары',

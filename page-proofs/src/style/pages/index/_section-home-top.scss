@@ -169,15 +169,19 @@
       @media screen and (max-width: 1700px) {
         background-position: -200px bottom;
       }
-      @media screen and (max-width: 1350px) {
+      @media screen and (max-width: 1450px) {
         background-position: -300px bottom;
       }
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1250px) {
         background-position: -550px bottom;
       }
-      @media screen and (max-width: $bs_break_xs) {
-        background-position: -700px bottom;
+      @media screen and (max-width: 850px) {
+        background-position: -720px bottom;
       }
+
+      // @media screen and (max-width: $bs_break_xs) {
+      //   display: none;
+      // }
     }
   }
 

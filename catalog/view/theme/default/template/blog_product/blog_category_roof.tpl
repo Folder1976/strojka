@@ -316,7 +316,7 @@ $reviews_slider = array(
           <p class="section-calculate-the-cost__p">Среднее время расчета - 1 минута. Вы сразу получаете стоимость сметы. И при желании можете оформить индивидуальное предложение с подробным перечнем материалов и работ себе на почту.</p><br><a class="btn btn--black btn--dib" href="#online-calc">сделать расчёт за 50 секунд</a>
           <br>
           <br>
-          <p class="section-calculate-the-cost__p--small">Или закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:+790663541265" style="white-space: nowrap;">+79 (066)354 12 65</a></b></p>
+          <p class="section-calculate-the-cost__p--small">Или закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $phone); ?>" style="white-space: nowrap;"><?php echo $phone; ?></a></b></p>
         </div>
       </div>
     </div>
@@ -506,7 +506,7 @@ $reviews_slider = array(
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <p>Закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:+790663541265">+79 (066)354 12 65</a></b></p>
+        <p>Закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $phone); ?>"><?php echo $phone; ?></a></b></p>
       </div>
     </div>
   </div>

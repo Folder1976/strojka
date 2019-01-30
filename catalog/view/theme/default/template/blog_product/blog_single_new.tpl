@@ -74,7 +74,7 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
             <?php foreach ($images as $image) { ?>
               <div class="slider__item slider-item">
 
-                <div class="slider-item__img img--cover"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
+                <div class="slider-item__img img--cover"><a href="<?php echo $image['popup']; ?>" class="zoom-foto"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a></div>
               </div>
             <?php } ?>
           </div>

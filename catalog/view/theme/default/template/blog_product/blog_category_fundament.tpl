@@ -194,11 +194,11 @@ $popular_prices = array(
         <div class="popular-prices-list">
     
           <?php foreach ($popular_prices as $pp) { ?>
-            <a class="popular-prices-list__item pp-item" href="<?php echo $pp['link']; ?>">
+            <div class="popular-prices-list__item pp-item">
               <div class="pp-item__img"><img src="/catalog/view/theme/default/img/foto/price-item.jpg" alt="<?php echo $pp['title'].$pp['price']; ?>"></div>
               <div class="pp-item__title"><?php echo $pp['title']; ?></div>
               <div class="pp-item__price"><?php echo $pp['price']; ?></div>
-            </a>
+            </div>
           <?php } ?>
 
         </div>

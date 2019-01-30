@@ -205,4 +205,3 @@ class ControllerStartupSeoUrl extends Controller {
 		}
 	}
 }
-

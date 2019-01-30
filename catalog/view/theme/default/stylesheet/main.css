@@ -4965,7 +4965,7 @@ ol li {
 
 .section-title {
   color: #000;
-  font-size: 4.8rem;
+  font-size: 4rem;
   font-weight: 900;
   text-transform: uppercase;
   text-align: center;
@@ -5750,15 +5750,15 @@ ol li {
     @media screen and (max-width: 1700px) {
       .section-home-top--roof .section-home-top__bg-house .cont {
         background-position: -200px bottom; } }
-    @media screen and (max-width: 1350px) {
+    @media screen and (max-width: 1450px) {
       .section-home-top--roof .section-home-top__bg-house .cont {
         background-position: -300px bottom; } }
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1250px) {
       .section-home-top--roof .section-home-top__bg-house .cont {
         background-position: -550px bottom; } }
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: 850px) {
       .section-home-top--roof .section-home-top__bg-house .cont {
-        background-position: -700px bottom; } }
+        background-position: -720px bottom; } }
   .section-home-top--roof .section-home-top__desc {
     display: block;
     max-width: 47rem;

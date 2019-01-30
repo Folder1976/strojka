@@ -468,13 +468,16 @@ class ControllerProductProduct extends Controller {
 			$data['lates_products'] = array();
 			$results = array();
 			
+			if(isset($_COOKIE['IdProduto'])){
 			$ids = explode(',', $_COOKIE['IdProduto']);
 			foreach($ids as $id){
 				if((int)$id > 0){
 					$results[] = $this->model_catalog_product->getProduct($id);
 				}
 			}
-			
+			}else{
+				$results = array();
+			}
 			foreach ($results as $result) {
 				if ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
@@ -778,4 +781,3 @@ class ControllerProductProduct extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
-

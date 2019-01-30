@@ -156,6 +156,53 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
+		// ====================================
+		$this->load->model('catalog/blog_category');
+
+		$data['blog_categories'] = array();
+
+		$categories = $this->model_catalog_blog_category->getCategories(0);
+
+		foreach ($categories as $category) {
+			if ($category['top']) {
+				// Level 2
+				$children_data = array();
+
+				$children = $this->model_catalog_blog_category->getCategories($category['blog_category_id']);
+
+				foreach ($children as $child) {
+					$filter_data = array(
+						'filter_category_id'  => $child['blog_category_id'],
+						'filter_sub_category' => true
+					);
+
+					$children_data[] = array(
+						'name'  => $child['name'],
+						'href'  => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
+					);
+				}
+
+				// Level 1
+				$data['blog_categories'][] = array(
+					'name'     => $category['name'],
+					'children' => $children_data,
+					'column'   => $category['column'] ? $category['column'] : 1,
+					'href'     => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'])
+				);
+			}
+		}
+		
+		// ====================================
+
+
+
+
+
+
+
+
+
+
 		$data['language'] = $this->load->controller('common/language');
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['search'] = $this->load->controller('common/search');

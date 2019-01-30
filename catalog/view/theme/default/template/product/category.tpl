@@ -1,24 +1,5 @@
 <?php echo $header; ?>
 
-<?php
-$frequently_visited_pages = array(
-  array( 'href' => '#', 'name' => 'Гибкая черепица' ),
-  array( 'href' => '#', 'name' => 'Композитная черепица' ),
-  array( 'href' => '#', 'name' => 'Фальцевая кровля' ),
-  array( 'href' => '#', 'name' => 'Керамическая черепица' ),
-  array( 'href' => '#', 'name' => 'Цементно-песчаная черепица' ),
-);
-
-$anchor_list = array(
-  array( 'href' => $_SERVER['REQUEST_URI'].'#description', 'name' => 'Описание' ),
-  array( 'href' => $_SERVER['REQUEST_URI'].'#video', 'name' => 'видео' ),
-  array( 'href' => '#', 'name' => 'примеры объектов' ),
-  array( 'href' => '#', 'name' => 'цена' ),
-);
-
-$video = 'https://www.youtube.com/embed/rVDkUBVaevE';
-?>
-
 <div class="container">
 
   <div class="row">
@@ -37,18 +18,25 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
     <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
-      <?php if ( isset($anchor_list) && count($anchor_list) > 0 ) { ?>
-        <div class="row">
-          <div class="col-md-12">
-            <ul class="anchor-list">
-              <li class="filter__mob-btn"><a href="#filter-mob" class="mf-popup" data-effect="mfp-zoom-in">Подобрать товар</a></li>
-              <?php foreach ($anchor_list as $link) { ?>
-                <li><a href="<?php echo $link['href']; ?>"><?php echo $link['name']; ?></a></li>
-              <?php } ?>
-            </ul>
-          </div>
+      <div class="row">
+        <div class="col-md-12">
+          <ul class="anchor-list">
+            <li class="filter__mob-btn"><a href="#filter-mob" class="mf-popup" data-effect="mfp-zoom-in">Подобрать товар</a></li>
+
+            <?php if ($thumb || $description) { ?>
+              <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#description'; ?>">Описание</a></li>
+            <?php } ?>
+
+            <?php if (isset($videos) and count($videos) > 1 ) { ?>
+              <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#video'; ?>">Видео</a></li>
+            <?php } ?>
+
+            <?php if (isset($images) and count($images) > 1 ) { ?>
+              <li><a href="<?php echo $_SERVER['REQUEST_URI'].'#images'; ?>">Примеры объектов</a></li>
+            <?php } ?>
+          </ul>
         </div>
-      <?php } ?>
+      </div>
 
     <?php if(isset($style) and $style == 0){ ?>
       <?php if ( isset($categories) and count($categories) > 0 ) { ?>
@@ -256,7 +244,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
       <?php } ?>
 
 
-      <?php if (isset($videos)) { ?>
+      <?php if ( isset($videos) and count($videos) > 1 ) { ?>
         <h3 class="h3-title" id="video">Видео</h3>
         <div class="row">
           <?php foreach($videos as $video){ ?>
@@ -266,7 +254,7 @@ $video = 'https://www.youtube.com/embed/rVDkUBVaevE';
         <br>
       <?php } ?>
 
-      <?php if (isset($images)) { ?>
+      <?php if ( isset($images) and count($images) > 1) { ?>
         <h3 class="h3-title" id="images">Картинки</h3>
         <div class="row">
           <?php foreach($images as $image){ ?>

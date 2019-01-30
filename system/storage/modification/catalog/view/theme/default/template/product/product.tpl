@@ -59,7 +59,7 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
         <div class="col-md-4">
 
           <?php if ($thumb) { ?>
-            <a class="prod-page__thumb" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
+            <a class="prod-page__thumb zoom-foto" href="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>"><img src="<?php echo $thumb; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></a>
           <?php } ?>
         </div>
 
@@ -769,7 +769,8 @@ $('.input-count').on('click', '.js-input-count-minus', function(e) {
   var q = parseInt( value.val() );
 
   if ( q > 1) {
-    value.val(q-1);
+    q = q - 1;
+    value.val(q);
   }
 
   updateTotal(q);
@@ -781,7 +782,8 @@ $('.input-count').on('click', '.js-input-count-plus', function(e) {
   var value = $(this).siblings('.input-count__num');
   var q = parseInt( value.val() );
 
-  value.val(q+1);
+  q = q + 1;
+  value.val(q);
 
   updateTotal(q);
 });

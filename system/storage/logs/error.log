@@ -310,3 +310,159 @@
 2019-01-09 15:51:20 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
 2019-01-09 15:52:41 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
 2019-01-09 15:53:57 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 461
+2019-01-30 12:38:32 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 12:50:17 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 12:51:40 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:01:25 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:02:27 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:02:27 - PHP Notice:  Undefined variable: services in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 84
+2019-01-30 13:02:27 - PHP Notice:  Undefined variable: services in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 169
+2019-01-30 13:02:27 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 169
+2019-01-30 13:05:19 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:05:19 - PHP Notice:  Undefined variable: services in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 169
+2019-01-30 13:05:19 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 169
+2019-01-30 13:05:19 - PHP Notice:  Undefined variable: team in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 278
+2019-01-30 13:05:19 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 278
+2019-01-30 13:05:19 - PHP Notice:  Undefined variable: works in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 306
+2019-01-30 13:05:19 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 306
+2019-01-30 13:05:19 - PHP Notice:  Undefined variable: reviews_slider in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 410
+2019-01-30 13:05:19 - PHP Warning:  Invalid argument supplied for foreach() in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 410
+2019-01-30 13:15:35 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:16:00 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:16:14 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:20:38 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:20:48 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:20:51 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:21:56 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:22:44 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:22:54 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:23:11 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:23:13 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:23:16 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:25:59 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:26:05 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:26:09 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:26:14 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:26:16 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:28:06 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:28:09 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:29:10 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:29:35 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:29:37 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:29:51 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:29:53 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:29:55 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:29:57 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:29:59 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:30:07 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:30:09 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:30:11 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:30:13 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:30:15 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:30:18 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:31:44 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:32:27 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:32:51 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:32:52 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:08 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:12 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:14 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:29 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:33 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:37 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:40 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:42 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:47 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:50 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:52 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:54 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:33:57 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:34:15 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:34:17 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:48:00 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:49:35 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:56:08 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:56:08 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 319
+2019-01-30 13:56:08 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 319
+2019-01-30 13:56:36 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:56:52 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:57:03 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:57:03 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 319
+2019-01-30 13:57:03 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 319
+2019-01-30 13:58:54 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:58:54 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 319
+2019-01-30 13:58:54 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 319
+2019-01-30 13:59:15 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 13:59:15 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 319
+2019-01-30 13:59:15 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 319
+2019-01-30 13:59:15 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 509
+2019-01-30 13:59:15 - PHP Notice:  Undefined variable: phone in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\home.tpl on line 509
+2019-01-30 14:05:54 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:07:07 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:07:31 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:12:12 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:12:28 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 586
+2019-01-30 14:12:28 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:28 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:28 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:28 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:28 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:29 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:12:29 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 214
+2019-01-30 14:12:29 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:12:29 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:12:29 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 586
+2019-01-30 14:12:29 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:29 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:29 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:12:29 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 214
+2019-01-30 14:12:29 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:12:29 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:12:36 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 586
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:12:36 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:12:36 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 214
+2019-01-30 14:12:36 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:12:36 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:12:43 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:14:30 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:14:54 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:16:10 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:19:39 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 586
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:19:39 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:19:39 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 214
+2019-01-30 14:19:39 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:19:39 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:21:44 - PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\controller\product\category.php on line 586
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined index: filter_group_id in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\extension\module\folder_attribute_filter.tpl on line 88
+2019-01-30 14:21:45 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 14:21:45 - PHP Warning:  Illegal string offset 'value' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 214
+2019-01-30 14:21:45 - PHP Warning:  Illegal string offset 'href' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:21:45 - PHP Warning:  Illegal string offset 'text' in C:\xampp_vhost\strojka\web\system\storage\modification\catalog\view\theme\default\template\product\category.tpl on line 217
+2019-01-30 14:45:56 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48
+2019-01-30 15:01:26 - PHP Notice:  Undefined variable: blog_categories in C:\xampp_vhost\strojka\web\catalog\view\theme\default\template\common\header.tpl on line 48

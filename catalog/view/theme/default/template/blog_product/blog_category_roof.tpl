@@ -75,6 +75,14 @@ $reviews_slider = array(
   ),
 );
 
+$reasons_to_order = array(
+  array( 'img' => '/catalog/view/theme/default/img/foto/reasons-to-order-1.jpg', 'text' => 'Работаем исключительно аккуратно. Наша работа надёжна, долговечна и красива.'),
+  array( 'img' => '/catalog/view/theme/default/img/foto/reasons-to-order-2.jpg', 'text' => 'Сработавшиеся профессиональные бригады без пресловутой текучки кадров.'),
+  array( 'img' => '/catalog/view/theme/default/img/foto/reasons-to-order-3.jpg', 'text' => 'Мы не привлекаем дешевую иностранную силу. Наши сотрудники - только россияне.'),
+  array( 'img' => '/catalog/view/theme/default/img/foto/reasons-to-order-4.jpg', 'text' => 'Работаем качественным профессиональным инструментом.'),
+  array( 'img' => '/catalog/view/theme/default/img/foto/reasons-to-order-5.jpg', 'text' => 'Профессиональные мастера с опытом работы более 8 лет'),
+);
+
 
 ?>
 
@@ -125,6 +133,53 @@ $reviews_slider = array(
       <div class="col-md-12 text-center">
         <div class="section-subtitle">Пройдите тест за 2 минуты и узнайте стоимость кровли<br>под ключ и сроки реализации</div>
         <a href="#" class="btn btn--dib">пройти тест</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-reasons-to-order">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="section-title">11 причин заказать кровлю у нас</div>
+        <div class="reasons-to-order__top">
+          <div class="item-left">
+            <div class="reasons-to-order__text text">Мы поставляем материалы на Ваш объект без предоплаты. Сначала поставка материалов, затем уже оплата.</div>
+            <div class="reasons-to-order__text text">Закупаем все материалы напрямую от производителей или их официальных дилеров. Имеем максимальные скидки от объемов материалов и длительности сотрудничества.</div>
+            <div class="reasons-to-order__text text">Работаем без проживания на объекте, или с собственной бытовкой, в зависимости от объема работ.</div>
+          </div>
+          <div class="item-center">
+            <div class="img">
+              <img src="/catalog/view/theme/default/img/foto/reasons-to-order__foto.jpg" alt="foto" class="img--cover">
+            </div>
+          </div>
+          <div class="item-right">
+            <div class="reasons-to-order__text text">Осуществление технадзора на объекте с составлением отчетов для заказчика 2 раза в неделю.</div>
+            <div class="reasons-to-order__text text">Соблюдение технологий строительства на всех этапах монтажа. Все работы производятся по ГОСТам и СНИПам. Этапы скрытых работ фиксируются фотоотчетами.</div>
+            <div class="reasons-to-order__text text">У Вас есть право инспекции качества и сроков работ в процессе их производства. Ответим на все Ваши вопросы.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <div class="section-subtitle">Качество производства наших работ позволяет <br> смело выдерживать 5 лет гарантии.</div>
+
+        <div class="reasons-to-order__bottom">
+
+          <?php foreach ($reasons_to_order as $item) { ?>
+            <div class="item">
+              <div class="item__img">
+                <img src="<?php echo $item['img']; ?>" alt="" class="img--cover">
+              </div>
+              <div class="reasons-to-order__text text"><?php echo $item['text']; ?></div>
+            </div>
+          <?php } ?>
+
+        </div>
       </div>
     </div>
   </div>

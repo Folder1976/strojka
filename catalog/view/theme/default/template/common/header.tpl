@@ -38,8 +38,15 @@
 <?php echo $analytic; ?>
 <?php } ?>
 </head>
-<body class="site <?php echo $class; ?>">
 
+<?php
+$page = str_replace( $base, '', $link['href'] );
+if ( in_array( $page, array('root', 'fundament', '') ) ) {
+  $class .= ' no-grey-line';
+}
+?>
+
+<body class="site <?php echo $class; ?>">
 <?php
 $top_menu = array(
   array (

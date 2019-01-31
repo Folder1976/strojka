@@ -119,7 +119,9 @@ hr,
   }
   &__footer {}
 
-  &:not(.common-home) .site__header {
+  // &:not(.common-home, .no-grey-line) .site__header {
+  // &:not(.common-home) .site__header,
+  &:not(.no-grey-line) .site__header {
     border-bottom: 61px solid #e4e4e4;
   }
 }

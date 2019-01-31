@@ -4009,7 +4009,7 @@ hr,
         -ms-flex-positive: 1;
             flex-grow: 1;
     margin-bottom: 5rem; }
-  .site:not(.common-home) .site__header {
+  .site:not(.no-grey-line) .site__header {
     border-bottom: 61px solid #e4e4e4; }
 
 [class*="ico-"] {

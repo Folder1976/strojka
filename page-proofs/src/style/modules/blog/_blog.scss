@@ -2,3 +2,42 @@
 @import './_blog-works';
 @import './_blog-reviews';
 @import './_blog-team';
+
+.list-category {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 3rem;
+  grid-row-gap: 7rem;
+
+  @media screen and (max-width: $bs_break_xs) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media screen and (max-width: 450px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__item {}
+}
+
+.list-category-item {
+  font-size: 1.8rem;
+  line-height: 1.2em;
+  border-bottom: 1px solid #000;
+  padding-bottom: 1rem;
+
+  a {
+    color: #000;
+  }
+
+  &__title {
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+  }
+
+  &__list {
+    li {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

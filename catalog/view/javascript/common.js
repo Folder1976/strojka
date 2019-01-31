@@ -135,6 +135,28 @@ $(document).ready(function() {
 	});
 });
 
+// popap alert
+var mfAlert = {
+  'show': function(mess, timer = -1) {
+    var s = '';
+    if ( timer > 0 ) {
+    	s = '<script>setTimeout(function () {$.magnificPopup.close()},' + timer + ');</script>';
+    }
+
+    var p = '<div class="mf-popup-block mfp-with-anim" id="mf-alert">' + mess + s + '</div>'
+
+    $.magnificPopup.open({
+      items: {
+        src: p,
+        type: 'inline',
+      }
+    });
+  },
+  'close': function() {
+  	$.magnificPopup.close();
+  },
+}
+
 // Cart add remove functions
 var cart = {
 	'add': function(product_id, quantity) {
@@ -157,14 +179,15 @@ var cart = {
 				}
 
 				if (json['success']) {
-					$('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					// $('#content').parent().before('<div class="alert alert-success"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+					mfAlert.show( json['success'], 4000);
 
 					// Need to set timeout otherwise it wont update the total
 					setTimeout(function () {
 						$('#cart_total_target').html(json['total']);
 					}, 100);
 
-					$('html, body').animate({ scrollTop: 0 }, 'slow');
+					// $('html, body').animate({ scrollTop: 0 }, 'slow');
 
 					$('#cart > ul').load('index.php?route=common/cart/info ul li');
 				}

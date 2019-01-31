@@ -578,6 +578,9 @@
 <script type="text/javascript">
     $(document).ready(function() {
         // $("#telephone-ch").mask("+99(999)999-99-99")
+
+        $("#collapse-coupon").collapse("show");
+        $("#accordion .panel-heading").hide();
     });
     $(document).on('change', '#telephone-ch', function(){
 

@@ -5530,6 +5530,31 @@ ol li {
       border-bottom: 1px solid #000;
       margin-top: 4rem; }
 
+.list-category {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 3rem;
+  grid-row-gap: 7rem; }
+  @media screen and (max-width: 768px) {
+    .list-category {
+      grid-template-columns: 1fr 1fr; } }
+  @media screen and (max-width: 450px) {
+    .list-category {
+      grid-template-columns: 1fr; } }
+
+.list-category-item {
+  font-size: 1.8rem;
+  line-height: 1.2em;
+  border-bottom: 1px solid #000;
+  padding-bottom: 1rem; }
+  .list-category-item a {
+    color: #000; }
+  .list-category-item__title {
+    font-weight: 900;
+    margin-bottom: 1.5rem; }
+  .list-category-item__list li {
+    margin-bottom: 1.5rem; }
+
 .text-center {
   text-align: center; }
 

@@ -15,6 +15,10 @@
   font-weight: 400;
   letter-spacing: 0.32px;
 
+  p {
+    margin: 0;
+  }
+
   thead {
     tr {
       background: $primary_color;
@@ -48,6 +52,14 @@
       &:nth-child(2) {
         text-align: left;
       }
+    }
+  }
+
+  &--fz14 {
+    font-size: 14px;
+
+    p {
+      font-size: 14px;
     }
   }
 }

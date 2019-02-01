@@ -5022,6 +5022,8 @@ ol li {
   font-size: 1.5rem;
   font-weight: 400;
   letter-spacing: 0.32px; }
+  .table p {
+    margin: 0; }
   .table thead tr {
     background: #fbbe18; }
   .table thead th {
@@ -5041,6 +5043,10 @@ ol li {
     text-align: center; }
     .table tbody td:nth-child(1), .table tbody td:nth-child(2) {
       text-align: left; }
+  .table--fz14 {
+    font-size: 14px; }
+    .table--fz14 p {
+      font-size: 14px; }
 
 .table.table--prod-specification {
   font-size: 1.8rem; }

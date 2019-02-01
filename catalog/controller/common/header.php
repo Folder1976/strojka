@@ -87,6 +87,7 @@ class ControllerCommonHeader extends Controller {
 
 		// Menu
 		$this->load->model('catalog/category');
+		$this->load->model('catalog/blog_category');
 
 		$this->load->model('catalog/product');
 
@@ -123,11 +124,13 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
-		// ====================================
-		$this->load->model('catalog/blog_category');
-
+	//===================================================================================================================
+	//===================================================================================================================
+	//===================================================================================================================
+	//===================================================================================================================
+	//===================================================================================================================
+	
 		$data['blog_categories'] = array();
-
 		$categories = $this->model_catalog_blog_category->getCategories(0);
 
 		foreach ($categories as $category) {
@@ -150,7 +153,7 @@ class ControllerCommonHeader extends Controller {
 				}
 
 				// Level 1
-				$data['blog_categories'][] = array(
+				$data['blog_categories'][$category['blog_category_id']] = array(
 					'name'     => $category['name'],
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
@@ -158,14 +161,8 @@ class ControllerCommonHeader extends Controller {
 				);
 			}
 		}
-		
+
 		// ====================================
-
-
-
-
-
-
 
 
 

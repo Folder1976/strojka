@@ -1,465 +1,592 @@
-<!DOCTYPE html>
-<!--[if IE]><![endif]-->
-<!--[if IE 8 ]><html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>" class="ie8"><![endif]-->
-<!--[if IE 9 ]><html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>" class="ie9"><![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
-<!--<![endif]-->
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title><?php echo $title; ?></title>
-<base href="<?php echo $base; ?>" />
-<?php if ($description) { ?>
-<meta name="description" content="<?php echo $description; ?>" />
-<?php } ?>
-<?php if ($keywords) { ?>
-<meta name="keywords" content= "<?php echo $keywords; ?>" />
-<?php } ?>
-<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
-<!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
-<link href="catalog/view/theme/default/stylesheet/main.css" rel="stylesheet">
-<?php foreach ($styles as $style) { ?>
-<link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
-<?php } ?>
-<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
-<?php foreach ($links as $link) { ?>
-<link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
-<?php } ?>
-<?php foreach ($scripts as $script) { ?>
-<script src="<?php echo $script; ?>" type="text/javascript"></script>
-<?php } ?>
-<?php foreach ($analytics as $analytic) { ?>
-<?php echo $analytic; ?>
-<?php } ?>
-</head>
+<div class="col-md-12">
+  <div class="section-title">Онлайн калькулятор</div>
+  <div class="section-subtitle text-gray">За несколько минут узнаете стоимость работ и получите<br>индвидуальный расчет вашего объекта</div>
 
-<?php
-$page = str_replace( $base, '', $link['href'] );
-if ( in_array( $page, array('root', 'fundament', '') ) ) {
-  $class .= ' no-grey-line';
-}
-?>
+  <div id="calc" class="calc">
+    <div class="tabs">
+      <ul class="tabs__links">
+        <li class="tab__link is-active" data-tab="tab-1">
+          <svg class="icon icon-calc-tab">
+            <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-works"></use>
+          </svg>
+          <span>Калькулятор кровли</span>
+        </li>
+        <li class="tab__link" data-tab="tab-2">
+          <svg class="icon icon-calc-tab">
+            <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#gully"></use>
+          </svg>
+          <span>Водосточные системы</span>
+        </li>
+        <li class="tab__link" data-tab="tab-3">
+          <svg class="icon icon-calc-tab">
+            <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-binder"></use>
+          </svg>
+          <span>Калькулятор софитов</span>
+        </li>
+      </ul>
+        
+      <div id="tab-1" class="tab__content is-active" data-step="1">
+        <form action="" method="post">
 
-<body class="site <?php echo $class; ?>">
-<?php
-$top_menu = array(
-  array (
-    'name' => 'Услуги',
-    'href' => '#',
-    'children' => $blog_categories,
-  ),
-  array (
-    'name' => 'Товары',
-    'href' => '',
-    'children' => $categories
-  ),
-  array (
-    'name' => 'Контакты',
-    'href' => $contact,
-  ),
-  array (
-    'name' => 'Наши работы',
-    'href' => '/our-works',
-  ),
-  array (
-    'name' => 'Блог',
-    'href' => '/news',
-  ),
-);
-$bottom_menu = array(
-  array (
-    'name' => 'Кровля',
-    'href' => '#',
-    'children' => array(
-      array(
-        'name' => 'item 1',
-        'href' => '#',
-        'children' => array(
-          array(
-            'name' => 'item 1 1',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 1 2',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 1 3',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 1 4',
-            'href' => '#',
-          ),
-        ),
-      ),
-      array(
-        'name' => 'item 2item 2item 2item 2item 2item 2',
-        'href' => '#',
-        'children' => array(
-          array(
-            'name' => 'item 2 1',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 2 2',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 2 3',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 2 2',
-            'href' => '#',
-          ),
-        ),
-      ),
-      array(
-        'name' => 'item 3',
-        'href' => '#',
-        'children' => array(
-          array(
-            'name' => 'item 3 1',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 3 2',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 3 3',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 3 4',
-            'href' => '#',
-          ),
-        ),
-      ),
-      array(
-        'name' => 'item 4',
-        'href' => '#',
-        'children' => array(
-          array(
-            'name' => 'item 4 1',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 4 2',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 4 3',
-            'href' => '#',
-          ),
-          array(
-            'name' => 'item 4 4',
-            'href' => '#',
-          ),
-        ),
-      ),
-    )
-  ),
-  array (
-    'name' => 'фундамент',
-    'href' => '',
-    'children' => array()
-  ),
-  array (
-    'name' => 'проектирование и дизайн',
-    'href' => '#',
-  ),
-  array (
-    'name' => 'строительство загородных домов',
-    'href' => '#',
-  ),
-);
-?>
+          <div class="calc__step-1">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №1</b> параметры объекта</div>
 
-  <header class="site__header header">
-    <div class="header__top">
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-4 col-sm-2">
-            <div class="header__logo logo">
-              <?php if ($logo) { ?>
-              <a href="<?php echo $home; ?>" class="logo__link"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="logo__img" /></a>
-              <?php } else { ?>
-              <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="col-xs-8 col-sm-5 col-md-7">
-            <div class="header__inner">
-              <ul class="header__top-menu">
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">тип кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="radio-btn-group">
+                      <div class="radio-btn">
+                        <input type="radio" id="c1-type-roof-1" name="c1-type-roof" value="1" checked>
+                        <label for="c1-type-roof-1">металочерепица</label>
+                      </div>
+                      <div class="radio-btn">
+                        <input type="radio" id="c1-type-roof-2" name="c1-type-roof" value="2">
+                        <label for="c1-type-roof-2">мягкая кровля</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
 
-                <?php
-                foreach ($top_menu as $mitem) {
-                  if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
-                    echo '<li class="dropdown"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a>';
-                    echo '<ul class="dropdown-menu">';
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">общая площадь кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м<sup>2</sup>" data-min="4" data-max="1000" data-value="100">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="c1-area">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase">
+                    <a href="#c1-add-options" class="js-toggle toggle-link" data-togle="#c1-add-options">Свернуть расширенные настройки</a>
+                  </div>
+                </div>
 
-                    foreach ( $mitem['children'] as $child) {
+                <div id="c1-add-options" class="calc__add-options" style="display: none;">
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж конька</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="16">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="c1-length-k">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
 
-                      if ( isset($child['children']) && count($child['children']) > 0 ) {
-                        echo '<li class="dropdown"><a href="'.$child['href'].'">'.$child['name'].'</a>';
-                        echo '<ul class="dropdown-menu dropdown-menu-2">';
-                        foreach ( $child['children'] as $ch) {
-                          echo '<li><a href="'.$ch['href'].'">'.$ch['name'].'</a></li>';
-                        }
-                        echo '</ul></li>';
-                      } else {
-                        echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
-                      }
-                    }
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж карнизов</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="28">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="с1-length-curtain">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
 
-                    echo '</ul></li>';
-                  } else {
-                    echo '<li><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></li>';
-                  }
-                }
-                ?>
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж торцевых планок</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="28">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="с1-length-tp">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
 
-              </ul>
-              <div class="header__top-text">работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-sm-5 col-md-3">
-            <div class="header__cart" id="cart_wrapper">
-            <div id="cart_wrapper2" class="btn-group btn-block header-cart">
-              <div class="header-cart__left-col">
-                <a href="#menu-serv" class="mf-popup" data-effect="mfp-zoom-in">Услуги</a>
-                <a href="#menu-prod" class="mf-popup" data-effect="mfp-zoom-in">Товары</a>
-              </div>
-              <div id="cart_wrapper3">
-                <?php echo $cart; ?>
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж планок ендовы</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="6">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="с1-length-endov">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
+
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж планок примыкания</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="4">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="с1-length-pp">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">утепление</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.м." data-min="0" data-max="200" data-value="50" data-step="50">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с1-heat">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c text-left">
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch1" name="c1-ch1" value="1" checked>
+                      <label for="c1-ch1">Монтаж стропильной системы</label>
+                    </div>
+
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch2" name="c1-ch2" value="1">
+                      <label for="c1-ch2">Пароизоляция</label>
+                    </div>
+
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch3" name="c1-ch3" value="1">
+                      <label for="c1-ch3">Гидроизоляция</label>
+                    </div>
+
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch4" name="c1-ch4" value="1">
+                      <label for="c1-ch4">Демонтаж старой обрешетки</label>
+                    </div>
+
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch5" name="c1-ch5" value="1">
+                      <label for="c1-ch5">Демонтаж старой кровли</label>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="header__bottom">
-      <div class="container">
-        <div class="row">
-          <div class="hidden-xs col-sm-2"></div>
-          <div class="col-xs-12 col-sm-5 col-lg-7">
-            <div class="header__mob-menu-btn mob-menu__btn">
-              <span></span>
-              <span></span>
-              <span></span>
+          </div>  <!-- /calc__step-1 -->
+
+          <div class="calc__step-2" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №2</b> стоимость</div>
+
+                <p>
+                  <b>ВАШЕ ПРЕДЛОЖЕНИЕ ГОТОВО!</b>
+                  <br>
+                  По вашим данным, стоимость работ и материалов составляет
+                </p>
+
+                <div class="calc__total-sum js-c1-total">32885.60Р</div>
+                <p>Получите подробную смету<br>и индивидуальное предложение на ваш E-mail</p>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <br>
+                    <div class="calc__email-input">
+                      <input type="email" placeholder="E-mail" name="email">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <button class="btn btn--w100 btn--transparent js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
             </div>
-            <ul class="header__bottom-menu js-mob-menu">
+          </div>  <!-- /calc__step-2 -->
 
-              <?php
-              foreach ($bottom_menu as $mitem) {
-                if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
-                  echo '<li class="dropdown"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a>';
-                  echo '<ul class="dropdown-menu">';
+          <div class="calc__step-3" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №3</b> Ваше предложение</div>
 
-                  foreach ( $mitem['children'] as $child) {
+                <br>
+                <br>
+                <br>
 
-                    if ( isset($child['children']) && count($child['children']) > 0 ) {
-                      echo '<li class="dropdown"><a href="'.$child['href'].'">'.$child['name'].'</a>';
-                      echo '<ul class="dropdown-menu dropdown-menu-2">';
-                      foreach ( $child['children'] as $ch) {
-                        echo '<li><a href="'.$ch['href'].'">'.$ch['name'].'</a></li>';
-                      }
-                      echo '</ul></li>';
-                    } else {
-                      echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
-                    }
-                  }
+                <p>
+                  <b>Ваше специальное предложение уже готово!</b><br>
+                  ПРОВЕРЬТЕ СВОЮ ПОЧТУ.
+                </p>
 
-                  echo '</ul></li>';
-                } else {
-                  echo '<li><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></li>';
-                }
-              }
-              ?>
+                <br>
+                <br>
+                <br>
 
-            </ul>
-          </div>
-          <div class="hidden-xs col-sm-3"></div>
-        </div>
-      </div>
-    </div>
-  </header>
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
 
-  <?php // popups: ?>
-  <div id="menu-prod" class="mf-popup-block mf-menu-prod mfp-hide mfp-with-anim">
-    <h3 class="mf-title">Товары</h3>
-
-    <div class="mf-prod-lists">
-      <?php
-      foreach ($categories as $mitem) {
-        if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
-          echo '<div class="mf-prod-list">';
-          echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
-          echo '<ul class="mf-prod-list__list">';
-
-          foreach ( $mitem['children'] as $child) {
-            echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
-          }
-
-          echo '</ul></div>';
-        } else {
-          echo '<div class="mf-prod-list">';
-          echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
-          echo '</div>';
-        }
-      }
-      ?>
-    </div>
-    
-    
-  </div>
-
-  <div id="menu-serv" class="mf-popup-block mf-menu-serv mfp-hide mfp-with-anim">
-    <h3 class="mf-title">Услуги</h3>
-    
-    <div class="mf-prod-lists">
-      <?php
-      foreach ($categories as $mitem) {
-        if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
-          echo '<div class="mf-prod-list">';
-          echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
-          echo '<ul class="mf-prod-list__list">';
-
-          foreach ( $mitem['children'] as $child) {
-            echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
-          }
-
-          echo '</ul></div>';
-        } else {
-          echo '<div class="mf-prod-list">';
-          echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
-          echo '</div>';
-        }
-      }
-      ?>
-    </div>
-
-  </div>
-
-
-
-
-  <div class="site__content">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<?php if (false) { ?>
-<nav id="top">
-  <div class="container">
-    <?php echo $currency; ?>
-    <?php echo $language; ?>
-    <div id="top-links" class="nav pull-right">
-      <ul class="list-inline">
-        <li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>
-        <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
-          <ul class="dropdown-menu dropdown-menu-right">
-            <?php if ($logged) { ?>
-            <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-            <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-            <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-            <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
-            <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
-            <?php } else { ?>
-            <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
-            <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
-            <?php } ?>
-          </ul>
-        </li>
-        <li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
-        <li><a href="<?php echo $shopping_cart; ?>" title="<?php echo $text_shopping_cart; ?>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shopping_cart; ?></span></a></li>
-        <li><a href="<?php echo $checkout; ?>" title="<?php echo $text_checkout; ?>"><i class="fa fa-share"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_checkout; ?></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<header>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-4">
-        <div id="logo">
-          <?php if ($logo) { ?>
-          <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive" /></a>
-          <?php } else { ?>
-          <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
-          <?php } ?>
-        </div>
-      </div>
-      <div class="col-sm-5"><?php echo $search; ?>
-      </div>
-      <div class="col-sm-3"><?php echo $cart; ?></div>
-    </div>
-  </div>
-</header>
-<?php if ($categories) { ?>
-<div class="container">
-  <nav id="menu" class="navbar">
-    <div class="navbar-header"><span id="category" class="visible-xs"><?php echo $text_category; ?></span>
-      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-      <ul class="nav navbar-nav">
-        <?php foreach ($categories as $category) { ?>
-        <?php if ($category['children']) { ?>
-        <li class="dropdown"><a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
-          <div class="dropdown-menu">
-            <div class="dropdown-inner">
-              <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-              <ul class="list-unstyled">
-                <?php foreach ($children as $child) { ?>
-                <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-                <?php } ?>
-              </ul>
-              <?php } ?>
+              </div>
             </div>
-            <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
-        </li>
-        <?php } else { ?>
-        <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-        <?php } ?>
-        <?php } ?>
-      </ul>
+          </div>  <!-- /calc__step-3 -->
+
+        </form>
+      </div>  <!-- /tab-1 -->
+
+
+
+      <div id="tab-2" class="tab__content" data-step="1">
+        <form action="" method="post">
+          <div class="calc__step-1">
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">тип кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="radio-btn-group">
+                      <div class="radio-btn">
+                        <input type="radio" id="c2-type-roof-1" name="c2-type-roof" value="1" checked>
+                        <label for="c2-type-roof-1">металл</label>
+                      </div>
+                      <div class="radio-btn">
+                        <input type="radio" id="c2-type-roof-2" name="c2-type-roof" value="2">
+                        <label for="c2-type-roof-2">ПВХ</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c text-left">
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c2-ch1" name="c2-ch1" value="1" checked>
+                      <label for="c2-ch1">Демонтаж старой системы</label>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Длина карниза крыши</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.п." data-min="10" data-max="150" data-value="20">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с2-length-eaves">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Высота до карниза крыши</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.п." data-min="2" data-max="25" data-value="3">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с2-height">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Кол-во водосточных стояков</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="шт." data-min="1" data-max="10" data-value="4">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с2-count-drainpipe">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-1 -->
+
+          <div class="calc__step-2" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №2</b> стоимость</div>
+
+                <p>
+                  <b>ВАШЕ ПРЕДЛОЖЕНИЕ ГОТОВО!</b>
+                  <br>
+                  По вашим данным, стоимость работ и материалов составляет
+                </p>
+
+                <div class="calc__total-sum js-c1-total">32885.60Р</div>
+                <p>Получите подробную смету<br>и индивидуальное предложение на ваш E-mail</p>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <br>
+                    <div class="calc__email-input">
+                      <input type="email" placeholder="E-mail" name="email">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <button class="btn btn--w100 btn--transparent js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-2 -->
+
+          <div class="calc__step-3" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №3</b> Ваше предложение</div>
+
+                <br>
+                <br>
+                <br>
+
+                <p>
+                  <b>Ваше специальное предложение уже готово!</b><br>
+                  ПРОВЕРЬТЕ СВОЮ ПОЧТУ.
+                </p>
+
+                <br>
+                <br>
+                <br>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>  <!-- /calc__step-3 -->
+        </form>
+      </div>  <!-- /tab-2 -->
+
+      <div id="tab-3" class="tab__content" data-step="1">
+        <form action="" method="post">
+          <div class="calc__step-1">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">тип кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="radio-btn-group">
+                      <div class="radio-btn">
+                        <input type="radio" id="c3-type-roof-1" name="c3-type-roof" value="1" checked>
+                        <label for="c3-type-roof-1">металл</label>
+                      </div>
+                      <div class="radio-btn">
+                        <input type="radio" id="c3-type-roof-2" name="c3-type-roof" value="2">
+                        <label for="c3-type-roof-2">ПВХ</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Общая длина свеса кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.п." data-min="5" data-max="125" data-value="20">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с3-length-roof">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Длина свеса</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.п." data-min="0.1" data-max="2" data-value="0.5" data-step="0.1">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с3-length-overhang">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-1 -->
+
+          <div class="calc__step-2" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №2</b> стоимость</div>
+
+                <p>
+                  <b>ВАШЕ ПРЕДЛОЖЕНИЕ ГОТОВО!</b>
+                  <br>
+                  По вашим данным, стоимость работ и материалов составляет
+                </p>
+
+                <div class="calc__total-sum js-c1-total">32885.60Р</div>
+                <p>Получите подробную смету<br>и индивидуальное предложение на ваш E-mail</p>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <br>
+                    <div class="calc__email-input">
+                      <input type="email" placeholder="E-mail" name="email">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <button class="btn btn--w100 btn--transparent js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-2 -->
+
+          <div class="calc__step-3" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №3</b> Ваше предложение</div>
+
+                <br>
+                <br>
+                <br>
+
+                <p>
+                  <b>Ваше специальное предложение уже готово!</b><br>
+                  ПРОВЕРЬТЕ СВОЮ ПОЧТУ.
+                </p>
+
+                <br>
+                <br>
+                <br>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>  <!-- /calc__step-3 -->
+        </form>
+      </div>  <!-- /tab-3 -->
+
+
     </div>
-  </nav>
+  </div>
 </div>
-<?php } ?>
 
 
 
-<?php } // end if ?>
+
+
+
+
+
+
+<script>
+$('.js-next-step').on('click', function(e){
+  e.preventDefault();
+
+  var tab = $(this).closest('.tab__content');
+  var stepNum = tab.data('step');
+
+  tab.find('.calc__step-' + stepNum).hide('200');
+  stepNum++;
+  tab.data('step', stepNum).find('.calc__step-' + stepNum).show('200');
+});
+$('.js-prev-step').on('click', function(e){
+  e.preventDefault();
+
+  var tab = $(this).closest('.tab__content');
+  var stepNum = tab.data('step');
+
+  tab.find('.calc__step-' + stepNum).hide('200');
+  stepNum--;
+  tab.data('step', stepNum).find('.calc__step-' + stepNum).show('200');
+});
+</script>
+

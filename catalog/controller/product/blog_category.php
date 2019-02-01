@@ -160,8 +160,18 @@ class ControllerProductBlogCategory extends Controller {
 					'filter_sub_category' => true
 				);
 
+				$filter_data = array(
+					'filter_category_id' =>  $result['blog_category_id'],
+					'filter_sub_category' => true,
+					'sort'               => 'p.sort_order',
+					'order'              => 'ASC',
+					'start'              => 0,
+					'limit'              => 20
+				);
+				
 				$data['categories'][] = array(
 					'blog_category_id' => $result['blog_category_id'] ,
+					'products'			=> $this->model_catalog_blog_product->getProducts($filter_data),
 					'keyword' => $result['keyword'] ,
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_blog_product->getTotalProducts($filter_data) . ')' : ''),
 					'href' => $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id'] . $url)

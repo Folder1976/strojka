@@ -1,257 +1,592 @@
-<?php echo $header; ?>
+<div class="col-md-12">
+  <div class="section-title">Онлайн калькулятор</div>
+  <div class="section-subtitle text-gray">За несколько минут узнаете стоимость работ и получите<br>индвидуальный расчет вашего объекта</div>
 
-<div class="container">
-
-  <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-9">
-      <ul class="breadcrumb">
-        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-        <?php } ?>
+  <div id="calc" class="calc">
+    <div class="tabs">
+      <ul class="tabs__links">
+        <li class="tab__link is-active" data-tab="tab-1">
+          <svg class="icon icon-calc-tab">
+            <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-works"></use>
+          </svg>
+          <span>Калькулятор кровли</span>
+        </li>
+        <li class="tab__link" data-tab="tab-2">
+          <svg class="icon icon-calc-tab">
+            <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#gully"></use>
+          </svg>
+          <span>Водосточные системы</span>
+        </li>
+        <li class="tab__link" data-tab="tab-3">
+          <svg class="icon icon-calc-tab">
+            <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-binder"></use>
+          </svg>
+          <span>Калькулятор софитов</span>
+        </li>
       </ul>
-    </div>
-  </div>
+        
+      <div id="tab-1" class="tab__content is-active" data-step="1">
+        <form action="" method="post">
 
-  <div class="row" id="content">
+          <div class="calc__step-1">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №1</b> параметры объекта</div>
 
-    <div class="col-md-9 col-md-push-3">
-      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
-
-      <?php if ($description) { ?>
-        <div class="description"><?php echo $description; ?></div>
-      <?php } ?>
-
-      <?php if ( isset($categories) && count($categories) > 0 ) { ?>
-      <div class="list-category">
-
-        <?php foreach ($categories as $category) { ?>
-        <div class="list-category__item list-category-item">
-          <div class="list-category-item__title"><a href="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a></div>
-
-           <?php if ($products) { ?>
-            <ul class="list-category-item__list">
-              <?php foreach ($products as $product) { ?>
-                <?php if($product['sku'] == $category['keyword']){ ?>
-                  <li><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></li>
-                <?php } ?>
-              <?php } ?>
-            </ul>
-          <?php } ?>
-
-          <?php if ( isset($category['children']) && count($category['children']) > 0 ) { ?>
-          <?php foreach ($category['children'] as $child) { ?>
-            <ul class="list-category-item__list">
-              <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-            </ul>
-          <?php } ?>
-          <?php } ?>
-
-        </div>
-        <?php } ?>
-
-      </div>
-      <?php } ?>
-
-      <?php if (false) { //($products) { ?>
-        <div class="news-list news-list--blog">
-          <?php foreach ($products as $product) { ?>
-            <div class="news-list__item news-item">
-              <div class="news-item__img">
-                <a href="<?php echo $product['href']; ?>"><img class="img--cover" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
-              </div>
-              <div class="news-item__desc">
-                <div class="news-item__date"><?php echo $product['date_added']; ?></div>
-                <div class="news-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
-              </div>
-            </div>
-          <?php } ?>
-        </div>
-      <?php } ?>
-
-      <br>
-
-    </div>
-
-    <div class="col-md-3 col-md-pull-9">
-      <?php // echo $column_left; ?>
-
-      <div class="seller">
-        <div class="seller__img">
-          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Иннокентий Гаврилов. Менеджер отдела продаж">
-        </div>
-        <div class="seller__name">Иннокентий Гаврилов</div>
-        <div class="seller__post">Менеджер отдела продаж</div>
-        <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
-        <p><a href="#">Калькулятор и составление КП</a></p>
-        <p><a href="#">Закажите замер по Москве и МО</a></p>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-
-
-
-
-
-<?php if (false) { ?>
-
-<div class="container">
-  <ul class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-    <?php } ?>
-  </ul>
-  <div class="row"><?php echo $column_left; ?>
-    <?php if ($column_left && $column_right) { ?>
-    <?php $class = 'col-sm-6'; ?>
-    <?php } elseif ($column_left || $column_right) { ?>
-    <?php $class = 'col-sm-9'; ?>
-    <?php } else { ?>
-    <?php $class = 'col-sm-12'; ?>
-    <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h2><?php echo $heading_title; ?></h2>
-      <?php if ($thumb || $description) { ?>
-      <div class="row">
-        <?php if ($thumb) { ?>
-        <div class="col-sm-2"><img src="<?php echo $thumb; ?>" alt="<?php echo $heading_title; ?>" title="<?php echo $heading_title; ?>" class="img-thumbnail" /></div>
-        <?php } ?>
-        <?php if ($description) { ?>
-        <div class="col-sm-10"><?php echo $description; ?></div>
-        <?php } ?>
-      </div>
-      <hr>
-      <?php } ?>
-      <?php if ($categories) { ?>
-      <h3><?php echo $text_refine; ?></h3>
-      <?php if (count($categories) <= 5) { ?>
-      <div class="row">
-        <div class="col-sm-3">
-          <ul>
-            <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          </ul>
-        </div>
-      </div>
-      <?php } else { ?>
-      <div class="row">
-        <?php foreach (array_chunk($categories, ceil(count($categories) / 4)) as $categories) { ?>
-        <div class="col-sm-3">
-          <ul>
-            <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          </ul>
-        </div>
-        <?php } ?>
-      </div>
-      <?php } ?>
-      <?php } ?>
-      <?php if ($products) { ?>
-      <div class="row">
-        <div class="col-md-2 col-sm-6 hidden-xs">
-          <div class="btn-group btn-group-sm">
-            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
-            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_grid; ?>"><i class="fa fa-th"></i></button>
-          </div>
-        </div>
-        <div class="col-md-3 col-sm-6">
-          <div class="form-group">
-            <a href="<?php echo $compare; ?>" id="compare-total" class="btn btn-link"><?php echo $text_compare; ?></a>
-          </div>
-        </div>
-        <div class="col-md-4 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-sort"><?php echo $text_sort; ?></label>
-            <select id="input-sort" class="form-control" onchange="location = this.value;">
-              <?php foreach ($sorts as $sorts) { ?>
-              <?php if ($sorts['value'] == $sort . '-' . $order) { ?>
-              <option value="<?php echo $sorts['href']; ?>" selected="selected"><?php echo $sorts['text']; ?></option>
-              <?php } else { ?>
-              <option value="<?php echo $sorts['href']; ?>"><?php echo $sorts['text']; ?></option>
-              <?php } ?>
-              <?php } ?>
-            </select>
-          </div>
-        </div>
-        <div class="col-md-3 col-xs-6">
-          <div class="form-group input-group input-group-sm">
-            <label class="input-group-addon" for="input-limit"><?php echo $text_limit; ?></label>
-            <select id="input-limit" class="form-control" onchange="location = this.value;">
-              <?php foreach ($limits as $limits) { ?>
-              <?php if ($limits['value'] == $limit) { ?>
-              <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
-              <?php } else { ?>
-              <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
-              <?php } ?>
-              <?php } ?>
-            </select>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <?php foreach ($products as $product) { ?>
-        <div class="product-layout product-list col-xs-12">
-          <div class="product-thumb">
-            <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
-            <div>
-              <div class="caption">
-                <h4><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-                <p><?php echo $product['description']; ?></p>
-                <?php if ($product['price']) { ?>
-                <p class="price">
-                  <?php if (!$product['special']) { ?>
-                  <?php echo $product['price']; ?>
-                  <?php } else { ?>
-                  <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-                  <?php } ?>
-                  <?php if ($product['tax']) { ?>
-                  <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-                  <?php } ?>
-                </p>
-                <?php } ?>
-                <?php if ($product['rating']) { ?>
-                <div class="rating">
-                  <?php for ($i = 1; $i <= 5; $i++) { ?>
-                  <?php if ($product['rating'] < $i) { ?>
-                  <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                  <?php } else { ?>
-                  <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                  <?php } ?>
-                  <?php } ?>
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">тип кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="radio-btn-group">
+                      <div class="radio-btn">
+                        <input type="radio" id="c1-type-roof-1" name="c1-type-roof" value="1" checked>
+                        <label for="c1-type-roof-1">металочерепица</label>
+                      </div>
+                      <div class="radio-btn">
+                        <input type="radio" id="c1-type-roof-2" name="c1-type-roof" value="2">
+                        <label for="c1-type-roof-2">мягкая кровля</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
                 </div>
-                <?php } ?>
-              </div>
-              <div class="button-group">
-                <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>', '<?php echo $product['minimum']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-                <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">общая площадь кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м<sup>2</sup>" data-min="4" data-max="1000" data-value="100">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="c1-area">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase">
+                    <a href="#c1-add-options" class="js-toggle toggle-link" data-togle="#c1-add-options">Свернуть расширенные настройки</a>
+                  </div>
+                </div>
+
+                <div id="c1-add-options" class="calc__add-options" style="display: none;">
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж конька</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="16">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="c1-length-k">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
+
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж карнизов</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="28">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="с1-length-curtain">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
+
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж торцевых планок</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="28">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="с1-length-tp">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
+
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж планок ендовы</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="6">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="с1-length-endov">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
+
+                  <div class="calc__row">
+                    <div class="calc__col calc__col--l">
+                      <div class="calc__col-title">Метраж планок примыкания</div>
+                    </div>
+                    <div class="calc__col calc__col--c">
+                      <div class="js-range" data-units="м.п." data-min="4" data-max="1000" data-value="4">
+                        <div class="ui-slider-handle"><span>0</span></div>
+                        <input type="hidden" name="с1-length-pp">
+                      </div>
+                    </div>
+                    <div class="calc__col calc__col--r calc__col--ase"></div>
+                  </div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">утепление</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.м." data-min="0" data-max="200" data-value="50" data-step="50">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с1-heat">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c text-left">
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch1" name="c1-ch1" value="1" checked>
+                      <label for="c1-ch1">Монтаж стропильной системы</label>
+                    </div>
+
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch2" name="c1-ch2" value="1">
+                      <label for="c1-ch2">Пароизоляция</label>
+                    </div>
+
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch3" name="c1-ch3" value="1">
+                      <label for="c1-ch3">Гидроизоляция</label>
+                    </div>
+
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch4" name="c1-ch4" value="1">
+                      <label for="c1-ch4">Демонтаж старой обрешетки</label>
+                    </div>
+
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c1-ch5" name="c1-ch5" value="1">
+                      <label for="c1-ch5">Демонтаж старой кровли</label>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
               </div>
             </div>
-          </div>
-        </div>
-        <?php } ?>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
-        <div class="col-sm-6 text-right"><?php echo $results; ?></div>
-      </div>
-      <?php } ?>
-      <?php if (!$categories && !$products) { ?>
-      <p><?php echo $text_empty; ?></p>
-      <div class="buttons">
-        <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
-      </div>
-      <?php } ?>
-      <?php echo $content_bottom; ?></div>
-    <?php echo $column_right; ?></div>
+          </div>  <!-- /calc__step-1 -->
+
+          <div class="calc__step-2" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №2</b> стоимость</div>
+
+                <p>
+                  <b>ВАШЕ ПРЕДЛОЖЕНИЕ ГОТОВО!</b>
+                  <br>
+                  По вашим данным, стоимость работ и материалов составляет
+                </p>
+
+                <div class="calc__total-sum js-c1-total">32885.60Р</div>
+                <p>Получите подробную смету<br>и индивидуальное предложение на ваш E-mail</p>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <br>
+                    <div class="calc__email-input">
+                      <input type="email" placeholder="E-mail" name="email">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <button class="btn btn--w100 btn--transparent js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-2 -->
+
+          <div class="calc__step-3" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №3</b> Ваше предложение</div>
+
+                <br>
+                <br>
+                <br>
+
+                <p>
+                  <b>Ваше специальное предложение уже готово!</b><br>
+                  ПРОВЕРЬТЕ СВОЮ ПОЧТУ.
+                </p>
+
+                <br>
+                <br>
+                <br>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>  <!-- /calc__step-3 -->
+
+        </form>
+      </div>  <!-- /tab-1 -->
+
+
+
+      <div id="tab-2" class="tab__content" data-step="1">
+        <form action="" method="post">
+          <div class="calc__step-1">
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">тип кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="radio-btn-group">
+                      <div class="radio-btn">
+                        <input type="radio" id="c2-type-roof-1" name="c2-type-roof" value="1" checked>
+                        <label for="c2-type-roof-1">металл</label>
+                      </div>
+                      <div class="radio-btn">
+                        <input type="radio" id="c2-type-roof-2" name="c2-type-roof" value="2">
+                        <label for="c2-type-roof-2">ПВХ</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c text-left">
+                    <div>
+                      <input class="checkbox" type="checkbox" id="c2-ch1" name="c2-ch1" value="1" checked>
+                      <label for="c2-ch1">Демонтаж старой системы</label>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Длина карниза крыши</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.п." data-min="10" data-max="150" data-value="20">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с2-length-eaves">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Высота до карниза крыши</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.п." data-min="2" data-max="25" data-value="3">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с2-height">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Кол-во водосточных стояков</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="шт." data-min="1" data-max="10" data-value="4">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с2-count-drainpipe">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-1 -->
+
+          <div class="calc__step-2" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №2</b> стоимость</div>
+
+                <p>
+                  <b>ВАШЕ ПРЕДЛОЖЕНИЕ ГОТОВО!</b>
+                  <br>
+                  По вашим данным, стоимость работ и материалов составляет
+                </p>
+
+                <div class="calc__total-sum js-c1-total">32885.60Р</div>
+                <p>Получите подробную смету<br>и индивидуальное предложение на ваш E-mail</p>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <br>
+                    <div class="calc__email-input">
+                      <input type="email" placeholder="E-mail" name="email">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <button class="btn btn--w100 btn--transparent js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-2 -->
+
+          <div class="calc__step-3" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №3</b> Ваше предложение</div>
+
+                <br>
+                <br>
+                <br>
+
+                <p>
+                  <b>Ваше специальное предложение уже готово!</b><br>
+                  ПРОВЕРЬТЕ СВОЮ ПОЧТУ.
+                </p>
+
+                <br>
+                <br>
+                <br>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>  <!-- /calc__step-3 -->
+        </form>
+      </div>  <!-- /tab-2 -->
+
+      <div id="tab-3" class="tab__content" data-step="1">
+        <form action="" method="post">
+          <div class="calc__step-1">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">тип кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="radio-btn-group">
+                      <div class="radio-btn">
+                        <input type="radio" id="c3-type-roof-1" name="c3-type-roof" value="1" checked>
+                        <label for="c3-type-roof-1">металл</label>
+                      </div>
+                      <div class="radio-btn">
+                        <input type="radio" id="c3-type-roof-2" name="c3-type-roof" value="2">
+                        <label for="c3-type-roof-2">ПВХ</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Общая длина свеса кровли</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.п." data-min="5" data-max="125" data-value="20">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с3-length-roof">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <div class="calc__col-title">Длина свеса</div>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <div class="js-range" data-units="м.п." data-min="0.1" data-max="2" data-value="0.5" data-step="0.1">
+                      <div class="ui-slider-handle"><span>0</span></div>
+                      <input type="hidden" name="с3-length-overhang">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r calc__col--ase"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-1 -->
+
+          <div class="calc__step-2" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №2</b> стоимость</div>
+
+                <p>
+                  <b>ВАШЕ ПРЕДЛОЖЕНИЕ ГОТОВО!</b>
+                  <br>
+                  По вашим данным, стоимость работ и материалов составляет
+                </p>
+
+                <div class="calc__total-sum js-c1-total">32885.60Р</div>
+                <p>Получите подробную смету<br>и индивидуальное предложение на ваш E-mail</p>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <br>
+                    <div class="calc__email-input">
+                      <input type="email" placeholder="E-mail" name="email">
+                    </div>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l">
+                    <button class="btn btn--w100 btn--transparent js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-next-step">следующий шаг  ></button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+              </div>
+            </div>
+          </div>  <!-- /calc__step-2 -->
+
+          <div class="calc__step-3" style="display: none;">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="calc__title"><b>Шаг №3</b> Ваше предложение</div>
+
+                <br>
+                <br>
+                <br>
+
+                <p>
+                  <b>Ваше специальное предложение уже готово!</b><br>
+                  ПРОВЕРЬТЕ СВОЮ ПОЧТУ.
+                </p>
+
+                <br>
+                <br>
+                <br>
+
+                <div class="calc__row">
+                  <div class="calc__col calc__col--l"></div>
+                  <div class="calc__col calc__col--c">
+                    <button class="btn btn--w100 js-prev-step"><  Назад</button>
+                  </div>
+                  <div class="calc__col calc__col--r"></div>
+                </div>
+
+              </div>
+            </div>
+          </div>  <!-- /calc__step-3 -->
+        </form>
+      </div>  <!-- /tab-3 -->
+
+
+    </div>
+  </div>
 </div>
-<?php } ?>
 
 
 
-<?php echo $footer; ?>
+
+
+
+
+
+
+<script>
+$('.js-next-step').on('click', function(e){
+  e.preventDefault();
+
+  var tab = $(this).closest('.tab__content');
+  var stepNum = tab.data('step');
+
+  tab.find('.calc__step-' + stepNum).hide('200');
+  stepNum++;
+  tab.data('step', stepNum).find('.calc__step-' + stepNum).show('200');
+});
+$('.js-prev-step').on('click', function(e){
+  e.preventDefault();
+
+  var tab = $(this).closest('.tab__content');
+  var stepNum = tab.data('step');
+
+  tab.find('.calc__step-' + stepNum).hide('200');
+  stepNum--;
+  tab.data('step', stepNum).find('.calc__step-' + stepNum).show('200');
+});
+</script>
+

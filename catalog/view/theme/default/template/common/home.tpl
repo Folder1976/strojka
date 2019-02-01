@@ -203,62 +203,7 @@ $reviews_slider = array(
 <section class="section section-calc">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="section-title">Онлайн калькулятор</div>
-        <div class="section-subtitle text-gray">За несколько минут узнаете стоимость работ и получите<br>индвидуальный расчет вашего объекта</div>
-
-        <div id="calc" class="calc">
-          <div class="tabs">
-            <ul class="tabs__links">
-              <li class="tab__link is-active" data-tab="tab-1">
-                <svg class="icon icon-calc-tab">
-                  <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-works"></use>
-                </svg>
-                <span>Калькулятор кровли</span>
-              </li>
-              <li class="tab__link" data-tab="tab-2">
-                <svg class="icon icon-calc-tab">
-                  <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#gully"></use>
-                </svg>
-                <span>Водосточные системы</span>
-              </li>
-              <li class="tab__link" data-tab="tab-3">
-                <svg class="icon icon-calc-tab">
-                  <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-binder"></use>
-                </svg>
-                <span>Калькулятор софитов</span>
-              </li>
-            </ul>
-              
-            <div id="tab-1" class="tab__content is-active">
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
-
-                  <p>tab 1</p>
-                </div>
-              </div>
-            </div>
-            <div id="tab-2" class="tab__content">
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
-
-                  <p>tab 2</p>
-                </div>
-              </div>
-            </div>
-            <div id="tab-3" class="tab__content">
-              <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                  <div class="calc__title"><b>шаг №1</b> параметры объекта</div>
-
-                  <p>tab 3</p>
-                </div>
-              </div>
-            </div>
-        </div>
-      </div>
+        <?php echo $calculator; ?>
     </div>
   </div>
 </section>
@@ -273,19 +218,19 @@ $reviews_slider = array(
 
         <div class="team-list">
 
-          <?php foreach ($team as $key => $value) { ?>
+          <?php foreach ($commandos as $key => $value) { ?>
             <div class="team-list__item team-member">
               <div class="team-member__foto">
-                <img src="<?php echo $value['foto']?>" alt="<?php echo $value['name'].' '.$value['position']; ?>">
+                <img src="<?php echo $value['thumb']?>" alt="<?php echo $value['name'].' '.$value['description']; ?>">
               </div>
               <div class="team-member__name"><?php echo $value['name']?></div>
-              <div class="team-member__position"><?php echo $value['position']?></div>
+              <div class="team-member__position"><?php echo $value['description']?></div>
             </div>
           <?php } ?>
         </div>
 
         <div class="btn-wrap text-center">
-          <a href="/our-team" class="btn btn--dib btn--orange">Подробнее о нашей команде</a>
+          <a href="<?php echo $commandos_href; ?>" class="btn btn--dib btn--orange">Подробнее о нашей команде</a>
         </div>
       </div>
     </div>

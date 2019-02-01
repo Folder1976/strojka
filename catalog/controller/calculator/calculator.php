@@ -1,5 +1,5 @@
 <?php
-class ControllercalCulatorCalculator extends Controller {
+class ControllerCalculatorCalculator extends Controller {
 	public function index() {
 		$this->document->setTitle($this->config->get('config_meta_title'));
 		$this->document->setDescription($this->config->get('config_meta_description'));
@@ -16,9 +16,21 @@ class ControllercalCulatorCalculator extends Controller {
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
 
-        $data['calculator'] = $this->load->view('calculator/calculator_json', $data);
+        $data['calculator'] = $this->calculator_json();
         
+		if(isset($this->request->get['calculator_json'])){
+			return $data['calculator'];
+		}
         
 		$this->response->setOutput($this->load->view('calculator/calculator', $data));
 	}
+	
+	public function calculator_json() {
+		
+		$data = array();
+		
+		return  $this->load->view('calculator/calculator_json', $data);
+		
+	}
+	
 }

@@ -14,6 +14,9 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
+		
+		
+		
 		if ($this->request->server['HTTPS']) {
 			$server = $this->config->get('config_ssl');
 		} else {
@@ -171,7 +174,8 @@ class ControllerCommonHeader extends Controller {
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['search'] = $this->load->controller('common/search');
 		$data['cart'] = $this->load->controller('common/cart');
-
+		
+		$data['class'] = '';
 		// For page specific css
 		if (isset($this->request->get['route'])) {
 			if (isset($this->request->get['product_id'])) {
@@ -186,11 +190,24 @@ class ControllerCommonHeader extends Controller {
 				$class = '';
 			}
 
-			$data['class'] = str_replace('/', '-', $this->request->get['route']) . $class;
+			if ($this->request->get['route'] == "common/home") {
+				$class = ' no-grey-line';
+			}
+			
+			$data['class'] .= str_replace('/', '-', $this->request->get['route']) . $class;
 		} else {
-			$data['class'] = 'common-home';
+			$data['class'] = 'common-home no-grey-line';
 		}
 
+		if(isset($this->request->get['blogpath'])){
+			if((int)$this->request->get['blogpath'] == 13){
+				$data['class'] .= ' no-grey-line';
+			}elseif((int)$this->request->get['blogpath'] == 16){
+				$data['class'] .= ' no-grey-line';
+			}
+			
+		}
+		
 		return $this->load->view('common/header', $data);
 	}
 }

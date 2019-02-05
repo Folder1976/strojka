@@ -33,4 +33,3 @@ class ModelExtensionPaymentCOD extends Model {
 		return $method_data;
 	}
 }
-

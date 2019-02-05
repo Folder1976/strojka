@@ -8,10 +8,20 @@ class ControllerStartupSeoUrl extends Controller {
 
 		// Decode URL
 		if (isset($this->request->get['_route_']) AND (
-					strpos($this->request->get['_route_'], 'calc/') !== false
-					OR $this->request->get['_route_'] == 'calc')) {
+					strpos($this->request->get['_route_'], 'online-calc/') !== false
+					OR $this->request->get['_route_'] == 'online-calc')) {
 			
 			$this->request->get['route'] = 'calculator/calculator';
+			
+		}elseif (isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'information') {
+			
+			$this->request->get['route'] = 'product/blog_category';
+			$this->request->get['blogpath'] = '0';
+			
+		}elseif (isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'products') {
+			
+			$this->request->get['route'] = 'product/category';
+			$this->request->get['path'] = '0';
 			
 		// Decode URL
 		}elseif (isset($this->request->get['_route_'])) {
@@ -81,13 +91,37 @@ class ControllerStartupSeoUrl extends Controller {
 
 		$data = array();
 
+		
+		$no_path = true;
+		$path = '';
 		parse_str($url_info['query'], $data);
 
 		foreach ($data as $key => $value) {
 			if (isset($data['route'])) {
-				if (($data['route'] == 'product/product' && $key == 'product_id') || (($data['route'] == 'product/manufacturer/info' || $data['route'] == 'product/product') && $key == 'manufacturer_id') || ($data['route'] == 'information/information' && $key == 'information_id')) {
+				if (($data['route'] == 'information/news' && $key == 'news_id') || ($data['route'] == 'product/product' && $key == 'product_id') || (($data['route'] == 'product/manufacturer/info' || $data['route'] == 'product/product') && $key == 'manufacturer_id') || ($data['route'] == 'information/information' && $key == 'information_id')) {
 					$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = '" . $this->db->escape($key . '=' . (int)$value) . "'");
 
+					
+					//Отдельно найдем путь
+					if($key == 'product_id'){
+						$product_id = $value;
+						
+						$r = $this->db->query("SELECT * FROM " . DB_PREFIX . "product_to_category WHERE product_id='" . (int)$product_id . "' LIMIT 1");
+						if($r->num_rows){
+							
+							$category_id = (int)$r->row['category_id'];
+							$r = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_path cp
+													LEFT JOIN " . DB_PREFIX . "url_alias ua ON ua.query = CONCAT('category_id=', cp.path_id)
+													WHERE cp.category_id='" . (int)$category_id . "'");
+							
+							if($r->num_rows){
+								foreach($r->rows as $row){
+									$path .= '/'.$row['keyword'];
+								}
+							}
+						}
+					}
+					
 					if ($query->num_rows && $query->row['keyword']) {
 						$url .= '/' . $query->row['keyword'];
 
@@ -95,7 +129,7 @@ class ControllerStartupSeoUrl extends Controller {
 					}
 				} elseif ($key == 'path') {
 					$categories = explode('_', $value);
-
+				$no_path = false;
 					foreach ($categories as $category) {
 						$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "url_alias WHERE `query` = 'category_id=" . (int)$category . "'");
 
@@ -113,6 +147,10 @@ class ControllerStartupSeoUrl extends Controller {
 			}
 		}
 
+		if($no_path){
+			$url = $path.$url;
+		}
+		
 		if ($url) {
 			unset($data['route']);
 
@@ -134,4 +172,3 @@ class ControllerStartupSeoUrl extends Controller {
 		}
 	}
 }
-

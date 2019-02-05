@@ -14,8 +14,10 @@ $home = '/';
   <div id="get-consultation" class="mf-popup-block mf-get-consultation mfp-hide mfp-with-anim">
     <h3 class="mf-title">консультация</h3>
     <div class="row">
-      <div class="col-md-7">
-        <form action="/index.php?route=account/universalform" method="post" enctype="multipart/form-data" class="form form--mf-popup">
+      <div class="msg" ></div>
+      
+      <div class="col-md-7" >
+        <div method="post" enctype="multipart/form-data" class="form form--mf-popup">
           <input type="hidden" name="formname" value="get-consultation">
           <div class="form__group">
             <input type="text" class="input" name="name" placeholder="Имя">
@@ -35,9 +37,53 @@ $home = '/';
             <label for="get-consultation__agree" class="form-label">С <a href="#">политикой конфиденциальности</a> ознакомлен</label>
           </div>
           <div class="form__group">
-            <button class="btn btn--black">связаться</button>
+            <button class="btn btn--black" id="msg_send"
+                        data-loading-text="Отправляю . . ."
+                        data-error-text="Ошибка"
+                        data-success-text="Отправлено"
+                        data-reset-text="связаться">связаться</button>
           </div>
-        </form>
+        </div>
+        
+<script type="text/javascript"><!--
+$('#msg_send').on('click', function() {
+  
+  //console.log();
+  
+  $.ajax({
+    url: '/index.php?route=account/universalform',
+    type: 'post',
+    data: $('#get-consultation input, #get-consultation textarea'),
+    dataType: 'json',
+    beforeSend: function() {
+      $('#msg_send').button('loading');
+    },
+    complete: function() {
+      $('#button-cart').button('reset');
+    },
+    success: function(json) {
+    
+    console.log(json);
+    
+      if (json['error']) {
+        $('#msg_send').button('error');
+       $('.msg').html('<div class="text-danger">' + json['error'] + '</div>');
+      }
+
+
+      if (json['success']) {
+        $('#msg_send').button('success');
+        $('.msg').html('<div class="alert-success">' + json['success'] + '</div>');
+      }
+    },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+  });
+});
+//--></script>
+
+        
       </div>
       <div class="col-md-5 text-center">
         <img class="mf-get-consultation__foto" src="catalog/view/theme/default/img/foto/sales-manager.jpg" alt="sales-manager">
@@ -108,8 +154,8 @@ $home = '/';
             <div class="row">
               <div class="col-md-6">
                 <div class="footer__title">Наш адрес</div>
-                <p>Москва, ул. Соуолова, 25</p>
-                <p>Тел.: +7 854 52 85</p>
+                <p><?php echo $address; ?></p>
+                <p>Тел.: <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" style="white-space: nowrap;"><?php echo $telephone; ?></a></p>
               </div>
               <div class="col-md-6">
                 <div class="footer__title">мы в соц. сетях</div>

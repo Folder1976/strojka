@@ -158,6 +158,16 @@ class ControllerProductProduct extends Controller {
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
+		if(!isset($this->request->get['path'])){
+			$temp = $this->model_catalog_product->getCategories($product_id);
+			
+			if($temp){
+				$this->request->get['path'] = array_shift($temp)["category_id"];
+			}else{
+				$this->request->get['path'] = 0;
+			}
+		}
+		
 		if ($product_info) {
 			$url = '';
 
@@ -442,10 +452,18 @@ class ControllerProductProduct extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				if ($result['quantity'] <= 0) {
+					$stock = $result['stock_status'];
+				} else {
+					$stock = $this->language->get('text_instock');
+				}
 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
+					'stock'       => $stock,
+					'attributes'  => $this->model_catalog_product->getProductAttributes($result['product_id']),
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
@@ -774,4 +792,3 @@ class ControllerProductProduct extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
-

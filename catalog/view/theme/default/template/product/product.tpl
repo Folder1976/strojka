@@ -1,29 +1,43 @@
 <?php echo $header; ?>
 <?php
 if(!isset($_COOKIE['IdProduto'])){
-$id_como_string = (string)$product_id;
-$id_como_string .= ',';
-setcookie('IdProduto',$id_como_string,time() + 34560000, "/");
-}
-else {
-$id_como_string = (string)$product_id;
-$array_produtos = $_COOKIE['IdProduto'];
-if(strpos($array_produtos,','.$id_como_string.',')==strlen($array_produtos)-strlen($id_como_string)-2){   
-}   
-else if(strpos($array_produtos,$id_como_string.',') === 0){ 
-$array_produtos = str_replace($id_como_string.',','',$array_produtos);
-$array_produtos .= $id_como_string . ',';
-setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
-}
-else if(strpos($array_produtos,','.$id_como_string.',') !== false){ 
-$array_produtos = str_replace($id_como_string.',','',$array_produtos);
-$array_produtos .= $id_como_string . ',';
-setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
-}
-else {  
-$array_produtos .= $id_como_string . ',';
-setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
-}
+    $id_como_string = (string)$product_id;
+    $id_como_string .= ',';
+    setcookie('IdProduto',$id_como_string,time() + 34560000, "/");
+}else {
+    $id_como_string = (string)$product_id;
+    $array_produtos = $_COOKIE['IdProduto'];
+    
+    if(strpos($array_produtos,','.$id_como_string.',')==strlen($array_produtos)-strlen($id_como_string)-2){   
+    
+    } else if(strpos($array_produtos,$id_como_string.',') === 0){ 
+      $array_produtos = str_replace($id_como_string.',','',$array_produtos);
+      $array_produtos .= $id_como_string . ',';
+      setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
+    
+    }else if(strpos($array_produtos,','.$id_como_string.',') !== false){ 
+      $array_produtos = str_replace($id_como_string.',','',$array_produtos);
+      $array_produtos .= $id_como_string . ',';
+      setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
+    }else {  
+      $array_produtos .= $id_como_string . ',';
+      setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
+    }
+    
+    //Обрезка
+    $limit = 9;
+    $arr = explode(',', trim($array_produtos,','));
+    $new_arr = array();
+    
+    while($limit>0 AND count($arr)){
+      $new_arr[] = array_pop($arr);
+      $limit--;
+    }
+    
+    $new_arr = array_reverse($new_arr);
+    
+    $array_produtos = implode(',', $new_arr) . ',';
+    setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 }
 ?>
 
@@ -113,11 +127,20 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
           <div class="prod-info__row">
             <div class="prod-info__col">
               <div><b>Под заказ 3-4 рабочих дня</b></div>
-              <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+               
+              <button type="button" class="btn btn--transparent btn--dib btn--buy-click uptocall-mini-phone"
+                    data-src="<?php echo $thumb; ?>"
+                    data-name="<?php echo $heading_title; ?>"
+                    data-price="<?php echo $price; ?>"
+                    >Купить в 1 клик</button>
             </div>
             <div class="prod-info__col">
               <button type="button" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--dib btn--buy">Поторговаться</button>
-              <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--black btn--dib btn--buy"><?php echo $button_cart; ?></button>
+              <?php if($in_cart){ ?>
+                <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--black btn--dib btn--buy in_cart">В корзине</button>
+              <?php }else{ ?>
+                <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--black btn--dib btn--buy"><?php echo $button_cart; ?></button>
+              <?php } ?>
             </div>
           </div>
 
@@ -175,11 +198,22 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 
 
               <div class="product-layout__attr-list">
-                <div class="product-layout-attr"><span class="product-layout-attr__title">Гарантия (лет):</span> 25</div>
-                <div class="product-layout-attr"><span class="product-layout-attr__title">Полезная площадь (одной упаковки), кв.м.:</span> 3 кв.м.</div>
+                
+                <?php $show_attributes = array('23', '29'); $i = 1; ?>
+                
+                <?php foreach($product['attributes'] as $attr){ ?>
+                <?php foreach($attr['attribute'] as $attribute){ ?>
+                
+                  <?php //Пока не определились какие атрибуты выводить - просто два первых ?>
+                  <?php if($i++ < 3){ ?>
+                  <?php //if(in_array($attribute['attribute_id'], $show_attributes)){ ?>
+                    <div class="product-layout-attr"><span class="product-layout-attr__title"><?php echo $attribute['name']; ?>:</span> <?php echo $attribute['text']; ?></div>
+                  <?php } ?>
+                <?php } ?>
+                <?php } ?>
               </div>
 
-              <div class="product-layout__stock is-instock">Есть в наличии</div>
+              <div class="product-layout__stock is-instock"><?php echo $product['stock']; ?></div>
 
               <?php if ($product['special']) { ?>
                 <div class="product-layout__special-price">
@@ -196,7 +230,11 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
               <?php } ?>
               <div class="product-layout__button-group">
                 <button type="button" class="btn btn--black btn--dib btn--buy" onclick="cart.add('<?php echo $product['product_id']; ?>');"><?php echo $button_cart; ?></button>
-                <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+                <button type="button" class="btn btn--transparent btn--dib btn--buy-click uptocall-mini-phone"
+                    data-src="<?php echo $product['thumb']; ?>"
+                    data-name="<?php echo $product['name']; ?>"
+                    data-price="<?php echo $product['price']; ?>"
+                    >Купить в 1 клик</button>
               </div>
             </div>
           </div>
@@ -231,11 +269,22 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 
 
               <div class="product-layout__attr-list">
-                <div class="product-layout-attr"><span class="product-layout-attr__title">Гарантия (лет):</span> 25</div>
-                <div class="product-layout-attr"><span class="product-layout-attr__title">Полезная площадь (одной упаковки), кв.м.:</span> 3 кв.м.</div>
+                
+                <?php $show_attributes = array('23', '29'); $i = 1; ?>
+                
+                <?php foreach($product['attributes'] as $attr){ ?>
+                <?php foreach($attr['attribute'] as $attribute){ ?>
+                
+                  <?php //Пока не определились какие атрибуты выводить - просто два первых ?>
+                  <?php if($i++ < 3){ ?>
+                  <?php //if(in_array($attribute['attribute_id'], $show_attributes)){ ?>
+                    <div class="product-layout-attr"><span class="product-layout-attr__title"><?php echo $attribute['name']; ?>:</span> <?php echo $attribute['text']; ?></div>
+                  <?php } ?>
+                <?php } ?>
+                <?php } ?>
               </div>
 
-              <div class="product-layout__stock is-instock">Есть в наличии</div>
+              <div class="product-layout__stock is-instock"><?php echo $product['stock']; ?></div>
 
               <?php if ($product['special']) { ?>
                 <div class="product-layout__special-price">
@@ -252,7 +301,11 @@ setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
               <?php } ?>
               <div class="product-layout__button-group">
                 <button type="button" class="btn btn--black btn--dib btn--buy" onclick="cart.add('<?php echo $product['product_id']; ?>');"><?php echo $button_cart; ?></button>
-                <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+                <button type="button" class="btn btn--transparent btn--dib btn--buy-click uptocall-mini-phone"
+                    data-src="<?php echo $product['thumb']; ?>"
+                    data-name="<?php echo $product['name']; ?>"
+                    data-price="<?php echo $product['price']; ?>"
+                    >Купить в 1 клик</button>
               </div>
             </div>
           </div>

@@ -58,7 +58,16 @@ class ControllerExtensionModuleFeatured extends Controller {
 						$rating = false;
 					}
 
+					if ($product_info['quantity'] <= 0) {
+						$stock = $product_info['stock_status'];
+					} else {
+						$stock = $this->language->get('text_instock');
+					}
+			
+					
 					$data['products'][] = array(
+						'stock'       => $stock,
+						'attributes'  => $this->model_catalog_product->getProductAttributes($product_info['product_id']),
 						'product_id'  => $product_info['product_id'],
 						'thumb'       => $image,
 						'name'        => $product_info['name'],

@@ -39,6 +39,8 @@ class ControllerProductBlogCategory extends Controller {
 			$limit = $this->config->get($this->config->get('config_theme') . '_product_limit');
 		}
 
+		$data['telephone'] = $this->config->get('config_telephone');
+		
 		$data['breadcrumbs'] = array();
 
 		$data['breadcrumbs'][] = array(
@@ -178,6 +180,7 @@ class ControllerProductBlogCategory extends Controller {
 				);
 			}
 
+			
 			$data['products1'] = array();
 
 			$filter_data = array(
@@ -479,12 +482,73 @@ class ControllerProductBlogCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
+			$this->request->get['calculator_json'] = true;
+			$data['calculator'] = $this->load->controller('calculator/calculator');
+			unset($this->request->get['calculator_json']);
+			
 			if($category_info['template'] != ''){
 				$this->response->setOutput($this->load->view('blog_product/'.str_replace('.tpl', '', $category_info['template']), $data));
 			}else{
 				$this->response->setOutput($this->load->view('blog_product/blog_category', $data));	
 			}
 			
+		}elseif($blog_category_id == 0){
+			
+			$data['heading_title'] = 'Услуги';
+			
+			$this->document->setTitle($data['heading_title']);
+			$this->document->setDescription('');
+			$this->document->setKeywords($data['heading_title']);
+
+			
+			// Set the last category breadcrumb
+			$data['breadcrumbs'][] = array(
+				'text' => $data['heading_title'],
+				'href' => $this->url->link('product/blog_category', 'blogpath=0')
+			);
+
+			$data['description'] = html_entity_decode('', ENT_QUOTES, 'UTF-8');
+			
+			$data['categories'] = array();
+
+			$categories = $this->model_catalog_blog_category->getCategories($blog_category_id);
+
+			foreach ($categories as $category) {
+				// Level 2
+				$children_data = array();
+
+				$children = $this->model_catalog_blog_category->getCategories($category['blog_category_id']);
+
+				foreach ($children as $child) {
+					$filter_data = array(
+						'filter_category_id'  => $child['blog_category_id'],
+						'filter_sub_category' => true
+					);
+
+					$children_data[] = array(
+						'name'  => $child['name'],
+						'href'  => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
+					);
+				}
+
+				// Level 1
+				$data['categories'][$category['blog_category_id']] = array(
+					'name'     => $category['name'],
+					'children' => $children_data,
+					'column'   => $category['column'] ? $category['column'] : 1,
+					'href'     => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'])
+				);
+			}
+		
+
+			$data['column_left'] = $this->load->controller('common/column_left');
+			$data['column_right'] = $this->load->controller('common/column_right');
+			$data['content_top'] = $this->load->controller('common/content_top');
+			$data['content_bottom'] = $this->load->controller('common/content_bottom');
+			$data['footer'] = $this->load->controller('common/footer');
+			$data['header'] = $this->load->controller('common/header');
+
+			$this->response->setOutput($this->load->view('blog_product/blog_category_main', $data));	
 			
 		} else {
 			$url = '';
@@ -537,8 +601,8 @@ class ControllerProductBlogCategory extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
+			
 			$this->response->setOutput($this->load->view('error/not_found', $data));
 		}
 	}
 }
-

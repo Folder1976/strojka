@@ -103,7 +103,7 @@ $reasons_to_order = array(
           <div class="section-home-top__desc">
             <p>Строим крыши с 1996 года. Подготавливаем подробную смету на работы и материалы. Даем юридическую гарантию неизменности цени и завершения работы в срок.</p>
             <br>
-            <a href="#" class="btn btn--orange btn--dib btn--w100">сделайте расчёт за 50 секунд</a>
+            <a href="/roof#online-calc" class="btn btn--orange btn--dib btn--w100">сделайте расчёт за 50 секунд</a>
           </div>
         </div>
       </div>
@@ -132,7 +132,7 @@ $reasons_to_order = array(
     <div class="row">
       <div class="col-md-12 text-center">
         <div class="section-subtitle">Пройдите тест за 2 минуты и узнайте стоимость кровли<br>под ключ и сроки реализации</div>
-        <a href="#" class="btn btn--dib">пройти тест</a>
+        <a href="/roof#online-calc" class="btn btn--dib">пройти тест</a>
       </div>
     </div>
   </div>
@@ -368,10 +368,10 @@ $reasons_to_order = array(
     <div class="row">
       <div class="col-md-5 col-md-offset-1">
         <div class="section-calculate-the-cost__text">
-          <p class="section-calculate-the-cost__p">Среднее время расчета - 1 минута. Вы сразу получаете стоимость сметы. И при желании можете оформить индивидуальное предложение с подробным перечнем материалов и работ себе на почту.</p><br><a class="btn btn--black btn--dib" href="#online-calc">сделать расчёт за 50 секунд</a>
+          <p class="section-calculate-the-cost__p">Среднее время расчета - 1 минута. Вы сразу получаете стоимость сметы. И при желании можете оформить индивидуальное предложение с подробным перечнем материалов и работ себе на почту.</p><br><a class="btn btn--black btn--dib" href="/online-calc" target="_blank">сделать расчёт за 50 секунд</a>
           <br>
           <br>
-          <p class="section-calculate-the-cost__p--small">Или закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $phone); ?>" style="white-space: nowrap;"><?php echo $phone; ?></a></b></p>
+          <p class="section-calculate-the-cost__p--small">Или закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" style="white-space: nowrap;"><?php echo $telephone; ?></a></b></p>
         </div>
       </div>
     </div>
@@ -561,22 +561,17 @@ $reasons_to_order = array(
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <p>Закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $phone); ?>"><?php echo $phone; ?></a></b></p>
+        <p>Закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></p>
       </div>
     </div>
   </div>
 </section>
 
 
-<section class="section section-calc">
+<section class="section section-calc" id="online-calc">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="section-title">Онлайн калькулятор</div>
-        <div class="section-subtitle text-gray">За несколько минут узнаете стоимость работ и получите<br>индвидуальный расчет вашего объекта</div>
-
-        <div class="">Калькулятор...</div>
-      </div>
+        <?php echo $calculator; ?>
     </div>
   </div>
 </section>
@@ -665,9 +660,9 @@ $reasons_to_order = array(
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
         <div class="section-subtitle">Среднее время расчета - 1 минута. Вы сразу получаете стоимость сметы. И при желании можете оформить индивидуальное предложение с подробным перечнем материалов и работ себе на почту.</div>
-        <a href="#" class="btn btn--black btn--dib">сделать расчёт за 50 секунд</a>
+        <a href="/online-calc" class="btn btn--black btn--dib">сделать расчёт за 50 секунд</a>
 
-        <p><br><br>Или закажите бесплатную консультацию<br>нашего технолога по телефону <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $phone); ?>"><?php echo $phone; ?></a></p>
+        <p><br><br>Или закажите бесплатную консультацию<br>нашего технолога по телефону <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></p>
       </div>
     </div>
   </div>

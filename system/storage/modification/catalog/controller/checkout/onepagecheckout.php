@@ -123,6 +123,9 @@ class ControllerCheckoutOnepagecheckout extends Controller
             if ($product['minimum'] > $product_total) {
                 $this->response->redirect($this->url->link('checkout/cart'));
             }
+            
+            $products[$i]['href'] = $this->url->link('product/product', 'product_id=' . $product['product_id']);
+            
         }
 
         // Totals

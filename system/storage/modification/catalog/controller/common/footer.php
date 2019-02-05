@@ -3,6 +3,9 @@ class ControllerCommonFooter extends Controller {
 	public function index() {
 		$this->load->language('common/footer');
 
+		$data['popupcartext'] = $this->load->controller('extension/module/popupcart');
+	
+
 		$data['scripts'] = $this->document->getScripts('footer');
 
 		$data['text_information'] = $this->language->get('text_information');
@@ -26,6 +29,10 @@ class ControllerCommonFooter extends Controller {
 		$data['text_wishlist'] = $this->language->get('text_wishlist');
 		$data['text_newsletter'] = $this->language->get('text_newsletter');
 
+		$data['telephone'] = $this->config->get('config_telephone');
+		$data['address'] = $this->config->get('config_address');
+
+		
 		$this->load->model('catalog/information');
 
 		$data['informations'] = array();

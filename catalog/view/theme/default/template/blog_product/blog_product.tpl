@@ -1,5 +1,6 @@
 <?php echo $header; ?>
 <?php
+/*
 if(!isset($_COOKIE['IdProduto'])){
 $id_como_string = (string)$blog_product_id;
 $id_como_string .= ',';
@@ -24,7 +25,7 @@ else {
 $array_produtos .= $id_como_string . ',';
 setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
 }
-}
+}*/
 ?>
 <div class="container">
   <ul class="breadcrumb">

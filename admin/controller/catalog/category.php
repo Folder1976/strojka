@@ -143,6 +143,28 @@ class ControllerCatalogCategory extends Controller {
 	}
 
 	protected function getList() {
+		
+		
+		$sql = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "category_video`  (
+						`category_video_id` int(11) NOT NULL AUTO_INCREMENT,
+						`category_id` int(11) NOT NULL,
+						`video` varchar(255) DEFAULT NULL,
+						`sort_order` int(3) NOT NULL DEFAULT '0',
+						PRIMARY KEY (`category_video_id`),
+						KEY `category_id` (`category_id`)
+					  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+		$this->db->query($sql);
+		
+		$sql = "CREATE TABLE IF NOT EXISTS `" . DB_PREFIX . "category_image`  (
+						`category_image_id` int(11) NOT NULL AUTO_INCREMENT,
+						`category_id` int(11) NOT NULL,
+						`video` varchar(255) DEFAULT NULL,
+						`sort_order` int(3) NOT NULL DEFAULT '0',
+						PRIMARY KEY (`category_image_id`),
+						KEY `category_id` (`category_id`)
+					  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;";
+		$this->db->query($sql);
+		
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
@@ -295,6 +317,7 @@ class ControllerCatalogCategory extends Controller {
 	}
 
 	protected function getForm() {
+		
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_form'] = !isset($this->request->get['category_id']) ? $this->language->get('text_add') : $this->language->get('text_edit');
@@ -691,4 +714,3 @@ class ControllerCatalogCategory extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
-

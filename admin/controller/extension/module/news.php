@@ -3,9 +3,6 @@ class ControllerExtensionModuleNews extends Controller {
 	private $error = array();
 
 	public function index() {
-		
-		
-		
 		$this->load->language('extension/module/news');
 
 		$this->document->setTitle($this->language->get('heading_title'));

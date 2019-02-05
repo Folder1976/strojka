@@ -377,4 +377,3 @@ class ModelCatalogCategory extends Model {
 		return $query->row['total'];
 	}	
 }
-

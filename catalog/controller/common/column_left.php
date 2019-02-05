@@ -19,6 +19,9 @@ class ControllerCommonColumnLeft extends Controller {
 			$layout_id = $this->model_catalog_category->getCategoryLayoutId(end($path));
 		}
 
+		//echo '<pre>'; printf(var_dump($layout_id));
+		
+		
 		if ($route == 'product/product' && isset($this->request->get['product_id'])) {
 			$this->load->model('catalog/product');
 

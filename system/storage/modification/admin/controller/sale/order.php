@@ -207,22 +207,11 @@ class ControllerSaleOrder extends Controller {
 
 		$results = $this->model_sale_order->getOrders($filter_data);
 
-			if ($results) {
-				$this->load->model('localisation/order_status');
-				$colors = $this->model_localisation_order_status->getColors();
-			}
-			
-
 		foreach ($results as $result) {
 			$data['orders'][] = array(
 				'order_id'      => $result['order_id'],
 				'customer'      => $result['customer'],
 				'order_status'  => $result['order_status'] ? $result['order_status'] : $this->language->get('text_missing'),
-
-			'order_status_id' => $result['order_status_id'],
-			'bg_color' => isset($colors[$result['order_status_id']]['bg_color'])?$colors[$result['order_status_id']]['bg_color']:'',
-			'txt_color' => isset($colors[$result['order_status_id']]['txt_color'])?$colors[$result['order_status_id']]['txt_color']:'',
-			
 				'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
 				'date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
 				'date_modified' => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),
@@ -1667,19 +1656,8 @@ class ControllerSaleOrder extends Controller {
 
 		$results = $this->model_sale_order->getOrderHistories($this->request->get['order_id'], ($page - 1) * 10, 10);
 
-			if ($results) {
-				$this->load->model('localisation/order_status');
-				$colors = $this->model_localisation_order_status->getColors();
-			}
-			
-
 		foreach ($results as $result) {
 			$data['histories'][] = array(
-
-			'order_status_id' => $result['order_status_id'],
-			'bg_color' => isset($colors[$result['order_status_id']]['bg_color'])?$colors[$result['order_status_id']]['bg_color']:'',
-			'txt_color' => isset($colors[$result['order_status_id']]['txt_color'])?$colors[$result['order_status_id']]['txt_color']:'',
-			
 				'notify'     => $result['notify'] ? $this->language->get('text_yes') : $this->language->get('text_no'),
 				'status'     => $result['status'],
 				'comment'    => nl2br($result['comment']),

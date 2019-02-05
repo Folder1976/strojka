@@ -1,503 +1,923 @@
 <?php
-class ControllerCheckoutCart extends Controller {
+class ControllerParsingParsing extends Controller {
+	private $error = array();
+	public $html;
+	public $pausa = 2;
+	public $currency = 4;
+	public $parsing_url = 'https://agate.ru';
+	public $main_category_name = 'Главная';
+	public $url_categories = array('https://agate.ru/krovlya',
+														 'https://agate.ru/dimoxody',
+														 'https://agate.ru/vodostochnye-sistemy',
+														 'https://agate.ru/mansardnye-okna',
+														 'https://agate.ru/komplektuyushchie-dlya-krovli'														 
+														 );
+	
+	public function sort_by_len($f,$s){
+		if(strlen($f)<strlen($s)) return true;
+		else return false;
+	}
+
+	
 	public function index() {
-		$this->load->language('checkout/cart');
-
-		$this->document->setTitle($this->language->get('heading_title'));
-
-		$data['breadcrumbs'] = array();
-
-		$data['breadcrumbs'][] = array(
-			'href' => $this->url->link('common/home'),
-			'text' => $this->language->get('text_home')
-		);
-
-		$data['breadcrumbs'][] = array(
-			'href' => $this->url->link('checkout/cart'),
-			'text' => $this->language->get('heading_title')
-		);
-
-		if ($this->cart->hasProducts() || !empty($this->session->data['vouchers'])) {
-			$data['heading_title'] = $this->language->get('heading_title');
-
-			$data['text_recurring_item'] = $this->language->get('text_recurring_item');
-			$data['text_next'] = $this->language->get('text_next');
-			$data['text_next_choice'] = $this->language->get('text_next_choice');
-
-			$data['column_image'] = $this->language->get('column_image');
-			$data['column_name'] = $this->language->get('column_name');
-			$data['column_model'] = $this->language->get('column_model');
-			$data['column_quantity'] = $this->language->get('column_quantity');
-			$data['column_price'] = $this->language->get('column_price');
-			$data['column_total'] = $this->language->get('column_total');
-
-			$data['button_update'] = $this->language->get('button_update');
-			$data['button_remove'] = $this->language->get('button_remove');
-			$data['button_shopping'] = $this->language->get('button_shopping');
-			$data['button_checkout'] = $this->language->get('button_checkout');
-
-			if (!$this->cart->hasStock() && (!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning'))) {
-				$data['error_warning'] = $this->language->get('error_stock');
-			} elseif (isset($this->session->data['error'])) {
-				$data['error_warning'] = $this->session->data['error'];
-
-				unset($this->session->data['error']);
-			} else {
-				$data['error_warning'] = '';
-			}
-
-			if ($this->config->get('config_customer_price') && !$this->customer->isLogged()) {
-				$data['attention'] = sprintf($this->language->get('text_login'), $this->url->link('account/login'), $this->url->link('account/register'));
-			} else {
-				$data['attention'] = '';
-			}
-
-			if (isset($this->session->data['success'])) {
-				$data['success'] = $this->session->data['success'];
-
-				unset($this->session->data['success']);
-			} else {
-				$data['success'] = '';
-			}
-
-			$data['action'] = $this->url->link('checkout/cart/edit', '', true);
-
-			if ($this->config->get('config_cart_weight')) {
-				$data['weight'] = $this->weight->format($this->cart->getWeight(), $this->config->get('config_weight_class_id'), $this->language->get('decimal_point'), $this->language->get('thousand_point'));
-			} else {
-				$data['weight'] = '';
-			}
-
-			$this->load->model('tool/image');
-			$this->load->model('tool/upload');
-
-			$data['products'] = array();
-
-			$products = $this->cart->getProducts();
-
-			foreach ($products as $product) {
-				$product_total = 0;
-
-				foreach ($products as $product_2) {
-					if ($product_2['product_id'] == $product['product_id']) {
-						$product_total += $product_2['quantity'];
-					}
-				}
-
-				if ($product['minimum'] > $product_total) {
-					$data['error_warning'] = sprintf($this->language->get('error_minimum'), $product['name'], $product['minimum']);
-				}
-
-				if ($product['image']) {
-					$image = $this->model_tool_image->resize($product['image'], $this->config->get($this->config->get('config_theme') . '_image_cart_width'), $this->config->get($this->config->get('config_theme') . '_image_cart_height'));
-				} else {
-					$image = '';
-				}
-
-				$option_data = array();
-
-				foreach ($product['option'] as $option) {
-					if ($option['type'] != 'file') {
-						$value = $option['value'];
-					} else {
-						$upload_info = $this->model_tool_upload->getUploadByCode($option['value']);
-
-						if ($upload_info) {
-							$value = $upload_info['name'];
-						} else {
-							$value = '';
-						}
-					}
-
-					$option_data[] = array(
-						'name'  => $option['name'],
-						'value' => (utf8_strlen($value) > 20 ? utf8_substr($value, 0, 20) . '..' : $value)
-					);
-				}
-
-				// Display prices
-				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-					$unit_price = $this->tax->calculate($product['price'], $product['tax_class_id'], $this->config->get('config_tax'));
-					
-					$price = $this->currency->format($unit_price, $this->session->data['currency']);
-					$total = $this->currency->format($unit_price * $product['quantity'], $this->session->data['currency']);
-				} else {
-					$price = false;
-					$total = false;
-				}
-
-				$recurring = '';
-
-				if ($product['recurring']) {
-					$frequencies = array(
-						'day'        => $this->language->get('text_day'),
-						'week'       => $this->language->get('text_week'),
-						'semi_month' => $this->language->get('text_semi_month'),
-						'month'      => $this->language->get('text_month'),
-						'year'       => $this->language->get('text_year'),
-					);
-
-					if ($product['recurring']['trial']) {
-						$recurring = sprintf($this->language->get('text_trial_description'), $this->currency->format($this->tax->calculate($product['recurring']['trial_price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['trial_cycle'], $frequencies[$product['recurring']['trial_frequency']], $product['recurring']['trial_duration']) . ' ';
-					}
-
-					if ($product['recurring']['duration']) {
-						$recurring .= sprintf($this->language->get('text_payment_description'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
-					} else {
-						$recurring .= sprintf($this->language->get('text_payment_cancel'), $this->currency->format($this->tax->calculate($product['recurring']['price'] * $product['quantity'], $product['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']), $product['recurring']['cycle'], $frequencies[$product['recurring']['frequency']], $product['recurring']['duration']);
-					}
-				}
-
-				$data['products'][] = array(
-					'cart_id'   => $product['cart_id'],
-					'thumb'     => $image,
-					'name'      => $product['name'],
-					'model'     => $product['model'],
-					'option'    => $option_data,
-					'recurring' => $recurring,
-					'quantity'  => $product['quantity'],
-					'stock'     => $product['stock'] ? true : !(!$this->config->get('config_stock_checkout') || $this->config->get('config_stock_warning')),
-					'reward'    => ($product['reward'] ? sprintf($this->language->get('text_points'), $product['reward']) : ''),
-					'price'     => $price,
-					'total'     => $total,
-					'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
-				);
-			}
-
-			// Gift Voucher
-			$data['vouchers'] = array();
-
-			if (!empty($this->session->data['vouchers'])) {
-				foreach ($this->session->data['vouchers'] as $key => $voucher) {
-					$data['vouchers'][] = array(
-						'key'         => $key,
-						'description' => $voucher['description'],
-						'amount'      => $this->currency->format($voucher['amount'], $this->session->data['currency']),
-						'remove'      => $this->url->link('checkout/cart', 'remove=' . $key)
-					);
-				}
-			}
-
-			// Totals
-			$this->load->model('extension/extension');
-
-			$totals = array();
-			$taxes = $this->cart->getTaxes();
-			$total = 0;
-			
-			// Because __call can not keep var references so we put them into an array. 			
-			$total_data = array(
-				'totals' => &$totals,
-				'taxes'  => &$taxes,
-				'total'  => &$total
-			);
-			
-			// Display prices
-			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-				$sort_order = array();
-
-				$results = $this->model_extension_extension->getExtensions('total');
-
-				foreach ($results as $key => $value) {
-					$sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
-				}
-
-				array_multisort($sort_order, SORT_ASC, $results);
-
-				foreach ($results as $result) {
-					if ($this->config->get($result['code'] . '_status')) {
-						$this->load->model('extension/total/' . $result['code']);
-						
-						// We have to put the totals in an array so that they pass by reference.
-						$this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
-					}
-				}
-
-				$sort_order = array();
-
-				foreach ($totals as $key => $value) {
-					$sort_order[$key] = $value['sort_order'];
-				}
-
-				array_multisort($sort_order, SORT_ASC, $totals);
-			}
-
-			$data['totals'] = array();
-
-			foreach ($totals as $total) {
-				$data['totals'][] = array(
-					'title' => $total['title'],
-					'text'  => $this->currency->format($total['value'], $this->session->data['currency'])
-				);
-			}
-
-			$data['continue'] = $this->url->link('common/home');
-
-			$data['checkout'] = $this->url->link('checkout/checkout', '', true);
-
-			$this->load->model('extension/extension');
-
-			$data['modules'] = array();
-			
-			$files = glob(DIR_APPLICATION . '/controller/extension/total/*.php');
-
-			if ($files) {
-				foreach ($files as $file) {
-					$result = $this->load->controller('extension/total/' . basename($file, '.php'));
-					
-					if ($result) {
-						$data['modules'][] = $result;
-					}
-				}
-			}
-
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
-
-			$this->response->setOutput($this->load->view('checkout/cart', $data));
-		} else {
-			$data['heading_title'] = $this->language->get('heading_title');
-
-			$data['text_error'] = $this->language->get('text_empty');
-
-			$data['button_continue'] = $this->language->get('button_continue');
-
-			$data['continue'] = $this->url->link('common/home');
-
-			unset($this->session->data['success']);
-
-			$data['column_left'] = $this->load->controller('common/column_left');
-			$data['column_right'] = $this->load->controller('common/column_right');
-			$data['content_top'] = $this->load->controller('common/content_top');
-			$data['content_bottom'] = $this->load->controller('common/content_bottom');
-			$data['footer'] = $this->load->controller('common/footer');
-			$data['header'] = $this->load->controller('common/header');
-
-			$this->response->setOutput($this->load->view('error/not_found', $data));
-		}
-	}
-
-	public function add() {
-		$this->load->language('checkout/cart');
-
-		$json = array();
-
-		if (isset($this->request->post['product_id'])) {
-			$product_id = (int)$this->request->post['product_id'];
-		} else {
-			$product_id = 0;
-		}
-
-		$this->load->model('catalog/product');
-
-		$product_info = $this->model_catalog_product->getProduct($product_id);
-
-		if ($product_info) {
-			if (isset($this->request->post['quantity']) && ((int)$this->request->post['quantity'] >= $product_info['minimum'])) {
-				$quantity = (int)$this->request->post['quantity'];
-			} else {
-				$quantity = $product_info['minimum'] ? $product_info['minimum'] : 1;
-			}
-
-			if (isset($this->request->post['option'])) {
-				$option = array_filter($this->request->post['option']);
-			} else {
-				$option = array();
-			}
-
-			$product_options = $this->model_catalog_product->getProductOptions($this->request->post['product_id']);
-
-			foreach ($product_options as $product_option) {
-				if ($product_option['required'] && empty($option[$product_option['product_option_id']])) {
-					$json['error']['option'][$product_option['product_option_id']] = sprintf($this->language->get('error_required'), $product_option['name']);
-				}
-			}
-
-			if (isset($this->request->post['recurring_id'])) {
-				$recurring_id = $this->request->post['recurring_id'];
-			} else {
-				$recurring_id = 0;
-			}
-
-			$recurrings = $this->model_catalog_product->getProfiles($product_info['product_id']);
-
-			if ($recurrings) {
-				$recurring_ids = array();
-
-				foreach ($recurrings as $recurring) {
-					$recurring_ids[] = $recurring['recurring_id'];
-				}
-
-				if (!in_array($recurring_id, $recurring_ids)) {
-					$json['error']['recurring'] = $this->language->get('error_recurring_required');
-				}
-			}
-
-			if (!$json) {
-				$this->cart->add($this->request->post['product_id'], $quantity, $option, $recurring_id);
-
-				$json['success'] = sprintf($this->language->get('text_success'), $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']), $product_info['name'], $this->url->link('checkout/cart'));
-
-				// Unset all shipping and payment methods
-				unset($this->session->data['shipping_method']);
-				unset($this->session->data['shipping_methods']);
-				unset($this->session->data['payment_method']);
-				unset($this->session->data['payment_methods']);
-
-				// Totals
-				$this->load->model('extension/extension');
-
-				$totals = array();
-				$taxes = $this->cart->getTaxes();
-				$total = 0;
+	
+		set_time_limit(0);
+		include 'constants.php';
+		//define("GETCONTENTVIAPROXY", 0); //Включает прокси
+		//define("GETCONTENTVIANAON", 1);
 		
-				// Because __call can not keep var references so we put them into an array. 			
-				$total_data = array(
-					'totals' => &$totals,
-					'taxes'  => &$taxes,
-					'total'  => &$total
-				);
-
-				// Display prices
-				if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-					$sort_order = array();
-
-					$results = $this->model_extension_extension->getExtensions('total');
-
-					foreach ($results as $key => $value) {
-						$sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
-					}
-
-					array_multisort($sort_order, SORT_ASC, $results);
-
-					foreach ($results as $result) {
-						if ($this->config->get($result['code'] . '_status')) {
-							$this->load->model('extension/total/' . $result['code']);
-
-							// We have to put the totals in an array so that they pass by reference.
-							$this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
+		$parsing_url = $this->parsing_url;
+	
+		header('Content-Type: text/html; charset=utf-8');		
+		?>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script defer src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+		<br>
+		<a href="parsing.php?func=add_products&supplier=militarist&resetlinks">Обнулить сайтмап (Категории)</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="parsing.php?func=add_products&supplier=militarist&resetlinks1">Обнулить сайтмап (Продукты)</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="parsing.php?func=add_products&supplier=militarist&links"><b><font color="blue">Продолжить парсить</font></b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<a href="parsing.php?func=add_products&supplier=militarist&links&unset"><b><font color="orange">Пропустить товар</font></b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+		<?php
+		
+		$http = $parsing_url;
+		//просто парсим ссылки
+		if(isset($_GET['resetlinks'])){
+			
+			$sql = 'UPDATE oc_parsing_militarist SET view = \'0\' WHERE view = "1";';
+			$this->db->query($sql) or die('==' . $sql);
+		
+		}
+		
+		if(isset($_GET['resetlinks1'])){
+			
+			$sql = 'UPDATE oc_parsing_militarist SET view = \'0\' WHERE view = "2";';
+			$this->db->query($sql) or die('==' . $sql);
+		
+		}
+		
+		if(isset($_GET['links'])){
+			include DIR_SYSTEM.'library/parsing/simple_html_dom/simple_html_dom.php';
+	
+			//тупо посчитаем все запись
+			$sql = 'SELECT count(id) AS id FROM oc_parsing_militarist;';
+			$tmp = $this->db->query($sql) or die('==' . $sql);
+			$tmp = $tmp->row;
+			$all = $tmp['id'];
+	
+			$sql = 'SELECT count(id) AS id FROM oc_parsing_militarist WHERE view = \'0\';';
+			$tmp = $this->db->query($sql) or die('==' . $sql);
+			$tmp = $tmp->row;
+			$none = $tmp['id'];
+			echo '<b>Всего ликов - '.$all.'. Пропарсено - '.($all - $none).'. Осталось - '.$none.'.</b>';
+			
+			if(isset($_GET['unset'])){
+				$sql = 'SELECT id FROM oc_parsing_militarist WHERE view = \'0\' LIMIT 1;';
+				$url = $this->db->query($sql) or die('==' . $sql);
+				$list = $url->row;
+				$sql = 'UPDATE oc_parsing_militarist SET view = \'2\' WHERE id = "'.$list['id'].'";';
+				$url = $this->db->query($sql) or die('==' . $sql);
+				
+				?>
+					<script>
+						function reload() {
+							location.href() = 'parsing.php?func=add_products&supplier=militarist&links';
+						}
+					</script>
+				<?php
+			}
+				
+			$sql = 'SELECT * FROM oc_parsing_militarist WHERE view = \'0\' LIMIT 1;';
+			$url = $this->db->query($sql) or die('==' . $sql);
+			
+			
+			if($url->num_rows > 0){
+				$list = $url->row;
+		
+				echo ' <b>Урл ID - '.$list['id'].'. </b>'; 
+					
+				if(isset($_GET['url'])){
+					$list['url'] = $_GET['url'];
+				}
+				
+					
+				//Если попадаются кривые линки!!!!!!!
+				if(strpos($list['url'], $parsing_url) !== false){
+					//$list['url'] = str_replace($parsing_url,'',$list['url']);
+					
+					$sql = 'UPDATE oc_parsing_militarist SET `url` = \''.$list['url'].'\' WHERE `id` = \''.$list['id'].'\';';
+					$this->db->query($sql) or die('==' . $sql);
+		
+					echo '<h3 style="color:orange;">url - '.$list['url'].'</h3>';
+				}else{
+					echo '<h3 style="color:green;">url - '.$list['url'].'</h3>';
+				}
+					
+				//Get content via proxy
+				$this->html = @file_get_html($list['url']);
+				
+				
+				//Если это кривой линк - возможно удаленный товар
+				if(!$this->html){
+					$this->setViewed($list['url']);
+					$this->reload();
+					return true;
+				}
+						
+				//Хлебная крошка
+				$tmp = $this->html->find('.bx_breadcrumbs',0);
+				if($tmp){
+					$breadcrumbs_html = $tmp->innertext();
+					$this->html_tmp = str_get_html($breadcrumbs_html);
+					$breadcrumbs_html = $this->html_tmp->find('li a');
+					$breadcrumbs = array();
+					
+					$i = 0;
+					$keywords = explode('/', trim(str_replace($parsing_url.'/', '', $list['url']), '/'));
+					$keywords[-1] = '';
+					
+					foreach($breadcrumbs_html as $tt){
+						$temp = $tt->innertext();
+						$temp = iconv( 'windows-1251', 'UTF-8', $temp);
+						$temp = trim($temp, ' ');
+						$temp = rtrim($temp, ' ');
+						$temp_array = explode('<', $temp);
+						$temp = trim($temp_array[0]);
+						
+						
+						if($temp != ''){
+							$breadcrumbs[$temp] = $temp;
 						}
 					}
-
-					$sort_order = array();
-
-					foreach ($totals as $key => $value) {
-						$sort_order[$key] = $value['sort_order'];
-					}
-
-					array_multisort($sort_order, SORT_ASC, $totals);
+					echo 'Крошки родителя ($breadcrumbs_txt => $category_id)-> <b>'.implode('>',$breadcrumbs).'</b><br>';
+					$breadcrumbs_txt = implode('>',$breadcrumbs);
+				}else{
+					$breadcrumbs_txt = '';
 				}
-
-				//$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
-				$json['total'] = $this->currency->format($total, $this->session->data['currency']);
-			} else {
-				$json['redirect'] = str_replace('&amp;', '&', $this->url->link('product/product', 'product_id=' . $this->request->post['product_id']));
+					
+					
+				//Массив ссылок
+				$str_tmp = $this->html->find('a');
+				echo '<h4>Найдены линки новые линки</h4>';
+				$view = '0';
+				foreach($str_tmp as $option){
+				
+					$href = str_get_html($option->href);
+					
+					if(strpos($href, $parsing_url) === false){
+						$href = $parsing_url.$href;
+					}
+					
+					//Если категория в списке для парса
+					$key = false;
+					
+					
+					
+					foreach($this->url_categories as $url_category){
+						if(strpos($href, $url_category) !== false){
+							$key = true;
+							break;
+						}
+						
+					}
+					
+					if($key){
+					
+						$sql = 'SELECT id FROM oc_parsing_militarist WHERE url = \''.$href.'\';';
+						$t = $this->db->query($sql) or die('==' . $sql);
+						$name = '';
+						if($t->num_rows == 0){
+							$sql = 'INSERT INTO oc_parsing_militarist SET
+										 `url` = \''.$href.'\',
+										 `key` = "'.$name.'",
+										 `view` = \''.$view.'\',
+										 `date` = \''.date('Y-m-d H:i:s').'\',
+										 `breadcrumbs` = \'\';';
+							$this->db->query($sql) or die('==' . $sql);
+							echo $href.'<br>';
+						}
+					
+					}
+	 
+				}
+				
+				if(!isset($size_n)){
+					$size_n = array('nosize'=>'0');
+				}
+				
+	 
+				//=============================================================
+				//Опеределяем данные
+				$error = 0;
+			
+			//Если нет крошек - это главная категория
+			if(!isset($breadcrumbs)){
+				$this->setViewed($list['url']);
+				$this->reload();
+				return true;
 			}
-		}
+			
+			foreach($this->html->find('span') as $span){
+				if($span->getAttribute('property') == 'name'){
+					$category_name = iconv( 'windows-1251', 'UTF-8', $span->innertext());
+				}
+			}
+			
+			
+			//Порлучим ИД родителя
+			$category_id = 0;
+			$i = -1;
+			foreach($breadcrumbs as $category){
+				
+				$data = array('keyword' => $keywords[$i++],
+							'name' => $category,
+							'meta_title' => $category,
+							'parent_id' => $category_id);
+				
+				
+				$category_id = $this->importCategory( $data);
+			}
+			
+			
+			//Это товар
+			$tmp = $this->html->find('.pricepicture',0);
+			
+			
+			if($tmp){
+				$product_id = 0;
+				
+				$data = array();
+				$data['category_id'] = $category_id;
+				$data['model'] = $this->getProductModel($this->html);
+				
+				$data['name'] = $this->getProductName($this->html);
+				$data['keyword'] = $this->translitArtkl($data['name']);
+				
+				$data['description'] = $this->getProductDescription($this->html);
+				$data['meta_h1'] = $this->getProductMetaH1($this->html);
+				$data['meta_keyword'] = $this->getProductMetaKeyword($this->html);
+				$data['meta_title'] = $this->getProductMetaTitle($this->html);
+				$data['meta_description'] = $this->getProductMetaDescription($this->html);
+				$data['tag'] = $this->getProductMetaTag($this->html);
 
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+			
+				$data['manufacturer'] = $this->getManufacturerName($this->html);
+				$data['manufacturer_id'] = $this->_updateInsertManufacturer($data['manufacturer']);
+			
+				$data['price'] = $this->getProductPrice($this->html);
+				$data['quantity'] = $this->getProductQuantity($this->html);
+				if($data['quantity'] > 0){
+					$data['stock_status_id'] = 7;
+				}else{
+					$data['stock_status_id'] = 5;
+				}
+				
+				$data['image'] = $this->getProductImage($this->html);
+				$data['images'] = $this->getProductImages($this->html);
+				
+				$data['attributes'] = $this->getProductAttributes($this->html);
+				$data['related'] = $this->getProductRecomended($this->html);
+				
+				
+				$product_id = $this->importProduct($data);
+				
+					
+				$this->setViewed($list['url'], 2, 'product_id='.$product_id);		
+				$this->reload();	
+				return true;
+			//Это категория
+			}else{	
+				$data = array('keyword' => $keywords[$i++],
+							'name' => $category_name,
+							'meta_title' => trim(iconv( 'windows-1251', 'UTF-8', $this->html->find('h1',0)->innertext())),
+							'parent_id' => $category_id);
+				$category_id = $this->importCategory( $data);
+				
+				$this->setViewed($list['url'], 1, 'category_id='.$category_id);
+				$this->reload();
+				return true;
+			}
+			
+			echo '<pre>****'; printf(var_dump($data));
+			
+			//Тут товар будет
+			//<div itemscope itemtype="https://schema.org/Product">
+			
+			
+				
+				$this->setViewed($list['url'], 2, 'Нипанятна');		
+				$this->reload();							
+			}else{
+				die('<h2>ЗАКОНЧИЛ!</h2>');
+			}
+		
+			}
+			
+			
+			
+	}
+	
+	public function getProductName($html){
+		return trim(iconv( 'windows-1251', 'UTF-8', $html->find('h1',0)->innertext()));
+	}
+	public function getProductModel($html){
+		return '';
+	}
+	
+	protected function _getAttributeId( $name ) {
+		$language_id = 1;
+		
+		$issetAttribute= $this->db->query( "SELECT DISTINCT * FROM " . DB_PREFIX . "attribute_description WHERE LOWER(`name`) = '" . mb_strtolower($name) . "' LIMIT 1" );
+	
+		if($issetAttribute->num_rows){
+		  
+		  return (int)$issetAttribute->row['attribute_id'];
+		  
+		}
+	
+		$this->db->query("INSERT INTO " . DB_PREFIX . "attribute SET attribute_group_id='1',
+										sort_order='0'");
+
+		$attribute_id = $this->db->getLastId();
+
+		$language = $this->getLangs();
+		
+		foreach($language as $lang){
+			
+			$this->db->query("INSERT INTO " . DB_PREFIX . "attribute_description SET
+									attribute_id='".$attribute_id."',
+									language_id='".$lang['language_id']."',
+									name='".$name."'");
+		}	
+
+		return $attribute_id;
+
 	}
 
-	public function edit() {
-		$this->load->language('checkout/cart');
-
-		$json = array();
-
-		// Update
-		if (!empty($this->request->post['quantity'])) {
-			foreach ($this->request->post['quantity'] as $key => $value) {
-				$this->cart->update($key, $value);
-			}
-
-			$this->session->data['success'] = $this->language->get('text_remove');
-
-			unset($this->session->data['shipping_method']);
-			unset($this->session->data['shipping_methods']);
-			unset($this->session->data['payment_method']);
-			unset($this->session->data['payment_methods']);
-			unset($this->session->data['reward']);
-
-			$this->response->redirect($this->url->link('checkout/cart'));
+	
+	protected function _updateInsertManufacturer( $name ) {
+		$language_id = 1;
+		
+		$issetManufacturer = $this->db->query( "SELECT DISTINCT * FROM " . DB_PREFIX . "manufacturer WHERE name = '" . $name . "'" );
+	
+		if($issetManufacturer->num_rows){
+		  
+		  return (int)$issetManufacturer->row['manufacturer_id'];
+		  
 		}
+	   
+			$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer SET name = '" . $this->db->escape($name) . "', sort_order = '0'");
+	
+			$manufacturer_id = $this->db->getLastId();
+	
+			$this->db->query("INSERT INTO " . DB_PREFIX . "manufacturer_to_store SET manufacturer_id = '".$manufacturer_id."', store_id = '0'");
+	
+		$keyword = $this->translitArtkl($name);
+		
+			$this->db->query("INSERT INTO " . DB_PREFIX . "url_alias SET query = 'manufacturer_id=" . (int)$manufacturer_id . "',
+						 keyword = '" . $this->db->escape($keyword) . "'");
+		
+			$this->cache->delete('manufacturer');
+		
+		return $manufacturer_id;
 
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+	}
+	
+	public function getManufacturerName($html){
+		
+		$manufacturer_img = $html->find('.manufacturer',0)->innertext();
+		
+		if($manufacturer_img == '') return '';
+		
+		$html_tmp = str_get_html($manufacturer_img);
+		
+		$img = $html_tmp->find('img',0);
+		
+		$manufacturer_name = iconv( 'windows-1251', 'UTF-8',$img->getAttribute('alt'));
+		
+		return trim($manufacturer_name);
+		
+	}
+	
+	public function getProductAttributes($html){
+		
+		$return_attributes = array();
+		$attributes = array();
+		
+		if($html->find('table.customs',0)){
+			
+			$text = $html->find('table.customs',0)->innertext();
+			
+			$table = iconv( 'windows-1251', 'UTF-8', $text);
+			
+			$table = str_replace('</tr>', '*', $table);
+			$table = str_replace('</td><td>', '|', $table);
+			$table = strip_tags($table);
+			
+			$table_rows = explode('*', $table);
+			foreach($table_rows as $row){
+				$td = explode('|', $row);
+				
+				if(isset($td[1]) AND trim($td[0]) != 'Характеристика'){
+					$attributes[trim($td[0])] = trim($td[1]);
+				}
+			}
+			
+			foreach($attributes as $name => $value){
+				
+				$attribute_id = $this->_getAttributeId($name);
+				
+				$return_attributes[$attribute_id] = array(
+												'name' => $name,
+												'text' => $value
+														  );
+				
+			}
+		
+		}
+		return $return_attributes;
+		
+	}
+	
+	public function  getProductMetaH1($html){
+		return '';
+	}
+		
+	public function  getProductMetaKeyword($html){
+		return '';
+	}
+		
+	public function  getProductMetaTag($html){
+		return '';
+	}
+		
+	public function  getProductMetaTitle($html){
+		$title = '';
+		foreach($html->find('meta') as $span){
+			if($span->getAttribute('name') == 'title'){
+				$title = iconv( 'windows-1251', 'UTF-8', $span->getAttribute('content'));
+			}
+		}
+	
+		return $title;
+	}
+		
+	public function  getProductMetaDescription($html){
+		$description = '';
+		foreach($html->find('meta') as $span){
+			if($span->getAttribute('name') == 'description'){
+				$description = iconv( 'windows-1251', 'UTF-8', $span->getAttribute('content'));
+			}
+		}
+	
+		return $description;
+	}
+	
+	
+	public function getProductImage($html){
+		
+		$src = '';
+		foreach($html->find('img') as $span){
+			if($span->getAttribute('itemprop') == 'image'){
+				$src = iconv( 'windows-1251', 'UTF-8', $span->getAttribute('src'));
+			}
+		}
+	
+		if(strpos($src, $this->parsing_url) !== false){
+			
+		}else{
+			$src = $this->parsing_url.$src;
+		}
+	
+		return $src;
+		
+	}
+	
+	public function getProductRecomended($html){
+		
+		$urls = array();
+		$product_ids = array();
+		
+		foreach($html->find('#thiselementbuy a') as $span){
+			$tml = iconv( 'windows-1251', 'UTF-8', $span->getAttribute('href'));
+			$urls[$tml] = $tml;
+		}
+	
+		foreach($urls as $url){
+			$r = $this->db->query( "SELECT target_id FROM `" . DB_PREFIX . "parsing_militarist` WHERE `url` LIKE '%".$url."' LIMIT 1");
+			if($r->num_rows){
+				$target = explode('=', $r->row['target_id']);
+				
+				if($target[0] == 'product_id'){
+					$product_ids[] = $target[1];
+				}	
+				
+			}
+		}
+	
+		return $product_ids;
+		
+	}
+	
+	public function getProductImages($html){
+		
+		return array();
+		
+		$src = '';
+		foreach($this->html->find('img') as $span){
+			if($span->getAttribute('itemprop') == 'image'){
+				$src = iconv( 'windows-1251', 'UTF-8', $span->getAttribute('src'));
+			}
+		}
+	
+		if(strpos($src, $this->parsing_url) !== false){
+			
+		}else{
+			$src = $this->parsing_url.$src;
+		}
+	
+		return $src;
+		
+	}
+	
+	public function getProductDescription($html){
+		return  '';	
+	}
+	
+	public function getProductPrice($html){
+		
+		$price = 0;
+		foreach($this->html->find('meta') as $span){
+			if($span->getAttribute('itemprop') == 'price'){
+				$price = (float)iconv( 'windows-1251', 'UTF-8', $span->getAttribute('content'));
+			}
+		}
+	
+		return $price;
+		
+	}
+	
+	public function getProductQuantity($html){
+		
+		$quantity = 0;
+		foreach($this->html->find('link') as $span){
+			if($span->getAttribute('itemprop') == 'availability'){
+				$quantity = iconv( 'windows-1251', 'UTF-8', $span->getAttribute('href'));
+			}
+		}
+	
+		if(strpos($quantity, 'InStock') !== false){
+			$quantity = 100;
+		}else{
+			$quantity = 0;
+		}
+	
+		return $quantity;
+		
+	}
+	
+	public function setViewed($href, $view = 1, $key='') {
+		$sql = 'UPDATE ' . DB_PREFIX . 'parsing_militarist SET `view`='.$view.', `target_id`="'.$key.'" WHERE `url` = \''.$href.'\'';
+		$this->db->query($sql) or die('==' . $sql);
+	}
+	
+	//Тут скрипт релоада страницы
+	public function reload() {
+		
+		?>
+		<script>
+			$(document).ready(function(){
+				setTimeout(function(){location.reload()}, <?php echo $this->pausa;?>000);
+			});
+		</script>
+		<?php
+	}
+	public function translitArtkl($str) {
+		$rus = array('&quot;','"','І','и','і','є','Є','ї','\"','\'','.',' ','А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Ъ', 'Ы', 'Ь', 'Э', 'Ю', 'Я', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я');
+		$lat = array('','','I','u','i','e','E','i','','','','-','A', 'B', 'V', 'G', 'D', 'E', 'E', 'Gh', 'Z', 'I', 'Y', 'K', 'L', 'M', 'N', 'O', 'P', 'R', 'S', 'T', 'U', 'F', 'H', 'C', 'Ch', 'Sh', 'Sch', 'Y', 'Y', 'Y', 'E', 'Yu', 'Ya', 'a', 'b', 'v', 'g', 'd', 'e', 'e', 'gh', 'z', 'i', 'y', 'k', 'l', 'm', 'n', 'o', 'p', 'r', 's', 't', 'u', 'f', 'h', 'c', 'ch', 'sh', 'sch', 'y', 'y', 'y', 'e', 'yu', 'ya');
+		$str = str_replace($rus, $lat, $str);
+		
+		//http://cn08183.tmweb.ru/dimoxody/dymohod-schiedel-permetr-%C3%98130-mm-dlya-nastennogo-montagha,-komplekt-10-mp,-seryy
+		
+		$rus = array(',','.','?', '&', '%', '/',  '--', '--');
+		$lat = array('-');
+		return str_replace($rus, $lat, $str);
 	}
 
-	public function remove() {
-		$this->load->language('checkout/cart');
+	
+  //import prices and products
+	public function importCategory( $data) {
+		
+		if($data['name'] == $this->main_category_name){
+			return 0;
+		}
+		
+        if ( $data['name'] != '') {
+            
+                
+                $parent_id = isset($data['parent_id']) ? $data['parent_id'] : 0;
+                $category_id = 0;
+                $sort_order = 0;
+                $name = trim($data['name']);
+                $image = '';
+				
+				
+                $r = $this->db->query( "SELECT c.category_id, c.top FROM `" . DB_PREFIX . "category` c
+											LEFT JOIN `" . DB_PREFIX . "category_description` cd ON cd.category_id = c.category_id
+											WHERE c.parent_id='".$data['parent_id']."' AND cd.name LIKE '".$data['name']."'");
+				
+				$top = 0;
+                if($r->num_rows){
+                    $category_id = $r->row['category_id'];
+                    $top = $r->row['top'];
+                }
+                 
+                $data = array(
+                              'parent_id' => $parent_id,
+                              'column' => '0',
+                              'sort_order' => $sort_order,
+                              'top' => $top,
+                              'image' => $image,
+                              'status' => '1',
+                              'keyword' => strtolower($data['keyword']), //strtolower($this->translitArtkl($name)),
+                              'category_description' => array(
+                                    '1' => array(
+                                                 'name' => $name,
+                                                 'description' => '',
+                                                 'meta_title' => $data['meta_title'],
+                                                 'meta_description' => $data['meta_title'],
+                                                 'meta_keyword' => $data['meta_title'],
+                                                 ),
+                                    '2' => array(
+                                                 'name' => $name,
+                                                 'description' => '',
+                                                 'meta_title' => $data['meta_title'],
+                                                 'meta_description' => $data['meta_title'],
+                                                 'meta_keyword' => $data['meta_title'],
+                                                 ),
+                              ),
+                        );
+                
+                $this->load->model('catalog/category');
+                
+                if($category_id == 0){
+                    $category_id = $this->model_catalog_category->addCategory($data);
+                }else{
+                    $this->model_catalog_category->editCategory($category_id, $data);
+                }
+                
+                $this->db->query("DELETE FROM " . DB_PREFIX . "category_to_layout WHERE category_id = '" . (int)$category_id . "'");
+                $this->db->query("DELETE FROM " . DB_PREFIX . "category_to_store WHERE category_id = '" . (int)$category_id . "'");
+                $this->db->query("INSERT INTO " . DB_PREFIX . "category_to_store SET category_id = '" . (int)$category_id . "', store_id = '0'");
+                $this->db->query("INSERT INTO " . DB_PREFIX . "category_to_layout SET category_id = '" . (int)$category_id . "', store_id = '0', layout_id = '3'");
+            
+            
+        }
+        
+		return $category_id;
+		
+	}
+	
+	public function getLangs() {
+		$r = $this->db->query( "SELECT language_id FROM `" . DB_PREFIX . "language`");
+		return $r->rows;
+		
+	}
+	
+	public function importProduct( $dataIn) {
+		
+		$product_id = 0;
+	
+		if ( $dataIn['name'] != '') {
+			
+				$language = $this->getLangs();
+             
+				if($dataIn['model'] != ''){
+					$r = $this->db->query( "SELECT p.product_id FROM `" . DB_PREFIX . "product` p
+											WHERE p.model LIKE '".$dataIn['model']."' AND
+												p.manufacturer_id = '".$dataIn['manufacturer_id']."'
+											");
+					
+				}else{ 
+					$r = $this->db->query( "SELECT p.product_id FROM `" . DB_PREFIX . "product` p
+											LEFT JOIN `" . DB_PREFIX . "product_description` pd ON pd.product_id = p.product_id
+											WHERE pd.name LIKE '".$dataIn['name']."' AND
+												p.manufacturer_id = '".$dataIn['manufacturer_id']."'
+											");
+					
+					$dataIn['model'] = md5($dataIn['name']);
+				}
+				
+                if($r->num_rows){
+                    $product_id = $r->row['product_id'];
+                }
+               
+			   
+			    
+				$Description = array(
+									'name'          => $dataIn['name'],
+									'meta_h1'    	=> ($dataIn['meta_h1'] != '') ? $dataIn['meta_h1'] : $dataIn['name'],
+									'meta_keyword'  => ($dataIn['meta_keyword'] != '') ? $dataIn['meta_keyword'] : $dataIn['name'],
+									'meta_title'    => ($dataIn['meta_title'] != '') ? $dataIn['meta_title'] : $dataIn['name'],
+									'meta_description' => ($dataIn['meta_description'] != '') ? $dataIn['meta_description'] : strip_tags(['description']),
+									'description'   => ($dataIn['description'] != '') ? $dataIn['description'] : $dataIn['description'],
+									'tag' 			=> ($dataIn['tag'] != '') ? $dataIn['tag'] : '',
+									);
+				
+				$dataDescription = array();
+				
+				foreach($language as $lang){
+					$dataDescription[$lang['language_id']] = $Description;
+				}
+				
+				$product_attributes = array();
+				foreach($dataIn['attributes'] as $attribute_id => $row){
+					
+					foreach($language as $lang){
+						$product_attribute_description[$lang['language_id']]['text'] = $row['text'];
+					}
+					
+					$product_attributes[] = array(
+												  'name' => $row['name'],
+												  'attribute_id' => (int)$attribute_id,
+												  'product_attribute_description' => $product_attribute_description
+												  );
+				}
+				
+				
+				$data = array(
+							'model' => $dataIn['model'],
+							'sku' => '',
+							'upc' => '',
+							'ean' => '',
+							'jan' => '',
+							'isbn' => '',
+							'mpn' => '',
+							'location' => '',
+							'quantity' => $dataIn['quantity'],
+							'minimum' => 1,
+							'subtract' => 0,
+							'stock_status_id' => $dataIn['stock_status_id'],
+							'date_available' => date('Y-m-d H:i:s'),
+							'manufacturer_id' => $dataIn['manufacturer_id'],
+							'shipping' => 0,
+							'price' => $dataIn['price'],
+							'image' => $this->loadImage($dataIn['image']),
+							'points' => 0,
+							'weight' => 0,
+							'weight_class_id' => 0,
+							'length' => 0,
+							'width' => 0,
+							'height' => 0,
+							'length_class_id' => 0,
+							'status' => 1,
+							'tax_class_id' => 0,
+							'sort_order' => 0,
+							'product_related' => $dataIn['related'],
+							'product_description' => $dataDescription,
+							'product_attribute' => $product_attributes,
+							'product_category' => array($dataIn['category_id']),
+							'keyword' => strtolower($dataIn['keyword']),
+						);
+				 
+                
+			    $this->load->model('catalog/product');
+                
+			    if($product_id == 0){
+                    $product_id = $this->model_catalog_product->addProduct($data);
+                }else{
+                    $this->model_catalog_product->editProduct($product_id, $data);
+                }
+                
+				if(isset($dataIn['image'])){
+					$this->loadImage($dataIn['image']);
+				}
+				
+                $this->db->query("DELETE FROM " . DB_PREFIX . "product_to_layout WHERE product_id = '" . (int)$product_id . "'");
+                $this->db->query("DELETE FROM " . DB_PREFIX . "product_to_store WHERE product_id = '" . (int)$product_id . "'");
+                $this->db->query("INSERT INTO " . DB_PREFIX . "product_to_store SET product_id = '" . (int)$product_id . "', store_id = '0'");
+                $this->db->query("INSERT INTO " . DB_PREFIX . "product_to_layout SET product_id = '" . (int)$product_id . "', store_id = '0', layout_id = '2'");
+            
+            
+        }
+        
+		return $product_id;
+		
+	}
+	
+	public function loadImage($image){
+		
+		$path = explode('/', $image);
+		$image_name = array_pop($path);
+		
+		$full_image_path = DIR_IMAGE.'catalog/product/'.$image_name;
+		$sql_image_path = 'catalog/product/'.$image_name;
+		
+		if (file_exists($full_image_path)) {
+			return $sql_image_path;
+		}
+		
+		$uploaddir = DIR_IMAGE.'catalog/product/';
+		$Tdate = $this->DownloadFile($image);
+	
+		if (!$Tdate === null) {
+			//return false;
+		}else{
+			//touch($uploaddir);
+			
+			if(file_put_contents($full_image_path, $Tdate)){
+				return $sql_image_path;
+			}
+			
+			return '';
+			
+		}
+	}
+	    
+	/**
+     * The function to download files
+     *
+     * @param string $url
+     * @return mixed|null
+     */
+    public function DownloadFile($url){
+		$s = $url;
+		$i = parse_url($s); 
+		$p = ''; 
+		foreach(explode('/',trim($i['path'],'/')) as $v) {$p .= '/'.rawurlencode($v);} 
+		$url = $i['scheme'].'://'.$i['host'].$p; 
+	
+	
+		if (!extension_loaded('curl')) {
+			return null;
+		}
 
-		$json = array();
+		$ch = curl_init();
+	   
+		curl_setopt_array(
+			$ch,
+			array(
+				CURLOPT_AUTOREFERER => true,
+				CURLOPT_FOLLOWLOCATION => true,
+				CURLOPT_CONNECTTIMEOUT => 10,
+				CURLOPT_TIMEOUT => 120,
+				CURLOPT_URL => $url,
+				CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.3',
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_HTTPHEADER => array(
+					'Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+					'Accept-Encoding:gzip, deflate, sdch',
+					'Accept-Language:ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4',
+					'Cache-Control:max-age=0',
+					'Connection:keep-alive',
+			)
+			)
+		);
 
-		// Remove
-		if (isset($this->request->post['key'])) {
-			$this->cart->remove($this->request->post['key']);
 
-			unset($this->session->data['vouchers'][$this->request->post['key']]);
+		$data = curl_exec($ch);
+		if (curl_errno($ch) != CURLE_OK) {
+			return null;
+		}
 
-			$json['success'] = $this->language->get('text_remove');
-
-			unset($this->session->data['shipping_method']);
-			unset($this->session->data['shipping_methods']);
-			unset($this->session->data['payment_method']);
-			unset($this->session->data['payment_methods']);
-			unset($this->session->data['reward']);
-
-			// Totals
-			$this->load->model('extension/extension');
-
-			$totals = array();
-			$taxes = $this->cart->getTaxes();
-			$total = 0;
-
-			// Because __call can not keep var references so we put them into an array. 			
-			$total_data = array(
-				'totals' => &$totals,
-				'taxes'  => &$taxes,
-				'total'  => &$total
+        return $data;
+    }
+	
+	public function DownloadFileNoCode($url){
+	
+		if (!extension_loaded('curl')) {
+				return null;
+			}
+		
+			$ch = curl_init();
+		   
+			curl_setopt_array(
+				$ch,
+				array(
+					CURLOPT_AUTOREFERER => true,
+					CURLOPT_FOLLOWLOCATION => true,
+					CURLOPT_CONNECTTIMEOUT => 10,
+					CURLOPT_TIMEOUT => 120,
+					CURLOPT_URL => $url,
+					CURLOPT_USERAGENT => 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.3',
+					CURLOPT_RETURNTRANSFER => true,
+					CURLOPT_HTTPHEADER => array(
+						'Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+						'Accept-Encoding:gzip, deflate, sdch',
+						'Accept-Language:ru-RU,ru;q=0.8,en-US;q=0.6,en;q=0.4',
+						'Cache-Control:max-age=0',
+						'Connection:keep-alive',
+				)
+				)
 			);
-
-			// Display prices
-			if ($this->customer->isLogged() || !$this->config->get('config_customer_price')) {
-				$sort_order = array();
-
-				$results = $this->model_extension_extension->getExtensions('total');
-
-				foreach ($results as $key => $value) {
-					$sort_order[$key] = $this->config->get($value['code'] . '_sort_order');
-				}
-
-				array_multisort($sort_order, SORT_ASC, $results);
-
-				foreach ($results as $result) {
-					if ($this->config->get($result['code'] . '_status')) {
-						$this->load->model('extension/total/' . $result['code']);
-
-						// We have to put the totals in an array so that they pass by reference.
-						$this->{'model_extension_total_' . $result['code']}->getTotal($total_data);
-					}
-				}
-
-				$sort_order = array();
-
-				foreach ($totals as $key => $value) {
-					$sort_order[$key] = $value['sort_order'];
-				}
-
-				array_multisort($sort_order, SORT_ASC, $totals);
+		
+		
+			$data = curl_exec($ch);
+			if (curl_errno($ch) != CURLE_OK) {
+				return null;
 			}
+		
+			return $data;
+    }
 
-			//$json['total'] = sprintf($this->language->get('text_items'), $this->cart->countProducts() + (isset($this->session->data['vouchers']) ? count($this->session->data['vouchers']) : 0), $this->currency->format($total, $this->session->data['currency']));
-			$json['total'] = $this->currency->format($total, $this->session->data['currency']);
-		}
-
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
-	}
 }
-
+?>

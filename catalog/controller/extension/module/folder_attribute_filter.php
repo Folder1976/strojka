@@ -61,4 +61,3 @@ class ControllerExtensionModuleFolderAttributeFilter extends Controller {
         return '';
 	}
 }
-

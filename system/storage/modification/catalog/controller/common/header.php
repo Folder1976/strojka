@@ -14,6 +14,9 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
+		
+		
+		
 		if ($this->request->server['HTTPS']) {
 			$server = $this->config->get('config_ssl');
 		} else {
@@ -120,6 +123,7 @@ class ControllerCommonHeader extends Controller {
 
 		// Menu
 		$this->load->model('catalog/category');
+		$this->load->model('catalog/blog_category');
 
 		$this->load->model('catalog/product');
 
@@ -156,11 +160,13 @@ class ControllerCommonHeader extends Controller {
 			}
 		}
 
-		// ====================================
-		$this->load->model('catalog/blog_category');
-
+	//===================================================================================================================
+	//===================================================================================================================
+	//===================================================================================================================
+	//===================================================================================================================
+	//===================================================================================================================
+	
 		$data['blog_categories'] = array();
-
 		$categories = $this->model_catalog_blog_category->getCategories(0);
 
 		foreach ($categories as $category) {
@@ -183,7 +189,7 @@ class ControllerCommonHeader extends Controller {
 				}
 
 				// Level 1
-				$data['blog_categories'][] = array(
+				$data['blog_categories'][$category['blog_category_id']] = array(
 					'name'     => $category['name'],
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
@@ -191,14 +197,8 @@ class ControllerCommonHeader extends Controller {
 				);
 			}
 		}
-		
+
 		// ====================================
-
-
-
-
-
-
 
 
 
@@ -207,7 +207,8 @@ class ControllerCommonHeader extends Controller {
 		$data['currency'] = $this->load->controller('common/currency');
 		$data['search'] = $this->load->controller('common/search');
 		$data['cart'] = $this->load->controller('common/cart');
-
+		
+		$data['class'] = '';
 		// For page specific css
 		if (isset($this->request->get['route'])) {
 			if (isset($this->request->get['product_id'])) {
@@ -222,11 +223,26 @@ class ControllerCommonHeader extends Controller {
 				$class = '';
 			}
 
-			$data['class'] = str_replace('/', '-', $this->request->get['route']) . $class;
+			if ($this->request->get['route'] == "common/home") {
+				$class = ' no-grey-line';
+			}
+			
+			$data['class'] .= str_replace('/', '-', $this->request->get['route']) . $class;
 		} else {
-			$data['class'] = 'common-home';
+			$data['class'] = 'common-home no-grey-line';
 		}
 
+		if(isset($this->request->get['blogpath'])){
+			if((int)$this->request->get['blogpath'] == 13){
+				$data['class'] .= ' no-grey-line';
+			}elseif((int)$this->request->get['blogpath'] == 14){
+				$data['class'] .= ' no-grey-line';
+			}elseif((int)$this->request->get['blogpath'] == 16){
+				$data['class'] .= ' no-grey-line';
+			}
+			
+		}
+		
 		return $this->load->view('common/header', $data);
 	}
 }

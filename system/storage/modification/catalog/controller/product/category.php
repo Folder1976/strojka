@@ -94,6 +94,17 @@ class ControllerProductCategory extends Controller {
 
 		$this->load->model('catalog/product');
 
+			//Folder - InCart
+			$products = $this->cart->getProducts();
+			$cart_products = array();
+			if($products){
+				foreach($products as $row){
+					$cart_products[] = $row['product_id'];
+				}
+			}
+			//Folder - InCart
+		
+
 		$this->load->model('tool/image');
 
 		if (isset($this->request->get['filter'])) {
@@ -383,7 +394,20 @@ class ControllerProductCategory extends Controller {
 					$stock = $this->language->get('text_instock');
 				}
 				
+
+			//Folder - InCart
+			$in_cart = false;
+			if(in_array($result['product_id'], $cart_products)){
+				$in_cart = true;
+			}
+			//Folder - InCart
+		
 				$data['lates_products'][] = array(
+
+			//Folder - InCart
+			'in_cart'	=> $in_cart,
+			//Folder - InCart
+		
 					'product_id'  => $result['product_id'],
 					'quantity'  => $result['quantity'],
 					'thumb'       => $image,
@@ -400,6 +424,8 @@ class ControllerProductCategory extends Controller {
 				);
 			}
 //=============================
+
+			
 			$data['products'] = array();
 
 			$filter_data = array(
@@ -669,7 +695,22 @@ class ControllerProductCategory extends Controller {
 					$stock = $this->language->get('text_instock');
 				}
 				
+
+				
+
+			//Folder - InCart
+			$in_cart = false;
+			if(in_array($result['product_id'], $cart_products)){
+				$in_cart = true;
+			}
+			//Folder - InCart
+		
 				$data['products'][] = array(
+
+			//Folder - InCart
+			'in_cart'	=> $in_cart,
+			//Folder - InCart
+		
 					'product_id'  => $result['product_id'],
 					'quantity'  => $result['quantity'],
 					'thumb'       => $image,
@@ -894,6 +935,68 @@ class ControllerProductCategory extends Controller {
 			$data['header'] = $this->load->controller('common/header');
 
 			$this->response->setOutput($this->load->view('product/category', $data));
+			
+		}elseif($category_id == 0){
+			
+			$data['heading_title'] = 'Товары';
+			
+			$this->document->setTitle($data['heading_title']);
+			$this->document->setDescription('');
+			$this->document->setKeywords($data['heading_title']);
+
+			
+			// Set the last category breadcrumb
+			$data['breadcrumbs'][] = array(
+				'text' => $data['heading_title'],
+				'href' => $this->url->link('product/category', 'path=0')
+			);
+
+			$data['description'] = html_entity_decode('', ENT_QUOTES, 'UTF-8');
+			
+			$data['categories'] = array();
+	
+			$categories = $this->model_catalog_category->getCategories(0);
+	
+			foreach ($categories as $category) {
+				if ($category['top']) {
+					// Level 2
+					$children_data = array();
+	
+					$children = $this->model_catalog_category->getCategories($category['category_id']);
+	
+					foreach ($children as $child) {
+						$filter_data = array(
+							'filter_category_id'  => $child['category_id'],
+							'filter_sub_category' => true
+						);
+	
+						$children_data[] = array(
+							'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+							'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
+						);
+					}
+	
+					// Level 1
+					$data['categories'][] = array(
+						'name'     => $category['name'],
+						'children' => $children_data,
+						'column'   => $category['column'] ? $category['column'] : 1,
+						'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
+					);
+				}
+			}
+		
+
+			$data['column_left'] = $this->load->controller('common/column_left');
+			$data['column_right'] = $this->load->controller('common/column_right');
+			$data['content_top'] = $this->load->controller('common/content_top');
+			$data['content_bottom'] = $this->load->controller('common/content_bottom');
+			$data['footer'] = $this->load->controller('common/footer');
+			$data['header'] = $this->load->controller('common/header');
+
+			$this->response->setOutput($this->load->view('product/category_main', $data));	
+				
+			
 		} else {
 			$url = '';
 

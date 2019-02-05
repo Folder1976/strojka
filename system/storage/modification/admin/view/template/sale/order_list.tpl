@@ -131,7 +131,7 @@
               <tbody>
                 <?php if ($orders) { ?>
                 <?php foreach ($orders as $order) { ?>
-			<tr style="background:#<?php echo $order['bg_color']; ?>; color:#<?php echo $order['txt_color']; ?>;">
+                <tr>
                   <td class="text-center"><?php if (in_array($order['order_id'], $selected)) { ?>
                     <input type="checkbox" name="selected[]" value="<?php echo $order['order_id']; ?>" checked="checked" />
                     <?php } else { ?>

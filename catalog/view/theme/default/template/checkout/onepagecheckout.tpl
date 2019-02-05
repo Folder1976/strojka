@@ -24,12 +24,12 @@
           <div class="col-md-4">
 
             <?php if ($product['image']) { ?>
-              <a class="prod-page__thumb" href="/index.php?route=product/product&product_id=<?php echo $product['product_id'] ?>" title="<?php echo $product['name']; ?>"><img src="<?php echo $product['image']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>"></a>
+              <a class="prod-page__thumb" href="<?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>"><img src="<?php echo $product['image']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>"></a>
             <?php } ?>
           </div>
 
           <div class="col-md-8">
-            <div class="cart__product-title"><a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'] ?>"><?php echo $product['name']; ?></a><div class="cart__remove-product"></div></div>
+            <div class="cart__product-title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a><div class="cart__remove-product"></div></div>
 
             <div class="prod-info__row prod-info__row--bdb cart__prod-info">
               <div class="prod-info__col prod-info__col--100">
@@ -346,7 +346,7 @@
                                         <a href="<?php echo $product['href']; ?>">
                                             <img src="<?php echo $product['image'] ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-thumbnail" style="width: 170px; margin-right: 15px " />
                                         </a>
-                                        <a href="/index.php?route=product/product&product_id=<?php echo $product['product_id'] ?>" style="margin-right: 10px"><?php echo $product['name'] ?></a>
+                                        <a href="<?php echo $product['href']; ?>" style="margin-right: 10px"><?php echo $product['name'] ?></a>
                                         <div class="p-model">
                                             <?php echo $product['model'] ?>                               
                                         </div>

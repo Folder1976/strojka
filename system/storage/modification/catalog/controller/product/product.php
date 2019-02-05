@@ -163,8 +163,34 @@ class ControllerProductProduct extends Controller {
 
 		$this->load->model('catalog/product');
 
+			//Folder - InCart
+			$products = $this->cart->getProducts();
+			$cart_products = array();
+			if($products){
+				foreach($products as $row){
+					$cart_products[] = $row['product_id'];
+				}
+			}
+			
+			$data['in_cart'] = false;
+			if(in_array($product_id, $cart_products)){
+				$data['in_cart'] = true;
+			}
+			//Folder - InCart
+		
+
 		$product_info = $this->model_catalog_product->getProduct($product_id);
 
+		if(!isset($this->request->get['path'])){
+			$temp = $this->model_catalog_product->getCategories($product_id);
+			
+			if($temp){
+				$this->request->get['path'] = array_shift($temp)["category_id"];
+			}else{
+				$this->request->get['path'] = 0;
+			}
+		}
+		
 		if ($product_info) {
 			$url = '';
 
@@ -449,10 +475,31 @@ class ControllerProductProduct extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				if ($result['quantity'] <= 0) {
+					$stock = $result['stock_status'];
+				} else {
+					$stock = $this->language->get('text_instock');
+				}
 
+
+			//Folder - InCart
+			$in_cart = false;
+			if(in_array($result['product_id'], $cart_products)){
+				$in_cart = true;
+			}
+			//Folder - InCart
+		
 				$data['products'][] = array(
+
+			//Folder - InCart
+			'in_cart'	=> $in_cart,
+			//Folder - InCart
+		
 					'product_id'  => $result['product_id'],
 					'thumb'       => $image,
+					'stock'       => $stock,
+					'attributes'  => $this->model_catalog_product->getProductAttributes($result['product_id']),
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
@@ -515,7 +562,20 @@ class ControllerProductProduct extends Controller {
 					$stock = $this->language->get('text_instock');
 				}
 				
+
+			//Folder - InCart
+			$in_cart = false;
+			if(in_array($result['product_id'], $cart_products)){
+				$in_cart = true;
+			}
+			//Folder - InCart
+		
 				$data['lates_products'][] = array(
+
+			//Folder - InCart
+			'in_cart'	=> $in_cart,
+			//Folder - InCart
+		
 					'product_id'  => $result['product_id'],
 					'quantity'  => $result['quantity'],
 					'thumb'       => $image,
@@ -724,6 +784,22 @@ class ControllerProductProduct extends Controller {
 	public function getRecurringDescription() {
 		$this->load->language('product/product');
 		$this->load->model('catalog/product');
+
+			//Folder - InCart
+			$products = $this->cart->getProducts();
+			$cart_products = array();
+			if($products){
+				foreach($products as $row){
+					$cart_products[] = $row['product_id'];
+				}
+			}
+			
+			$data['in_cart'] = false;
+			if(in_array($product_id, $cart_products)){
+				$data['in_cart'] = true;
+			}
+			//Folder - InCart
+		
 
 		if (isset($this->request->post['product_id'])) {
 			$product_id = $this->request->post['product_id'];

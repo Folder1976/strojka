@@ -202,6 +202,8 @@ class ControllerCommonHeader extends Controller {
 		if(isset($this->request->get['blogpath'])){
 			if((int)$this->request->get['blogpath'] == 13){
 				$data['class'] .= ' no-grey-line';
+			}elseif((int)$this->request->get['blogpath'] == 14){
+				$data['class'] .= ' no-grey-line';
 			}elseif((int)$this->request->get['blogpath'] == 16){
 				$data['class'] .= ' no-grey-line';
 			}
@@ -211,4 +213,3 @@ class ControllerCommonHeader extends Controller {
 		return $this->load->view('common/header', $data);
 	}
 }
-

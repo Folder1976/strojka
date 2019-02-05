@@ -173,7 +173,7 @@
                     <?php if ($product['special']) { ?>
                       <div class="product-layout__special-price">
                         <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
-                        <div class="product-layout__special-percent">-50%</div>
+                        <div class="product-layout__special-percent">[-50%]</div>
                       </div>
                     <?php } ?>
 
@@ -184,8 +184,16 @@
                       <div class="product-layout__price"><?php echo $product['price']; ?></div>
                     <?php } ?>
                     <div class="product-layout__button-group">
+                      <?php if($product['in_cart']){ ?>
+                      <button type="button" class="btn btn--black btn--dib btn--buy in_cart" onclick="cart.add('<?php echo $product['product_id']; ?>');">В корзине</button>
+                      <?php }else{ ?>
                       <button type="button" class="btn btn--black btn--dib btn--buy" onclick="cart.add('<?php echo $product['product_id']; ?>');"><?php echo $button_cart; ?></button>
-                      <button type="button" class="btn btn--transparent btn--dib btn--buy-click">Купить в 1 клик</button>
+                      <?php } ?>
+                      <button type="button" class="btn btn--transparent btn--dib btn--buy-click uptocall-mini-phone"
+                              data-src="<?php echo $product['thumb']; ?>"
+                              data-name="<?php echo $product['name']; ?>"
+                              data-price="<?php echo $product['price']; ?>"
+                              >Купить в 1 клик</button>
                     </div>
                   </div>
                 </div>

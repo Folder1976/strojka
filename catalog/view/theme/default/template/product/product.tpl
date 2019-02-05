@@ -135,7 +135,11 @@ if(!isset($_COOKIE['IdProduto'])){
                     >Купить в 1 клик</button>
             </div>
             <div class="prod-info__col">
-              <button type="button" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--dib btn--buy">Поторговаться</button>
+              <button type="button" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--dib btn--buy uptocall-mini-phone1"
+                  data-src="<?php echo $thumb; ?>"
+                  data-name="<?php echo $heading_title; ?>"
+                  data-price="<?php echo $price; ?>"
+                >Поторговаться</button>
               <?php if($in_cart){ ?>
                 <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--black btn--dib btn--buy in_cart">В корзине</button>
               <?php }else{ ?>
@@ -1008,5 +1012,6 @@ $(document).ready(function() {
 });
 //--></script>
 <?php echo $footer; ?>
+
 
 

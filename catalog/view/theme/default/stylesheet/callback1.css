@@ -1,0 +1,135 @@
+body.overflow-hidden {
+	overflow: hidden;
+}
+
+#order-form1 {
+	position: fixed;
+	overflow: auto;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	height: 100%;
+	padding: 50px 15px;
+	background-color: rgba(51,51,51,.9);
+}
+
+#order-form1 form {
+	display: block;
+	position: relative;
+	max-width: 480px;
+	margin: auto;
+	border: 1px solid #888;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+#order-form1 .header {
+	padding: 15px;
+	background-color: #ddd;
+}
+#order-form1 .title {
+	margin: 0;
+}
+#order-form1 .close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+}
+#order-form1 .close-button::before,
+#order-form1 .close-button::after {
+	content: '';
+	position: absolute;
+	top: 23px;
+	left: 14px;
+	width: 20px;
+	height: 2px;
+	background-color: #888;
+}
+#order-form1 .close-button::before {
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#order-form1 .close-button::after {
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+#order-form1 .content {
+	padding: 15px;
+	background-color: #fff;
+}
+
+#order-form1 .top {
+	padding-bottom: 15px;
+	border-bottom: 1px dotted #ccc;
+	text-align: center;
+}
+
+#order-form1 .img {
+	width: 100px;
+}
+
+#order-form1 .calculator {
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+	max-width: 344px;
+	padding: 15px;
+	text-align: left;
+}
+
+#order-form1 .text {
+	margin-right: 1em;
+}
+
+#order-form1 .sum,
+#order-form1 .curency {
+	font-size: 20px;
+	color: red;
+}
+
+#order-form1 .value {
+	margin: 1em 0;
+}
+
+#order-form1 [name="value"] {
+	width: 3em;
+	/*text-align: right;*/
+}
+
+#order-form1 .contacts {
+	
+}
+
+#order-form1 .input-group {
+	margin: 2em 0;
+}
+
+#order-form1 label {
+	width: 115px;
+	vertical-align: top;
+}
+#order-form1 label.required::after {
+	content: '*';
+	color: red;
+}
+
+#order-form1 input,
+#order-form1 textarea {
+	width: 100%;
+	max-width: 333px;
+}
+
+#order-form1 .button-wrapper {
+	text-align: center;
+}
+
+#order-form1 .disclamer {
+	font-style: italic;
+	margin: 2em 0 1em;
+	text-align: center;
+}

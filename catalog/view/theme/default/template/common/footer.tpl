@@ -32,8 +32,8 @@ $home = '/';
             <label for="get-consultation__file" class="form-label form-label--file">Прикрепить файл</a> 
           </div>
           <div class="form__group">
-            <input type="checkbox" class="checkbox" value="1" name="agree" id="get-consultation__agree">
-            <label for="get-consultation__agree" class="form-label">С <a href="#">политикой конфиденциальности</a> ознакомлен</label>
+            <input type="checkbox" class="checkbox" value="1" name="agree" id="get-consultation__agree" required>
+            <label for="get-consultation__agree" class="form-label">С <a href="/privacy">политикой конфиденциальности</a> ознакомлен</label>
           </div>
           <div class="form__group">
             <button class="btn btn--black" id="msg_send"

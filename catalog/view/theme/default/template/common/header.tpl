@@ -40,6 +40,7 @@
 
 <script src="/catalog/view/javascript/callback.js" type="text/javascript"></script>
 <link href="/catalog/view/theme/default/stylesheet/callback.css" rel="stylesheet" type="text/css" />
+<link href="/catalog/view/theme/default/stylesheet/callback1.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -268,5 +269,6 @@ $bottom_menu = array(
 
 
   <div class="site__content">
+
 
 

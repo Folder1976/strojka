@@ -77,10 +77,12 @@ $(function () {
         $.post('http://'+window.location.hostname+'/catalog/controller/callback/sendmail.php', data, function (response) {
             if (response['success']) {
                    
-                alert('Заявка принята. В ближайшее время мы с вами свяжемся.');
+                //alert('Заявка принята. В ближайшее время мы с вами свяжемся.');
+                show_modal_msg('Заявка принята. В ближайшее время мы с вами свяжемся.')
                 $('.close-button').trigger('click');
             }else{
-                alert(response['error']);
+                
+                show_modal_msg('<font color="red">'+response['error']+'</font>');    
             }
             }, 'json');
         });
@@ -169,10 +171,10 @@ $(function () {
             
             if (response['success']) {
                    
-                alert('Заявка принята. В ближайшее время мы с вами свяжемся.');
+                show_modal_msg('Заявка принята. В ближайшее время мы с вами свяжемся.');
                 $('.close-button').trigger('click');
             }else{
-                alert(response['error']);    
+                show_modal_msg('<font color="red">'+response['error']+'</font>');    
             }  
         }, 'json');
     });

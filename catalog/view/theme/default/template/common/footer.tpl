@@ -62,7 +62,7 @@ $('#msg_send').on('click', function() {
     },
     success: function(json) {
     
-    console.log(json);
+    //console.log(json);
     
       if (json['error']) {
         $('#msg_send').button('error');
@@ -72,7 +72,9 @@ $('#msg_send').on('click', function() {
 
       if (json['success']) {
         $('#msg_send').button('success');
-        $('.msg').html('<div class="alert-success">' + json['success'] + '</div>');
+        show_modal_msg('<div class="alert-success">' + json['success'] + '</div>')
+        $('.mfp-close').trigger('click');
+        
       }
     },
         error: function(xhr, ajaxOptions, thrownError) {
@@ -81,7 +83,6 @@ $('#msg_send').on('click', function() {
   });
 });
 //--></script>
-
         
       </div>
       <div class="col-md-5 text-center">
@@ -251,5 +252,31 @@ Please donate via PayPal to donate@opencart.com
 //-->
 
 <!-- Theme created by Welford Media for OpenCart 2.0 www.welfordmedia.co.uk -->
-
+<style>
+  .modal_msg{
+    display: none;
+    position: fixed;
+    width: 70%;
+    z-index: 99999;
+    background-color: white;
+    border: 1px solid;
+    padding: 20px 10px;
+    text-align: center;
+    left: 15%;
+    top: 40%;
+    font-weight: bold;
+  }
+</style>
+<script>
+  function show_modal_msg(msg){
+   
+    $('.modal_msg').html(msg);
+    $('.modal_msg').show();
+    
+    setTimeout(function(){
+      $('.modal_msg').hide(500);
+    }, 2000);
+  }
+</script>
+<div class="modal_msg"></div>
 </body></html>

@@ -97,8 +97,8 @@ body.overflow-hidden {
 }
 
 #order-form [name="value"] {
-	width: 4em;
-	text-align: right;
+	width: 3em;
+	/*text-align: right;*/
 }
 
 #order-form .contacts {

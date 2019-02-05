@@ -39,7 +39,7 @@ html {overflow:visible;}
 
 #popupcart_extended .head .fa-close{opacity: 1.0;float:right;cursor:pointer;padding:5px;margin:-1px -4px 0 0 ;color:#888;}
 #popupcart_extended .head .fa-close:hover{color:#f00;}
-#popupcart_extended .popupcart_info {max-height:370px;min-height:60px;margin-bottom:5px;overflow-y:auto;}
+#popupcart_extended .popupcart_info {max-height:370px;min-height:60px;margin-bottom:5px;/*overflow-y:auto;*/}
 #popupcart_extended .popupcart_info table{width:100%;max-width:100%;padding:0;margin:0;border-collapse:collapse;border:none;}
 #popupcart_extended .popupcart_info tr{border-collapse:collapse;}
 #popupcart_extended .popupcart_info tr:first-child{border-collapse:collapse;}
@@ -215,11 +215,12 @@ html {overflow:visible;}
 
 #popupcart_extended .continue {
 	text-decoration:none;
-	border-bottom:dashed 1px;
+	/*border-bottom:dashed 1px;*/
 	display:block;
 	float:left;
 	margin-top:5px;
 	line-height:normal;
+	cursor: pointer;
 } 
 
 #popupcart_extended .popupcart_buttons {
@@ -306,4 +307,9 @@ html {overflow:visible;}
 @media (max-width:400px){
 	#popupcart_extended .popupcart_info {margin:0 -12px 5px}
 	#popupcart_extended .popupcart_info .quantity {width:50px;min-width:auto;padding:0 5px;}
+}
+
+
+#popupcart_extended a {
+	color: #000;
 }

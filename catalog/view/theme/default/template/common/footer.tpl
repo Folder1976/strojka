@@ -14,9 +14,8 @@ $home = '/';
   <div id="get-consultation" class="mf-popup-block mf-get-consultation mfp-hide mfp-with-anim">
     <h3 class="mf-title">консультация</h3>
     <div class="row">
-      <div class="msg" ></div>
-      
       <div class="col-md-7" >
+        <div class="msg"></div>
         <div method="post" enctype="multipart/form-data" class="form form--mf-popup">
           <input type="hidden" name="formname" value="get-consultation">
           <div class="form__group">
@@ -29,7 +28,7 @@ $home = '/';
             <textarea name="comment" rows="5" class="textarea" placeholder="Информация о проекте"></textarea>
           </div>
           <div class="form__group">
-            <div class="hidden"><input type="file" class="input input--file" id="get-consultation__file"></div>
+            <div class="hidden"><input type="file" class="input input--file" name="file" id="get-consultation__file"></div>
             <label for="get-consultation__file" class="form-label form-label--file">Прикрепить файл</a> 
           </div>
           <div class="form__group">
@@ -53,7 +52,7 @@ $('#msg_send').on('click', function() {
   $.ajax({
     url: '/index.php?route=account/universalform',
     type: 'post',
-    data: $('#get-consultation input, #get-consultation textarea'),
+    data: $('#get-consultation input[type=text], #get-consultation input[type=file], #get-consultation input[type=checkbox]:checked, #get-consultation textarea'),
     dataType: 'json',
     beforeSend: function() {
       $('#msg_send').button('loading');

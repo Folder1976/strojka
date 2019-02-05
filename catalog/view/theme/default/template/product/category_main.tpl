@@ -23,12 +23,13 @@
       <?php } ?>
 
       <?php if ($categories) { ?>
+        <div class="list-category">
         <?php
             foreach ($categories as $mitem) {
               if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
-                echo '<div class="mf-prod-list">';
-                echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
-                echo '<ul class="mf-prod-list__list">';
+                echo '<div class="list-category__item list-category-item">';
+                echo '<div class="list-category-item__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
+                echo '<ul class="list-category-item__list">';
       
                 foreach ( $mitem['children'] as $child) {
                   echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
@@ -36,16 +37,17 @@
       
                 echo '</ul></div>';
               } else {
-                echo '<div class="mf-prod-list">';
-                echo '<div class="mf-prod-list__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
+                echo '<div class="list-category__item list-category-item">';
+                echo '<div class="list-category-item__title"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></div>';
                 echo '</div>';
               }
             }
         ?>
+        </div>
       <?php } ?>
 
 
-      <hr class="hr--black">
+
       <br>
 
     </div>

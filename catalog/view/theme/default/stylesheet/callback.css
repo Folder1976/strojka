@@ -19,17 +19,19 @@ body.overflow-hidden {
 	position: relative;
 	max-width: 480px;
 	margin: auto;
-	border: 1px solid #888;
-	border-radius: 10px;
+	/*border: 1px solid #888;*/
+	/*border-radius: 10px;*/
 	overflow: hidden;
 }
 
 #order-form .header {
 	padding: 15px;
-	background-color: #ddd;
+	background-color: #fff;
 }
 #order-form .title {
 	margin: 0;
+	font-size: 4.8rem;
+	font-weight: 900;
 }
 #order-form .close-button {
 	position: absolute;
@@ -65,7 +67,7 @@ body.overflow-hidden {
 
 #order-form .top {
 	padding-bottom: 15px;
-	border-bottom: 1px dotted #ccc;
+	/*border-bottom: 1px dotted #ccc;*/
 	text-align: center;
 }
 
@@ -106,7 +108,13 @@ body.overflow-hidden {
 }
 
 #order-form .input-group {
-	margin: 2em 0;
+	margin: 0 0 1.5rem;
+	width: 100%;
+}
+
+#order-form .input-group .input,
+#order-form .input-group .textarea {
+	width: 100%;
 }
 
 #order-form label {
@@ -121,7 +129,7 @@ body.overflow-hidden {
 #order-form input,
 #order-form textarea {
 	width: 100%;
-	max-width: 333px;
+	/*max-width: 333px;*/
 }
 
 #order-form .button-wrapper {

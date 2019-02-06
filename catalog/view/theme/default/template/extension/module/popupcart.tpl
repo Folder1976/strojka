@@ -79,7 +79,7 @@
 			<?php if ($button_cart_show) { ?>
 				<button type="button" class="cont button btn btn-primary btn-lg" onclick="location='<?php echo $cart; ?>'" ><?php echo $button_cart; ?></button>
 			<?php } ?>
-			<button type="button" class="button btn btn-primary btn-lg" onclick="location='<?php echo $checkout; ?>'"><?php echo $button_checkout; ?></button>
+			<button type="button" class="btn btn--black" onclick="location='<?php echo $checkout; ?>'"><?php echo $button_checkout; ?></button>
 		</div>
 		<?php if($products_related) { ?>
 			<div id="related">

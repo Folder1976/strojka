@@ -16,7 +16,7 @@ $home = '/';
     <div class="row">
       <div class="col-md-7" >
         <div class="msg"></div>
-        <div method="post" enctype="multipart/form-data" class="form form--mf-popup">
+        <form method="post" enctype="multipart/form-data" class="form form--mf-popup">
           <input type="hidden" name="formname" value="get-consultation">
           <div class="form__group">
             <input type="text" class="input" name="name" placeholder="Имя">
@@ -42,7 +42,7 @@ $home = '/';
                         data-success-text="Отправлено"
                         data-reset-text="связаться">связаться</button>
           </div>
-        </div>
+        </form>
         
 <script type="text/javascript"><!--
 $('#msg_send').on('click', function() {
@@ -58,7 +58,7 @@ $('#msg_send').on('click', function() {
       $('#msg_send').button('loading');
     },
     complete: function() {
-      $('#button-cart').button('reset');
+      $('#msg_send').button('reset');
     },
     success: function(json) {
     
@@ -72,7 +72,8 @@ $('#msg_send').on('click', function() {
 
       if (json['success']) {
         $('#msg_send').button('success');
-        show_modal_msg('<div class="alert-success">' + json['success'] + '</div>')
+        show_modal_msg('<div class="alert-success">' + json['success'] + '</div>');
+        $('.form.form--mf-popup')[0].reset();
         $('.mfp-close').trigger('click');
         
       }
@@ -265,6 +266,9 @@ Please donate via PayPal to donate@opencart.com
     left: 15%;
     top: 40%;
     font-weight: bold;
+    font-size: 2rem;
+    -webkit-box-shadow: 0 0 100px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 0 100px rgba(0, 0, 0, 0.7);
   }
 </style>
 <script>

@@ -123,9 +123,9 @@ if(!isset($_COOKIE['IdProduto'])){
               <div class="prod-info__col-title">Итого:</div>
               <?php
               if (!$special) {
-                $total_price = floatval($price) * $minimum;
+                $total_price = floatval( str_replace(' ', '', $price) ) * $minimum;
               } else {
-                $total_price = floatval($special) * $minimum;
+                $total_price = floatval( str_replace(' ', '', $special) ) * $minimum;
               }
               ?>
               <div class="prod-info__price js-total-price"><?php echo $total_price.' руб.'; ?></div>
@@ -810,7 +810,7 @@ function updateTotal(q) {
     echo $price;
   } else {
    echo $price;
-  } ?>');
+  } ?>'.replace(/[^0-9.]/g, '').slice(0, -1));
 
   $('.js-total-price').html( p*q+' руб.');
 }

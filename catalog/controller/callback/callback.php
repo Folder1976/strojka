@@ -27,24 +27,24 @@
 			</div>
 			<div class="contacts">
 				<div class="input-group">
-					<label class="required">Имя:</label>
+					<!-- <label class="required">Имя:</label> -->
 					<input name="name" class="input" placeholder="Имя Отчество Фамилия" required>
 				</div>
 				<div class="input-group">
-					<label class="required">Телефон:</label>
-					<input name="phone" class="input input--phone" placeholder="+7 (___) ___-__-__" required>
+					<!-- <label class="required">Телефон:</label> -->
+					<input name="phone" class="input input--phone" placeholder="Телефон" required>
 				</div>
 				<div class="input-group">
-					<label>E-mail:</label>
-					<input name="email" class="input" placeholder="">
+					<!-- <label>E-mail:</label> -->
+					<input name="email" class="input" placeholder="E-mail">
 				</div>
 				<div class="input-group">
-					<label>Комментарий:</label>
-					<textarea name="comment" class="textarea" rows="2" placeholder=""></textarea>
+					<!-- <label>Комментарий:</label> -->
+					<textarea name="comment" class="textarea" rows="2" placeholder="Комментарий"></textarea>
 				</div>
 				
 				<div class="button-wrapper">
-					<button class="btn" type="submit">Отправить заказ</button>
+					<button class="btn btn--black" type="submit">Отправить заказ</button>
 				</div>
 				
 				<p class="disclamer">Нажимая на кнопку "Отправить заказ" я даю свое согласие на обработку персональных данных и принимаю <a href="/privacy" target="_blank">условия соглашения</a>.</p>
@@ -52,4 +52,3 @@
 		</div>
 	</form>
 </div>
-

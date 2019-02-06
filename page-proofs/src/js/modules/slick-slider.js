@@ -29,6 +29,17 @@ $('.js-featured').slick({
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 3000,
+  responsive: [{
+    breakpoint: 650,
+    settings: {
+      slidesToShow: 2
+    }
+  },{
+    breakpoint: 450,
+    settings: {
+      slidesToShow: 1
+    }
+  }],
 });
 
 function sliderInit(sId){

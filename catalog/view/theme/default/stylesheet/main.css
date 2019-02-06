@@ -5819,7 +5819,9 @@ ol li {
             justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center; }
+            align-items: center;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem; }
     @media screen and (max-width: 560px) {
       .section-take-test .btn--take-test {
         width: 100%; } }
@@ -5832,7 +5834,9 @@ ol li {
     display: flex;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
-            justify-content: center; }
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
 
 .icon-take-test {
   width: 3.6rem;

@@ -1,9 +1,13 @@
 <?php
 class ControllerExtensionModuleFolderAttributeFilter extends Controller {
 	public function index() {
-        
-	
 		
+		if(isset( $this->request->get['path']) AND strpos($this->request->get['path'], '_') === false){
+			$category_id = $this->request->get['path'];
+			if($category_id == 143 OR $category_id == 141){
+				return '';
+			}
+		}
         $data = array();
         $data['filter_manufactures'] = array();
         $data['filter_attributes'] = array();
@@ -61,3 +65,4 @@ class ControllerExtensionModuleFolderAttributeFilter extends Controller {
         return '';
 	}
 }
+

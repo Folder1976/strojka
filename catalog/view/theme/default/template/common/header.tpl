@@ -53,6 +53,9 @@ if ( in_array( $page, array('root', 'fundament', '') ) ) {
 
 <body class="site <?php echo $class; ?>">
 <?php
+
+//$categories
+
 $top_menu = array(
   array (
     'name' => 'Услуги',
@@ -62,7 +65,7 @@ $top_menu = array(
   array (
     'name' => 'Товары',
     'href' => '/products',
-    'children' => $categories
+    'children' => array(),
   ),
   array (
     'name' => 'Контакты',

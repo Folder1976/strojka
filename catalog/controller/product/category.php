@@ -330,6 +330,10 @@ class ControllerProductCategory extends Controller {
 					$stock = $this->language->get('text_instock');
 				}
 				
+				$persent = 0;
+				if($special){
+					$persent = ($result['special']-$result['price']) / ($result['price']/100);
+				}
 
 				
 				$data['products'][] = array(
@@ -343,6 +347,7 @@ class ControllerProductCategory extends Controller {
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
+					'persent' =>$persent,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
 					'href'        => $this->url->link('product/product', 'path=' . $this->request->get['path'] . '&product_id=' . $result['product_id'] . $url)
@@ -617,3 +622,4 @@ class ControllerProductCategory extends Controller {
 		}
 	}
 }
+

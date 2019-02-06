@@ -51,6 +51,43 @@ class ControllerCommonFooter extends Controller {
 
 		$data['powered'] = sprintf($this->language->get('text_powered'), $this->config->get('config_name'), date('Y', time()));
 
+		
+		$this->load->model('catalog/category');
+
+		$data['categories'] = array();
+
+		$categories = $this->model_catalog_category->getCategories(0);
+
+		foreach ($categories as $category) {
+			if ($category['top']) {
+				// Level 1
+				$data['categories'][] = array(
+					'name'     => $category['name'],
+					//'children' => $children_data,
+					'column'   => $category['column'] ? $category['column'] : 1,
+					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
+				);
+			}
+		}
+		
+		$this->load->model('catalog/blog_category');
+
+		$data['blog_categories'] = array();
+
+		$categories = $this->model_catalog_blog_category->getCategories(0);
+
+		foreach ($categories as $category) {
+			if ($category['top']) {
+				// Level 1
+				$data['blog_categories'][] = array(
+					'name'     => $category['name'],
+					//'children' => $children_data,
+					'column'   => $category['column'] ? $category['column'] : 1,
+					'href'     => $this->url->link('product/category', 'blogpath=' . $category['blog_category_id'])
+				);
+			}
+		}
+		
 		// Whos Online
 		if ($this->config->get('config_customer_online')) {
 			$this->load->model('tool/online');
@@ -79,3 +116,4 @@ class ControllerCommonFooter extends Controller {
 		return $this->load->view('common/footer', $data);
 	}
 }
+

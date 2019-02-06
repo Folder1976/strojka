@@ -45,6 +45,10 @@ $home = '/';
         </form>
         
 <script type="text/javascript"><!--
+
+$("form").submit(function(){return false;})
+
+
 $('#msg_send').on('click', function() {
   
   //console.log();
@@ -63,6 +67,7 @@ $('#msg_send').on('click', function() {
     success: function(json) {
     
     //console.log(json);
+    //debugger;
     
       if (json['error']) {
         $('#msg_send').button('error');
@@ -116,38 +121,32 @@ $('#msg_send').on('click', function() {
           <div class="footer__col-products">
             <div class="footer__title">Товары</div>
             <ul class="footer__menu">
-              <li><a href="#">Сайдинг</a></li>
-              <li><a href="#">icon Скатная кровля</a></li>
-              <li><a href="#">icon Плоская кровля</a></li>
-              <li><a href="#">icon Забор</a></li>
-              <li><a href="#">Утеплители</a></li>
-              <li><a href="#">icon Фасад</a></li>
-              <li><a href="#">icon Фасонные изделия</a></li>
-              <li><a href="#">Элементы безопасности</a></li>
+              <?php foreach($categories as $category){ ?>
+              <li><a href="<?php echo $category['href'];?>"><?php echo $category['name'];?></a></li>
+              <?php } ?>
             </ul>
           </div>
 
           <div class="footer__col-services">
             <div class="footer__title">Услуги</div>
             <ul class="footer__menu">
-              <li><a href="#">Кровля</a></li>
-              <li><a href="#">Фасад</a></li>
-              <li><a href="#">Проектирование и дизайн</a></li>
-              <li><a href="#">Строительство загородных домов</a></li>
-            </ul>
+               <?php foreach($blog_categories as $category){ ?>
+              <li><a href="<?php echo $category['href'];?>"><?php echo $category['name'];?></a></li>
+              <?php } ?>
+             </ul>
           </div>
 
           <div class="footer__col-nav">
             <div class="footer__title">Навигация</div>
             <ul class="footer__menu">
-              <li><a href="#">Услуги</a></li>
-              <li><a href="#">Товары</a></li>
+              <li><a href="/information">Услуги</a></li>
+              <li><a href="/products">Товары</a></li>
               <li><a href="<?php echo $manufacturer; ?>">Все бренды</a></li>
-              <li><a href="#">Отзывы</a></li>
-              <li><a href="#">Наши проекты</a></li>
-              <li><a href="#">Команда</a></li>
+              <li><a href="/company-reviews">Отзывы</a></li>
+              <li><a href="/our-works">Наши проекты</a></li>
+              <li><a href="/our-team">Команда</a></li>
               <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
-              <li><a href="#">Политика конфиденциальности</a></li>
+              <li><a href="/privacy">Политика конфиденциальности</a></li>
             </ul>
           </div>
 
@@ -284,3 +283,4 @@ Please donate via PayPal to donate@opencart.com
 </script>
 <div class="modal_msg"></div>
 </body></html>
+

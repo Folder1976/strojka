@@ -206,14 +206,30 @@ class ControllerProductManufacturer extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				if ($result['quantity'] <= 0) {
+					$stock = $result['stock_status'];
+				} else {
+					$stock = $this->language->get('text_instock');
+				}
+				
+				$persent = 0;
+				if($special){
+					$persent = ($result['special']-$result['price']) / ($result['price']/100);
+				}
+
 
 				$data['products'][] = array(
 					'product_id'  => $result['product_id'],
+					'quantity'  => $result['quantity'],
 					'thumb'       => $image,
 					'name'        => $result['name'],
+					'stock'       => $stock,
+					'attributes'  => $this->model_catalog_product->getProductAttributes($result['product_id']),
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
 					'special'     => $special,
+					'persent' =>$persent,
 					'tax'         => $tax,
 					'minimum'     => $result['minimum'] > 0 ? $result['minimum'] : 1,
 					'rating'      => $result['rating'],
@@ -411,3 +427,4 @@ class ControllerProductManufacturer extends Controller {
 		}
 	}
 }
+

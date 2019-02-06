@@ -144,7 +144,7 @@ $bottom_menu = array(
                 ?>
 
               </ul>
-              <div class="header__top-text">работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></div>
+              <div class="header__top-text"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-5 col-md-3">

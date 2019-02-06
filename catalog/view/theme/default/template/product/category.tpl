@@ -173,7 +173,7 @@
                     <?php if ($product['special']) { ?>
                       <div class="product-layout__special-price">
                         <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
-                        <div class="product-layout__special-percent">[-50%]</div>
+                        <div class="product-layout__special-percent">[<?php echo (int)$product['persent'];?>%]</div>
                       </div>
                     <?php } ?>
 
@@ -470,6 +470,7 @@
 
 
 <?php echo $footer; ?>
+
 
 
 

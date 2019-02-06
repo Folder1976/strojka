@@ -7,16 +7,19 @@ $services = array(
     'title' => 'Кровля',
     'desc' => 'Заказчик часто сталкивается с неквалифицированными мастерами, лишь на словах обещающими качественный монтаж.',
     'foto' => 'catalog/view/theme/default/img/tmpimg/serv-1.jpg',
+    'href' => HTTP_SERVER.'krovlya_inf'
   ),
   array(
     'title' => 'Проектирование и дизайн',
     'desc' => 'Проектирование — сложная работа, требующяя обширных знаний в области строительства крыши и учета множества важных факторов.',
     'foto' => 'catalog/view/theme/default/img/tmpimg/serv-2.jpg',
+    'href' => ''
   ),
   array(
     'title' => 'Строительство загородных домов',
     'desc' => 'Да, это мы тоже делаем. Качественно, быстро и за разумные деньги.',
     'foto' => 'catalog/view/theme/default/img/tmpimg/serv-3.jpg',
+    'href' => ''
   ),
 );
 
@@ -165,6 +168,8 @@ $reviews_slider = array(
         <div class="services-list">
 
           <?php foreach ($services as $serv) { ?>
+          
+          <?php if($serv['href'] != ''){ ?> <a href="<?php echo $serv['href']; ?>"> <?php } ?>
             <div class="services-list__item service-item">
               <div class="service-item__img">
                 <img src="<?php echo $serv['foto']; ?>" alt="<?php echo $serv['title']; ?>">
@@ -174,6 +179,7 @@ $reviews_slider = array(
                 <div class="service-item__desc"><?php echo $serv['desc']; ?></div>
               </div>
             </div>
+            <?php if($serv['href'] != ''){ ?> </a> <?php } ?>
           <?php } ?>
 
         </div>

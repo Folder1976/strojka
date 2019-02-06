@@ -7,42 +7,42 @@ $foundation_types = array(
     'img' => '/catalog/view/theme/default/img/foto/ft-1.jpg',
     'price1' => 'РАБОТА: от 1500 р/м.п.',
     'price2' => 'РАБОТА и МАТЕРИАЛ: от 3200 р/м.п.',
-    'link' => '#'
+    'link' => 'http://fundament77.com/lentochnyy-fundament/'
   ),
   array(
     'title' => 'Фундаментная плита',
     'img' => '/catalog/view/theme/default/img/foto/ft-2.jpg',
     'price1' => 'Работа: от 1200 р/м2',
     'price2' => 'Работа и материал: от 3800р/м2',
-    'link' => '#'
+    'link' => 'http://fundament77.com/lentochnyy-fundament/'
   ),
   array(
     'title' => 'Плита с нижним ростверком',
     'img' => '/catalog/view/theme/default/img/foto/ft-3.jpg',
     'price1' => 'Работа: от 1200 р/м2',
     'price2' => 'Работа и материал: от 3800р/м2',
-    'link' => '#'
+    'link' => 'http://fundament77.com/lentochnyy-fundament/'
   ),
   array(
     'title' => 'Плита с верхним ростверком',
     'img' => '/catalog/view/theme/default/img/foto/ft-4.jpg',
     'price1' => 'Работа: от 1500 р/м.п.',
     'price2' => 'Работа и материал: от 3200 р/м.п.',
-    'link' => '#'
+    'link' => 'http://fundament77.com/lentochnyy-fundament/'
   ),
   array(
     'title' => 'Монолитное перекрытие',
     'img' => '/catalog/view/theme/default/img/foto/ft-5.jpg',
     'price1' => 'Работа: от 1500 р/м.п.',
     'price2' => 'Работа и материал: от 3200 р/м.п.',
-    'link' => '#'
+    'link' => 'http://fundament77.com/lentochnyy-fundament/'
   ),
   array(
     'title' => 'Утепленная шведская плита',
     'img' => '/catalog/view/theme/default/img/foto/ft-6.jpg',
     'price1' => 'Работа: от 1200 р/м2',
     'price2' => 'Работа и материал: от 3800р/м2',
-    'link' => '#'
+    'link' => 'http://fundament77.com/lentochnyy-fundament/'
   ),
 );
 
@@ -248,3 +248,4 @@ $popular_prices = array(
 
 
 <?php echo $footer; ?>
+

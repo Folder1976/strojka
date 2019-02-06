@@ -5,7 +5,7 @@ class ControllerAccountUniversalform extends Controller {
 	public function index() {
         
         //echo '<pre>'; printf(var_dump($this->request->post));
-        
+        //die();
         
         $this->load->model('account/customer');
         
@@ -72,7 +72,7 @@ class ControllerAccountUniversalform extends Controller {
 
 	protected function validate() {
         
-        if(count($this->request->post) > 0 AND isset($this->request->post['agree']) AND $this->request->post['agree']){
+        if(!isset($this->request->post['agree'])){
             $this->error = 'Ознакомтесь и согласитесь с политикой конфиденциальности';
         }
 
@@ -88,3 +88,4 @@ class ControllerAccountUniversalform extends Controller {
 		return !$this->error;
 	}
 }
+

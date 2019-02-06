@@ -93,7 +93,8 @@ if(!isset($_COOKIE['IdProduto'])){
                 <div class="prod-info__price"><?php echo $price; ?></div>
               <?php } else { ?>
                 <div class="prod-info__price"><?php echo $special; ?></div>
-                <div class="prod-info__olp-price"><?php echo $price; ?></div>
+                <div class="prod-info__olp-price" style="text-decoration: line-through;"><?php echo $price; ?></div>
+                <div class="product-layout__special-percent">[<?php echo (int)$persent;?>%]</div>
               <?php } ?>
             </div>
 
@@ -222,7 +223,7 @@ if(!isset($_COOKIE['IdProduto'])){
               <?php if ($product['special']) { ?>
                 <div class="product-layout__special-price">
                   <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
-                  <div class="product-layout__special-percent">-50%</div>
+                  <div class="product-layout__special-percent">-<?php echo (int)$product['persent'];?>%</div>
                 </div>
               <?php } ?>
 
@@ -293,7 +294,7 @@ if(!isset($_COOKIE['IdProduto'])){
               <?php if ($product['special']) { ?>
                 <div class="product-layout__special-price">
                   <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
-                  <div class="product-layout__special-percent">-50%</div>
+                  <div class="product-layout__special-percent"><?php echo (int)$product['persent'];?>%</div>
                 </div>
               <?php } ?>
 
@@ -1012,6 +1013,7 @@ $(document).ready(function() {
 });
 //--></script>
 <?php echo $footer; ?>
+
 
 
 

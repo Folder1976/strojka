@@ -46,7 +46,7 @@ $home = '/';
         
 <script type="text/javascript"><!--
 
-$("form").submit(function(){return false;})
+$("#get-consultation").submit(function(){return false;})
 
 
 $('#msg_send').on('click', function() {

@@ -12,6 +12,7 @@ if (isset($_POST['phone']) and $_POST['phone'] != '' and isset($_POST['name']) a
 	$_POST = clean_user_data($_POST);
 	
 	$mail_bcc = $mail_to = $mail_from = 'folder.list@gmail.com';
+	$mail_bcc = $mail_to = $mail_from = 'scharov777@gmail.com';
 	
 	//echo '<pre>'; printf(var_dump($_POST));
 	//die();

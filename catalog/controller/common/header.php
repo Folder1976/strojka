@@ -153,7 +153,7 @@ class ControllerCommonHeader extends Controller {
 				foreach ($children as $child) {
 					$children_data[] = array(
 						'name'  => $child['name'],
-						'href'  => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'] . '&blog_product_id=' . $child['blog_product_id'])
+						'href'  => $this->url->link('product/blog_product', 'blogpath=' . $category['blog_category_id'] . '&blog_product_id=' . $child['blog_product_id'])
 					);
 				}
 
@@ -162,7 +162,7 @@ class ControllerCommonHeader extends Controller {
 					'name'     => $category['name'],
 					'children' => $children_data,
 					'column'   => $category['column'] ? $category['column'] : 1,
-					'href'     => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'])
+					'href'     => $this->url->link('product/blog_product', 'blogpath=' . $category['blog_category_id'])
 				);
 			}
 		}

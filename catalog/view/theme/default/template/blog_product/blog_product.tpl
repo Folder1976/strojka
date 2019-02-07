@@ -1,32 +1,149 @@
 <?php echo $header; ?>
+
+
 <?php
-/*
-if(!isset($_COOKIE['IdProduto'])){
-$id_como_string = (string)$blog_product_id;
-$id_como_string .= ',';
-setcookie('IdProduto',$id_como_string,time() + 34560000, "/");
-}
-else {
-$id_como_string = (string)$blog_product_id;
-$array_produtos = $_COOKIE['IdProduto'];
-if(strpos($array_produtos,','.$id_como_string.',')==strlen($array_produtos)-strlen($id_como_string)-2){   
-}		
-else if(strpos($array_produtos,$id_como_string.',') === 0){ 
-$array_produtos = str_replace($id_como_string.',','',$array_produtos);
-$array_produtos .= $id_como_string . ',';
-setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
-}
-else if(strpos($array_produtos,','.$id_como_string.',') !== false){ 
-$array_produtos = str_replace($id_como_string.',','',$array_produtos);
-$array_produtos .= $id_como_string . ',';
-setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
-}
-else {  
-$array_produtos .= $id_como_string . ',';
-setcookie('IdProduto',$array_produtos,time() + 34560000, "/");
-}
-}*/
+$news = array();
+ if ($products1) {
+    foreach ($products1 as $product) {
+      
+      $news[] = array(
+                    'title' => $product['name'],
+                    'date' => $product['date_added'],
+                    'foto' => $product['thumb'],
+                    'link' => $product['href'],
+                      );
+ 
+    }
+ }
 ?>
+
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-9">
+      <ul class="breadcrumb">
+        <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <?php } ?>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row" id="content">
+
+    <div class="col-md-9 col-md-push-3">
+      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+
+      <div class="company-review-date"><?php echo $date_added; ?></div>
+
+      <?php if ($popup) { ?>
+        <div class="company-review-thumb"><img src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></div>
+      <?php } ?>
+
+      <div class="company-review-info">
+        <?php if ($upc) { ?>
+        <div class="company-review-info__time"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#clock-circular"></use></svg>Срок: <?php echo $upc; ?></div>
+        <?php } ?>
+        
+        <?php if ($ean) { ?>
+        <div class="company-review-info__area"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#area"></use></svg>Площадь: <?php echo $ean; ?></div>
+        <?php } ?>
+        
+        <?php if ($jan) { ?>
+        <div class="company-review-info__location"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#location"></use></svg>Место: <?php echo $jan; ?></div>
+        <?php } ?>
+      </div>
+
+      <?php if ($description) { ?>
+        <div class="description"><?php echo $description; ?></div>
+      <?php } ?>
+
+
+      <?php if ( $images && count($images) > 0 ) { ?>
+        <div class="slider slider--work js-slider">
+          <div class="slider__arrows">
+            <div class="slider__arrow slider__arrow--prev">
+              <svg class="icon slider__arrow-icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-prev"></use>
+              </svg>
+            </div>
+            <div class="slider__arrow slider__arrow--next">
+              <svg class="icon slider__arrow-icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-next"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="slider__list">          
+            <?php foreach ($images as $image) { ?>
+              <div class="slider__item slider-item">
+
+                <div class="slider-item__img img--cover"><a href="<?php echo $image['popup']; ?>" class="zoom-foto"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" class="zoom-foto"></a></div>
+              </div>
+            <?php } ?>
+          </div>
+
+        </div>
+      <?php } ?>
+
+      <br>
+      <br>
+      <br>
+      <div class="h3-title">Еще проекты</div>
+      <ul class="company-works-list">
+        <?php foreach ($products as $pr) { ?>
+          <li>
+            <a href="<?php echo $pr['href']; ?>"><?php echo $pr['name']; ?></a>
+          </li>
+        <?php } ?>
+      </ul>
+      <br>
+
+    </div>
+
+    <div class="col-md-3 col-md-pull-9">
+      <?php // echo $column_left; ?>
+
+      <h3 class="widget-title">Новости компании</h3>
+      <div class="news-list">
+        
+        <?php foreach ($news as $new) { ?>
+          <div class="news-list__item news-item">
+            <div class="news-item__img">
+              <a href="<?php echo $new['link']; ?>"><img class="img--cover" src="<?php echo $new['foto']; ?>" alt="<?php echo $new['title']; ?>"></a>
+            </div>
+            <div class="news-item__desc">
+              <div class="news-item__title"><a href="<?php echo $new['link']; ?>"><?php echo $new['title']; ?></a></div>
+              <div class="news-item__date"><?php echo $new['date']; ?></div>
+            </div>
+          </div>
+        <?php } ?>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php if (false) { ?>
 <div class="container">
   <ul class="breadcrumb">
     <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -617,4 +734,9 @@ $(document).ready(function() {
 	});
 });
 //--></script>
+
+<?php } ?>
+
+
 <?php echo $footer; ?>
+

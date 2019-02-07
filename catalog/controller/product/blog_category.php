@@ -509,6 +509,7 @@ class ControllerProductBlogCategory extends Controller {
 
 			$data['description'] = html_entity_decode('', ENT_QUOTES, 'UTF-8');
 			
+			/*
 			$data['categories'] = array();
 
 			$categories = $this->model_catalog_blog_category->getCategories($blog_category_id);
@@ -539,7 +540,48 @@ class ControllerProductBlogCategory extends Controller {
 					'href'     => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'])
 				);
 			}
+			*/
+			
+				//===================================================================================================================
+	
+		$data['categories'] = array();
+		$categories = $this->model_catalog_blog_category->getCategories(0);
+
+		foreach ($categories as $category) {
+			if ($category['top']) {
+				// Level 2
+				$children_data = array();
+
 		
+				$filter_data = array(
+					'filter_category_id'  => $category['blog_category_id'],
+					'filter_sub_category' => true
+				); 
+				
+				//echo '<pre>'; print_r(var_dump($filter_data));
+				//$children = $this->model_catalog_blog_category->getCategories($category['blog_category_id']);
+
+				$children = $this->model_catalog_blog_product->getProducts($filter_data);
+				
+				foreach ($children as $child) {
+					$children_data[] = array(
+						'name'  => $child['name'],
+						'href'  => $this->url->link('product/blog_product', 'blogpath=' . $category['blog_category_id'] . '&blog_product_id=' . $child['blog_product_id'])
+					);
+				}
+
+				// Level 1
+				$data['categories'][$category['blog_category_id']] = array(
+					'name'     => $category['name'],
+					'children' => $children_data,
+					'column'   => $category['column'] ? $category['column'] : 1,
+					'href'     => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'])
+				);
+			}
+		}
+
+		// ====================================
+			
 
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
@@ -606,3 +648,4 @@ class ControllerProductBlogCategory extends Controller {
 		}
 	}
 }
+

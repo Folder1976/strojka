@@ -60,7 +60,7 @@ $top_menu = array(
   array (
     'name' => 'Услуги',
     'href' => '/information',
-    'children' => $blog_categories,
+    'children' => array(), //$blog_categories,
   ),
   array (
     'name' => 'Товары',

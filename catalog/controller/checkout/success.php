@@ -3,6 +3,8 @@ class ControllerCheckoutSuccess extends Controller {
 	public function index() {
 		$this->load->language('checkout/success');
 
+		
+		$data = array();
 		if (isset($this->session->data['order_id'])) {
 			$this->cart->clear();
 
@@ -26,6 +28,9 @@ class ControllerCheckoutSuccess extends Controller {
 
 					$this->model_account_activity->addActivity('order_guest', $activity_data);
 				}
+			
+				$data['customer'] = $activity_data;
+			
 			}
 
 			unset($this->session->data['shipping_method']);
@@ -40,6 +45,19 @@ class ControllerCheckoutSuccess extends Controller {
 			unset($this->session->data['voucher']);
 			unset($this->session->data['vouchers']);
 			unset($this->session->data['totals']);
+		}
+		
+		if ($this->customer->isLogged()) {
+			$data = array(
+				'customer_id' => $this->customer->getId(),
+				'name'        => $this->customer->getFirstName() . ' ' . $this->customer->getLastName(),
+				//'order_id'    => $this->session->data['order_id']
+			);
+		} else {
+			$data = array(
+				'name'     => $this->session->data['guest']['firstname'] . ' ' . $this->session->data['guest']['lastname'],
+				//'order_id' => $this->session->data['order_id']
+			);
 		}
 
 		$this->document->setTitle($this->language->get('heading_title'));

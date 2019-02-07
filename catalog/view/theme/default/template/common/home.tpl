@@ -264,7 +264,7 @@ $reviews_slider = array(
         </div>
 
         <div class="btn-wrap text-center">
-          <a href="/our-works" class="btn btn--dib btn--black">посмотреть все наши работы</a>
+          <a href="<?php echo $map_info_href; ?>" class="btn btn--dib btn--black">посмотреть все наши работы</a>
         </div>
       </div>
     </div>
@@ -313,8 +313,15 @@ $reviews_slider = array(
   </div>
 </section>
 
-
 <section class="section section--p0 section-our-map">
+  <div class="section-title">География работ Москва и Московская область</div>
+  <div id="map_wrapper" class="map">
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=a6a2b87d-952f-4e7b-871c-95370511aff0&lang=ru_RU" type="text/javascript"></script>
+    <div id="map_y" style="width: 100%; height: 400px"></div>
+  </div>
+</section>
+
+<!--section class="section section--p0 section-our-map">
   <div id="map" class="map">
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2251.8891984676925!2d37.639178315644166!3d55.63874168052294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414ab306f0d13c69%3A0x596d52dd0829983e!2z0JrQsNC90YLQtdC80LjRgNC-0LLRgdC60LDRjyDRg9C7LiwgNzEsINCc0L7RgdC60LLQsCwg0KDQvtGB0ZbRjywgMTE1NDc3!5e0!3m2!1suk!2sua!4v1535544776690" frameborder="0" style="border:0" allowfullscreen></iframe>
     <div class="map__info map-info">
@@ -342,11 +349,35 @@ $reviews_slider = array(
         <div class="map-info-list-item__desc"></div>
       </div>
       <div class="btn-wrap text-center">
-        <a href="#" class="btn btn--dib btn--black">посмотреть все наши работы</a>
+        <a href="<?php echo $map_info_href; ?>" class="btn btn--dib btn--black">посмотреть все наши работы</a>
       </div>
   </div>
-</section>
+</section-->
+<script type="text/javascript">
+    // Функция ymaps.ready() будет вызвана, когда
+    // загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+    ymaps.ready(init);
+  function init() {
+      var myMap = new ymaps.Map("map_y", {
+              center: [55.76, 37.64],
+              zoom: 9
+          }, {
+              searchControlProvider: 'yandex#search'
+          });
+  
+      myMap.geoObjects
+        <?php foreach($map_info as $map){ ?>
+          .add(new ymaps.Placemark([<?php echo $map['location']; ?>], {
+              balloonContent: '<a target="_blank" href="<?php echo $map['href']; ?>" class="infoblock-entry"><span class="object-service"><?php echo $map['name']; ?></span><span class="object-link"><img src="<?php echo $map['image']; ?>" alt="<?php echo $map['name']; ?>"></span><span class="object-features"><span class="feature-row"><i>Год:</i> <?php echo $map['sku']; ?></span><span class="feature-row"><i>Стоимость:</i> <?php echo $map['price']; ?></span><span class="feature-row"><i>Срок монтажа:</i> <?php echo $map['srok']; ?></span><span class="feature-row"><i>Площадь:</i> <?php echo $map['ploshad']; ?><sup>2</sup></span></span></a>'
+          }, {
+              preset: 'islands#greenDotIconWithCaption',
+              iconColor: '#960000'
+          }))
+        <?php } ?>
+          ;
+  }
 
+</script>
 
 <section class="section section-reviews">
   <div class="container">

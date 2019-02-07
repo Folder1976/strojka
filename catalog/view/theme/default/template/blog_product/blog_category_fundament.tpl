@@ -7,42 +7,42 @@ $foundation_types = array(
     'img' => '/catalog/view/theme/default/img/foto/ft-1.jpg',
     'price1' => 'РАБОТА: от 1500 р/м.п.',
     'price2' => 'РАБОТА и МАТЕРИАЛ: от 3200 р/м.п.',
-    'link' => 'http://fundament77.com/lentochnyy-fundament/'
+    'link' => ''
   ),
   array(
     'title' => 'Фундаментная плита',
     'img' => '/catalog/view/theme/default/img/foto/ft-2.jpg',
     'price1' => 'Работа: от 1200 р/м2',
     'price2' => 'Работа и материал: от 3800р/м2',
-    'link' => 'http://fundament77.com/lentochnyy-fundament/'
+    'link' => ''
   ),
   array(
     'title' => 'Плита с нижним ростверком',
     'img' => '/catalog/view/theme/default/img/foto/ft-3.jpg',
     'price1' => 'Работа: от 1200 р/м2',
     'price2' => 'Работа и материал: от 3800р/м2',
-    'link' => 'http://fundament77.com/lentochnyy-fundament/'
+    'link' => ''
   ),
   array(
     'title' => 'Плита с верхним ростверком',
     'img' => '/catalog/view/theme/default/img/foto/ft-4.jpg',
     'price1' => 'Работа: от 1500 р/м.п.',
     'price2' => 'Работа и материал: от 3200 р/м.п.',
-    'link' => 'http://fundament77.com/lentochnyy-fundament/'
+    'link' => ''
   ),
   array(
     'title' => 'Монолитное перекрытие',
     'img' => '/catalog/view/theme/default/img/foto/ft-5.jpg',
     'price1' => 'Работа: от 1500 р/м.п.',
     'price2' => 'Работа и материал: от 3200 р/м.п.',
-    'link' => 'http://fundament77.com/lentochnyy-fundament/'
+    'link' => ''
   ),
   array(
     'title' => 'Утепленная шведская плита',
     'img' => '/catalog/view/theme/default/img/foto/ft-6.jpg',
     'price1' => 'Работа: от 1200 р/м2',
     'price2' => 'Работа и материал: от 3800р/м2',
-    'link' => 'http://fundament77.com/lentochnyy-fundament/'
+    'link' => ''
   ),
 );
 
@@ -151,7 +151,12 @@ $popular_prices = array(
             <p><?php echo $ft['price1']; ?></p>
             <p><?php echo $ft['price2']; ?></p>
           </div>
-          <div class="ft-item__btn"><a class="btn btn--hover-orange btn--bdrs0" href="<?php echo $ft['link']; ?>">Подробнее</a></div>
+          <div class="ft-item__btn">
+            <?php if($ft['link'] != ''){ ?>
+            <a class="btn btn--hover-orange btn--bdrs0" href="<?php echo $ft['link']; ?>">Подробнее</a></div>
+            <?php }else{ ?>
+            <span class="btn btn--hover-orange btn--bdrs0">Подробнее</span></div>
+            <?php } ?>
         </div>
       <?php } ?>
 

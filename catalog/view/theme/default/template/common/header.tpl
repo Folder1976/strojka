@@ -23,7 +23,7 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
 <!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
-<link href="catalog/view/theme/default/stylesheet/main.css?1.03" rel="stylesheet">
+<link href="catalog/view/theme/default/stylesheet/main.css?1.04" rel="stylesheet">
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -39,8 +39,8 @@
 <?php } ?>
 
 <script src="/catalog/view/javascript/callback.js" type="text/javascript"></script>
-<link href="/catalog/view/theme/default/stylesheet/callback.css" rel="stylesheet" type="text/css" />
-<link href="/catalog/view/theme/default/stylesheet/callback1.css" rel="stylesheet" type="text/css" />
+<link href="/catalog/view/theme/default/stylesheet/callback.css?1.04" rel="stylesheet" type="text/css" />
+<link href="/catalog/view/theme/default/stylesheet/callback1.css?1.04" rel="stylesheet" type="text/css" />
 
 </head>
 

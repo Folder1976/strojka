@@ -13,10 +13,6 @@
     </div>
   </div>
 
-  <pre>
-    <?php //var_dump($products, $categories ); ?>
-  </pre>
-
   <div class="row" id="content">
 
     <div class="col-md-9 col-md-push-3">
@@ -84,7 +80,7 @@
         <div class="seller__name">Иннокентий Гаврилов</div>
         <div class="seller__post">Менеджер отдела продаж</div>
         <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
-        <p><a href="#">Калькулятор и составление КП</a></p>
+        <p><a href="/online-calc">Калькулятор и составление КП</a></p>
         <p><a href="#">Закажите замер по Москве и МО</a></p>
       </div>
     </div>

@@ -1,4 +1,6 @@
 
+<div class="row"><div class="col-md-10 col-md-offset-1">
+
 <div class="featured js-featured">
   <?php foreach ($products as $product) { ?>
     <div class="featured__slide">
@@ -70,6 +72,8 @@
   <?php } ?>
 </div>
 
+
+</div></div>
 
 
 

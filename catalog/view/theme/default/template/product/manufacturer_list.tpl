@@ -18,25 +18,46 @@
     <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
+      <p>Работаем в официальном партнерстве с 27 производителями строительных материалов. Проверяем качество и наличие сертификатов и лицензий на продукцию.</p>
+
+
       <?php if ($categories) { ?>
-      <p><strong><?php echo $text_index; ?></strong>
-        <?php foreach ($categories as $category) { ?>
-        &nbsp;&nbsp;&nbsp;<a href="index.php?route=product/manufacturer#<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a>
-        <?php } ?>
-      </p>
+      <div class="manufacturer__list">
       <?php foreach ($categories as $category) { ?>
-      <h2 id="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></h2>
+      
       <?php if ($category['manufacturer']) { ?>
-      <?php foreach (array_chunk($category['manufacturer'], 4) as $manufacturers) { ?>
-      <div class="row">
-        <?php foreach ($manufacturers as $manufacturer) { ?>
-        <div class="col-sm-3"><a href="<?php echo $manufacturer['href']; ?>"><?php echo $manufacturer['name']; ?></a></div>
+      <?php foreach ($category['manufacturer'] as $manufacturer) { ?>
+
+        <?php if ($manufacturer['name'] != '' ) {?>
+        <div class="manufacturer__list-item manufacturer__brand"><a href="<?php echo $manufacturer['href']; ?>">
+          <div class="manufacturer__brand-img"><img src="<?php echo $manufacturer['img']; ?>" alt="<?php echo $manufacturer['name']; ?>" class=""></div>
+          <span class="manufacturer__brand-name"><?php echo $manufacturer['name']; ?></span></a></div>
         <?php } ?>
+        <?php } ?>
+
+      <?php } ?>
+      <?php } ?>
       </div>
-      <br>
+
+
+      <?php if ( isset($pagination) ) { ?>
+      <div class="pagination-wrap">
+        <div class=""><?php echo $pagination; ?></div>
+        <div class="form-group input-group input-group-sm limit-per-page">
+          <!--label for="input-limit"><?php echo $text_limit; ?></label>
+          <select id="input-limit" class="form-control" onchange="location = this.value;">
+            <?php foreach ($limits as $limits) { ?>
+            <?php if ($limits['value'] == $limit) { ?>
+            <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
+            <?php } else { ?>
+            <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+            <?php } ?>
+            <?php } ?>
+          </select-->
+        </div>
+      </div>
       <?php } ?>
-      <?php } ?>
-      <?php } ?>
+
       <?php } else { ?>
       <p><?php echo $text_empty; ?></p>
       <div class="buttons clearfix">
@@ -47,6 +68,17 @@
 
     <aside id="column-left" class="col-md-3 col-md-pull-9">
       <?php echo $column_left; ?>
+
+      <div class="seller">
+        <div class="seller__img">
+          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Иннокентий Гаврилов. Менеджер отдела продаж">
+        </div>
+        <div class="seller__name">Иннокентий Гаврилов</div>
+        <div class="seller__post">Менеджер отдела продаж</div>
+        <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
+        <p><a href="/online-calc">Калькулятор и составление КП</a></p>
+        <p><a href="#get-consultation" class="mf-popup" data-effect="mfp-zoom-in">Закажите замер по Москве и МО</a></p>
+      </div>
     </aside>
   </div>
 

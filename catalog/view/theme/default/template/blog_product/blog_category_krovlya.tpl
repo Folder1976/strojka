@@ -14,7 +14,6 @@
   </div>
 
   <div class="row" id="content">
-
     <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
 
@@ -30,11 +29,11 @@
           <div class="list-category-item__title"><a href="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a></div>
 
           <?php if ( isset($category['children']) && count($category['children']) > 0 ) { ?>
-          <?php foreach ($category['children'] as $child) { ?>
-            <ul class="list-category-item__list">
+          <ul class="list-category-item__list">
+            <?php foreach ($category['children'] as $child) { ?>
               <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-            </ul>
-          <?php } ?>
+            <?php } ?>
+          </ul>
           <?php } ?>
            <?php if (isset($category['products']) AND count($category['products'])) { ?>
             <ul class="list-category-item__list">
@@ -81,7 +80,7 @@
         <div class="seller__post">Менеджер отдела продаж</div>
         <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
         <p><a href="/online-calc">Калькулятор и составление КП</a></p>
-        <p><a href="#">Закажите замер по Москве и МО</a></p>
+        <p><a href="#get-consultation" class="mf-popup" data-effect="mfp-zoom-in">Закажите замер по Москве и МО</a></p>
       </div>
     </div>
   </div>

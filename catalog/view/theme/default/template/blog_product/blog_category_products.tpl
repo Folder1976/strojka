@@ -204,7 +204,7 @@ $categories = array (
         <div class="seller__post">Менеджер отдела продаж</div>
         <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
         <p><a href="/online-calc">Калькулятор и составление КП</a></p>
-        <p><a href="#">Закажите замер по Москве и МО</a></p>
+        <p><a href="#get-consultation" class="mf-popup" data-effect="mfp-zoom-in">Закажите замер по Москве и МО</a></p>
       </div>
     </aside>
   </div>

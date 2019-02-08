@@ -15,6 +15,128 @@ $news = array();
  
     }
  }
+
+
+$left_col_cat = array (
+   0 => 
+   array (
+     'blog_category_id' => '19',
+     'products' => 
+     array (
+      222 => array( 'name' => 'Монтаж сланцевой кровли', ),
+      223 => array( 'name' => 'Скатная кровля', ),
+      224 => array( 'name' => 'Плоская кровля', ),
+      225 => array( 'name' => 'Строительство крыш', ),
+      226 => array( 'name' => 'Дополнительные работы', ),
+      227 => array( 'name' => 'Ремонт кровли в Москве', ),
+      228 => array( 'name' => 'Обслуживание кровли', ),
+     ),
+     'keyword' => '',
+     'name' => 'Кровля',
+     'href' => '',
+   ),
+   1 => 
+   array (
+     'blog_category_id' => '17',
+     'products' => 
+     array (
+       22 => array ( 'name' => 'Дизайн', ),
+       9999 => array ( 'name' => 'Проектирование', ),
+     ),
+     'keyword' => '',
+     'name' => 'Дизайн и проектирование',
+     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_17',
+   ),
+   2 => 
+   array (
+     'blog_category_id' => '18',
+     'products' => 
+     array (
+     ),
+     'keyword' => '',
+     'name' => 'Строительство домов',
+     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_18',
+   ),
+ );
+
+
+$categories = array (
+   0 => 
+   array (
+     'blog_category_id' => '19',
+     'products' => 
+     array (
+     ),
+     'keyword' => '',
+     'name' => 'Ремонт кровли в Москве (0)',
+     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_19',
+   ),
+   1 => 
+   array (
+     'blog_category_id' => '17',
+     'products' => 
+     array (
+       22 => 
+       array (
+         'blog_product_id' => '22',
+         'name' => 'Монтаж сланцевой кровли',
+         'template' => '',
+         'description' => '<p>adfadsfads<br></p>',
+         'meta_title' => 'Монтаж сланцевой кровли',
+         'meta_description' => '',
+         'meta_keyword' => '',
+         'tag' => '',
+         'model' => '1234123412',
+         'sku' => '',
+         'upc' => '',
+         'ean' => '',
+         'jan' => '',
+         'isbn' => '',
+         'mpn' => '',
+         'location' => '',
+         'quantity' => '1',
+         'stock_status' => '2-3 Days',
+         'image' => '',
+         'manufacturer_id' => NULL,
+         'manufacturer' => NULL,
+         'price' => '0.0000',
+         'special' => NULL,
+         'reward' => NULL,
+         'points' => '0',
+         'tax_class_id' => '0',
+         'date_available' => '2019-02-01',
+         'weight' => '0.00000000',
+         'weight_class_id' => '1',
+         'length' => '0.00000000',
+         'width' => '0.00000000',
+         'height' => '0.00000000',
+         'length_class_id' => '1',
+         'subtract' => '1',
+         'rating' => 0.0,
+         'reviews' => 0,
+         'minimum' => '1',
+         'sort_order' => '1',
+         'status' => '1',
+         'date_added' => '2019-02-01 15:29:03',
+         'date_modified' => '2019-02-01 16:57:44',
+         'viewed' => '8',
+       ),
+     ),
+     'keyword' => '',
+     'name' => 'Скатная кровля (1)',
+     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_17',
+   ),
+   2 => 
+   array (
+     'blog_category_id' => '18',
+     'products' => 
+     array (
+     ),
+     'keyword' => '',
+     'name' => 'Строительство крыш (0)',
+     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_18',
+   ),
+ );
 ?>
 
 
@@ -35,8 +157,6 @@ $news = array();
 
     <div class="col-md-9 col-md-push-3">
       <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
-
-      <div class="company-review-date"><?php echo $date_added; ?></div>
 
       <?php if ($popup) { ?>
         <div class="company-review-thumb"><img src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></div>
@@ -91,14 +211,42 @@ $news = array();
       <br>
       <br>
       <br>
-      <div class="h3-title">Еще проекты</div>
-      <ul class="company-works-list">
-        <?php foreach ($products as $pr) { ?>
-          <li>
-            <a href="<?php echo $pr['href']; ?>"><?php echo $pr['name']; ?></a>
-          </li>
+      <div class="h3-title">Выполненые проекты</div>
+
+      <div class="row">
+      <?php foreach ($products as $pr) { ?>
+        <div class="col-sm-4 col-xs-6">
+          <a href="<?php echo $pr['href']; ?>"><img src="<?php echo $pr['thumb']; ?>" alt="<?php echo $pr['name']; ?>"></a>
+        </div>
+      <?php } ?>
+      </div>
+
+      <?php if ( isset($categories) && count($categories) > 0 ) { ?>
+      <div class="list-category">
+        <?php foreach ($categories as $category) { ?>
+        <div class="list-category__item list-category-item">
+          <div class="list-category-item__title"><a href="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a></div>
+
+          <?php if ( isset($category['children']) && count($category['children']) > 0 ) { ?>
+          <ul class="list-category-item__list">
+            <?php foreach ($category['children'] as $child) { ?>
+              <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+            <?php } ?>
+          </ul>
+          <?php } ?>
+           <?php if (isset($category['products']) AND count($category['products'])) { ?>
+            <ul class="list-category-item__list">
+              <?php foreach ($category['products'] as $product) { ?>
+                  <li><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></li>
+              <?php } ?>
+            </ul>
+          <?php } ?>
+
+        </div>
         <?php } ?>
-      </ul>
+      </div>
+      <?php } ?>
+
       <br>
 
     </div>
@@ -106,22 +254,47 @@ $news = array();
     <div class="col-md-3 col-md-pull-9">
       <?php // echo $column_left; ?>
 
-      <h3 class="widget-title">Новости компании</h3>
-      <div class="news-list">
+      <div class="blog__left-menu">
         
-        <?php foreach ($news as $new) { ?>
-          <div class="news-list__item news-item">
-            <div class="news-item__img">
-              <a href="<?php echo $new['link']; ?>"><img class="img--cover" src="<?php echo $new['foto']; ?>" alt="<?php echo $new['title']; ?>"></a>
-            </div>
-            <div class="news-item__desc">
-              <div class="news-item__title"><a href="<?php echo $new['link']; ?>"><?php echo $new['title']; ?></a></div>
-              <div class="news-item__date"><?php echo $new['date']; ?></div>
-            </div>
+        <?php foreach ($left_col_cat as $category) { ?>
+          <div class="blog__left-menu-cat">
+            <div class="blog__left-menu-cat-name"><a href="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a></div>
+
+            <?php if ( isset($category['children']) && count($category['children']) > 0 ) { ?>
+            <ul>
+              <?php foreach ($category['children'] as $child) { ?>
+                <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+              <?php } ?>
+            </ul>
+            <?php } ?>
+
+            <?php if (isset($category['products']) AND count($category['products'])) { ?>
+            <ul>
+              <?php foreach ($category['products'] as $id => $product) { ?>
+                <?php if ( $id == 9999 ) { // тут надо прописать условие, по которому определяется активный пункт меню ?>
+                  <li class="is-active"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></li>
+                <?php } else { ?>
+                  <li><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></li>
+                <?php } ?>
+              <?php } ?>
+            </ul>
+            <?php } ?>
+
           </div>
         <?php } ?>
-
       </div>
+
+      <div class="seller">
+        <div class="seller__img">
+          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Иннокентий Гаврилов. Менеджер отдела продаж">
+        </div>
+        <div class="seller__name">Иннокентий Гаврилов</div>
+        <div class="seller__post">Менеджер отдела продаж</div>
+        <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
+        <p><a href="/online-calc">Калькулятор и составление КП</a></p>
+        <p><a href="#get-consultation" class="mf-popup" data-effect="mfp-zoom-in">Закажите замер по Москве и МО</a></p>
+      </div>
+
     </div>
   </div>
 

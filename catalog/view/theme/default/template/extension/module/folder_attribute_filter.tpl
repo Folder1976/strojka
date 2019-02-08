@@ -128,12 +128,14 @@ $('.filter-group__title').on('click', function(){
 });
 
 $('#button-reset').on('click', function(){
-  var rp = $('#filter-group-price');
-  var min = parseFloat( rp.data('min') );
-  var max = parseFloat( rp.data('max') );
+  // var rp = $('#filter-group-price');
+  // var min = parseFloat( rp.data('min') );
+  // var max = parseFloat( rp.data('max') );
 
-  rp.slider("values", 0, min);
-  rp.slider("values", 1, max);
+  // rp.slider("values", 0, min);
+  // rp.slider("values", 1, max);
+
+  location = '<?php echo $action; ?>';
 });
 //--></script>
 

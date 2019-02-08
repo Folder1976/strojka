@@ -15,7 +15,13 @@
   <div class="row" id="content">
 
     <div class="col-md-9 col-md-push-3">
-      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+      <h1 class="section-title text-left"><?php
+      if ( isset($customer['name']) && $customer['name'] != '' ) {
+        echo 'Спасибо, '.$customer['name'];
+      } else {
+        echo $heading_title;
+      }
+      ?></h1>
 
       <?php echo $text_message; ?>
       <div class="buttons">

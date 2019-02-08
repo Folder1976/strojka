@@ -1,6 +1,6 @@
 <?php
 // Heading
-$_['heading_title']     = 'Список производителей';
+$_['heading_title']     = 'Все бренды';
 
 // Text
 $_['text_brand']        = 'Производители';

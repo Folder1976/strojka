@@ -41,3 +41,71 @@
     }
   }
 }
+
+.description {
+  h3 {
+    font-size: 1.8rem;
+  }
+}
+
+.blog__discount {
+  padding: 2.2rem 5.5rem;
+  background-color: $primary_color;
+  text-align: center;
+}
+
+.blog__discount-title {
+  font-size: 4rem;
+  font-weight: 900;
+}
+
+.blog__left-menu {
+  background-color: $primary_color;
+  padding: 2rem;
+  font-size: 1.6rem;
+  margin: 0 auto 9rem;
+  max-width: 40rem;
+
+
+  &-cat {
+    margin-bottom: 2rem;
+  }
+
+  &-cat-name {
+    font-weight: 900;
+     bottom: 1.5rem;
+  }
+
+  ul {}
+
+  li {
+    position: relative;
+    padding-right: 2rem;
+
+    &.is-active {
+
+      &:after {
+        content: "";
+        display: block;
+        width: 1.4rem;
+        height: 1.4rem;
+        position: absolute;
+        top: .4rem;
+        right: 0;
+        background-color: #fff;
+        border-radius: 50%;
+      }
+
+
+      a {
+        color: #fff;
+        font-weight: 900;
+      }
+    }
+  }
+
+  a {
+    color: #000;
+  }
+}
+

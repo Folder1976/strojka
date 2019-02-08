@@ -31,6 +31,7 @@ class ControllerProductManufacturer extends Controller {
 		$data['categories'] = array();
 
 		$results = $this->model_catalog_manufacturer->getManufacturers();
+$this->load->model('tool/image');
 
 		foreach ($results as $result) {
 			if (is_numeric(utf8_substr($result['name'], 0, 1))) {
@@ -43,7 +44,17 @@ class ControllerProductManufacturer extends Controller {
 				$data['categories'][$key]['name'] = $key;
 			}
 
+			if ($result['image']) {
+				$image = $this->model_tool_image->resize($result['image'], 200, 200);
+			} else {
+				$image = $this->model_tool_image->resize('placeholder.png', 200, 200);
+			}
+
+			
 			$data['categories'][$key]['manufacturer'][] = array(
+				'img' => $image,
+				'image' => $image,
+				'name' => $result['name'],
 				'name' => $result['name'],
 				'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result['manufacturer_id'])
 			);

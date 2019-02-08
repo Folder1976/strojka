@@ -48,13 +48,13 @@ class ControllerCheckoutSuccess extends Controller {
 		}
 		
 		if ($this->customer->isLogged()) {
-			$data = array(
+			$data['customer'] = array(
 				'customer_id' => $this->customer->getId(),
 				'name'        => $this->customer->getFirstName() . ' ' . $this->customer->getLastName(),
 				//'order_id'    => $this->session->data['order_id']
 			);
 		} else {
-			$data = array(
+			$data['customer'] = array(
 				'name'     => $this->session->data['guest']['firstname'] . ' ' . $this->session->data['guest']['lastname'],
 				//'order_id' => $this->session->data['order_id']
 			);

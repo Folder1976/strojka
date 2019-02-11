@@ -1,148 +1,148 @@
 <?php echo $header; ?>
 
 <?php
-$categories = array (
-  0 => 
-  array (
-    'name' => 'Водосточные системы',
-    'children' => 
-    array (
-      0 => 
-      array (
-        'name' => 'Медный водосток AQUASYSTEM (Россия) (0)',
-        'href' => 'http://strojka.localhost/vodostochnye-sistemy/aquasystem-copper',
-      ),
-      1 => 
-      array (
-        'name' => 'Металлические (531)',
-        'href' => 'http://strojka.localhost/vodostochnye-sistemy/metallicheskie',
-      ),
-      2 => 
-      array (
-        'name' => 'Пластиковые (273)',
-        'href' => 'http://strojka.localhost/vodostochnye-sistemy/plastikovye',
-      ),
-    ),
-    'column' => 1,
-    'href' => 'http://strojka.localhost/vodostochnye-sistemy',
-  ),
-  1 => 
-  array (
-    'name' => 'Дымоходы',
-    'children' => 
-    array (
-      0 => 
-      array (
-        'name' => 'Schiedel PERMETER (0)',
-        'href' => 'http://strojka.localhost/dimoxody/schiedel-permeter',
-      ),
-      1 => 
-      array (
-        'name' => 'Schiedel Uni (0)',
-        'href' => 'http://strojka.localhost/dimoxody/schiedel-uni',
-      ),
-      2 => 
-      array (
-        'name' => 'Вентиляционные блоки VENT (0)',
-        'href' => 'http://strojka.localhost/dimoxody/vent',
-      ),
-    ),
-    'column' => 1,
-    'href' => 'http://strojka.localhost/dimoxody',
-  ),
-  2 => 
-  array (
-    'name' => 'Комплектующие для кровли',
-    'children' => 
-    array (
-      0 => 
-      array (
-        'name' => 'Комплектующие для гибкой черепицы (0)',
-        'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli/komplektuyushchie-dlya-gibkoy-cherepitsy',
-      ),
-      1 => 
-      array (
-        'name' => 'Комплектующие для натуральной черепицы (0)',
-        'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli/komplektuyushchie-dlya-naturalnoy-cherepitsy',
-      ),
-      2 => 
-      array (
-        'name' => 'Кровельная вентиляция (180)',
-        'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli/krovelnaya-ventilyatsiya',
-      ),
-      3 => 
-      array (
-        'name' => 'Элементы безопасности кровли (0)',
-        'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli/elementy-bezopasnosti-krovli',
-      ),
-    ),
-    'column' => 1,
-    'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli',
-  ),
-  3 => 
-  array (
-    'name' => 'Кровельные материалы',
-    'children' => 
-    array (
-      0 => 
-      array (
-        'name' => 'Битумный волнистый лист (4)',
-        'href' => 'http://strojka.localhost/krovlya/bitumnyy-volnistyy-list',
-      ),
-      1 => 
-      array (
-        'name' => 'Гибкая черепица (405)',
-        'href' => 'http://strojka.localhost/krovlya/gibkaya-cherepitsa',
-      ),
-      2 => 
-      array (
-        'name' => 'Керамическая черепица (181)',
-        'href' => 'http://strojka.localhost/krovlya/keramicheskaya-cherepitsa',
-      ),
-      3 => 
-      array (
-        'name' => 'Композитная черепица (262)',
-        'href' => 'http://strojka.localhost/krovlya/kompozitnaya-cherepitsa',
-      ),
-      4 => 
-      array (
-        'name' => 'Металлочерепица (430)',
-        'href' => 'http://strojka.localhost/krovlya/metallocherepitsa',
-      ),
-      5 => 
-      array (
-        'name' => 'Фальцевая кровля (179)',
-        'href' => 'http://strojka.localhost/krovlya/faltsevaya',
-      ),
-      6 => 
-      array (
-        'name' => 'Цементно-песчаная черепица (25)',
-        'href' => 'http://strojka.localhost/krovlya/tsementno-peschanaya',
-      ),
-    ),
-    'column' => 1,
-    'href' => 'http://strojka.localhost/krovlya',
-  ),
-  4 => 
-  array (
-    'name' => 'Мансардные окна',
-    'children' => 
-    array (
-      0 => 
-      array (
-        'name' => 'FAKRO (Польша) (239)',
-        'href' => 'http://strojka.localhost/mansardnye-okna/fakro',
-      ),
-      1 => 
-      array (
-        'name' => 'VELUX (Дания) (484)',
-        'href' => 'http://strojka.localhost/mansardnye-okna/velux',
-      ),
-    ),
-    'column' => 1,
-    'href' => 'http://strojka.localhost/mansardnye-okna',
-  ),
-);
+// $categories = array (
+//   0 => 
+//   array (
+//     'name' => 'Водосточные системы',
+//     'children' => 
+//     array (
+//       0 => 
+//       array (
+//         'name' => 'Медный водосток AQUASYSTEM (Россия) (0)',
+//         'href' => 'http://strojka.localhost/vodostochnye-sistemy/aquasystem-copper',
+//       ),
+//       1 => 
+//       array (
+//         'name' => 'Металлические (531)',
+//         'href' => 'http://strojka.localhost/vodostochnye-sistemy/metallicheskie',
+//       ),
+//       2 => 
+//       array (
+//         'name' => 'Пластиковые (273)',
+//         'href' => 'http://strojka.localhost/vodostochnye-sistemy/plastikovye',
+//       ),
+//     ),
+//     'column' => 1,
+//     'href' => 'http://strojka.localhost/vodostochnye-sistemy',
+//   ),
+//   1 => 
+//   array (
+//     'name' => 'Дымоходы',
+//     'children' => 
+//     array (
+//       0 => 
+//       array (
+//         'name' => 'Schiedel PERMETER (0)',
+//         'href' => 'http://strojka.localhost/dimoxody/schiedel-permeter',
+//       ),
+//       1 => 
+//       array (
+//         'name' => 'Schiedel Uni (0)',
+//         'href' => 'http://strojka.localhost/dimoxody/schiedel-uni',
+//       ),
+//       2 => 
+//       array (
+//         'name' => 'Вентиляционные блоки VENT (0)',
+//         'href' => 'http://strojka.localhost/dimoxody/vent',
+//       ),
+//     ),
+//     'column' => 1,
+//     'href' => 'http://strojka.localhost/dimoxody',
+//   ),
+//   2 => 
+//   array (
+//     'name' => 'Комплектующие для кровли',
+//     'children' => 
+//     array (
+//       0 => 
+//       array (
+//         'name' => 'Комплектующие для гибкой черепицы (0)',
+//         'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli/komplektuyushchie-dlya-gibkoy-cherepitsy',
+//       ),
+//       1 => 
+//       array (
+//         'name' => 'Комплектующие для натуральной черепицы (0)',
+//         'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli/komplektuyushchie-dlya-naturalnoy-cherepitsy',
+//       ),
+//       2 => 
+//       array (
+//         'name' => 'Кровельная вентиляция (180)',
+//         'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli/krovelnaya-ventilyatsiya',
+//       ),
+//       3 => 
+//       array (
+//         'name' => 'Элементы безопасности кровли (0)',
+//         'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli/elementy-bezopasnosti-krovli',
+//       ),
+//     ),
+//     'column' => 1,
+//     'href' => 'http://strojka.localhost/komplektuyushchie-dlya-krovli',
+//   ),
+//   3 => 
+//   array (
+//     'name' => 'Кровельные материалы',
+//     'children' => 
+//     array (
+//       0 => 
+//       array (
+//         'name' => 'Битумный волнистый лист (4)',
+//         'href' => 'http://strojka.localhost/krovlya/bitumnyy-volnistyy-list',
+//       ),
+//       1 => 
+//       array (
+//         'name' => 'Гибкая черепица (405)',
+//         'href' => 'http://strojka.localhost/krovlya/gibkaya-cherepitsa',
+//       ),
+//       2 => 
+//       array (
+//         'name' => 'Керамическая черепица (181)',
+//         'href' => 'http://strojka.localhost/krovlya/keramicheskaya-cherepitsa',
+//       ),
+//       3 => 
+//       array (
+//         'name' => 'Композитная черепица (262)',
+//         'href' => 'http://strojka.localhost/krovlya/kompozitnaya-cherepitsa',
+//       ),
+//       4 => 
+//       array (
+//         'name' => 'Металлочерепица (430)',
+//         'href' => 'http://strojka.localhost/krovlya/metallocherepitsa',
+//       ),
+//       5 => 
+//       array (
+//         'name' => 'Фальцевая кровля (179)',
+//         'href' => 'http://strojka.localhost/krovlya/faltsevaya',
+//       ),
+//       6 => 
+//       array (
+//         'name' => 'Цементно-песчаная черепица (25)',
+//         'href' => 'http://strojka.localhost/krovlya/tsementno-peschanaya',
+//       ),
+//     ),
+//     'column' => 1,
+//     'href' => 'http://strojka.localhost/krovlya',
+//   ),
+//   4 => 
+//   array (
+//     'name' => 'Мансардные окна',
+//     'children' => 
+//     array (
+//       0 => 
+//       array (
+//         'name' => 'FAKRO (Польша) (239)',
+//         'href' => 'http://strojka.localhost/mansardnye-okna/fakro',
+//       ),
+//       1 => 
+//       array (
+//         'name' => 'VELUX (Дания) (484)',
+//         'href' => 'http://strojka.localhost/mansardnye-okna/velux',
+//       ),
+//     ),
+//     'column' => 1,
+//     'href' => 'http://strojka.localhost/mansardnye-okna',
+//   ),
+// );
 ?>
 
 

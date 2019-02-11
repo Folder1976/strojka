@@ -28,11 +28,12 @@
 			</div>
             <div class="message">
                 <p>Теперь у нас в магазине можно торговаться</p>
+                <p style=" text-align: center;background: #fbbe18;display: block;padding: 1rem;font-size: 2rem;text-transform: uppercase;">Давайте торговаться!</p>
                 <p>Предложите свою цену в поле "Ваша цена" или "Комментарий" и заполните поля со звездочкой.</p>
                 <p>Менеджеры незамедлительно сообщат Вашу цену директору. Если он одобрит это предложение, то мы сразу сообщим Вам об этом решении.</p>
             </div>
             <div class="header">
-                <p>Давайте торговаться!</p>
+                
             </div>
 			<div class="contacts clearfix">
 				<div class="form-group col-md-6">

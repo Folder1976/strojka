@@ -93,7 +93,7 @@ $bottom_menu = array(
   ),
   array (
     'name' => 'проектирование и дизайн',
-    'href' => '#',
+    'href' => '/krovlya/blog_roof_project',
   ),
   array (
     'name' => 'строительство загородных домов',

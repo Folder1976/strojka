@@ -38,11 +38,6 @@ $left_col_cat = array (
    1 => 
    array (
      'blog_category_id' => '17',
-     'products' => 
-     array (
-       22 => array ( 'name' => 'Дизайн', ),
-       9999 => array ( 'name' => 'Проектирование', ),
-     ),
      'keyword' => '',
      'name' => 'Дизайн и проектирование',
      'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_17',

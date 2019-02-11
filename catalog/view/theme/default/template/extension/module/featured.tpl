@@ -1,7 +1,8 @@
-
 <div class="row"><div class="col-md-10 col-md-offset-1">
 
-<div class="featured js-featured">
+  <div class="section-title"><?php echo $heading_title; ?></div>
+
+  <div class="featured js-featured">
   <?php foreach ($products as $product) { ?>
     <div class="featured__slide">
       <div class="product-layout">

@@ -43,7 +43,7 @@ $('.back-to-top').on('click',function(event) {
 
 // маска для телефона
 // маска для телефона
-$(".input--phone").mask("+99 (999) 999-99-99");
+$(".input--phone").mask("+79999999999");
 
 
 // Slick slider
@@ -360,6 +360,13 @@ $('.range-price__input--max').on('change', function(){
 $('.js-toggle').on('click', function(e){
   e.preventDefault();
   var href = $(this).attr('href');
+
+  var tt = $(this).data('toggle-text');
+  if ( tt != '' ) {
+    var tmp = $(this).text();
+    $(this).data('toggle-text', tmp);
+    $(this).text(tt);
+  }
 
   $(href).toggle('300');
 });

@@ -116,7 +116,7 @@
 
                 <div class="fields-group col-md-4">
                   <!--label for="telephone-ch"><span class="required">*</span>   <?=$text_telephone?>:</label><br-->
-                  <input type="text" required="required" id="telephone-ch"  name="telephone"  value="<?php echo $telephone; ?>" class="input--phone form-control large-field" placeholder="Телефон">
+                  <input type="text" required="required" id="telephone-ch"  name="telephone"  value="" class="input--phone form-control large-field" placeholder="Телефон">
                   <span class="error"></span>
                 </div>
 

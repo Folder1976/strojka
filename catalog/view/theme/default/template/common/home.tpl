@@ -7,13 +7,13 @@ $services = array(
     'title' => 'Кровля',
     'desc' => 'Заказчик часто сталкивается с неквалифицированными мастерами, лишь на словах обещающими качественный монтаж.',
     'foto' => 'catalog/view/theme/default/img/tmpimg/serv-1.jpg',
-    'href' => HTTP_SERVER.'krovlya_inf'
+    'href' => HTTP_SERVER.'krovlya'
   ),
   array(
     'title' => 'Проектирование и дизайн',
     'desc' => 'Проектирование — сложная работа, требующяя обширных знаний в области строительства крыши и учета множества важных факторов.',
     'foto' => 'catalog/view/theme/default/img/tmpimg/serv-2.jpg',
-    'href' => ''
+    'href' => HTTP_SERVER.'krovlya/blog_roof_project'
   ),
   array(
     'title' => 'Строительство загородных домов',

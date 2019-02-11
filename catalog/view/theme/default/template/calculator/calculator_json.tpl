@@ -63,7 +63,7 @@
                     </div>
                   </div>
                   <div class="calc__col calc__col--r calc__col--ase">
-                    <a href="#c1-add-options" class="js-toggle toggle-link" data-togle="#c1-add-options">Свернуть расширенные настройки</a>
+                    <a href="#c1-add-options" class="js-toggle toggle-link" data-toggle-text="Свернуть расширенные настройки">Развернуть расширенные настройки</a>
                   </div>
                 </div>
 

@@ -93,18 +93,18 @@
 
               <div id="filter-group<?php echo $filter_group['filter_group_id']; ?>">
 
-                <?php foreach ($filter_attributes[$filter_group_id] as $filter) { ?>
+                <?php foreach ($filter_attributes[$filter_group_id] as $index => $filter) { ?>
                 <?php if ($filter_group_id == 16) { ?>
                 <div class="filter-item filter-item--img">
                 <?php } else { ?>
                 <div class="filter-item">
                 <?php } ?>
-                    <?php if (isset($ffilter[$filter_group_id]) AND in_array($filter, $ffilter[$filter_group_id])) { ?>
-                    <input class="checkbox" type="checkbox" id="ffilter_<?php echo $filter_group_id.'-'.$filter; ?>" name="ffilter[<?php echo $filter_group_id; ?>][]" value="<?php echo $filter; ?>" checked="checked" />
+                    <?php if (isset($ffilter[$filter_group_id]) AND in_array($index, $ffilter[$filter_group_id])) { ?>
+                    <input class="checkbox" type="checkbox" id="ffilter_<?php echo $filter_group_id.'-'.$index; ?>" name="ffilter[<?php echo $filter_group_id; ?>][]" value="<?php echo $index; ?>" checked="checked" />
                     <?php } else { ?>
-                    <input class="checkbox" type="checkbox" id="ffilter_<?php echo $filter_group_id.'-'.$filter; ?>" name="ffilter[<?php echo $filter_group_id; ?>][]" value="<?php echo $filter; ?>" />
+                    <input class="checkbox" type="checkbox" id="ffilter_<?php echo $filter_group_id.'-'.$index; ?>" name="ffilter[<?php echo $filter_group_id; ?>][]" value="<?php echo $index; ?>" />
                     <?php } ?>
-                    <label for="ffilter_<?php echo $filter_group_id.'-'.$filter; ?>"><?php echo $filter; ?></label>
+                    <label for="ffilter_<?php echo $filter_group_id.'-'.$index; ?>"><?php echo $filter; ?></label>
                 </div>
                 <?php } ?>
 
@@ -150,3 +150,4 @@ $('#button-reset').on('click', function(){
 //--></script>
 
 </div>
+

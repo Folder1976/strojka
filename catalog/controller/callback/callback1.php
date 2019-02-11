@@ -34,33 +34,37 @@
             <div class="header">
                 <p>Давайте торговаться!</p>
             </div>
-			<div class="contacts">
-				<div class="input-group">
+			<div class="contacts clearfix">
+				<div class="form-group col-md-6">
 					<!-- <label class="required">Имя:</label> -->
 					<input name="name" class="input" placeholder="Имя Отчество Фамилия" required>
 				</div>
-				<div class="input-group">
+				<div class="form-group col-md-6">
 					<!-- <label class="required">Телефон:</label> -->
 					<input name="phone" class="input input--phone" placeholder="Телефон" required>
 				</div>
-				<div class="input-group">
+				<div class="form-group col-md-6">
 					<!-- <label>E-mail:</label> -->
 					<input name="email" class="input" placeholder="E-mail">
 				</div>
-                <div class="input-group">
+				<div class="form-group col-md-6">
+					<!-- <label>Комментарий:</label> -->
+					<textarea name="comment" class="textarea" placeholder="Комментарий" style="padding: 0.8rem 1.5rem; height: 42px;"></textarea>
+				</div>
+        <div class="form-group col-md-6">
 					<label>Ваша цена:</label>
 					<input name="customer_price" id="customer_price" class="input" placeholder="0.00">
 				</div>
-				<div class="input-group">
-					<!-- <label>Комментарий:</label> -->
-					<textarea name="comment" class="textarea" rows="2" placeholder="Комментарий"></textarea>
-				</div>
 				
-				<div class="button-wrapper">
-					<button class="btn btn--black" type="submit">Отправить</button>
+				<div class="form-group col-md-6">
+					<label></label>
+					<div class="button-wrapper">
+						<button class="btn btn--black" type="submit" style="padding: 1rem 2rem;width: 100%;">Отправить</button>
+					</div>
 				</div>
 				
 			</div>
+			<br>
 		</div>
 	</form>
 </div>

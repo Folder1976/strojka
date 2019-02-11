@@ -84,11 +84,21 @@
 					 <?php //sort($filter_attributes[$filter_group_id]); ?>
 						
 						<a class="filter-group__title"><?php echo $filter_group['name']; ?></a>
+
+            <?php if ($filter_group_id == 16) { ?>
+            <div class="filter-group__content filter-group__content--2col">
+            <?php } else { ?>
             <div class="filter-group__content">
+            <?php } ?>
+
               <div id="filter-group<?php echo $filter_group['filter_group_id']; ?>">
 
                 <?php foreach ($filter_attributes[$filter_group_id] as $filter) { ?>
+                <?php if ($filter_group_id == 16) { ?>
+                <div class="filter-item filter-item--img">
+                <?php } else { ?>
                 <div class="filter-item">
+                <?php } ?>
                     <?php if (isset($ffilter[$filter_group_id]) AND in_array($filter, $ffilter[$filter_group_id])) { ?>
                     <input class="checkbox" type="checkbox" id="ffilter_<?php echo $filter_group_id.'-'.$filter; ?>" name="ffilter[<?php echo $filter_group_id; ?>][]" value="<?php echo $filter; ?>" checked="checked" />
                     <?php } else { ?>

@@ -92,9 +92,11 @@
     }
   }
   &__content {
-    // padding: 1.5rem 0;
-    // border-bottom: 1px solid #000;
-    // margin-bottom: 1.5rem;
+    &--2col > * {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
   }
 
   &:last-children {
@@ -117,6 +119,28 @@
       width: 1.2rem;
       height: 1.2rem;
       top: .2rem;
+    }
+  }
+
+  &--img {
+    .checkbox + label {
+      padding: 0;
+      border: 1px solid transparent;
+      transition: all .3s;
+      display: block;
+      height: 100%;
+
+      &:before,
+      &:after {
+        display: none;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+    .checkbox:checked + label {
+      border-color: $primary_color;
     }
   }
 }

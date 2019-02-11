@@ -100,6 +100,8 @@ $bottom_menu = array(
     'href' => '#',
   ),
 );
+
+$logo = '/image/catalog/ROOFER_LOGO_1.svg';
 ?>
 
   <header class="site__header header">

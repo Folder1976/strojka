@@ -4046,9 +4046,6 @@ hr,
         text-align: right; } }
   .header__logo {
     height: 40px; }
-    @media screen and (max-width: 768px) {
-      .header__logo {
-        max-width: 95px; } }
     .header__logo .logo__link {
       position: relative;
       z-index: 10; }
@@ -4278,6 +4275,21 @@ hr,
     padding: 5px;
     border: 1px solid #000; }
 
+.logo__img {
+  height: 81px; }
+  @media screen and (max-width: 1200px) {
+    .logo__img {
+      height: 93px; } }
+  @media screen and (max-width: 992px) {
+    .logo__img {
+      height: 104px;
+      width: 104px;
+      max-width: inherit; } }
+  @media screen and (max-width: 360px) {
+    .logo__img {
+      height: 65px;
+      width: 65px; } }
+
 .back-to-top {
   position: fixed;
   z-index: 50;
@@ -4443,6 +4455,18 @@ ul.pagination {
   font-size: 1.8rem;
   font-weight: 900;
   text-transform: uppercase; }
+
+.infoblock-entry span {
+  color: #000; }
+
+.infoblock-entry .object-service {
+  display: block;
+  font-size: 1.6rem;
+  margin-bottom: 1rem; }
+
+.infoblock-entry .object-link {
+  float: left;
+  margin: 0 1rem 1rem 0; }
 
 .content-style p {
   margin-top: 0;
@@ -5366,6 +5390,11 @@ ol li {
             transform: rotate(45deg);
     top: 1.9rem; }
 
+.filter-group__content--2col > * {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem; }
+
 .filter-group:last-children .filter-group__content {
   border-bottom: 0;
   margin-bottom: 0; }
@@ -5379,6 +5408,19 @@ ol li {
       width: 1.2rem;
       height: 1.2rem;
       top: .2rem; }
+  .filter-item--img .checkbox + label {
+    padding: 0;
+    border: 1px solid transparent;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    display: block;
+    height: 100%; }
+    .filter-item--img .checkbox + label:before, .filter-item--img .checkbox + label:after {
+      display: none; }
+    .filter-item--img .checkbox + label img {
+      width: 100%; }
+  .filter-item--img .checkbox:checked + label {
+    border-color: #fbbe18; }
 
 #filter-mob.mfp-hide {
   display: block !important; }

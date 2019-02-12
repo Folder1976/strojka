@@ -13,7 +13,11 @@ class ControllerStartupSeoUrl extends Controller {
 			
 			$this->request->get['route'] = 'calculator/calculator';
 			
-		}elseif (isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'information') {
+		}elseif (isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'cart') {
+			
+			$this->request->get['route'] = 'checkout/onepagecheckout';
+			
+		}elseif (isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'services') {
 			
 			$this->request->get['route'] = 'product/blog_category';
 			$this->request->get['blogpath'] = '0';
@@ -172,3 +176,4 @@ class ControllerStartupSeoUrl extends Controller {
 		}
 	}
 }
+

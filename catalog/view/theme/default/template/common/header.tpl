@@ -59,7 +59,7 @@ if ( in_array( $page, array('root', 'fundament', '') ) ) {
 $top_menu = array(
   array (
     'name' => 'Услуги',
-    'href' => '/information',
+    'href' => '/services',
     'children' => array(), //$blog_categories,
   ),
   array (
@@ -84,12 +84,12 @@ $bottom_menu = array(
   array (
     'name' => $blog_categories[16]['name'],
     'href' => $blog_categories[16]['href'],
-    'children' => $blog_categories[16]['children'],
+    'children' => $blog_categories[16]['children_category'],
   ),
   array (
     'name' => 'Фундамент',
     'href' => $blog_categories[13]['href'],
-    'children' => $blog_categories[13]['children'],
+    'children' => $blog_categories[13]['children_category'],
   ),
   array (
     'name' => 'проектирование и дизайн',
@@ -274,6 +274,7 @@ $logo = '/image/catalog/ROOFER_LOGO_1.svg';
 
 
   <div class="site__content">
+
 
 
 

@@ -171,9 +171,14 @@ class ControllerProductBlogCategory extends Controller {
 					'limit'              => 20
 				);
 				
+				$prods = $this->model_catalog_blog_product->getProducts($filter_data);
+				foreach($prods as $b_product_id => $value){
+					$prods[$b_product_id]['href'] = $this->url->link('product/blog_product', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id']. '&blog_product_id=' . $value['blog_product_id']);
+				}
+				
 				$data['categories'][] = array(
 					'blog_category_id' => $result['blog_category_id'] ,
-					'products'			=> $this->model_catalog_blog_product->getProducts($filter_data),
+					'products'			=> $prods,
 					'keyword' => $result['keyword'] ,
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_blog_product->getTotalProducts($filter_data) . ')' : ''),
 					'href' => $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id'] . $url)

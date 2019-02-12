@@ -26,7 +26,7 @@
 
         <?php foreach ($categories as $category) { ?>
         <div class="list-category__item list-category-item">
-          <div class="list-category-item__title"><a href="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a></div>
+          <div class="list-category-item__title"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div>
 
           <?php if ( isset($category['children']) && count($category['children']) > 0 ) { ?>
           <ul class="list-category-item__list">
@@ -251,3 +251,4 @@
 
 
 <?php echo $footer; ?>
+

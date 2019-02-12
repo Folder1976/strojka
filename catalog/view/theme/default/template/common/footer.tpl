@@ -139,7 +139,7 @@ $('#msg_send').on('click', function() {
           <div class="footer__col-nav">
             <div class="footer__title">Навигация</div>
             <ul class="footer__menu">
-              <li><a href="/information">Услуги</a></li>
+              <li><a href="/services">Услуги</a></li>
               <li><a href="/products">Товары</a></li>
               <li><a href="<?php echo $manufacturer; ?>">Все бренды</a></li>
               <li><a href="/company-reviews">Отзывы</a></li>

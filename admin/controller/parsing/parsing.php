@@ -107,9 +107,9 @@ class ControllerParsingParsing extends Controller {
 					$sql = 'UPDATE oc_parsing_militarist SET `url` = \''.$list['url'].'\' WHERE `id` = \''.$list['id'].'\';';
 					$this->db->query($sql) or die('==' . $sql);
 		
-					echo '<h3 style="color:orange;">url - '.$list['url'].'</h3>';
+					echo '<h3 >url - <a style="color:orange;" href="'.$list['url'].'" target="_blank">'.$list['url'].'</a></h3>';
 				}else{
-					echo '<h3 style="color:green;">url - '.$list['url'].'</h3>';
+					echo '<h3 >url - <a style="color:green;" href="'.$list['url'].'" target="_blank">'.$list['url'].'</a></h3>';
 				}
 					
 				//Get content via proxy
@@ -128,7 +128,7 @@ class ControllerParsingParsing extends Controller {
 				if($tmp){
 					$breadcrumbs_html = $tmp->innertext();
 					$this->html_tmp = str_get_html($breadcrumbs_html);
-					$breadcrumbs_html = $this->html_tmp->find('li a');
+					$breadcrumbs_html = $this->html_tmp->find('li a, li span');
 					$breadcrumbs = array();
 					
 					$i = 0;
@@ -154,7 +154,7 @@ class ControllerParsingParsing extends Controller {
 					$breadcrumbs_txt = '';
 				}
 					
-					
+		
 				//Массив ссылок
 				$str_tmp = $this->html->find('a');
 				echo '<h4>Найдены линки новые линки</h4>';
@@ -235,6 +235,7 @@ class ControllerParsingParsing extends Controller {
 				
 				
 				$category_id = $this->importCategory( $data);
+				
 			}
 			
 			
@@ -285,15 +286,19 @@ class ControllerParsingParsing extends Controller {
 				$this->reload();	
 				return true;
 			//Это категория
-			}else{	
+			}else{
+				
+				
+				if(isset($keywords[$i++])){
 				$data = array('keyword' => $keywords[$i++],
 							'name' => $category_name,
 							'meta_title' => trim(iconv( 'windows-1251', 'UTF-8', $this->html->find('h1',0)->innertext())),
 							'parent_id' => $category_id);
 				$category_id = $this->importCategory( $data);
-				
+				}
 				$this->setViewed($list['url'], 1, 'category_id='.$category_id);
 				$this->reload();
+				
 				return true;
 			}
 			
@@ -458,7 +463,7 @@ class ControllerParsingParsing extends Controller {
 			}
 		}
 	
-		return $title;
+		return $this->no_parazit($title);
 	}
 		
 	public function  getProductMetaDescription($html){
@@ -469,7 +474,7 @@ class ControllerParsingParsing extends Controller {
 			}
 		}
 	
-		return $description;
+		return $this->no_parazit($description);
 	}
 	
 	
@@ -603,6 +608,12 @@ class ControllerParsingParsing extends Controller {
 		return str_replace($rus, $lat, $str);
 	}
 
+	public function no_parazit($str) {
+		$rus = array('Агат', 'agate.ru');
+		$lat = array('Roofer','roofer.ru');
+		return str_replace($rus, $lat, $str);
+	}
+
 	
   //import prices and products
 	public function importCategory( $data) {
@@ -621,14 +632,19 @@ class ControllerParsingParsing extends Controller {
                 $image = '';
 				
 				
-                $r = $this->db->query( "SELECT c.category_id, c.top FROM `" . DB_PREFIX . "category` c
+                $r = $this->db->query( "SELECT * FROM `" . DB_PREFIX . "category` c
 											LEFT JOIN `" . DB_PREFIX . "category_description` cd ON cd.category_id = c.category_id
-											WHERE c.parent_id='".$data['parent_id']."' AND cd.name LIKE '".$data['name']."'");
+											WHERE c.parent_id='".$data['parent_id']."' AND cd.name LIKE '".$data['name']."'
+											AND cd.language_id=2");
 				
 				$top = 0;
+				$style =0;
+				$description='';
                 if($r->num_rows){
                     $category_id = $r->row['category_id'];
                     $top = $r->row['top'];
+                    $style = $r->row['style'];
+					$description = $r->row['description'];
                 }
                  
                 $data = array(
@@ -637,19 +653,20 @@ class ControllerParsingParsing extends Controller {
                               'sort_order' => $sort_order,
                               'top' => $top,
                               'image' => $image,
+                              'style' => $style,
                               'status' => '1',
                               'keyword' => strtolower($data['keyword']), //strtolower($this->translitArtkl($name)),
                               'category_description' => array(
                                     '1' => array(
                                                  'name' => $name,
-                                                 'description' => '',
+                                                 'description' => $description,
                                                  'meta_title' => $data['meta_title'],
                                                  'meta_description' => $data['meta_title'],
                                                  'meta_keyword' => $data['meta_title'],
                                                  ),
                                     '2' => array(
                                                  'name' => $name,
-                                                 'description' => '',
+                                                 'description' => $description,
                                                  'meta_title' => $data['meta_title'],
                                                  'meta_description' => $data['meta_title'],
                                                  'meta_keyword' => $data['meta_title'],

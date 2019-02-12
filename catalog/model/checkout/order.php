@@ -392,7 +392,30 @@ class ModelCheckoutOrder extends Model {
 	
 				$data['title'] = sprintf($language->get('text_new_subject'), $order_info['store_name'], $order_id);
 	
-				$data['text_greeting'] = sprintf($language->get('text_new_greeting'), $order_info['store_name']);
+				//$data['text_greeting'] = sprintf($language->get('text_new_greeting'), $order_info['store_name']);
+				$find = array(
+							  '%name%',
+							  '%order_id%',
+							  '%order_date%',
+							  '%total%',
+							  '%store_name%'
+							  );
+
+				
+				$tmp_total = array_pop($order_total_query->rows);
+							  
+				$replace = array(
+								$order_info['firstname'],
+								(int)$order_id,
+								$order_info['date_added'],
+								$this->currency->format($tmp_total['value'], $order_info['currency_code'], $order_info['currency_value']),
+								$order_info['store_name'],
+								 );
+				
+				$data['text_greeting'] = str_replace($find, $replace, $language->get('text_new_greeting'));
+										  
+										  
+										  
 				$data['text_link'] = $language->get('text_new_link');
 				$data['text_download'] = $language->get('text_new_download');
 				$data['text_order_detail'] = $language->get('text_new_order_detail');
@@ -573,7 +596,7 @@ class ModelCheckoutOrder extends Model {
 				}
 	
 				// Text Mail
-				$text  = sprintf($language->get('text_new_greeting'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8')) . "\n\n";
+				$text  = sprintf($language->get('text_new_greeting_store'), html_entity_decode($order_info['store_name'], ENT_QUOTES, 'UTF-8')) . "\n\n";
 				$text .= $language->get('text_new_order_id') . ' ' . $order_id . "\n";
 				$text .= $language->get('text_new_date_added') . ' ' . date($language->get('date_format_short'), strtotime($order_info['date_added'])) . "\n";
 				$text .= $language->get('text_new_order_status') . ' ' . $order_status . "\n\n";

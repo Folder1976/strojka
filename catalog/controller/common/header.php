@@ -146,7 +146,7 @@ class ControllerCommonHeader extends Controller {
 				);
 				
 				//echo '<pre>'; print_r(var_dump($filter_data));
-				//$children = $this->model_catalog_blog_category->getCategories($category['blog_category_id']);
+				$children_category = $this->model_catalog_blog_category->getCategories($category['blog_category_id']);
 
 				$children = $this->model_catalog_blog_product->getProducts($filter_data);
 				
@@ -157,10 +157,18 @@ class ControllerCommonHeader extends Controller {
 					);
 				}
 
+				foreach ($children_category as $child) {
+					$children_data_category[] = array(
+						'name'  => $child['name'],
+						'href'  => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
+					);
+				}
+
 				// Level 1
 				$data['blog_categories'][$category['blog_category_id']] = array(
 					'name'     => $category['name'],
 					'children' => $children_data,
+					'children_category' => $children_data_category,
 					'column'   => $category['column'] ? $category['column'] : 1,
 					'href'     => $this->url->link('product/blog_product', 'blogpath=' . $category['blog_category_id'])
 				);

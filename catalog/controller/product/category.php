@@ -293,7 +293,7 @@ class ControllerProductCategory extends Controller {
 
 			$results = $this->model_catalog_product->getProducts($filter_data);
 
-			if($category_id == 143 OR $category_id == 141){
+			if($category_id == 143 OR $category_id == 141 /*OR $category_id == 144*/){
 				$results = array();
 				$product_total = 0;
 			}

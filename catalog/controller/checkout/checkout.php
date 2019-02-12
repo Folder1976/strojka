@@ -6,7 +6,8 @@ class ControllerCheckoutCheckout extends Controller {
 			$this->response->redirect($this->url->link('checkout/cart'));
 		}
 		
-		$this->response->redirect($this->url->link('checkout/onepagecheckout'));
+		//$this->response->redirect($this->url->link('checkout/onepagecheckout'));
+		$this->response->redirect(HTTP_SERVER.'cart');
 		
 		// Validate minimum quantity requirements.
 		$products = $this->cart->getProducts();
@@ -149,3 +150,4 @@ class ControllerCheckoutCheckout extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
+

@@ -54,10 +54,19 @@ class ControllerCheckoutSuccess extends Controller {
 				//'order_id'    => $this->session->data['order_id']
 			);
 		} else {
-			$data['customer'] = array(
-				'name'     => $this->session->data['guest']['firstname'] . ' ' . $this->session->data['guest']['lastname'],
-				//'order_id' => $this->session->data['order_id']
-			);
+			
+			if(isset($this->session->data['guest'])){
+				$data['customer'] = array(
+					'name'     => $this->session->data['guest']['firstname'] . ' ' . $this->session->data['guest']['lastname'],
+					//'order_id' => $this->session->data['order_id']
+				);
+				
+			}else{
+				$data['customer'] = array(
+					'name'     => 'Гость',
+					//'order_id' => $this->session->data['order_id']
+				);
+			}
 		}
 
 		$this->document->setTitle($this->language->get('heading_title'));

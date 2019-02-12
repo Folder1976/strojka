@@ -112,12 +112,22 @@ class ControllerParsingParsing extends Controller {
 					echo '<h3 >url - <a style="color:green;" href="'.$list['url'].'" target="_blank">'.$list['url'].'</a></h3>';
 				}
 					
+				if(!file_get_contents($list['url'])){
+					echo '<br><br>Нет страницы!!!<br><br>';
+					$sql = 'UPDATE oc_parsing_militarist SET view = \'3\' WHERE url="'.$list['url'].'";';
+					$this->db->query($sql) or die('==' . $sql);
+					$this->reload();
+					return true;
+				}
+					
 				//Get content via proxy
 				$this->html = @file_get_html($list['url']);
 				
 				
 				//Если это кривой линк - возможно удаленный товар
 				if(!$this->html){
+								
+					
 					$this->setViewed($list['url']);
 					$this->reload();
 					return true;

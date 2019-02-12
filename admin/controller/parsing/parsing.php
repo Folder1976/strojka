@@ -653,7 +653,6 @@ class ControllerParsingParsing extends Controller {
                               'sort_order' => $sort_order,
                               'top' => $top,
                               'image' => $image,
-                              'style' => $style,
                               'status' => '1',
                               'keyword' => strtolower($data['keyword']), //strtolower($this->translitArtkl($name)),
                               'category_description' => array(
@@ -674,6 +673,8 @@ class ControllerParsingParsing extends Controller {
                               ),
                         );
                 
+				if($style) $data['$style'] = $style;
+				
                 $this->load->model('catalog/category');
                 
                 if($category_id == 0){

@@ -251,8 +251,7 @@
         <br>
       <?php } ?>
 
-
-      <?php if ( isset($videos) and count($videos) > 1 ) { ?>
+      <?php if ( isset($videos) and count($videos) > 0 ) { ?>
         <h3 class="h3-title" id="video">Видео</h3>
         <div class="row">
           <?php foreach($videos as $video){ ?>
@@ -262,8 +261,8 @@
         <br>
       <?php } ?>
 
-      <?php if ( isset($images) and count($images) > 1) { ?>
-        <h3 class="h3-title" id="images">Картинки</h3>
+      <?php if ( isset($images) and count($images) > 0) { ?>
+        <h3 class="h3-title" id="images">Примеры объектов</h3>
         <div class="row">
           <?php foreach($images as $image){ ?>
           <div class="col-sm-3"><img src="<?php echo $image['popup']; ?>" >

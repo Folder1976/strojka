@@ -175,46 +175,22 @@ $categories = array (
         <div class="description"><?php echo $description; ?></div>
       <?php } ?>
 
-
-      <?php if ( $images && count($images) > 0 ) { ?>
-        <div class="slider slider--work js-slider">
-          <div class="slider__arrows">
-            <div class="slider__arrow slider__arrow--prev">
-              <svg class="icon slider__arrow-icon">
-                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-prev"></use>
-              </svg>
-            </div>
-            <div class="slider__arrow slider__arrow--next">
-              <svg class="icon slider__arrow-icon">
-                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-next"></use>
-              </svg>
-            </div>
-          </div>
-
-          <div class="slider__list">          
-            <?php foreach ($images as $image) { ?>
-              <div class="slider__item slider-item">
-
-                <div class="slider-item__img img--cover"><a href="<?php echo $image['popup']; ?>" class="zoom-foto"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" class="zoom-foto"></a></div>
-              </div>
-            <?php } ?>
-          </div>
-
-        </div>
-      <?php } ?>
-
       <br>
       <br>
       <br>
       <div class="h3-title">Выполненые проекты</div>
 
       <div class="row">
-      <?php foreach ($products as $pr) { ?>
-        <div class="col-sm-4 col-xs-6">
-          <a href="<?php echo $pr['href']; ?>"><img src="<?php echo $pr['thumb']; ?>" alt="<?php echo $pr['name']; ?>"></a>
+      <?php foreach ($images as $image) { ?>
+        <div class="img--cover col-md-4 col-xs-6">
+          <img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" href="<?php echo $image['popup']; ?>" class="zoom-foto">
         </div>
       <?php } ?>
       </div>
+
+      <br>
+      <br>
+      <br>
 
       <?php if ( isset($categories) && count($categories) > 0 ) { ?>
       <div class="list-category">
@@ -281,9 +257,9 @@ $categories = array (
 
       <div class="seller">
         <div class="seller__img">
-          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Иннокентий Гаврилов. Менеджер отдела продаж">
+          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Антипин Александр. Менеджер отдела продаж">
         </div>
-        <div class="seller__name">Иннокентий Гаврилов</div>
+        <div class="seller__name">Антипин Александр</div>
         <div class="seller__post">Менеджер отдела продаж</div>
         <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
         <p><a href="/online-calc">Калькулятор и составление КП</a></p>

@@ -52,7 +52,7 @@ $news = array();
                 <a href="<?php echo $product['href']; ?>"><img class="img--cover" src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>"></a>
               </div>
               <div class="news-item__desc">
-                <div class="news-item__date"><?php echo '1.12.2018';//$product['date']; ?></div>
+                <div class="news-item__date"><?php echo $product['date_added']; ?></div>
                 <div class="news-item__title"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
               </div>
             </div>

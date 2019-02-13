@@ -93,7 +93,7 @@ $('#msg_send').on('click', function() {
       </div>
       <div class="col-md-5 text-center">
         <img class="mf-get-consultation__foto" src="catalog/view/theme/default/img/foto/sales-manager.jpg" alt="sales-manager">
-        <p>Вас будет обслуживать<br>менеджер отдела продаж:<br><b>Иннокентий Гаврилов</b></p>
+        <p>Вас будет обслуживать<br>менеджер отдела продаж:<br><b>Антипин Александр</b></p>
       </div>
     </div>
   </div>
@@ -143,7 +143,7 @@ $('#msg_send').on('click', function() {
               <li><a href="/products">Товары</a></li>
               <li><a href="<?php echo $manufacturer; ?>">Все бренды</a></li>
               <li><a href="/company-reviews">Отзывы</a></li>
-              <li><a href="/our-works">Наши проекты</a></li>
+              <li><a href="/works">Наши проекты</a></li>
               <li><a href="/our-team">Команда</a></li>
               <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
               <li><a href="/privacy">Политика конфиденциальности</a></li>

@@ -73,11 +73,11 @@ $top_menu = array(
   ),
   array (
     'name' => 'Наши работы',
-    'href' => '/our-works',
+    'href' => '/works',
   ),
   array (
     'name' => 'Блог',
-    'href' => '/news',
+    'href' => '/blog',
   ),
 );
 $bottom_menu = array(

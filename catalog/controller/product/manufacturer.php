@@ -50,14 +50,18 @@ $this->load->model('tool/image');
 				$image = $this->model_tool_image->resize('placeholder.png', 200, 200);
 			}
 
-			
-			$data['categories'][$key]['manufacturer'][] = array(
-				'img' => $image,
-				'image' => $image,
-				'name' => $result['name'],
-				'name' => $result['name'],
-				'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result['manufacturer_id'])
-			);
+			if ($result['image']) {
+				// выводим только производителей с логотипом
+				$data['categories'][$key]['manufacturer'][] = array(
+					'img' => $image,
+					'image' => $image,
+					'name' => $result['name'],
+					'name' => $result['name'],
+					'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result['manufacturer_id'])
+				);
+			} else {
+				unset( $data['categories'][$key] );
+			}
 		}
 
 		$data['continue'] = $this->url->link('common/home');

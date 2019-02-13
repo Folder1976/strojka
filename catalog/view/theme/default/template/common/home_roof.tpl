@@ -38,7 +38,7 @@ $team = array(
   ),
   array(
     'foto' => 'catalog/view/theme/default/img/tmpimg/team-4.jpg',
-    'name' => 'Иннокентий Гаврилов',
+    'name' => 'Антипин Александр',
     'position' => 'Начальник службы доставки'
   ),
 );
@@ -590,7 +590,7 @@ $reviews_slider = array(
         </div>
 
         <div class="btn-wrap text-center">
-          <a href="/our-works" class="btn btn--dib btn--black">посмотреть все наши работы</a>
+          <a href="/works" class="btn btn--dib btn--black">посмотреть все наши работы</a>
         </div>
       </div>
     </div>

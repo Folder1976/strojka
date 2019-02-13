@@ -228,7 +228,13 @@ ul.pagination {
 
 
 // yandex map
+// .ymaps-2-1-72-balloon {
+//   min-width: 30rem;
+// }
 .infoblock-entry {
+  min-width: 30rem;
+  display: block;
+
   span {
     color: #000;
   }
@@ -242,6 +248,10 @@ ul.pagination {
   .object-link {
     float: left;
     margin: 0 1rem 1rem 0;
+  }
+
+  .feature-row {
+    display: block;
   }
 }
 

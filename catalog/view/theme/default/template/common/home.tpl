@@ -46,18 +46,24 @@ $team = array(
   ),
 );
 
-$works = array(
-  array(
-    'img' => 'catalog/view/theme/default/img/tmpimg/work-1.jpg',
-    'title' => 'Строительство сложной кровли.<br>Фальц и чешуя.',
+$works = array (
+  0 => 
+  array (
+    'thumb' => 'http://cn08183.tmweb.ru/image/cache/catalog/projects/pr1/IMG_20181225_172347-228x228.jpg',
+    'name' => 'Кровля дома и гаража',
+    'href' => '/works?blog_product_id=24',
   ),
-  array(
-    'img' => 'catalog/view/theme/default/img/tmpimg/work-2.jpg',
-    'title' => 'Реконструкция крыши.<br>Монтаж пфальцевой кровли',
+  1 => 
+  array (
+    'thumb' => 'http://cn08183.tmweb.ru/image/cache/catalog/projects/pr3/3/20180910_105104-228x228.jpg',
+    'name' => 'Монтаж кровли из гибкой черепицы',
+    'href' => '/works?blog_product_id=23',
   ),
-  array(
-    'img' => 'catalog/view/theme/default/img/tmpimg/work-3.jpg',
-    'title' => 'Замена глиняной черепицы на мягкую черепицу',
+  2 => 
+  array (
+    'thumb' => 'http://cn08183.tmweb.ru/image/cache/catalog/projects/pr2/20180727_143848-228x228.jpg',
+    'name' => 'Монтаж кровли на деревянном доме',
+    'href' => '/works?blog_product_id=25',
   ),
 );
 
@@ -254,10 +260,10 @@ $reviews_slider = array(
 
           <?php foreach ($works as $work) { ?>
             <div class="work-list__item work-item">
-              <div class="work-item__img">
-                <img src="<?php echo $work['img']; ?>" alt="<?php echo $work['title']; ?>">
+              <div class="work-item__img img--cover">
+                <img src="<?php echo $work['thumb']; ?>" alt="<?php echo $work['name']; ?>">
               </div>
-              <div class="work-item__title"><?php echo $work['title']; ?></div>
+              <div class="work-item__title"><a href="<?php echo $work['href']; ?>"><?php echo $work['name']; ?></a></div>
             </div>
           <?php } ?>
 

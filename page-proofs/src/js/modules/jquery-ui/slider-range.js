@@ -46,6 +46,22 @@ function rangeInit(uirId, options = {}){
       uirHandle[uirId].html( ui.value + ' ' + units );
       uirVal[uirId].val( $( this ).slider( "value" ) );
     },
+    stop: function( event, ui ) {
+      var units = '';
+      if ( $(this).data('units') ) {
+        units = $(this).data('units');
+      }
+      uirHandle[uirId].html( ui.value + ' ' + units );
+      uirVal[uirId].val( $( this ).slider( "value" ) );
+    },
+    change: function( event, ui ) {
+      var units = '';
+      if ( $(this).data('units') ) {
+        units = $(this).data('units');
+      }
+      uirHandle[uirId].html( ui.value + ' ' + units );
+      uirVal[uirId].val( $( this ).slider( "value" ) );
+    },
     range: "min"
   };
 

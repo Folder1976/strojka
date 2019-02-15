@@ -5,7 +5,8 @@ $contact_list = array(
   array(
     'title' => 'Главный офис',
     'text' => 'г. Москва, Киевское шоссе, 22-й километр, дв4с1кА<br>ПН-ПТ: 09:00 — 18:00<br>СБ-ВС: 10:00 — 18:00<br>8 (495) 235-03-30<br>Email: info@krovlja-stroy.ru',
-    'link' => "https://www.google.ru/maps/place/56%C2%B000'39.2%22N+37%C2%B010'54.0%22E/@56.0114296,37.17883,17.75z/data=!4m5!3m4!1s0x0:0x0!8m2!3d56.010901!4d37.181661",
+    // 'link' => "https://www.google.ru/maps/place/56%C2%B000'39.2%22N+37%C2%B010'54.0%22E/@56.0114296,37.17883,17.75z/data=!4m5!3m4!1s0x0:0x0!8m2!3d56.010901!4d37.181661",
+    'link' => "https://yandex.ru/maps/213/moscow/?from=api-maps&l=map&ll=37.441006%2C55.634176&origin=jsapi_2_1_72&pt=37.119142%2C55.426288~37.127955%2C55.588079~37.28162%2C55.425379&z=16.8",
   ),
   // array(
   //   'title' => 'лобня',

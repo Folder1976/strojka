@@ -1,199 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+
+
 <?php
-class ControllerCalculatorCalculator extends Controller {
-	public function index() {
-		$this->document->setTitle($this->config->get('config_meta_title'));
-		$this->document->setDescription($this->config->get('config_meta_description'));
-		$this->document->setKeywords($this->config->get('config_meta_keyword'));
+//echo "<pre>";print_r(var_dump($fields));echo "</pre>";
+?>
 
-		if (isset($this->request->get['route'])) {
-			$this->document->addLink($this->config->get('config_url'), 'canonical');
-		}
 
-		$data['column_left'] = $this->load->controller('common/column_left');
-		$data['column_right'] = $this->load->controller('common/column_right');
-		$data['content_top'] = $this->load->controller('common/content_top');
-		$data['content_bottom'] = $this->load->controller('common/content_bottom');
-		$data['footer'] = $this->load->controller('common/footer');
-		$data['header'] = $this->load->controller('common/header');
 
-        $data['calculator'] = $this->calculator_json();
-        
-		if(isset($this->request->get['calculator_json'])){
-			return $data['calculator'];
-		}
-        
-		$this->response->setOutput($this->load->view('calculator/calculator', $data));
-	}
-	
-	public function calculator_json() {
-		
-		$data = array();
-		
-		return  $this->load->view('calculator/calculator_json', $data);
-		
-	}
-	
-	public function step() {
-		
-			$sql = 'SELECT * FROM '.DB_PREFIX.'calculator ORDER BY `id`';
-			$r = $this->db->query($sql);
-		foreach($r->rows as $row){
-			$sql = 'INSERT INTO oc_calculator SET
-					group_id = 2,
-					sub_group_id="'.$row['sub_group_id'].'",
-			`key`="'.$row['key'].'",
-			name="'.$row['name'].'",
-			price="'.$row['price'].'",
-			mera="'.$row['mera'].'",
-			koef="'.$row['koef'].'",
-			plus="'.$row['plus'].'",
-			sort="'.$row['sort'].'",
-			operation="'.$row['operation'].'"
-		
-			';
-			//$this->db->query($sql);
-		}
-		
-		$json = array();
-		$data = array();
-		$json['post'] = array();
-		
-		$In = array('all');
-		$main_value = 0;
-		
-		foreach($this->request->post as $index => $value){
-			$json['post'][$index] = $value;
-			$In[] = $index;
-		}
-		
-		$group_id = 0;
-		if(isset($this->request->post['c1-type-roof']) AND $this->request->post['c1-type-roof'] == 1) {
-			$group_id = 1;
-			$main_value = ceil((float)$this->request->post['c1-area']);
-		}elseif(isset($this->request->post['c1-type-roof']) AND $this->request->post['c1-type-roof'] == 2) {
-			$group_id = 2;
-			$main_value = ceil((float)$this->request->post['c1-area']);
-		}elseif(isset($this->request->post['c2-type-roof-1'])) {
-			$group_id = 3;
-		}elseif(isset($this->request->post['c2-type-roof-2'])) {
-			$group_id = 4;
-		}elseif(isset($this->request->post['c3-type-roof-1'])) {
-			$group_id = 5;
-		}elseif(isset($this->request->post['c3-type-roof-2'])) {
-			$group_id = 6;
-		}
-		
-		if(isset($this->request->get['step'])){
-			
-			$json['step'] = $this->request->get['step'];
-			
-			$sql = 'SELECT *,c.name AS name, cg.name AS group_name, csg.name AS sub_group_name FROM '.DB_PREFIX.'calculator c
-						LEFT JOIN '.DB_PREFIX.'calculator_group cg On c.group_id = cg.group_id
-						LEFT JOIN '.DB_PREFIX.'calculator_sub_group csg On c.sub_group_id = csg.sub_group_id
-						WHERE `key` IN ("'.implode('","',$In).'") AND c.group_id = '.$group_id.'
-						ORDER BY c.sub_group_id, c.sort, c.name
-						';
-			$json['sql'] = $sql;
-			$r = $this->db->query($sql);
-			
-			
-			//Формируем список
-			$data['total'] = 0;
-			$data['fields'] = array();
-			$data['sub_groups'] = array();
-			
-			if($r->num_rows){
-				foreach($r->rows as $row){
-					
-					if($row['key'] == 'all' OR (isset($this->request->post[$row['key']]) AND (int)$this->request->post[$row['key']] == 1)){
-						$quantity = $main_value;
-					}else{
-						$quantity = ceil((float)$this->request->post[$row['key']]);
-					}
-					
-					//Делим на коэф и добавляем запас
-					if($row['operation'] == 0){
-						$quantity = $quantity / (float)$row['koef'] * ((float)$row['plus']/100 + 1);
-					}else{
-						$quantity = $quantity * (float)$row['koef'] * ((float)$row['plus']/100 + 1);
-					}
-					
-					$quantity = ceil($quantity);
-					
-					$data['sub_groups'][$row['sub_group_id']] = $row['sub_group_name'];
-					$data['header'] = $row['header'];
-					
-					$data['fields'][$row['sub_group_id']][] = array(
-																  
-									'name' => $row['name'],
-									'mera' => $row['mera'],
-									'quantity' => $quantity,
-									'price' => number_format($row['price'], 1, '.', ' '),
-									'total' => number_format($quantity * $row['price'], 0, '.', ' '),
-									'price_f' => $this->currency->format($row['price'], $this->session->data['currency']),
-									'total_f' => $this->currency->format($quantity * $row['price'], $this->session->data['currency']),
-																  
-																  );
-					
-					$data['total'] += $quantity * $row['price'];
-					
-				}
-			}
-			
-			$data['total'] = $this->currency->format($data['total'], $this->session->data['currency']);
-			
-			//Расчет суммы
-			$json['total'] = $data['total'];
-			
-			
-			if(isset($json['post']['email']) AND $json['post']['email'] != '' AND $this->request->get['step'] > 1){
-				
-				if(strpos($json['post']['email'], '@') === false){
-					
-					$json['error'] = 'Не верный email!';
-					
-				}else{
-					
-					$subject = 'Заказ на просчет';
-					$text = 'Просчет доступен в HTML';
-					$msg = $this->load->view('mail/calculator', $data);
-					$mail = new Mail();
-					$mail->protocol = $this->config->get('config_mail_protocol');
-					$mail->parameter = $this->config->get('config_mail_parameter');
-					$mail->smtp_hostname = $this->config->get('config_mail_smtp_hostname');
-					$mail->smtp_username = $this->config->get('config_mail_smtp_username');
-					$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
-					$mail->smtp_port = $this->config->get('config_mail_smtp_port');
-					$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
-		
-					$mail->setTo($json['post']['email']);
-					$mail->setFrom($this->config->get('config_email'));
-					$mail->setSender(html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'));
-					$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
-					$mail->setHtml($this->load->view('mail/calculator', $data));
-					$mail->setText($text);
-					
-					$mail->setTo($json['post']['email']);
-					$mail->send();
-					
-					$mail->setTo($this->config->get('config_email'));
-					//$mail->send();
-					
-					$json['success'] = 'Расчет цен отправлен на Ваш емаил!';
-					
-				}
-				
-				
-				
-			}
-			
-			
-		}		
-		
-		$this->response->addHeader('Content-Type: application/json');
-		$this->response->setOutput(json_encode($json));
+<table style="background:#ffffff;width:100%;padding:0;margin:0;font-family: Arial, 'Helvetica CY', 'Nimbus Sans L', sans-serif;">
+  <tbody>
+    <tr>
+      <td>
+        <center>
+          <table style="width:750px;padding:0;margin:0;border-spacing:0px;background:url(http://cn08183.tmweb.ru/email-img/bg2.jpg) top left no-repeat">
+            <tbody>
+              <tr>
+                <td style="width:200px;padding:10px;height: 80px;"></td>
+                <td style="width:250px;padding:10px;font-size:20px;text-align:center;color:#000000">Москва, ул. Соуолова, 25<span class="il">1</span></td>
+                <td style="width:250px;padding:2px;font-size:20px;text-align:right;color:#000000"><a href="tel:84952350330" style="text-decoration:none;color:black" target="_blank">Тел.: 8 (495) 235-03-30</a><br></td>
+              </tr>
+              <tr>
+                <td colspan="3" style="text-align:right;width:750px;line-height: 40px;font-size:30px;color:#fff;text-align:center;font-weight:bold;text-transform: uppercase;padding-bottom: 15px;">
+                  <br>
+                  <?php echo $header; ?>
+                  <br>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3" style="width:750px;font-size:36px;color:#fff;text-align:center;font-weight:bold">
+                  <center>
+                    <table style="width:335px;padding:1;margin:0;border-spacing:0px;background:#000000">
+                      <tbody>
+                        <tr>
+                          <td style="width:335px;font-size:20px;color: #fbbe18;text-align:center;font-weight:bold">
+                            <br>Цена
+                            <br>
+                            <br>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width:335px;font-size:30px;color: #fbbe18;text-align:center;font-weight:bold;padding-bottom: 10px;"><?php echo $total; ?><br></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </center>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <table style="width:750px;padding:0;margin:0px 0 0 0;border-spacing:0px;background:#ffffff">
+            <tbody>
+              <tr>
+                <td style="width:750px">
+                  <center>
+                    <table style="width:335px;padding:0;border-spacing:0px;background:#fbbe18">
+                      <tbody>
+                        <tr>
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px;text-transform: uppercase;"><br>За эти деньги вы получаете:
+                              <br>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Монтаж и материалы под ключ
+                              <br>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Полная гарантия сроков
+                              <br>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Спечиалисты с богатым опытом
+                              <br>
+                              <br>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <table style="width:750px;padding:0;border-spacing:0px">
+                      <tbody>
+                        <tr>
+                          <td style="width:750px;font-size:36px;text-align:center;padding:0px 0 0 40px;font-weight:bold;text-transform: uppercase;">
+                              <br>Расчёт цен
+                              <br> </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                    <table style="width:700px;padding:0;border-spacing:0px;font-size:14px">
+                      <tbody>
+                          <tr style="background:#fbbe18;color:#000000;">
+                              <th style="text-align: left;padding-left: 10px">№</th>
+                              <th style="text-align: left;width:200px">Наименование</th>
+                              <th style="text-align: left;padding:10px 0px 10px 0px">Ед. изм.</th>
+                              <th style="text-align: left;">Кол-во</th>
+                              <th style="text-align: left;">Стоимость</th>
+                              <th style="text-align: left;padding-right: 10px">Сумма</th>
+                          </tr>
+						  
+						  <?php foreach($fields as $sub_group_id => $rows){ ?>
+						  <tr>
+                              <td></td>
+                              <td style="font-weight:bold;padding:10px 0px 10px 0px"><br><br><?php echo $sub_groups[$sub_group_id]; ?></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td style="padding-right: 10px"></td>
+                          </tr>
+							<?php $i = 1; ?>
+							<?php foreach($rows as $row){ ?>
+							  <tr>
+								  <td style="padding:10px 0px 10px 10px"><span class="il"><?php echo $i++ ;?></span></td>
+								  <td style="width:200px"><?php echo $row['name']; ?></td>
+								  
+								  <?php if($row['mera'] == 'м2'){ ?>
+									<td>м<sup>2</sup></td>
+								  <?php }else{ ?>
+									<td><?php echo $row['mera']; ?></td>
+								  <?php } ?>
+								  <td><?php echo $row['quantity']; ?></td>
+								  <td><?php echo $row['price']; ?></td>
+								  <td style="padding-right: 10px"><?php echo $row['total']; ?></td>
+							  </tr>
+							<?php } ?>
+						<?php } ?>
 						
-	}
-	
-	
-}
+					   
+					      <!--tr>
+                              <td style="padding:10px 0px 10px 10px">2</td>
+                              <td style="width:200px">Планка конька плоского 150х150х2000</td>
+                              <td>шт</td>
+                              <td>19</td>
+                              <td>460</td>
+                              <td style="padding-right: 10px">8740</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">3</td>
+                              <td style="width:200px">Планка карнизная 100х69х2000</td>
+                              <td>шт</td>
+                              <td>33</td>
+                              <td>224</td>
+                              <td style="padding-right: 10px">7392</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">4</td>
+                              <td style="width:200px">Планка торцевая 95х120х2000</td>
+                              <td>шт</td>
+                              <td>33</td>
+                              <td>272</td>
+                              <td style="padding-right: 10px">8976</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">5</td>
+                              <td style="width:200px">Планка ендовы 76х76х2000</td>
+                              <td>шт</td>
+                              <td>7</td>
+                              <td>368</td>
+                              <td style="padding-right: 10px">2576</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">6</td>
+                              <td style="width:200px">Планка примыкания 250х147х2000</td>
+                              <td>шт</td>
+                              <td>5</td>
+                              <td>368</td>
+                              <td style="padding-right: 10px">1840</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">7</td>
+                              <td style="width:200px">Саморезы кровельные 35мм</td>
+                              <td>шт</td>
+                              <td>1074</td>
+                              <td>2.5</td>
+                              <td style="padding-right: 10px">2685</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">8</td>
+                              <td style="width:200px">Саморезы кровельные 75мм</td>
+                              <td>шт</td>
+                              <td>358</td>
+                              <td>3.9</td>
+                              <td style="padding-right: 10px">1396.2</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">9</td>
+                              <td style="width:200px">Пленка гидроизоляционная Д 110 Стандарт (<span class="il">1</span>.5х50 м)</td>
+                              <td>шт</td>
+                              <td>3</td>
+                              <td>2700</td>
+                              <td style="padding-right: 10px">8100</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">10</td>
+                              <td style="width:200px">Пленка пароизоляционная Н 96 Сильвер (<span class="il">1</span>.5х50 м)</td>
+                              <td>шт</td>
+                              <td>3</td>
+                              <td>1475</td>
+                              <td style="padding-right: 10px">4425</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">11</td>
+                              <td style="width:200px">Утеплитель Роквул (Rockwool) Лайт Баттс Скандик (50 мм, 5,76 кв.м.)</td>
+                              <td>шт</td>
+                              <td>35</td>
+                              <td>480</td>
+                              <td style="padding-right: 10px">16800</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">12</td>
+                              <td style="width:200px">Пиломатериал</td>
+                              <td>шт</td>
+                              <td>7.16</td>
+                              <td>7500</td>
+                              <td style="padding-right: 10px">53700</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">13</td>
+                              <td style="width:200px">Антисептик Сенеж Био трудновымываемый для жилых объектов <span class="il">1</span> кг</td>
+                              <td>шт</td>
+                              <td>44.75</td>
+                              <td>100</td>
+                              <td style="padding-right: 10px">4475</td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td style="font-weight:bold;padding:10px 0px 10px 0px"><br><br>Демонтаж</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td style="padding-right: 10px"></td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px"><span class="il">1</span></td>
+                              <td style="width:200px">Демонтаж кровельного покрытия (шифер, м.ч., профлист и т.д.)</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>100</td>
+                              <td style="padding-right: 10px">17900</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">2</td>
+                              <td style="width:200px">Демонтаж старой обрешетки</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>65</td>
+                              <td style="padding-right: 10px">11635</td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td style="font-weight:bold;padding:10px 0px 10px 0px"><br><br>Монтаж</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td style="padding-right: 10px"></td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px"><span class="il">1</span></td>
+                              <td style="width:200px">Антисептирование пиломатериалов</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>45</td>
+                              <td style="padding-right: 10px">8055</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">2</td>
+                              <td style="width:200px">Монтаж стропильной системы</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>450</td>
+                              <td style="padding-right: 10px">80550</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">3</td>
+                              <td style="width:200px">Устройство пароизоляции</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>70</td>
+                              <td style="padding-right: 10px">12530</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">4</td>
+                              <td style="width:200px">Монтаж черновой обрешетки</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>70</td>
+                              <td style="padding-right: 10px">12530</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">5</td>
+                              <td style="width:200px">Укладка утеплителя 50мм</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>50</td>
+                              <td style="padding-right: 10px">8950</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">6</td>
+                              <td style="width:200px">Устроийство гидроизоляции, ветрозащиты</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>70</td>
+                              <td style="padding-right: 10px">12530</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">7</td>
+                              <td style="width:200px">Монтаж контробрешетки</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>65</td>
+                              <td style="padding-right: 10px">11635</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">8</td>
+                              <td style="width:200px">Монтаж шаговой обрешетки</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>90</td>
+                              <td style="padding-right: 10px">16110</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">9</td>
+                              <td style="width:200px">Монтаж металлочерепицы с доборными элементами</td>
+                              <td>м<sup>2</sup></td>
+                              <td>179</td>
+                              <td>350</td>
+                              <td style="padding-right: 10px">62650</td>
+                          </tr>
+                          <tr>
+                              <td></td>
+                              <td style="font-weight:bold;padding:10px 0px 10px 0px"><br><br>Услуги</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td style="padding-right: 10px"></td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px"><span class="il">1</span></td>
+                              <td style="width:200px">Накладные расходы</td>
+                              <td>шт</td>
+                              <td><span class="il">1</span></td>
+                              <td>5000</td>
+                              <td style="padding-right: 10px">5000</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">2</td>
+                              <td style="width:200px">Расходные материалы</td>
+                              <td>шт</td>
+                              <td><span class="il">1</span></td>
+                              <td>18043</td>
+                              <td style="padding-right: 10px">18043</td>
+                          </tr>
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px">3</td>
+                              <td style="width:200px">Доставка</td>
+                              <td>шт</td>
+                              <td><span class="il">1</span></td>
+                              <td>10000</td>
+                              <td style="padding-right: 10px">10000</td>
+                          </tr-->
+                          <tr>
+                              <td style="padding:10px 0px 10px 10px"></td>
+                              <td style="font-weight:bold;padding:10px 0px 10px 0px"><br><br>Итого</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td style="font-weight:bold;width:60px;padding-right: 10px"><br><br><?php echo $total; ?></td>
+                          </tr>
+                          <tr>
+                            <td style="min-width: 40px;"></td>
+                            <td colspan="5" style="padding:10px 0px 10px 0px"><br><br>* В таблице указана средняя стоимость на данный объем работ. Для точного расчет необходим выезд специалиста на ваш объект.</td>
+                         </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                    <table style="width:750px;padding:0;margin:0;border-spacing:0px">
+                      <tbody>
+                        <tr>
+                          <td style="width:750px;font-weight:900;">
+                            <center>
+                                  <br>
+                                  <br><span style="font-size:36px">ВАС БУДЕТ ОСЛУЖИВАТЬ</span>
+                                  <br>
+                                  <br><img src="http://cn08183.tmweb.ru/email-img/manager.jpg" width="270px">
+                                  <br>
+                                  <br><span style="font-weight:700;font-size:18px">Антипин Александр</span>
+                                  <br><span style="font-weight:normal;font-size:18px">Менеджер отдела продаж</span>
+                                  <br>
+                                  <br><a href="tel:84952350330" style="font-size: 30px;text-decoration:none;color:#000000" target="_blank">8 (495) 235-03-30</a>
+                                  <br>
+                                  <br><a href="tel:84952350330" style="width:370px;margin:15px auto;background:#fbbe18;border-radius:5px;color:#000;text-align:center;height:59px;line-height:57px;font-weight: normal;font-size:18px;text-decoration:none;padding:20px;text-transform: uppercase;" target="_blank">Уточнить цену работ</a>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <br><span style="font-weight:900;font-size:30px;text-transform: uppercase;">Примеры работ</span>
+                                  <br>
+                                  <br><img src="http://cn08183.tmweb.ru/email-img/work1.jpg" style="width:750px;margin:10px 0 0 0" tabindex="0">
+                                  <br>
+                                  <br>
+                                  <table style="width:690px;padding:0;margin:0;border-spacing:0px;font-size: 18px;font-weight: 300;line-height: 15px;">
+                                    <tbody>
+                                      <tr>
+                                        <td><img src="http://cn08183.tmweb.ru/email-img/ico-time.png"></td>
+                                        <td>Срок: 11 дней</td>
+                                        <td><img src="http://cn08183.tmweb.ru/email-img/ico-m2.png"></td>
+                                        <td>Площадь: 320 м2</td>
+                                        <td><img src="http://cn08183.tmweb.ru/email-img/ico-location.png"></td>
+                                        <td>Место: Щелковский район</td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+
+                                  <br>
+                                  <br>
+                                  <br><span style="font-weight:900;font-size:30px;text-transform: uppercase;">Отзывы</span>
+                                  <br>
+                                  <br><img src="http://cn08183.tmweb.ru/email-img/work2.jpg" style="width:750px;margin:10px 0 0 0" tabindex="0">
+                                  <br>
+                                  <table style="width:750px;padding:0;margin:0px 0 0 0;border-spacing:0px">
+                                      <tbody>
+                                          <tr>
+                                              <td style="font-size:18px;font-weight: 300; padding:0;margin:0;border-spacing:0px;padding:15px 30px 0">12.07.2018    Автор: Сергей Костромской</td>
+                                          </tr>
+                                          <tr>
+                                            <td style="font-size:18px;font-weight: 300; padding:0;margin:0;border-spacing:0px;padding:15px 30px 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</td>
+                                          </tr>
+                                      </tbody>
+                                  </table>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <br><span style="font-weight:900;font-size:30px;text-transform: uppercase;">Остались вопросы?</span>
+                                  <br>
+                                  <br><img src="http://cn08183.tmweb.ru/email-img/manager.jpg" width="270px">
+                                  <br>
+                                  <br><span style="font-weight:700;font-size:18px">Антипин Александр</span>
+                                  <br><span style="font-weight:normal;font-size:18px">Менеджер отдела продаж</span>
+                                  <br>
+                                  <br><a href="tel:84952350330" style="font-size: 30px;text-decoration:none;color:#000000" target="_blank">8 (495) 235-03-30</a>
+                                  <br>
+                                  <br><a href="tel:84952350330" style="width:370px;margin:15px auto;background:#fbbe18;border-radius:5px;color:#000;text-align:center;height:59px;line-height:57px;font-weight: normal;font-size:18px;text-decoration:none;padding:20px;text-transform: uppercase;" target="_blank">Уточнить цену работ</a>
+                                  <br>
+                                  <br>
+                                  <br><span style="font-weight:bold;font-size:18px">В ответ на это письмо напишите ваш контактный номер и мы вам перезвоним!</span>
+                                  <br>
+                                  <br>
+                                  <br>
+                                  <br>
+                                </center>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                    <br>
+                  </center>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table style="width:750px;padding:0;margin:0;border-spacing:0px;background:#000000;background:url(http://cn08183.tmweb.ru/email-img/bg-f.png) top left no-repeat">
+            <tbody>
+              <tr>
+                <td width="200" style="padding:10px 0"></td>
+                <td width="330" style="padding:20px 0 0;text-align:left;color:#000000;font-size: 20px;">
+                    Москва, ул. Соуолова, 25
+                    <br>
+                    <br>
+                </td>
+                <td width="220" style="padding:40px 0 0;font-size:20px;text-align:center"><a href="tel:84952350330" style="text-decoration:none;color:black;font-weight:900" target="_blank">8 (495) 235-03-30</a>
+                    <br>
+                    <br>
+                    <br> </td>
+              </tr>
+              <tr>
+                <td style="padding:0"></td>
+                <td style="padding:0;text-align:left"><br><br><a href="mailto:Fdrtfr@mail.ru" target="_blank" style="font-size: 25px;font-weight: 900;color: #000000;">Fdrtfr@mail.ru</a><br><br><br></td>
+                <td style="padding:0;text-align:center"><br>
+                  <a href="http://www.facebook.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.facebook.com/"><img src="http://cn08183.tmweb.ru/email-img/fb.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="http://www.vk.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.vk.com/"><img src="http://cn08183.tmweb.ru/email-img/vk.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="http://www.instagram.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.instagram.com/"><img src="http://cn08183.tmweb.ru/email-img/inst.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="http://www.twitter.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.twitter.com/"><img src="http://cn08183.tmweb.ru/email-img/tw.png" style="padding-right: 10px" height="35px"></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </center>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+

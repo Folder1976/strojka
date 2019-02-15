@@ -89,7 +89,6 @@ $bottom_menu = array(
   array (
     'name' => 'Фундамент',
     'href' => $blog_categories[13]['href'],
-    'children' => $blog_categories[13]['children_category'],
   ),
   array (
     'name' => 'проектирование и дизайн',

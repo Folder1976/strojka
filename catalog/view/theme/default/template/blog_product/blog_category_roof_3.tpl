@@ -86,7 +86,7 @@ $reasons_to_order = array(
     <div class="row">
       <div class="col-md-11 col-md-offset-1">
         <div class="section-home-top__content">
-          <h1 class="site-title">Cтроительство крыш в москве и области под ключ за 10 дней</h1>
+          <h1 class="site-title">Ремонт кровли в Москве</h1>
           <div class="section-home-top__desc">
             <p>Строим крыши с 1996 года. Подготавливаем подробную смету на работы и материалы. Даем юридическую гарантию неизменности цени и завершения работы в срок.</p>
             <br>

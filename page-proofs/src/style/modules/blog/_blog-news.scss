@@ -23,6 +23,10 @@
     img {
       width: 100%;
       height: 200px;
+
+      @media screen and (max-width: $bs_break_md) {
+        height: 18rem;
+      }
     }
   }
   &__date {}
@@ -77,6 +81,7 @@
   &--works {
     & > * {
       margin-bottom: 0;
+      width: 100%;
     }
 
     .news-item {

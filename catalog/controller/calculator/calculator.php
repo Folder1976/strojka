@@ -35,11 +35,11 @@ class ControllerCalculatorCalculator extends Controller {
 	
 	public function step() {
 		
-			$sql = 'SELECT * FROM '.DB_PREFIX.'calculator ORDER BY `id`';
+			$sql = 'SELECT * FROM '.DB_PREFIX.'calculator WHERE group_id=5';
 			$r = $this->db->query($sql);
 		foreach($r->rows as $row){
 			$sql = 'INSERT INTO oc_calculator SET
-					group_id = 2,
+					group_id = 6,
 					sub_group_id="'.$row['sub_group_id'].'",
 			`key`="'.$row['key'].'",
 			name="'.$row['name'].'",
@@ -73,14 +73,18 @@ class ControllerCalculatorCalculator extends Controller {
 		}elseif(isset($this->request->post['c1-type-roof']) AND $this->request->post['c1-type-roof'] == 2) {
 			$group_id = 2;
 			$main_value = ceil((float)$this->request->post['c1-area']);
-		}elseif(isset($this->request->post['c2-type-roof-1'])) {
+		}elseif(isset($this->request->post['c2-type-roof']) AND $this->request->post['c2-type-roof'] == 1) {
 			$group_id = 3;
-		}elseif(isset($this->request->post['c2-type-roof-2'])) {
+			$main_value = ceil((float)$this->request->post['с2-length-eaves']);
+		}elseif(isset($this->request->post['c2-type-roof']) AND $this->request->post['c2-type-roof'] == 2) {
 			$group_id = 4;
-		}elseif(isset($this->request->post['c3-type-roof-1'])) {
+			$main_value = ceil((float)$this->request->post['с2-length-eaves']);
+		}elseif(isset($this->request->post['c3-type-roof']) AND $this->request->post['c3-type-roof'] == 1) {
 			$group_id = 5;
-		}elseif(isset($this->request->post['c3-type-roof-2'])) {
+			$main_value = ceil((float)$this->request->post['с3-length-roof']);
+		}elseif(isset($this->request->post['c3-type-roof']) AND $this->request->post['c3-type-roof'] == 2) {
 			$group_id = 6;
+			$main_value = ceil((float)$this->request->post['с3-length-roof']);
 		}
 		
 		if(isset($this->request->get['step'])){
@@ -93,7 +97,7 @@ class ControllerCalculatorCalculator extends Controller {
 						WHERE `key` IN ("'.implode('","',$In).'") AND c.group_id = '.$group_id.'
 						ORDER BY c.sub_group_id, c.sort, c.name
 						';
-			$json['sql'] = $sql;
+			//$json['sql'] = $sql;
 			$r = $this->db->query($sql);
 			
 			
@@ -105,7 +109,7 @@ class ControllerCalculatorCalculator extends Controller {
 			if($r->num_rows){
 				foreach($r->rows as $row){
 					
-					if($row['key'] == 'all' OR (isset($this->request->post[$row['key']]) AND (int)$this->request->post[$row['key']] == 1)){
+					if($row['key'] == 'all'){// OR (isset($this->request->post[$row['key']]) AND (int)$this->request->post[$row['key']] == 1)){
 						$quantity = $main_value;
 					}else{
 						$quantity = ceil((float)$this->request->post[$row['key']]);
@@ -114,6 +118,14 @@ class ControllerCalculatorCalculator extends Controller {
 					//Делим на коэф и добавляем запас
 					if($row['operation'] == 0){
 						$quantity = $quantity / (float)$row['koef'] * ((float)$row['plus']/100 + 1);
+					}elseif($row['operation'] == 2){
+						//Особая обработка
+						
+						//Водосточная труба 3м
+						if(isset($this->request->post[$row['key']]) AND $this->request->post[$row['key']] == 'с2-height'){
+							$quantity = ($row['с2-count-drainpipe']*$row['с2-height']/$row['koef']) * ((float)$row['plus']/100 + 1);
+						}
+						
 					}else{
 						$quantity = $quantity * (float)$row['koef'] * ((float)$row['plus']/100 + 1);
 					}
@@ -139,6 +151,8 @@ class ControllerCalculatorCalculator extends Controller {
 					
 				}
 			}
+			
+			//$json['data'] = $data;
 			
 			$data['total'] = $this->currency->format($data['total'], $this->session->data['currency']);
 			

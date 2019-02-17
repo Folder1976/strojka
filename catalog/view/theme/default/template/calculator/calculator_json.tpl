@@ -612,7 +612,7 @@ $('.js-next-step').on('click', function(e){
     dataType: 'json',
     success: function(json) {
     
-      // console.log(json);
+      console.log(json);
       //debugger;
       
       if(json['total']){
@@ -642,3 +642,4 @@ $('.js-prev-step').on('click', function(e){
   tab.data('step', stepNum).find('.calc__step-' + stepNum).show('200');
 });
 </script>
+

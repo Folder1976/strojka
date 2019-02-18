@@ -109,7 +109,10 @@ class ControllerCalculatorCalculator extends Controller {
 			if($r->num_rows){
 				foreach($r->rows as $row){
 					
-					if($row['key'] == 'all'){// OR (isset($this->request->post[$row['key']]) AND (int)$this->request->post[$row['key']] == 1)){
+					if($row['key'] == 'all' OR (isset($this->request->post[$row['key']]) AND
+												(int)$this->request->post[$row['key']] == 1) AND
+									($row['key'] != 'с2-count-drainpipe' AND $row['key'] != 'с3-length-overhang')
+					   ){
 						$quantity = $main_value;
 					}else{
 						$quantity = ceil((float)$this->request->post[$row['key']]);

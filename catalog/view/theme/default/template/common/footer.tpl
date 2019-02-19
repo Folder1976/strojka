@@ -169,7 +169,7 @@ $('#msg_send').on('click', function() {
             </div>
             <div class="row">
               <div class="col-md-12">
-                <img src="catalog/view/theme/default/img/tmpimg/map.jpg" alt="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5385.0344323659!2d37.12454795530563!3d55.42555983581724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1suk!2sua!4v1550581180244" height="170" frameborder="0" style="border:0; width: 100%;" allowfullscreen></iframe>
               </div>
             </div>
           </div>

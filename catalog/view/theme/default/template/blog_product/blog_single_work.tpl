@@ -106,6 +106,7 @@ $news = array();
     <div class="col-md-3 col-md-pull-9">
       <?php // echo $column_left; ?>
 
+      <?php if ( isset($news) && count($news)>0 ) { ?>
       <h3 class="widget-title">Новости компании</h3>
       <div class="news-list">
         
@@ -122,6 +123,7 @@ $news = array();
         <?php } ?>
 
       </div>
+      <?php } ?>
     </div>
   </div>
 

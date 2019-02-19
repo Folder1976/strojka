@@ -32,26 +32,26 @@ $contact_list = array(
 
 
 
-$news = array(
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-1.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-2.jpg',
-    'link' => '#',
-  ),
-  array(
-    'title' => 'Название новости',
-    'date' => '1.12.2018',
-    'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-3.jpg',
-    'link' => '#',
-  ),
-);
+// $news = array(
+//   array(
+//     'title' => 'Название новости',
+//     'date' => '1.12.2018',
+//     'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-1.jpg',
+//     'link' => '#',
+//   ),
+//   array(
+//     'title' => 'Название новости',
+//     'date' => '1.12.2018',
+//     'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-2.jpg',
+//     'link' => '#',
+//   ),
+//   array(
+//     'title' => 'Название новости',
+//     'date' => '1.12.2018',
+//     'foto' => 'catalog/view/theme/default/img/tmpimg/contact-news-3.jpg',
+//     'link' => '#',
+//   ),
+// );
 ?>
 
 
@@ -83,6 +83,7 @@ $news = array(
     </div>
 
     <div class="col-md-3 col-md-pull-9">
+      <?php if ( isset($news) && count($news)>0 ) { ?>
       <h3 class="widget-title">Новости компании</h3>
       <div class="news-list">
         
@@ -99,6 +100,7 @@ $news = array(
         <?php } ?>
 
       </div>
+      <?php } ?>
     </div>
 
   </div>

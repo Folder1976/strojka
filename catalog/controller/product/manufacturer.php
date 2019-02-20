@@ -9,6 +9,11 @@ class ControllerProductManufacturer extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+			$this->document->setTitle('Бренды');
+			$this->document->setDescription('Компания легально сотрудничает с 27 российскими и зарубежными компаниями, которые производят стройматериалы для кровельных работ. Вся поставляемая продукция прошла сертификация в подразделениях Госстандарта.');
+			$this->document->setKeywords('Бренды');
+		
+		
 		$data['heading_title'] = $this->language->get('heading_title');
 
 		$data['text_index'] = $this->language->get('text_index');
@@ -442,4 +447,5 @@ $this->load->model('tool/image');
 		}
 	}
 }
+
 

@@ -22,10 +22,18 @@ class ControllerStartupSeoUrl extends Controller {
 			$this->request->get['route'] = 'product/blog_category';
 			$this->request->get['blogpath'] = '0';
 			
+			$this->document->setTitle('Услуги кровли крыши компании Руфер');
+			$this->document->setDescription('Компания предлагает разнообразные услуги для своих клиентов. К перечню таких сервисов относятся работы по проектированию, (в т.ч. сметному), монтажу и ремонту кровель, а также поставка требуемых стройматериалов.');
+			$this->document->setKeywords('Услуги кровли крыши компании Руфер');
+			
 		}elseif (isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'products') {
 			
 			$this->request->get['route'] = 'product/category';
 			$this->request->get['path'] = '0';
+			
+			$this->document->setTitle('Наши товары материалы для кровли крыши');
+			$this->document->setDescription('Компания предлагает различные виды попутных товаров для монтажных кровельных работ, которые будут реализовываться по приемлемым ценам');
+			$this->document->setKeywords('Наши товары материалы для кровли крыши');
 			
 		// Decode URL
 		}elseif (isset($this->request->get['_route_'])) {

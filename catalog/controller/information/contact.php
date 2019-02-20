@@ -5,7 +5,11 @@ class ControllerInformationContact extends Controller {
 	public function index() {
 		$this->load->language('information/contact');
 
-		$this->document->setTitle($this->language->get('heading_title'));
+		//$this->document->setTitle($this->language->get('heading_title'));
+		$this->document->setTitle('Наши контакты');
+		$this->document->setDescription('Компания готова сотрудничать с клиентами, используя всевозможные каналы связи, в т.ч. и на сайте! Наши менеджеры свяжутся с Вами!');
+		$this->document->setKeywords('Наши контакты');
+		
 
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
 			$mail = new Mail();
@@ -218,3 +222,4 @@ class ControllerInformationContact extends Controller {
 		$this->response->setOutput($this->load->view('common/success', $data));
 	}
 }
+

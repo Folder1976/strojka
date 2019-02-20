@@ -88,7 +88,7 @@ $reasons_to_order = array(
         <div class="section-home-top__content">
           <h1 class="site-title">Ремонт кровли в Москве</h1>
           <div class="section-home-top__desc">
-            <p>Строим крыши с 1996 года. Подготавливаем подробную смету на работы и материалы. Даем юридическую гарантию неизменности цени и завершения работы в срок.</p>
+            <p>Занимаемся монтажом кровельных конструкций с 2012 года с реальной калькуляцией на стройматериалы и проводимые монтажно – восстановительные мероприятия. Оформляем правовую гарантию сохранности цены и временных сроков окончания работ!</p>
             <br>
             <a href="/roof#online-calc" class="btn btn--orange btn--dib btn--w100">сделайте расчёт за 50 секунд</a>
           </div>
@@ -351,13 +351,13 @@ $reasons_to_order = array(
 
     <div class="row">
       <div class="col-md-7 col-md-offset-1">
-        <h2 class="section-title">рассчитайте стоимость работ и материалов с точностью 90%</h2>
+        <h2 class="section-title">Произведите расчет цены стройматериалов и монтажных работ с 90- процентной точностью.</h2>
       </div>
     </div>
     <div class="row">
       <div class="col-md-5 col-md-offset-1">
         <div class="section-calculate-the-cost__text">
-          <p class="section-calculate-the-cost__p">Среднее время расчета - 1 минута. Вы сразу получаете стоимость сметы. И при желании можете оформить индивидуальное предложение с подробным перечнем материалов и работ себе на почту.</p><br><a class="btn btn--black btn--dib" href="/online-calc" target="_blank">сделать расчёт за 50 секунд</a>
+          <p class="section-calculate-the-cost__p">Затратив на расчеты всего лишь минуту, заказчик определит сметную стоимость планируемых работ! Здесь же, на сайте можно изложить персональный заказ с перечнем планируемых монтажных или реставрационных работ и количеством требуемых стройматериалов. Обратная связь посредством электронной почты.</p><br><a class="btn btn--black btn--dib" href="/online-calc" target="_blank">сделать расчёт за 50 секунд</a>
           <br>
           <br>
           <p class="section-calculate-the-cost__p--small">Или закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" style="white-space: nowrap;"><?php echo $telephone; ?></a></b></p>

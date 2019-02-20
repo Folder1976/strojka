@@ -144,7 +144,7 @@ $('#msg_send').on('click', function() {
               <li><a href="<?php echo $manufacturer; ?>">Все бренды</a></li>
               <li><a href="/company-reviews">Отзывы</a></li>
               <li><a href="/works">Наши проекты</a></li>
-              <li><a href="/our-team">Команда</a></li>
+              <li><a href="/command">Команда</a></li>
               <li><a href="<?php echo $contact; ?>"><?php echo $text_contact; ?></a></li>
               <li><a href="/privacy">Политика конфиденциальности</a></li>
             </ul>

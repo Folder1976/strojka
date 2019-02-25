@@ -23,24 +23,20 @@ $left_col_cat = array (
      'blog_category_id' => '19',
      'products' => 
      array (
-      222 => array( 'name' => 'Монтаж сланцевой кровли', ),
-      223 => array( 'name' => 'Скатная кровля', ),
-      224 => array( 'name' => 'Плоская кровля', ),
-      225 => array( 'name' => 'Строительство крыш', ),
-      226 => array( 'name' => 'Дополнительные работы', ),
-      227 => array( 'name' => 'Ремонт кровли в Москве', ),
-      228 => array( 'name' => 'Обслуживание кровли', ),
+      223 => array( 'name' => 'Скатная кровля', 'href' => '/krovlya/skatnaya-krovlya' ),
+      225 => array( 'name' => 'Строительство крыш', 'href' => '/krovlya/stroitelstvo-krysh' ),
+      227 => array( 'name' => 'Ремонт кровли в Москве', 'href' => '/krovlya/remont-krovli' ),
      ),
      'keyword' => '',
      'name' => 'Кровля',
-     'href' => '',
+     'href' => '/krovlya',
    ),
    1 => 
    array (
      'blog_category_id' => '17',
      'keyword' => '',
      'name' => 'Дизайн и проектирование',
-     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_17',
+     'href' => '/krovlya/blog_roof_project',
    ),
    2 => 
    array (
@@ -50,7 +46,7 @@ $left_col_cat = array (
      ),
      'keyword' => '',
      'name' => 'Строительство домов',
-     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_18',
+     'href' => '#',
    ),
  );
 
@@ -64,7 +60,7 @@ $categories = array (
      ),
      'keyword' => '',
      'name' => 'Ремонт кровли в Москве (0)',
-     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_19',
+     'href' => '/index.php?route=product/blog_category&blogpath=16_19',
    ),
    1 => 
    array (
@@ -119,7 +115,7 @@ $categories = array (
      ),
      'keyword' => '',
      'name' => 'Скатная кровля (1)',
-     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_17',
+     'href' => '/index.php?route=product/blog_category&blogpath=16_17',
    ),
    2 => 
    array (
@@ -129,7 +125,7 @@ $categories = array (
      ),
      'keyword' => '',
      'name' => 'Строительство крыш (0)',
-     'href' => '//localhost:3000/index.php?route=product/blog_category&blogpath=16_18',
+     'href' => '/index.php?route=product/blog_category&blogpath=16_18',
    ),
  );
 ?>
@@ -229,7 +225,7 @@ $categories = array (
         
         <?php foreach ($left_col_cat as $category) { ?>
           <div class="blog__left-menu-cat">
-            <div class="blog__left-menu-cat-name"><a href="<?php echo $category['name']; ?>"><?php echo $category['name']; ?></a></div>
+            <div class="blog__left-menu-cat-name"><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div>
 
             <?php if ( isset($category['children']) && count($category['children']) > 0 ) { ?>
             <ul>

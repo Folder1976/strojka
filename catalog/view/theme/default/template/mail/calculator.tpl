@@ -484,7 +484,7 @@
               </tr>
               <tr>
                 <td style="padding:0"></td>
-                <td style="padding:0;text-align:left"><br><br><a href="mailto:Fdrtfr@mail.ru" target="_blank" style="font-size: 25px;font-weight: 900;color: #000000;">Fdrtfr@mail.ru</a><br><br><br></td>
+                <td style="padding:0;text-align:left"><br><br><a href="mailto:info@rooferr.ru" target="_blank" style="font-size: 25px;font-weight: 900;color: #000000;">info@rooferr.ru</a><br><br><br></td>
                 <td style="padding:0;text-align:center"><br>
                   <a href="http://www.facebook.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.facebook.com/"><img src="http://cn08183.tmweb.ru/email-img/fb.png" style="padding-right: 10px" height="35px"></a>
                   <a href="http://www.vk.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.vk.com/"><img src="http://cn08183.tmweb.ru/email-img/vk.png" style="padding-right: 10px" height="35px"></a>

@@ -170,7 +170,7 @@ $reviews_slider = array(
               <svg class="icon smet__icon">
                 <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#list"></use>
               </svg>
-              <a class="smet__download-link" href="http://krovlja-stroy.ru/wp-content/themes/roof/blocks/_smeta/assets/pdf/smeta.pdf" target="_blank">Скачать пример сметы</a>
+              <a class="smet__download-link" href="#" target="_blank">Скачать пример сметы</a>
             </div>
             <div class="smet__title">Оправдываем ожидания на 100%</div>
             <div class="smet__desc">Итоговый результат удовлетворит самого требовательного клиента. Детально проработанное техзадание и подробная смета уменьшают риск ошибки.</div>
@@ -181,7 +181,7 @@ $reviews_slider = array(
               <svg class="icon smet__icon">
                 <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#check-list"></use>
               </svg>
-              <a class="smet__download-link" href="http://krovlja-stroy.ru/wp-content/themes/roof/blocks/_smeta/assets/pdf/checklist.pdf" target="_blank">Скачать пример чек-листа</a>
+              <a class="smet__download-link" href="#" target="_blank">Скачать пример чек-листа</a>
             </div>
             <div class="smet__title">100% соответствие с проектом</div>
             <div class="smet__desc">Перед началом работ клиент и прораб проводит финальный чек-лист для того чтобы результат соответствовал ожиданиям клиента.</div>

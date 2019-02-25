@@ -10,6 +10,83 @@ $home = '/';
 </div> <!-- ./ site__content -->
 
 <footer class="footer">
+
+  <?php // lead-magnet ?>
+  <div id="mf-lead-magnet" class="mf-popup-block mf-lead-magnet mfp-hide mfp-with-anim lmagnet">
+    <div class="lmagnet__top-black">
+      <h3 class="lmagnet__title">Проверенная технология с пошаговой иструкцией от лидеров рынка кровельного строительства!</h3>
+    </div>
+
+    <div class="lmagnet__top-white">
+      <h3 class="lmagnet__title">Именно поэтому, подрядчик может схалтурить.</h3>
+      <h3 class="lmagnet__title">Причина этому — ваша некомпетентность!</h3>
+      <h5 class="lmagnet__subtitle">Получи бесплатно инструкции, чек листы как выбрать подрядчика на строительство кровли.</h5>
+    </div>
+
+    <div class="lmagnet__content">
+      <h3 class="lmagnet__title">что внутри?</h3>
+
+      <div class="lmagnet__list">
+        <div class="lmagnet__list-item lmagnet-list-item">
+          <i class="ico-lm-1 lmagnet-list-item__icon"></i>
+          <div class="lmagnet-list-item__text">Как выбрать подрядчика на монтаж кровли. Топ-5 ошибок</div>
+        </div>
+
+        <div class="lmagnet__list-item lmagnet-list-item">
+          <i class="ico-lm-2 lmagnet-list-item__icon"></i>
+          <div class="lmagnet-list-item__text">Как правильно составить договор с подрядчиком</div>
+        </div>
+
+        <div class="lmagnet__list-item lmagnet-list-item">
+          <i class="ico-lm-3 lmagnet-list-item__icon"></i>
+          <div class="lmagnet-list-item__text">Как разработать тех.задание на строительство кровли</div>
+        </div>
+
+        <div class="lmagnet__list-item lmagnet-list-item">
+          <i class="ico-lm-4 lmagnet-list-item__icon"></i>
+          <div class="lmagnet-list-item__text">Как найти подрядчика в интернете и не обмануться</div>
+        </div>
+
+        <div class="lmagnet__list-item lmagnet-list-item">
+          <i class="ico-lm-5 lmagnet-list-item__icon"></i>
+          <div class="lmagnet-list-item__text">время прочтения по каждому пункту 5 минут!</div>
+        </div>
+      </div>
+
+
+      <form method="post" action="/index.php?route=account/universalform" class="lmagnet__form">
+        <input type="hidden" name="formname" value="lead-magnet">
+        <div class="form-group form-group--center">
+          <input type="text" class="input input--phone" value="" name="phone" placeholder="Ваш телефон">
+          <input type="email" class="input" value="" name="email" placeholder="Ваш e-mail">
+          <input type="button" class="btn btn--black" value="получить">
+        </div>
+        <div class="form-group">
+          <input type="checkbox" class="checkbox" name="agree" id="lmagnet-agree" checked>
+          <label for="lmagnet-agree" class="label">Я согласен(на) на обработку персональных данных.</label>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <input type="hidden" id="lead-magnet-is-showed" value="0">
+  <script type='text/javascript'>
+  $(document).ready(function() {
+    $('body').mouseout(function(e) {
+      if ( $('#lead-magnet-is-showed').val() == 0 && e.relatedTarget == null ) {
+        $('#lead-magnet-is-showed').val(1);
+        $.magnificPopup.open({
+          items: { src: '#mf-lead-magnet' },
+          type: 'inline'
+        });
+      }
+    });
+  });
+  </script>
+  <?php //END lead-magnet ?>
+
+
+
   <!-- popups -->
   <div id="get-consultation" class="mf-popup-block mf-get-consultation mfp-hide mfp-with-anim">
     <h3 class="mf-title">консультация</h3>
@@ -43,7 +120,7 @@ $home = '/';
                         data-reset-text="связаться">связаться</button>
           </div>
         </form>
-        
+
 <script type="text/javascript"><!--
 
 $("#get-consultation").submit(function(){return false;})

@@ -147,7 +147,7 @@ $reviews_slider = array(
     <div class="row">
       <div class="col-md-12">
         <div class="section-title">Услуги</div>
-        <div class="section-subtitle">Наш профиль - это Фасады и Кровля. Мы занимаемся проектированием,<br> дизайном, монтажем, обслуживанием и поставкой материала</div>
+        <div class="section-subtitle">Наш профиль - это фундамент и кровля. Мы занимаемся проектированием,<br> дизайном, монтажем, обслуживанием и поставкой материала</div>
         <a href="#calc" class="btn btn--dib text-center">Точный онлайн расчёт за 20 секунд</a>
         <div class="services-list">
 

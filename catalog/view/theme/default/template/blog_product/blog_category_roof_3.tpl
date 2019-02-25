@@ -90,7 +90,7 @@ $reasons_to_order = array(
           <div class="section-home-top__desc">
             <p>Занимаемся монтажом кровельных конструкций с 2012 года с реальной калькуляцией на стройматериалы и проводимые монтажно – восстановительные мероприятия. Оформляем правовую гарантию сохранности цены и временных сроков окончания работ!</p>
             <br>
-            <a href="/roof#online-calc" class="btn btn--orange btn--dib btn--w100">сделайте расчёт за 50 секунд</a>
+            <a href="/krovlya/remont-krovli#online-calc" class="btn btn--orange btn--dib btn--w100">сделайте расчёт за 50 секунд</a>
           </div>
         </div>
       </div>
@@ -212,7 +212,7 @@ $reasons_to_order = array(
               <svg class="icon smet__icon">
                 <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#list"></use>
               </svg>
-              <a class="smet__download-link" href="http://krovlja-stroy.ru/wp-content/themes/roof/blocks/_smeta/assets/pdf/smeta.pdf" target="_blank">Скачать пример сметы</a>
+              <a class="smet__download-link" href="#" target="_blank">Скачать пример сметы</a>
             </div>
             <div class="smet__title">Реализуем мечты клиентов!</div>
             <div class="smet__desc">Итоги расчетов порадуют самых взыскательных заказчиков! Подробное техническое задание и сбалансированная смета значительно снижают риск погрешности!</div>
@@ -223,7 +223,7 @@ $reasons_to_order = array(
               <svg class="icon smet__icon">
                 <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#check-list"></use>
               </svg>
-              <a class="smet__download-link" href="http://krovlja-stroy.ru/wp-content/themes/roof/blocks/_smeta/assets/pdf/checklist.pdf" target="_blank">Скачать пример чек-листа</a>
+              <a class="smet__download-link" href="#" target="_blank">Скачать пример чек-листа</a>
             </div>
             <div class="smet__title">Полное сходство с проектной документацией!</div>
             <div class="smet__desc">Проведение анализа окончательного чек-листа на соответствие перед стартом работы!</div>

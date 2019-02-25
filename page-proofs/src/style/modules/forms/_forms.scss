@@ -1,3 +1,12 @@
+.form-group {
+  margin-bottom: 15px;
+  position: relative;
+
+  &--center {
+    text-align: center;
+  }
+}
+
 .fields-group {
   .error {
     color: #f00;

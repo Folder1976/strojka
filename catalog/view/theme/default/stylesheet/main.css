@@ -5846,7 +5846,8 @@ ol li {
     background-color: #f7f7f7;
     height: 4rem;
     width: -webkit-calc((100% - 4rem - 20rem ) / 2);
-    width: calc((100% - 4rem - 20rem ) / 2); }
+    width: calc((100% - 4rem - 20rem ) / 2);
+    min-width: 24rem; }
     @media screen and (max-width: 560px) {
       .lmagnet__form .input {
         width: 100%;

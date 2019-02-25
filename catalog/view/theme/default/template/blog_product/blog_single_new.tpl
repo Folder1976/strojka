@@ -48,11 +48,33 @@
             <?php foreach ($images as $image) { ?>
               <div class="slider__item slider-item">
 
-                <div class="slider-item__img img--cover"><a href="<?php echo $image['popup']; ?>" class="zoom-foto"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></a></div>
+                <div class="slider-item__img img--cover"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
               </div>
             <?php } ?>
           </div>
 
+        </div>
+
+        <div id="mf-popup-slider" class="mf-popup-block mf-popup-slider mfp-hide mfp-with-anim">
+          <div class="slider__arrows">
+            <div class="slider__arrow slider__arrow--prev">
+              <svg class="icon slider__arrow-icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-prev"></use>
+              </svg>
+            </div>
+            <div class="slider__arrow slider__arrow--next">
+              <svg class="icon slider__arrow-icon">
+                <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-next"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="popup-slider">
+            <?php foreach ($images as $image) { ?>
+              <div>
+                <img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
+              </div>
+            <?php } ?>
+          </div>
         </div>
       <?php } ?>
 

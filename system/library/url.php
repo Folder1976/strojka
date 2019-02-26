@@ -14,6 +14,12 @@ class Url {
 	}
 
 	public function link($route, $args = '', $secure = false) {
+		
+		if($route == 'information/contact'){
+			return HTTP_SERVER.'contact';
+		}
+		
+		
 		if ($this->ssl && $secure) {
 			$url = $this->ssl . 'index.php?route=' . $route;
 		} else {

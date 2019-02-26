@@ -23,7 +23,7 @@
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- <link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" /> -->
 <!-- <link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet"> -->
-<link href="catalog/view/theme/default/stylesheet/main.css?1.07" rel="stylesheet">
+<link href="catalog/view/theme/default/stylesheet/main.css?1.06" rel="stylesheet">
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -41,6 +41,37 @@
 <script src="/catalog/view/javascript/callback.js" type="text/javascript"></script>
 <link href="/catalog/view/theme/default/stylesheet/callback.css?1.04" rel="stylesheet" type="text/css" />
 <link href="/catalog/view/theme/default/stylesheet/callback1.css?1.04" rel="stylesheet" type="text/css" />
+
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(52552711, "init", {
+        id:52552711,
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/52552711" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-135186102-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-135186102-1');
+</script>
+
+
+
 
 </head>
 
@@ -273,6 +304,7 @@ $logo = '/image/catalog/ROOFER_LOGO_1.svg';
 
 
   <div class="site__content">
+
 
 
 

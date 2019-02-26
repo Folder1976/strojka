@@ -6,12 +6,17 @@ class ControllerStartupSeoUrl extends Controller {
 			$this->url->addRewrite($this);
 		}
 
+		
 		// Decode URL
 		if (isset($this->request->get['_route_']) AND (
 					strpos($this->request->get['_route_'], 'online-calc/') !== false
 					OR $this->request->get['_route_'] == 'online-calc')) {
 			
 			$this->request->get['route'] = 'calculator/calculator';
+			
+		}elseif (isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'contact') {
+			
+			$this->request->get['route'] = 'information/contact';
 			
 		}elseif (isset($this->request->get['_route_']) AND $this->request->get['_route_'] == 'cart') {
 			

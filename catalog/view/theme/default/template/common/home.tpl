@@ -27,19 +27,19 @@ $services = array(
 $works = array (
   0 => 
   array (
-    'thumb' => 'http://cn08183.tmweb.ru/image/cache/catalog/projects/pr1/IMG_20181225_172347-228x228.jpg',
+    'thumb' => HTTP_SERVER.'image/cache/catalog/projects/pr1/IMG_20181225_172347-228x228.jpg',
     'name' => 'Кровля дома и гаража',
     'href' => '/works?blog_product_id=24',
   ),
   1 => 
   array (
-    'thumb' => 'http://cn08183.tmweb.ru/image/cache/catalog/projects/pr3/3/20180910_105104-228x228.jpg',
+    'thumb' => HTTP_SERVER.'image/cache/catalog/projects/pr3/3/20180910_105104-228x228.jpg',
     'name' => 'Монтаж кровли из гибкой черепицы',
     'href' => '/works?blog_product_id=23',
   ),
   2 => 
   array (
-    'thumb' => 'http://cn08183.tmweb.ru/image/cache/catalog/projects/pr2/20180727_143848-228x228.jpg',
+    'thumb' => HTTP_SERVER.'image/cache/catalog/projects/pr2/20180727_143848-228x228.jpg',
     'name' => 'Монтаж кровли на деревянном доме',
     'href' => '/works?blog_product_id=25',
   ),
@@ -110,25 +110,25 @@ $reviews_slider = array(
         <div class="section-title">Выберите интересующие работы</div>
         <div class="section-subtitle text-gray">Пройдите тест за 2 минуты и узнайте стоимость работ</div>
         <div class="take-test-list">
-          <a href="#" class="btn btn--take-test">
+          <a href="#popup:marquiz_5c7504e7f0e2b5004468b3ed" class="btn btn--take-test">
             <svg class="icon icon-take-test">
               <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-works"></use>
             </svg>
             <span>кровельные работы</span>
           </a>
-          <a href="#" class="btn btn--take-test">
+          <a href="#popup:marquiz_5c75026f280fbb004409731b" class="btn btn--take-test">
             <svg class="icon icon-take-test">
               <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#roof-binder"></use>
             </svg>
             <span>подшивка кровли</span>
           </a>
-          <a href="#" class="btn btn--take-test">
+          <a href="#popup:marquiz_5c750542f0e2b5004468b3f7" class="btn btn--take-test">
             <svg class="icon icon-take-test">
               <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#snow-guard"></use>
             </svg>
             <span>монтаж снегозадержателей</span>
           </a>
-          <a href="#" class="btn btn--take-test">
+          <a href="#popup:marquiz_5c74ff41280fbb00440972d8" class="btn btn--take-test">
             <svg class="icon icon-take-test">
               <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#gully"></use>
             </svg>
@@ -139,6 +139,53 @@ $reviews_slider = array(
     </div>
   </div>
 </section>
+
+<!-- Marquiz script start -->
+<script src="//script.marquiz.ru/v1.js" type="application/javascript"></script>
+<!-- Кнопка кровельные работы -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  Marquiz.init({ 
+    id: '5c7504e7f0e2b5004468b3ed', 
+    autoOpen: false, 
+    autoOpenFreq: 'once', 
+    openOnExit: false 
+  });
+});
+</script>
+<!-- Подшивка кровли -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  Marquiz.init({ 
+    id: '5c75026f280fbb004409731b', 
+    autoOpen: false, 
+    autoOpenFreq: 'once', 
+    openOnExit: false 
+  });
+});
+</script>
+<!-- Монтаж снегозадержателей -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  Marquiz.init({ 
+    id: '5c750542f0e2b5004468b3f7', 
+    autoOpen: false, 
+    autoOpenFreq: 'once', 
+    openOnExit: false 
+  });
+});
+</script>
+<!-- Монтаж водостоков -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  Marquiz.init({ 
+    id: '5c74ff41280fbb00440972d8', 
+    autoOpen: false, 
+    autoOpenFreq: 'once', 
+    openOnExit: false 
+  });
+});
+</script>
 
 
 

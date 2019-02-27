@@ -119,11 +119,26 @@ $reasons_to_order = array(
     <div class="row">
       <div class="col-md-12 text-center">
         <div class="section-subtitle">Пройдите тест за 2 минуты и узнайте стоимость кровли<br>под ключ и сроки реализации</div>
-        <a href="/roof#online-calc" class="btn btn--dib">пройти тест</a>
+        <a href="#popup:marquiz_5c7504e7f0e2b5004468b3ed" class="btn btn--dib">пройти тест</a>
       </div>
     </div>
   </div>
 </section>
+
+
+<!-- Marquiz script start -->
+<script src="//script.marquiz.ru/v1.js" type="application/javascript"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  Marquiz.init({ 
+    id: '5c7504e7f0e2b5004468b3ed', 
+    autoOpen: false, 
+    autoOpenFreq: 'once', 
+    openOnExit: false 
+  });
+});
+</script>
+<!-- Marquiz script end -->
 
 
 <section class="section section-reasons-to-order">

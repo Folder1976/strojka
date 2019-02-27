@@ -157,7 +157,7 @@ $('#msg_send').on('click', function() {
         show_modal_msg('<div class="alert-success">' + json['success'] + '</div>');
         $('.form.form--mf-popup')[0].reset();
         $('.mfp-close').trigger('click');
-        
+        location.href = '<?php echo HTTP_SERVER;?>thank-you';
       }
     },
         error: function(xhr, ajaxOptions, thrownError) {
@@ -237,10 +237,10 @@ $('#msg_send').on('click', function() {
               <div class="col-md-6">
                 <div class="footer__title">мы в соц. сетях</div>
                 <ul class="footer__social">
-                  <li><a href="#"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#vk-logo"></use></svg></a></li>
-                  <li><a href="#"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#facebook-logo"></use></svg></a></li>
-                  <li><a href="#"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#instagram-logo"></use></svg></a></li>
-                  <li><a href="#"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#twitter-logo"></use></svg></a></li>
+                  <li><a href="https://vk.com/roofferr"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#vk-logo"></use></svg></a></li>
+                  <li><a href="https://www.facebook.com/Руфер-554299791749192/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#facebook-logo"></use></svg></a></li>
+                  <li><a href="https://www.instagram.com/rooferr.ru/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#instagram-logo"></use></svg></a></li>
+                  <!--li><a href="#"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#twitter-logo"></use></svg></a></li-->
                 </ul>
               </div>
             </div>
@@ -360,4 +360,5 @@ Please donate via PayPal to donate@opencart.com
 </script>
 <div class="modal_msg"></div>
 </body></html>
+
 

@@ -4,9 +4,13 @@ class ControllerAccountUniversalform extends Controller {
 
 	public function index() {
         
-        //echo '<pre>'; printf(var_dump($this->request->post));
+		//echo '<pre>'; printf(var_dump($this->request->post));
         //die();
         
+		if($this->request->post['formname'] == 'lead-magnet'){
+			$this->request->post['name'] = 'Форма с главной';
+		}
+		
         $this->load->model('account/customer');
         
         //Если пользователь залогинен

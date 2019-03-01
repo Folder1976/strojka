@@ -7,7 +7,7 @@ class ControllerAccountUniversalform extends Controller {
 		//echo '<pre>'; printf(var_dump($this->request->post));
         //die();
         
-		if($this->request->post['formname'] == 'lead-magnet'){
+		if(isset($this->request->post['formname']) AND $this->request->post['formname'] == 'lead-magnet'){
 			$this->request->post['name'] = 'Форма с главной';
 			$this->request->post['comment'] = 'Форма с главной';
 		}

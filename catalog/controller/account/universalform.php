@@ -9,6 +9,7 @@ class ControllerAccountUniversalform extends Controller {
         
 		if($this->request->post['formname'] == 'lead-magnet'){
 			$this->request->post['name'] = 'Форма с главной';
+			$this->request->post['comment'] = 'Форма с главной';
 		}
 		
         $this->load->model('account/customer');

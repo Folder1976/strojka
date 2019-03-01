@@ -53,13 +53,13 @@ $home = '/';
         </div>
       </div>
 
-
-      <form method="post" action="/index.php?route=account/universalform" class="lmagnet__form">
+      <div class="msg"></div>
+      <form id="lmagnet__form" method="post" action="/index.php?route=account/universalform" class="lmagnet__form">
         <input type="hidden" name="formname" value="lead-magnet">
         <div class="form-group form-group--center">
           <input type="text" class="input input--phone" value="" name="phone" placeholder="Ваш телефон">
           <input type="email" class="input" value="" name="email" placeholder="Ваш e-mail">
-          <input type="button" class="btn btn--black" value="получить">
+          <input type="button" class="btn btn--black" value="получить" id="lead-magnet-send">
         </div>
         <div class="form-group">
           <input type="checkbox" class="checkbox" name="agree" id="lmagnet-agree" checked>
@@ -83,6 +83,50 @@ $home = '/';
     });
   });
   </script>
+
+  <script type="text/javascript"><!--
+
+  $("#lmagnet__form").submit(function(){return false;})
+  $('#lead-magnet-send').on('click', function() {
+   
+    //console.log();
+    
+    $.ajax({
+      url: '/index.php?route=account/universalform',
+      type: 'post',
+      data: $('#lmagnet__form input[type=text], #lmagnet__form input[type=checkbox]:checked, #lmagnet__form input[type=email]'),
+      dataType: 'json',
+      beforeSend: function() {
+        $('#lead-magnet-send').button('loading');
+      },
+      complete: function() {
+        $('#lead-magnet-send').button('reset');
+      },
+      success: function(json) {
+      
+      //console.log(json);
+      //debugger;
+      
+        if (json['error']) {
+          $('#lead-magnet-send').button('error');
+         $('.msg').html('<div class="text-danger">' + json['error'] + '</div>');
+        }
+
+
+        if (json['success']) {
+          $('#lead-magnet-send').button('success');
+          show_modal_msg('<div class="alert-success">' + json['success'] + '</div>');
+          $('.form.form--mf-popup')[0].reset();
+          $('.mfp-close').trigger('click');
+          location.href = '<?php echo HTTP_SERVER;?>thank-you';
+        }
+      },
+          error: function(xhr, ajaxOptions, thrownError) {
+              alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+          }
+    });
+  });
+  //--></script>
   <?php //END lead-magnet ?>
 
 

@@ -94,7 +94,7 @@ $home = '/';
     $.ajax({
       url: '/index.php?route=account/universalform',
       type: 'post',
-      data: $('#lmagnet__form input[type=text], #lmagnet__form input[type=checkbox]:checked, #lmagnet__form input[type=email]'),
+      data: $('#lmagnet__form input[type=text], #lmagnet__form input[type=hidden], #lmagnet__form input[type=checkbox]:checked, #lmagnet__form input[type=email]'),
       dataType: 'json',
       beforeSend: function() {
         $('#lead-magnet-send').button('loading');

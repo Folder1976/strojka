@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function() {
       </div>
       <div class="col-md-3 col-sm-4 col-xs-11 col-md-offset-0 col-sm-offset-1 col-xs-offset-1">
         <div class="smeta__preview smeta-preview">
-          <a class="smeta-preview__link" href="#" target="_blank">
+          <a class="smeta-preview__link" href="/image/pdf/AA_KP2_1.pdf" target="_blank">
             <svg class="icon icon-search smeta-preview__icon">
               <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#search"></use>
             </svg><span>Посмотреть<br>пример расчета цен</span></a>
@@ -225,7 +225,7 @@ document.addEventListener("DOMContentLoaded", function() {
               <svg class="icon smet__icon">
                 <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#list"></use>
               </svg>
-              <a class="smet__download-link" href="#" target="_blank">Скачать пример сметы</a>
+              <a class="smet__download-link" href="/image/pdf/smeta.pdf" target="_blank">Скачать пример сметы</a>
             </div>
             <div class="smet__title">Реализуем мечты клиентов!</div>
             <div class="smet__desc">Итоги расчетов порадуют самых взыскательных заказчиков! Подробное техническое задание и сбалансированная смета значительно снижают риск погрешности!</div>
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function() {
               <svg class="icon smet__icon">
                 <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#check-list"></use>
               </svg>
-              <a class="smet__download-link" href="#" target="_blank">Скачать пример чек-листа</a>
+              <a class="smet__download-link" href="/image/pdf/check-list.pdf" target="_blank">Скачать пример чек-листа</a>
             </div>
             <div class="smet__title">Полное сходство с проектной документацией!</div>
             <div class="smet__desc">Проведение анализа окончательного чек-листа на соответствие перед стартом работы!</div>

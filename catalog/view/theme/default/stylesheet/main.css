@@ -7316,4 +7316,102 @@ ol li {
     text-decoration: underline;
     font-weight: 900; }
 
+.block-t {
+  margin-bottom: 50px; }
+  .block-t p {
+    margin: 0;
+    padding: 0; }
+  .block-t__col--bgc {
+    background-color: #fbbe18; }
+  .block-t__col--img img {
+    height: 100%;
+    width: 34rem; }
+  .block-t__col--p {
+    padding: 3rem; }
+  .block-t__text {
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 3rem; }
+  .block-t__btn-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between; }
+  .block-t__btn .btn {
+    width: 19rem; }
+  .block-t__price {
+    font-size: 1.8rem;
+    font-weight: 300; }
+    .block-t__price span {
+      display: block;
+      text-align: center; }
+    .block-t__price .white {
+      color: #ffffff;
+      font-size: 3.4rem;
+      font-weight: 900;
+      text-transform: uppercase; }
+  .block-t--border {
+    border: 1px solid #fbbe18;
+    padding: 46px;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-transform: uppercase; }
+  .block-t--left-img {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+    @media screen and (max-width: 768px) {
+      .block-t--left-img {
+        display: block;
+        text-align: center; } }
+    @media screen and (max-width: 768px) {
+      .block-t--left-img img {
+        margin: 0 auto 1rem; } }
+  .block-t--list {
+    padding: 0 10%;
+    font-size: 1.6rem;
+    font-weight: 300;
+    text-transform: uppercase; }
+
+.block-timer .coutdown {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 2rem; }
+
+.block-timer .clockdiv2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 3rem; }
+
+.block-timer .timer-group span:before {
+  content: "";
+  padding: 1.2rem; }
+
+.block-timer .timer-group span:after {
+  content: "|";
+  padding-left: 1.8rem; }
+
+.block-timer .timer-group:last-child span:after {
+  content: ""; }
+
+.block-timer span {
+  font-size: 4.8rem;
+  font-weight: 900; }
+
+.block-timer .smalltext {
+  font-size: 1.8rem;
+  font-weight: 300; }
+
+.block-timer .btn {
+  max-width: 25rem;
+  margin: 0 auto; }
+
 /*# sourceMappingURL=main.css.map */

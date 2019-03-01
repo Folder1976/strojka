@@ -86,7 +86,7 @@
               <span class="white">подарок</span>
             </div>
             <div class="block-t__btn">
-              <a href="#get-consultation" class="btn btn--black mf-popup" data-effect="mfp-zoom-in">подписаться</a>
+              <a href="https://www.instagram.com/rooferr.ru/" class="btn btn--black" target="_blank">подписаться</a>
             </div>
           </div>
         </div>

@@ -4,9 +4,7 @@ class ControllerAccountUniversalform extends Controller {
 
 	public function index() {
         
-		//echo '<pre>'; printf(var_dump($this->request->post));
-        //die();
-        
+		    
 		if(isset($this->request->post['formname']) AND $this->request->post['formname'] == 'lead-magnet'){
 			$this->request->post['name'] = 'Форма с главной';
 			$this->request->post['comment'] = 'Форма с главной';
@@ -44,6 +42,8 @@ class ControllerAccountUniversalform extends Controller {
 			$subject = 'Форма обратной связи с сайта - '.HTTP_SERVER;
             $message = '';
             
+			
+			
             foreach($this->request->post as $name => $value){
                 $message  .= $name .': '.$value. "\n\n";
             }
@@ -57,9 +57,17 @@ class ControllerAccountUniversalform extends Controller {
 			$mail->smtp_password = html_entity_decode($this->config->get('config_mail_smtp_password'), ENT_QUOTES, 'UTF-8');
 			$mail->smtp_port = $this->config->get('config_mail_smtp_port');
 			$mail->smtp_timeout = $this->config->get('config_mail_smtp_timeout');
+			
+			if(isset($_FILES["file"]) AND $_FILES["file"]["tmp_name"] !== ''){
+				move_uploaded_file($_FILES["file"]["tmp_name"],DIR_UPLOAD.$_FILES["file"]["name"]);
+				$mail->AddAttachment( DIR_UPLOAD.$_FILES["file"]["name"] , $_FILES["file"]["name"] );
 
+			}
+		
 			$mail->setTo($this->config->get('config_email'));
+			//$mail->setTo('folder.list@gmail.com');
 			$mail->setFrom($this->config->get('config_email'));
+			
 			$mail->setSender(html_entity_decode($this->config->get('config_name'), ENT_QUOTES, 'UTF-8'));
 			$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
 			$mail->setText(html_entity_decode($message, ENT_QUOTES, 'UTF-8'));

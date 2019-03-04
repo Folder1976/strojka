@@ -131,8 +131,6 @@ $home = '/';
   $("#lmagnet__form").submit(function(){return false;})
   $('#lead-magnet-send').on('click', function() {
    
-    //console.log();
-    
     $.ajax({
       url: '/index.php?route=account/universalform',
       type: 'post',
@@ -146,9 +144,7 @@ $home = '/';
       },
       success: function(json) {
       
-      //console.log(json);
-      //debugger;
-      
+       
         if (json['error']) {
           $('#lead-magnet-send').button('error');
          $('.msg').html('<div class="text-danger">' + json['error'] + '</div>');
@@ -180,7 +176,7 @@ $home = '/';
     <div class="row">
       <div class="col-md-7" >
         <div class="msg"></div>
-        <form method="post" enctype="multipart/form-data" class="form form--mf-popup">
+        <form method="post" name="test" enctype="multipart/form-data" class="form form--mf-popup">
           <input type="hidden" name="formname" value="get-consultation">
           <div class="form__group">
             <input type="text" class="input" name="name" placeholder="Имя">
@@ -215,13 +211,18 @@ $("#get-consultation").submit(function(){return false;})
 
 $('#msg_send').on('click', function() {
   
-  //console.log();
-  
+    var $input = $("#get-consultation__file");
+    var fd = new FormData(document.forms.test);
+    fd.append('file', $input.prop('files')[0]);
+
+    
   $.ajax({
     url: '/index.php?route=account/universalform',
     type: 'post',
-    data: $('#get-consultation input[type=text], #get-consultation input[type=file], #get-consultation input[type=checkbox]:checked, #get-consultation textarea'),
+    data: fd, //$('#get-consultation input[type=text], #get-consultation input[type=file], #get-consultation input[type=checkbox]:checked, #get-consultation textarea'),
     dataType: 'json',
+    processData: false,
+    contentType: false,
     beforeSend: function() {
       $('#msg_send').button('loading');
     },
@@ -231,7 +232,7 @@ $('#msg_send').on('click', function() {
     success: function(json) {
     
     //console.log(json);
-    //debugger;
+    //return false;
     
       if (json['error']) {
         $('#msg_send').button('error');
@@ -447,5 +448,6 @@ Please donate via PayPal to donate@opencart.com
 </script>
 <div class="modal_msg"></div>
 </body></html>
+
 
 

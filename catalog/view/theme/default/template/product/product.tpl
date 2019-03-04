@@ -42,14 +42,43 @@ if(!isset($_COOKIE['IdProduto'])){
 ?>
 
 
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "<?php echo $heading_title; ?>",
+  <?php if ($thumb) { ?>
+    "image": "<?php echo $thumb; ?>",
+  <?php } ?>
+  "brand": "<?php echo $manufacturer; ?>",
+  "description": "<?php echo $heading_title; ?>",
+  "sku": "<?php echo $minimum; ?>",
+  "url": "<?php echo $share; ?>",
+  "offers": {
+    "@type": "Offer",
+    "availability": "http://schema.org/InStock",
+    <?php if (!$special) { ?>
+      "price": "<?php echo floatval($price); ?>",
+    <?php } else { ?>
+      "price": "<?php echo floatval($special); ?>",
+    <?php } ?>
+    "url": "<?php echo $share; ?>",
+    "priceCurrency": "руб."
+  }
+}
+</script>
+
+
 <div class="container">
 
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-9">
-      <ul class="breadcrumb">
+      <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <?php $ListItem_pos = 1; ?>
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem"><a href="<?php echo $breadcrumb['href']; ?>" itemprop="item"><span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a><meta itemprop="position" content="<?php echo $ListItem_pos++; ?>" /></li>
         <?php } ?>
       </ul>
     </div>

@@ -43,6 +43,49 @@
 <link href="/catalog/view/theme/default/stylesheet/callback1.css?1.04" rel="stylesheet" type="text/css" />
 
 
+
+<meta property="og:title" content="<?php echo $title; ?>"/>
+<?php if ($description) { ?>
+<meta property="og:description" content="<?php echo $description; ?>"/>
+<?php } ?>
+<meta property="og:url" content= "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>" />
+<meta property="og:site_name" content="<?php echo $name; ?>"/>
+
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "<?php echo $title; ?>",
+    "url": "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>",
+    "alternateName": "Компания Руфер"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "url": "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>",
+    "logo": "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>/image/catalog/ROOFER_LOGO_1.svg"
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "<?php echo $title; ?>",
+    "url": "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>",
+    "sameAs": [
+        "https://vk.com/roofferr",
+        "https://www.facebook.com/Руфер-554299791749192/",
+        "https://www.instagram.com/rooferr.ru/"
+    ]
+}
+</script>
+
+
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" >
    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};

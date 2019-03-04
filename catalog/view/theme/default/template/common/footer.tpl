@@ -12,6 +12,7 @@ $home = '/';
 <footer class="footer">
 
   <?php // lead-magnet ?>
+  <?php if ( !isset($_COOKIE["lmagnet"]) ) { ?>
   <div id="mf-lead-magnet" class="mf-popup-block mf-lead-magnet mfp-hide mfp-with-anim lmagnet">
     <div class="lmagnet__top-black">
       <h3 class="lmagnet__title">Проверенная технология с пошаговой иструкцией от лидеров рынка кровельного строительства!</h3>
@@ -71,6 +72,44 @@ $home = '/';
 
   <input type="hidden" id="lead-magnet-is-showed" value="0">
   <script type='text/javascript'>
+    // возвращает cookie с именем name, если есть, если нет, то undefined
+    function getCookie(name) {
+      var matches = document.cookie.match(new RegExp(
+        "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+      ));
+      return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+
+    function setCookie(name, value, options) {
+      options = options || {};
+
+      var expires = options.expires;
+
+      if (typeof expires == "number" && expires) {
+        var d = new Date();
+        d.setTime(d.getTime() + expires * 1000);
+        expires = options.expires = d;
+      }
+      if (expires && expires.toUTCString) {
+        options.expires = expires.toUTCString();
+      }
+
+      value = encodeURIComponent(value);
+
+      var updatedCookie = name + "=" + value;
+
+      for (var propName in options) {
+        updatedCookie += "; " + propName;
+        var propValue = options[propName];
+        if (propValue !== true) {
+          updatedCookie += "=" + propValue;
+        }
+      }
+
+      document.cookie = updatedCookie;
+    }
+  </script>
+  <script type='text/javascript'>
   $(document).ready(function() {
     $('body').mouseout(function(e) {
       if ( $('#lead-magnet-is-showed').val() == 0 && e.relatedTarget == null ) {
@@ -79,6 +118,9 @@ $home = '/';
           items: { src: '#mf-lead-magnet' },
           type: 'inline'
         });
+
+        // ставим куку на 24 часа:
+        setCookie('lmagnet', 1, { expires: 86400 });
       }
     });
   });
@@ -127,6 +169,7 @@ $home = '/';
     });
   });
   //--></script>
+  <?php } ?>
   <?php //END lead-magnet ?>
 
 

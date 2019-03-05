@@ -43,7 +43,8 @@
 <link href="/catalog/view/theme/default/stylesheet/callback1.css?1.04" rel="stylesheet" type="text/css" />
 
 
-
+<meta property="og:type" content="website" />
+<meta property="og:image" content="<?php echo $logo; ?>" />
 <meta property="og:title" content="<?php echo $title; ?>"/>
 <?php if ($description) { ?>
 <meta property="og:description" content="<?php echo $description; ?>"/>

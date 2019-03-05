@@ -206,6 +206,17 @@ $home = '/';
 
 <script type="text/javascript"><!--
 
+$('#get-consultation__file').on('change', function(e){
+  var label = $('label[for="get-consultation__file"]');
+
+  if ( $(this).val() == "" ) {
+    label.text("Прикрепить файл");
+  } else {
+    label.text($(this).val());
+  }
+  
+});
+
 $("#get-consultation").submit(function(){return false;})
 
 

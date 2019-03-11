@@ -129,6 +129,17 @@ $home = '/';
   <script type="text/javascript"><!--
 
   $("#lmagnet__form").submit(function(){return false;})
+	function sends(){
+        $.ajax({
+          type: "POST",
+          url: 'https://rooferr.ru/amo/amo.php',
+          data: $('#lmagnet__form input[type=text], #lmagnet__form input[type=hidden], #lmagnet__form input[type=checkbox]:checked, #lmagnet__form input[type=email]'),
+        }).done(function() {
+          console.log('success');
+        }).fail(function() {
+          console.log('fail');
+        });
+      }
   $('#lead-magnet-send').on('click', function() {
    
     $.ajax({
@@ -138,6 +149,7 @@ $home = '/';
       dataType: 'json',
       beforeSend: function() {
         $('#lead-magnet-send').button('loading');
+		sends();
       },
       complete: function() {
         $('#lead-magnet-send').button('reset');
@@ -217,7 +229,18 @@ $('#get-consultation__file').on('change', function(e){
   
 });
 
-$("#get-consultation").submit(function(){return false;})
+$("#get-consultation").submit(function(){
+	$.ajax({
+          type: "POST",
+          url: 'https://rooferr.ru/amo/amo.php',
+          data: $('#get-consultation input[type=hidden], #get-consultation input[type=text], #get-consultation input[type=file], #get-consultation input[type=checkbox]:checked, #get-consultation textarea'),
+		}).done(function() {
+          console.log('success');
+        }).fail(function() {
+          console.log('fail');
+        });
+		return false;
+		})
 
 
 $('#msg_send').on('click', function() {
@@ -458,6 +481,29 @@ Please donate via PayPal to donate@opencart.com
   }
 </script>
 <div class="modal_msg"></div>
+<script type="text/javascript">
+function init() {
+var date = new Date(new Date().getTime() + 6000 * 1000);
+function getUrlVars() {
+    var vars = {};
+    var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        vars[key] = value;
+    });
+    return vars;
+};
+var utm_medium = getUrlVars()["utm_medium"];
+var utm_campaign = getUrlVars()["utm_campaign"];
+var utm_term = getUrlVars()["utm_term"];
+var utm_content = getUrlVars()["utm_content"];
+var utm_source = getUrlVars()["utm_source"];
+if (utm_medium != undefined){document.cookie = "utm_medium="+utm_medium+"; path=/; expires=" + date.toUTCString();}
+if (utm_campaign != undefined){document.cookie = "utm_campaign="+utm_campaign+"; path=/; expires=" + date.toUTCString();}
+if (utm_term != undefined){document.cookie = "utm_term="+utm_term+"; path=/; expires=" + date.toUTCString();}
+if (utm_content != undefined){document.cookie = "utm_content="+utm_content+"; path=/; expires=" + date.toUTCString();}
+if (utm_source != undefined){document.cookie = "utm_source="+utm_source+"; path=/; expires=" + date.toUTCString();}
+};
+window.onload = init;
+</script>
 </body></html>
 
 

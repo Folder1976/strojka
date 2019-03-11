@@ -504,6 +504,11 @@ if (utm_source != undefined){document.cookie = "utm_source="+utm_source+"; path=
 };
 window.onload = init;
 </script>
+
+
+<script type="text/javascript">(function (w, d) {w.amo_pixel_token = 'p1Ip4iB8yqaEyXU9HPmcTDaw7q1RRL6mUaHuC/LooNrqSeY04xnhWLPuy1xGf9Wy';var s = document.createElement('script'), f = d.getElementsByTagName('script')[0];s.id = 'amo_pixel_js';s.type = 'text/javascript';s.async = true;s.src = 'http://dp-front-int-balancer.serversru.production.dp.amosrv.ru/pixel/js/tracker/pixel.js?token=' + w.amo_pixel_token;f.parentNode.insertBefore(s, f);})(window, document);</script>
+
+
 </body></html>
 
 

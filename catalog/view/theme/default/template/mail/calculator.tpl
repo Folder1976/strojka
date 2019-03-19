@@ -23,7 +23,7 @@
             <tbody>
               <tr>
                 <td style="width:200px;padding:10px;height: 80px;"></td>
-                <td style="width:250px;padding:10px;font-size:20px;text-align:center;color:#000000">Москва, ул. Соуолова, 25<span class="il">1</span></td>
+                <td style="width:250px;padding:10px;font-size:20px;text-align:center;color:#000000">г. Москва, Киевское шоссе, 22-й километр, дв4с1кА</td>
                 <td style="width:250px;padding:2px;font-size:20px;text-align:right;color:#000000"><a href="tel:84952350330" style="text-decoration:none;color:black" target="_blank">Тел.: 8 (495) 235-03-30</a><br></td>
               </tr>
               <tr>
@@ -404,18 +404,18 @@
                                   <br>
                                   <br><span style="font-weight:900;font-size:30px;text-transform: uppercase;">Примеры работ</span>
                                   <br>
-                                  <br><img src="http://cn08183.tmweb.ru/email-img/work1.jpg" style="width:750px;margin:10px 0 0 0" tabindex="0">
+                                  <br><img src="http://cn08183.tmweb.ru/email-img/work3.jpg" style="width:750px;margin:10px 0 0 0" tabindex="0">
                                   <br>
                                   <br>
                                   <table style="width:690px;padding:0;margin:0;border-spacing:0px;font-size: 18px;font-weight: 300;line-height: 15px;">
                                     <tbody>
                                       <tr>
                                         <td><img src="http://cn08183.tmweb.ru/email-img/ico-time.png"></td>
-                                        <td>Срок: 11 дней</td>
+                                        <td>Срок: 10 дней</td>
                                         <td><img src="http://cn08183.tmweb.ru/email-img/ico-m2.png"></td>
-                                        <td>Площадь: 320 м2</td>
+                                        <td>Площадь: 130 м2</td>
                                         <td><img src="http://cn08183.tmweb.ru/email-img/ico-location.png"></td>
-                                        <td>Место: Щелковский район</td>
+                                        <td>Место: г.Москва</td>
                                       </tr>
                                     </tbody>
                                   </table>
@@ -429,10 +429,10 @@
                                   <table style="width:750px;padding:0;margin:0px 0 0 0;border-spacing:0px">
                                       <tbody>
                                           <tr>
-                                              <td style="font-size:18px;font-weight: 300; padding:0;margin:0;border-spacing:0px;padding:15px 30px 0">12.07.2018    Автор: Сергей Костромской</td>
+                                              <td style="font-size:18px;font-weight: 300; padding:0;margin:0;border-spacing:0px;padding:15px 30px 0">12.07.2018    Автор: Татьяна Викторовна</td>
                                           </tr>
                                           <tr>
-                                            <td style="font-size:18px;font-weight: 300; padding:0;margin:0;border-spacing:0px;padding:15px 30px 0">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</td>
+                                            <td style="font-size:18px;font-weight: 300; padding:0;margin:0;border-spacing:0px;padding:15px 30px 0">На пенсии решили с мужем приобрести дом в деревне с участком под огород и сад. При покупке не обратили внимание на крышу, когда пошли дожди, крыша стала течь. Обратились в компанию «Руфер». Приехала бригада из трех человек, со старшим договорились об условиях, цена нас устроила. Через 2 дня ребята приехали, в течение 6 часов перекрыли крышу. Стало сухо и тепло. Спасибо администрации и специалистам фирмы!</td>
                                           </tr>
                                       </tbody>
                                   </table>
@@ -473,7 +473,7 @@
               <tr>
                 <td width="200" style="padding:10px 0"></td>
                 <td width="330" style="padding:20px 0 0;text-align:left;color:#000000;font-size: 20px;">
-                    Москва, ул. Соуолова, 25
+                    г. Москва, Киевское шоссе, 22-й километр, дв4с1кА
                     <br>
                     <br>
                 </td>
@@ -486,10 +486,10 @@
                 <td style="padding:0"></td>
                 <td style="padding:0;text-align:left"><br><br><a href="mailto:info@rooferr.ru" target="_blank" style="font-size: 25px;font-weight: 900;color: #000000;">info@rooferr.ru</a><br><br><br></td>
                 <td style="padding:0;text-align:center"><br>
-                  <a href="http://www.facebook.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.facebook.com/"><img src="http://cn08183.tmweb.ru/email-img/fb.png" style="padding-right: 10px" height="35px"></a>
-                  <a href="http://www.vk.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.vk.com/"><img src="http://cn08183.tmweb.ru/email-img/vk.png" style="padding-right: 10px" height="35px"></a>
-                  <a href="http://www.instagram.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.instagram.com/"><img src="http://cn08183.tmweb.ru/email-img/inst.png" style="padding-right: 10px" height="35px"></a>
-                  <a href="http://www.twitter.com/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.twitter.com/"><img src="http://cn08183.tmweb.ru/email-img/tw.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="https://www.facebook.com/%D0%A0%D1%83%D1%84%D0%B5%D1%80-554299791749192/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.facebook.com/"><img src="http://cn08183.tmweb.ru/email-img/fb.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="https://vk.com/roofferr" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.vk.com/"><img src="http://cn08183.tmweb.ru/email-img/vk.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="https://www.instagram.com/rooferr.ru/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.instagram.com/"><img src="http://cn08183.tmweb.ru/email-img/inst.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="http://t.me/Rooferr_bot" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.twitter.com/"><img src="http://cn08183.tmweb.ru/email-img/tw.png" style="padding-right: 10px" height="35px"></a>
                 </td>
               </tr>
             </tbody>

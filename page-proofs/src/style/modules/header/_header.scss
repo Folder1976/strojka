@@ -1,6 +1,6 @@
 .header {
   color: #000;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 300;
   text-transform: uppercase;
 
@@ -28,6 +28,12 @@
     // border-bottom: 1px solid $primary_color;
   }
 
+  &__top-text {
+    a {
+      font-size: 14px;
+    }
+  }
+
   &__logo {
     height: 40px;
 
@@ -44,7 +50,7 @@
   &__top-menu {
     li {
       display: inline-block;
-      margin-right: 15px;
+      margin-right: 10px;
 
       &:last-child {
         margin-right: 0;

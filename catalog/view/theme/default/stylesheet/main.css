@@ -2925,7 +2925,7 @@ template {
   overflow: hidden;
   position: fixed;
   background: #0b0b0b;
-  opacity: 0.8; }
+  opacity: 1; }
 
 .mfp-wrap {
   top: 0;
@@ -3284,6 +3284,26 @@ img.mfp-img {
 
 .mf-get-consultation__foto {
   margin-bottom: 30px; }
+
+.mf-popup-slider {
+  background-color: transparent; }
+  .mf-popup-slider .mfp-close {
+    display: none; }
+  .mf-popup-slider .slider__arrow--prev {
+    left: -30px; }
+    @media screen and (max-width: 992px) {
+      .mf-popup-slider .slider__arrow--prev {
+        left: 5px; } }
+  .mf-popup-slider .slider__arrow--next {
+    right: -30px; }
+    @media screen and (max-width: 992px) {
+      .mf-popup-slider .slider__arrow--next {
+        right: 5px; } }
+  .mf-popup-slider .slider__arrow-icon {
+    stroke: #fff; }
+
+.mfp-bg.mfp-bg--op1 {
+  opacity: 1; }
 
 /*====== Zoom effect ======*/
 .mfp-zoom-in {

@@ -136,6 +136,12 @@ function sliderInit(sId){
       items: {
         src: $('#mf-popup-slider'),
       },
+      callbacks: {
+        open: function() {
+          console.log('open...');
+          $('.mfp-bg').addClass('mfp-bg--op1');
+        }
+      }
     });
   });
 

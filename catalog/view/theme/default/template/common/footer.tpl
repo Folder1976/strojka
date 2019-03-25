@@ -381,8 +381,8 @@ $('#msg_send').on('click', function() {
   
 </footer>
 
-<script src="catalog/view/theme/default/js/libs.js" type="text/javascript"></script>
-<script src="catalog/view/theme/default/js/main.js" type="text/javascript"></script>
+<script src="catalog/view/theme/default/js/libs.js?1.09" type="text/javascript"></script>
+<script src="catalog/view/theme/default/js/main.js?1.09" type="text/javascript"></script>
 
 
 
@@ -510,6 +510,18 @@ window.onload = init;
 
 
 <script src="https://mssg.me/widget/rooferr" async></script>
+
+
+
+<script>
+(function(w, d, s, h, id) {
+    w.roistatProjectId = id; w.roistatHost = h;
+    var p = d.location.protocol == "https:" ? "https://" : "http://";
+    var u = /^.*roistat_visit=[^;]+(.*)?$/.test(d.cookie) ? "/dist/module.js" : "/api/site/1.0/"+id+"/init";
+    var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
+})(window, document, 'script', 'cloud.roistat.com', 'c556467d53b3f18180b20850d83ab690');
+</script>
+
 
 </body></html>
 

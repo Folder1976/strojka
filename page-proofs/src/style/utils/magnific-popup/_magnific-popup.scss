@@ -21,6 +21,39 @@
   }
 }
 
+.mf-popup-slider {
+  background-color: transparent;
+
+  .mfp-close {
+    display: none;
+  }
+
+  .slider__arrow {
+    &--prev {
+      left: -30px;
+
+      @media screen and (max-width: $bs_break_sm) {
+        left: 5px;
+      }
+    }
+    &--next {
+      right: -30px;
+
+      @media screen and (max-width: $bs_break_sm) {
+        right: 5px;
+      }
+    }
+  }
+
+  .slider__arrow-icon {
+    stroke: #fff;
+  }
+}
+
+.mfp-bg.mfp-bg--op1 {
+  opacity: 1;
+}
+
 
 
 

@@ -124,11 +124,11 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '2064532263839960');
+  fbq('init', '287193978873256');
   fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=2064532263839960&ev=PageView&noscript=1"
+  src="https://www.facebook.com/tr?id=287193978873256&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Facebook Pixel Code -->
 
@@ -240,7 +240,8 @@ $logo = '/image/catalog/ROOFER_LOGO_1.svg';
                 ?>
 
               </ul>
-              <div class="header__top-text"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div>
+              <!-- <div class="header__top-text" id="rst_phone"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div> -->
+			  <div class="header__top-text"><b>работаем по москве и мо <a  id="rst_phone" href="tel:84952350330">8 (495) 235-03-30</a></b></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-5 col-md-3">

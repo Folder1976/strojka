@@ -222,4 +222,3 @@ class ControllerInformationContact extends Controller {
 		$this->response->setOutput($this->load->view('common/success', $data));
 	}
 }
-

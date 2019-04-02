@@ -39,6 +39,27 @@ class ControllerParsingParsing extends Controller {
 		<a href="parsing.php?func=add_products&supplier=militarist&links&unset"><b><font color="orange">Пропустить товар</font></b></a>&nbsp;&nbsp;|&nbsp;&nbsp;
 		<?php
 		
+		
+		
+		$sql = "UPDATE oc_product_description SET meta_title=replace(`meta_title`, 'Agate.ru','Roofer.ru');";
+		$this->db->query($sql) or die('==' . $sql);
+	//echo $sql;
+		$sql = "UPDATE oc_product_description SET meta_description=replace(`meta_description`, 'Agate.ru','Roofer.ru');";
+		$this->db->query($sql) or die('==' . $sql);
+	//echo $sql;
+		$sql = "UPDATE oc_product_description SET meta_description=replace(`meta_description`, 'agate.ru','Roofer.ru');";
+		$this->db->query($sql) or die('==' . $sql);
+	//echo $sql;
+		$sql = "UPDATE oc_product_description SET meta_title=replace(`meta_title`, 'agate.ru','Roofer.ru');";
+		$this->db->query($sql) or die('==' . $sql);
+	//echo $sql;
+		$sql = "UPDATE oc_product_description SET meta_title=replace(`meta_title`, 'Агат','Roofer');";
+		$this->db->query($sql) or die('==' . $sql);
+	
+		$sql = "UPDATE oc_product_description SET meta_description=replace(`meta_description`, 'Агат','Roofer');";
+		$this->db->query($sql) or die('==' . $sql);
+		
+		
 		$http = $parsing_url;
 		//просто парсим ссылки
 		if(isset($_GET['resetlinks'])){
@@ -262,6 +283,8 @@ class ControllerParsingParsing extends Controller {
 				
 				$data['name'] = $this->getProductName($this->html);
 				$data['keyword'] = $this->translitArtkl($data['name']);
+				
+				$data['keyword'] = str_replace(array('(',')'),'',$data['keyword']);
 				
 				$data['description'] = $this->getProductDescription($this->html);
 				$data['meta_h1'] = $this->getProductMetaH1($this->html);
@@ -619,8 +642,8 @@ class ControllerParsingParsing extends Controller {
 	}
 
 	public function no_parazit($str) {
-		$rus = array('Агат', 'agate.ru');
-		$lat = array('Roofer','roofer.ru');
+		$rus = array('агат','Агат', 'agate.ru', 'agate');
+		$lat = array('Roofer','Roofer','roofer.ru','roofer');
 		return str_replace($rus, $lat, $str);
 	}
 

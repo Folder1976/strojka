@@ -769,4 +769,3 @@ function addAttribute6() {
 
 </div>
 <?php echo $footer; ?>
-

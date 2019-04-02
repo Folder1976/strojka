@@ -21,7 +21,15 @@ class Image {
 			if ($this->mime == 'image/gif') {
 				$this->image = imagecreatefromgif($file);
 			} elseif ($this->mime == 'image/png') {
-				$this->image = imagecreatefrompng($file);
+				
+				//$this->image = imagecreatefrompng($file);
+				$output = `php -r "imagecreatefrompng('$file');" 2>&1`;
+				if (!empty($output)){
+					$this->image = $file;
+				} else {
+					$this->image = imagecreatefrompng($file);
+				}
+				
 			} elseif ($this->mime == 'image/jpeg') {
 				$this->image = imagecreatefromjpeg($file);
 			}
@@ -115,11 +123,14 @@ class Image {
 
 		imagefilledrectangle($this->image, 0, 0, $width, $height, $background);
 
-		imagecopyresampled($this->image, $image_old, $xpos, $ypos, 0, 0, $new_width, $new_height, $this->width, $this->height);
-		imagedestroy($image_old);
-
-		$this->width = $width;
-		$this->height = $height;
+		if(!is_string($this->image)){
+		
+			imagecopyresampled($this->image, $image_old, $xpos, $ypos, 0, 0, $new_width, $new_height, $this->width, $this->height);
+			imagedestroy($image_old);
+		
+			$this->width = $width;
+			$this->height = $height;
+		}
 	}
 
 	public function watermark($watermark, $position = 'bottomright') {

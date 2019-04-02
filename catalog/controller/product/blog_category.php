@@ -236,6 +236,8 @@ class ControllerProductBlogCategory extends Controller {
 				}else{
 					$short_description = strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'));
 				}
+			
+			
 				
 				$data['products1'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
@@ -244,9 +246,8 @@ class ControllerProductBlogCategory extends Controller {
 					'ean'  => $result['ean'],
 					'jan'  => $result['jan'],
 					'isbn'  => $result['isbn'],
-					'date_added'  => $result['date_added'],
 					'thumb'       => $image,
-					'date_added'  => date('d.m.Y', strtotime($result['date_added'])),
+					'date_added'  => date('d.m.Y', strtotime($result['date_available'])),
 					'name'        => $result['name'],
 					'description' => $short_description,
 					'price'       => $price,
@@ -277,7 +278,9 @@ class ControllerProductBlogCategory extends Controller {
 
 			
 			foreach ($results as $result) {
-				if ($result['image']) {
+				if (isset($category_id) AND $category_id == 10) {
+					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'), 'blog_category');
+				}elseif ($result['image']) {
 					$image = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get($this->config->get('config_theme') . '_image_product_width'), $this->config->get($this->config->get('config_theme') . '_image_product_height'));
@@ -313,6 +316,8 @@ class ControllerProductBlogCategory extends Controller {
 					$short_description = strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'));
 				}
 
+				
+				
 
 				$data['products'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
@@ -321,9 +326,9 @@ class ControllerProductBlogCategory extends Controller {
 					'ean'  => $result['ean'],
 					'jan'  => $result['jan'],
 					'isbn'  => $result['isbn'],
-					'date_added'  => $result['date_added'],
+					//'date_added'  => $result['date_added'],
 					'thumb'       => $image,
-					'date_added'  => date('d.m.Y', strtotime($result['date_added'])),
+					'date_added'  => date('d.m.Y', strtotime($result['date_available'])),
 					'name'        => $result['name'],
 					'description' => $short_description,
 					'price'       => $price,
@@ -491,6 +496,8 @@ class ControllerProductBlogCategory extends Controller {
 			$data['calculator'] = $this->load->controller('calculator/calculator');
 			unset($this->request->get['calculator_json']);
 			
+			
+			
 			if($category_info['template'] != ''){
 				$this->response->setOutput($this->load->view('blog_product/'.str_replace('.tpl', '', $category_info['template']), $data));
 			}else{
@@ -501,9 +508,9 @@ class ControllerProductBlogCategory extends Controller {
 			
 			$data['heading_title'] = 'Услуги';
 			
-			$this->document->setTitle($data['heading_title']);
-			$this->document->setDescription('');
-			$this->document->setKeywords($data['heading_title']);
+			//$this->document->setTitle($data['heading_title']);
+			//$this->document->setDescription('');
+			//$this->document->setKeywords($data['heading_title']);
 
 			
 			// Set the last category breadcrumb
@@ -556,6 +563,7 @@ class ControllerProductBlogCategory extends Controller {
 			if ($category['top']) {
 				// Level 2
 				$children_data = array();
+				$children_data_category = array();
 
 		
 				$filter_data = array(
@@ -661,4 +669,3 @@ class ControllerProductBlogCategory extends Controller {
 		}
 	}
 }
-

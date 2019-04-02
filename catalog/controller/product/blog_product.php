@@ -294,13 +294,17 @@ class ControllerProductBlogProduct extends Controller {
 
 			$this->load->model('tool/image');
 
-			if ($product_info['image']) {
+			if (isset($this->request->get['blogpath']) AND $this->request->get['blogpath'] == 10) {
+				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'), 'blog');
+			}elseif ($product_info['image']) {
 				$data['popup'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'));
 			} else {
 				$data['popup'] = '';
 			}
 
-			if ($product_info['image']) {
+			if (isset($this->request->get['blogpath']) AND $this->request->get['blogpath'] == 10) {
+				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_thumb_width'), $this->config->get($this->config->get('config_theme') . '_image_thumb_height'),'blog');
+			}elseif ($product_info['image']) {
 				$data['thumb'] = $this->model_tool_image->resize($product_info['image'], $this->config->get($this->config->get('config_theme') . '_image_thumb_width'), $this->config->get($this->config->get('config_theme') . '_image_thumb_height'));
 			} else {
 				$data['thumb'] = '';
@@ -311,12 +315,21 @@ class ControllerProductBlogProduct extends Controller {
 			$results = $this->model_catalog_blog_product->getProductImages($this->request->get['blog_product_id']);
 
 			foreach ($results as $result) {
+				
+				if (isset($this->request->get['blogpath']) AND $this->request->get['blogpath'] == 10) {
+					$popup = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'), 'blog');
+					$thumb = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'), 'blog');
+				}else{
+					$popup = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height'));
+					$thumb = $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'));
+				}
+				
 				$data['images'][] = array(
 					'text1' => $result['text1'],
 					'text2' => $result['text2'],
 					'text3' => $result['text3'],
-					'popup' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_popup_width'), $this->config->get($this->config->get('config_theme') . '_image_popup_height')),
-					'thumb' => $this->model_tool_image->resize($result['image'], $this->config->get($this->config->get('config_theme') . '_image_additional_width'), $this->config->get($this->config->get('config_theme') . '_image_additional_height'))
+					'popup' => $popup,
+					'thumb' => $thumb
 				);
 			}
 
@@ -562,6 +575,7 @@ class ControllerProductBlogProduct extends Controller {
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
 
+			//die($category_info['template']);
 			
 			if(isset($category_info) AND $category_info['blog_template'] != ''){
 				$this->response->setOutput($this->load->view('blog_product/'.str_replace('.tpl', '', $category_info['blog_template']), $data));
@@ -790,4 +804,3 @@ class ControllerProductBlogProduct extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
-

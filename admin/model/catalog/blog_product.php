@@ -754,4 +754,3 @@ class ModelCatalogBlogProduct extends Model {
 	}
 }
 
-

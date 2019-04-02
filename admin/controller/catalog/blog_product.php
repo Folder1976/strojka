@@ -1479,4 +1479,3 @@ class ControllerCatalogBlogProduct extends Controller {
 	}
 }
 
-

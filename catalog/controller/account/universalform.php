@@ -1,4 +1,5 @@
 <?php
+
 class ControllerAccountUniversalform extends Controller {
 	private $error = array();
 
@@ -90,7 +91,7 @@ class ControllerAccountUniversalform extends Controller {
         }
 
 		if (!isset($this->request->post['comment']) OR $this->request->post['comment'] == '') {
-			$this->error = 'Укажите Ваше сообщение';
+			//$this->error = 'Укажите Ваше сообщение';
         }
         
 		if (!isset($this->request->post['name']) OR $this->request->post['name'] == '') {
@@ -101,4 +102,6 @@ class ControllerAccountUniversalform extends Controller {
 		return !$this->error;
 	}
 }
-
+//include_once($_SERVER['DOCUMENT_ROOT'].'/amo/amo.php');
+//file_put_contents( "debug.txt", print_r($_POST, true) . PHP_EOL , FILE_APPEND);
+//file_put_contents( "debug.txt", print_r($_FILES, true) . PHP_EOL , FILE_APPEND);

@@ -223,4 +223,3 @@ class ControllerCommonHeader extends Controller {
 		return $this->load->view('common/header', $data);
 	}
 }
-

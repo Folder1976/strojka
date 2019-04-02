@@ -142,4 +142,3 @@ class ControllerExtensionFeedGoogleSitemap extends Controller {
 		return $output;
 	}
 }
-

@@ -197,4 +197,3 @@ class Controllercalculatorcalculator extends Controller {
 
 	
 }
-

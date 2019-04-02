@@ -86,4 +86,3 @@ if (isset($_POST['phone']) and $_POST['phone'] != '' and isset($_POST['name']) a
 }
 
 echo json_encode($json);
-

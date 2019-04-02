@@ -4,7 +4,7 @@ class ControllerExtensionModuleFolderAttributeFilter extends Controller {
 		
 		if(isset( $this->request->get['path']) AND strpos($this->request->get['path'], '_') === false){
 			$category_id = $this->request->get['path'];
-			if($category_id == 143 OR $category_id == 141){
+			if($category_id == 143 OR $category_id == 141 OR $category_id == 144){
 				return '';
 			}
 		}
@@ -50,6 +50,42 @@ class ControllerExtensionModuleFolderAttributeFilter extends Controller {
         
         $this->load->language('extension/module/folder_attribute_filter');
         
+		$find = array(
+					  'амбиент',
+					  'брикс',
+					  'вестерн',
+					  'драконий зуб',
+					  'континент',
+					  'плитка',
+					  'полукруг',
+					  'прямоугольник / щепа',
+					  'ромб',
+					  'шестигранник',
+					  );
+		
+		$replace = array(
+						'<img title="амбиент" alt="амбиент" src="/image/filter/амбиент.png">',
+						'<img title="брикс" alt="брикс" src="/image/filter/брикс.png">',
+						'<img title="вестерн" alt="вестерн" src="/image/filter/вестерн.png">',
+						'<img title="драконий зуб" alt="драконий зуб" src="/image/filter/драконийзуб.png">',
+						'<img title="континент" alt="континент" src="/image/filter/континент.png">',
+						'<img title="плитка" alt="плитка" src="/image/filter/плитка.png">',
+						'<img title="полукруг" alt="полукруг" src="/image/filter/полукруг.png">',
+						'<img title="прямоугольник щепа" alt="прямоугольник щепа" src="/image/filter/прямоугольникщепа.png">',
+						'<img title="ромб" alt="ромб" src="/image/filter/ромб.png">',
+						'<img title="шестигранник" alt="шестигранник" src="/image/filter/шестигранник.png">',
+						 );
+		
+		if(isset($data['filter_attributes'][16])){
+			foreach($data['filter_attributes'][16] as $index => $row){
+				
+				$data['filter_attributes'][16][$index] = str_replace($find, $replace, $row);
+				
+			}
+		}
+	
+	//echo "<pre>";print_r(var_dump($data['filter_attributes'][16]));echo "</pre>";
+	//die();
 		
 		if (count($data['filter_attributes']) > 0 OR count($data['filter_manufactures']) > 0) {
 		
@@ -65,4 +101,3 @@ class ControllerExtensionModuleFolderAttributeFilter extends Controller {
         return '';
 	}
 }
-

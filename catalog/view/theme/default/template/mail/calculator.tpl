@@ -69,17 +69,32 @@
                           </td>
                         </tr>
                         <tr>
-                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Монтаж и материалы под ключ
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Гарантия на работы 15 лет
                               <br>
                           </td>
                         </tr>
                         <tr>
-                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Полная гарантия сроков
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Видеонаблюдение за производством работ на объекте
                               <br>
                           </td>
                         </tr>
                         <tr>
-                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Спечиалисты с богатым опытом
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Поэтапная сдача работ
+                              <br>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Технический контроль за каждым этапом
+                              <br>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>3D проект кровли
+                              <br>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td style="width:335px;font-size:16px;color:#000000;text-align:left;padding:5px 0 0 40px"><span style="display: inline-block;width: 11px;height: 11px;border-radius: 12px;background-color: #000;margin-right: 10px;"></span>Специалисты только граждане РФ
                               <br>
                               <br>
                           </td>

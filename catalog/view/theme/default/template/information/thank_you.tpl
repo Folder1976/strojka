@@ -33,7 +33,7 @@
           <div class="block-t__btn-group">
             <div class="block-t__price">
               <span class="title">Всего за</span>
-              <span class="white">980 руб.</span>
+              <span class="white">3500 руб.</span>
             </div>
             <div class="block-t__btn">
               <a href="#get-consultation" class="btn btn--black mf-popup" data-effect="mfp-zoom-in">купить</a>

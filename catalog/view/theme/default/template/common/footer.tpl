@@ -354,14 +354,15 @@ $('#msg_send').on('click', function() {
               <div class="col-md-6">
                 <div class="footer__title">Наш адрес</div>
                 <p><?php echo $address; ?></p>
-                <p>Тел.: <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" style="white-space: nowrap;"><?php echo $telephone; ?></a></p>
+                <!-- <p>Тел.: <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" style="white-space: nowrap;"><?php echo $telephone; ?></a></p> -->
+				<p>Тел.: <a id="rst_phone_f" href="tel:84952350330">8 (495) 235-03-30</a></p>
               </div>
               <div class="col-md-6">
                 <div class="footer__title">мы в соц. сетях</div>
                 <ul class="footer__social">
                   <li><a href="https://vk.com/roofferr"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#vk-logo"></use></svg></a></li>
-                  <li><a href="https://www.facebook.com/Руфер-554299791749192/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#facebook-logo"></use></svg></a></li>
-                  <li><a href="https://www.instagram.com/rooferr.ru/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#instagram-logo"></use></svg></a></li>
+                  <li><a href="https://www.facebook.com/Руфер-2013173762310831/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#facebook-logo"></use></svg></a></li>
+                  <li><a href="https://www.instagram.com/roofer_ru/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#instagram-logo"></use></svg></a></li>
                   <li><a href="http://t.me/Rooferr_bot"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#telegram-logo"></use></svg></a></li>
                 </ul>
               </div>

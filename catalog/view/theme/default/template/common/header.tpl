@@ -80,8 +80,8 @@
     "url": "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>",
     "sameAs": [
         "https://vk.com/roofferr",
-        "https://www.facebook.com/Руфер-554299791749192/",
-        "https://www.instagram.com/rooferr.ru/"
+        "https://www.facebook.com/Руфер-2013173762310831",
+        "https://www.instagram.com/roofer_ru/"
     ]
 }
 </script>

@@ -501,9 +501,9 @@
                 <td style="padding:0"></td>
                 <td style="padding:0;text-align:left"><br><br><a href="mailto:info@rooferr.ru" target="_blank" style="font-size: 25px;font-weight: 900;color: #000000;">info@rooferr.ru</a><br><br><br></td>
                 <td style="padding:0;text-align:center"><br>
-                  <a href="https://www.facebook.com/%D0%A0%D1%83%D1%84%D0%B5%D1%80-554299791749192/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.facebook.com/"><img src="http://cn08183.tmweb.ru/email-img/fb.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="https://www.facebook.com/Руфер-2013173762310831" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.facebook.com/"><img src="http://cn08183.tmweb.ru/email-img/fb.png" style="padding-right: 10px" height="35px"></a>
                   <a href="https://vk.com/roofferr" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.vk.com/"><img src="http://cn08183.tmweb.ru/email-img/vk.png" style="padding-right: 10px" height="35px"></a>
-                  <a href="https://www.instagram.com/rooferr.ru/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.instagram.com/"><img src="http://cn08183.tmweb.ru/email-img/inst.png" style="padding-right: 10px" height="35px"></a>
+                  <a href="https://www.instagram.com/roofer_ru/" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://www.instagram.com/"><img src="http://cn08183.tmweb.ru/email-img/inst.png" style="padding-right: 10px" height="35px"></a>
                   <a href="http://t.me/Rooferr_bot" target="_blank" data-saferedirecturl="https://www.google.com/url?q=http://t.me/"><img src="http://cn08183.tmweb.ru/email-img/tm.png" style="padding-right: 10px" height="35px"></a>
                 </td>
               </tr>

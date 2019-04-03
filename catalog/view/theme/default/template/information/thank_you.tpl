@@ -88,7 +88,7 @@
               <span class="white">подарок</span>
             </div>
             <div class="block-t__btn">
-              <a href="https://www.instagram.com/rooferr.ru/" class="btn btn--black" target="_blank">подписаться</a>
+              <a href="https://www.instagram.com/roofer_ru/" class="btn btn--black" target="_blank">подписаться</a>
             </div>
           </div>
         </div>

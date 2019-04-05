@@ -45,7 +45,7 @@ $home = '/';
 
         <div class="lmagnet__list-item lmagnet-list-item">
           <i class="ico-lm-4 lmagnet-list-item__icon"></i>
-          <div class="lmagnet-list-item__text">Как найти подрядчика в интернете и не обмануться</div>
+          <div class="lmagnet-list-item__text">Как найти подрядчика в интернете и не ошибиться</div>
         </div>
 
         <div class="lmagnet__list-item lmagnet-list-item">

@@ -407,7 +407,7 @@
                                   <br>
                                   <br><img src="http://cn08183.tmweb.ru/email-img/manager.jpg" width="270px">
                                   <br>
-                                  <br><span style="font-weight:700;font-size:18px">Антипин Александр</span>
+                                  <br><span style="font-weight:700;font-size:18px">Анна</span>
                                   <br><span style="font-weight:normal;font-size:18px">Менеджер отдела продаж</span>
                                   <br>
                                   <br><a href="tel:84952350330" style="font-size: 30px;text-decoration:none;color:#000000" target="_blank">8 (495) 235-03-30</a>
@@ -458,7 +458,7 @@
                                   <br>
                                   <br><img src="http://cn08183.tmweb.ru/email-img/manager.jpg" width="270px">
                                   <br>
-                                  <br><span style="font-weight:700;font-size:18px">Антипин Александр</span>
+                                  <br><span style="font-weight:700;font-size:18px">Анна</span>
                                   <br><span style="font-weight:normal;font-size:18px">Менеджер отдела продаж</span>
                                   <br>
                                   <br><a href="tel:84952350330" style="font-size: 30px;text-decoration:none;color:#000000" target="_blank">8 (495) 235-03-30</a>

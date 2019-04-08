@@ -292,7 +292,7 @@ $('#msg_send').on('click', function() {
       </div>
       <div class="col-md-5 text-center">
         <img class="mf-get-consultation__foto" src="catalog/view/theme/default/img/foto/sales-manager.jpg" alt="sales-manager">
-        <p>Вас будет обслуживать<br>менеджер отдела продаж:<br><b>Антипин Александр</b></p>
+        <p>Вас будет обслуживать<br>менеджер отдела продаж:<br><b>Анна</b></p>
       </div>
     </div>
   </div>

@@ -58,9 +58,9 @@
 
       <div class="seller">
         <div class="seller__img">
-          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Антипин Александр. Менеджер отдела продаж">
+          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Анна. Менеджер отдела продаж">
         </div>
-        <div class="seller__name">Антипин Александр</div>
+        <div class="seller__name">Анна</div>
         <div class="seller__post">Менеджер отдела продаж</div>
         <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
         <p><a href="/online-calc">Калькулятор и составление КП</a></p>

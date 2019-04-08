@@ -188,7 +188,7 @@ $bottom_menu = array(
   ),
   array (
     'name' => 'строительство загородных домов',
-    'href' => '#',
+    'href' => '/stroitelstvo_domov',
   ),
 );
 

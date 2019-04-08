@@ -136,7 +136,7 @@
 
                 <div class="calc__row">
                   <div class="calc__col calc__col--l">
-                    <div class="calc__col-title">утепление</div>
+                    <div class="calc__col-title">утепление кровли</div>
                   </div>
                   <div class="calc__col calc__col--c">
                     <div class="js-range" data-units="м.м." data-min="0" data-max="200" data-value="50" data-step="50">
@@ -155,17 +155,17 @@
                       <label for="c1-ch1">Монтаж стропильной системы</label>
                     </div>
 
-                    <div>
+                    <div style="display: none;">
                       <input class="checkbox" type="checkbox" id="c1-ch2" name="c1-ch2" value="1">
                       <label for="c1-ch2">Пароизоляция</label>
                     </div>
 
-                    <div>
+                    <div style="display: none;">
                       <input class="checkbox" type="checkbox" id="c1-ch3" name="c1-ch3" value="1">
                       <label for="c1-ch3">Гидроизоляция</label>
                     </div>
 
-                    <div>
+                    <div style="display: none;">
                       <input class="checkbox" type="checkbox" id="c1-ch4" name="c1-ch4" value="1">
                       <label for="c1-ch4">Демонтаж старой обрешетки</label>
                     </div>
@@ -642,4 +642,3 @@ $('.js-prev-step').on('click', function(e){
   tab.data('step', stepNum).find('.calc__step-' + stepNum).show('200');
 });
 </script>
-

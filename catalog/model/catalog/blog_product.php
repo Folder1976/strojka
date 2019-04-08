@@ -76,7 +76,7 @@ class ModelCatalogBlogProduct extends Model {
 			$sql .= " FROM " . DB_PREFIX . "blog_product p";
 		}
 
-		$sql .= " LEFT JOIN " . DB_PREFIX . "blog_product_description pd ON (p.blog_product_id = pd.blog_product_id) LEFT JOIN " . DB_PREFIX . "blog_product_to_store p2s ON (p.blog_product_id = p2s.blog_product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() AND p2s.store_id = '" . (int)$this->config->get('config_store_id') . "'";
+		$sql .= " LEFT JOIN " . DB_PREFIX . "blog_product_description pd ON (p.blog_product_id = pd.blog_product_id) LEFT JOIN " . DB_PREFIX . "blog_product_to_store p2s ON (p.blog_product_id = p2s.blog_product_id) WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "' AND p.status = '1' AND p.date_available <= NOW() ";
 
 		if (!empty($data['filter_category_id'])) {
 			if (!empty($data['filter_sub_category'])) {
@@ -203,7 +203,7 @@ class ModelCatalogBlogProduct extends Model {
 		foreach ($query->rows as $result) {
 			$product_data[$result['blog_product_id']] = $this->getProduct($result['blog_product_id']);
 		}
-//echo $sql;
+//die($sql);
 		return $product_data;
 	}
 

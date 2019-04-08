@@ -154,7 +154,19 @@ class ControllerProductBlogCategory extends Controller {
 
 			$data['categories'] = array();
 
-			$results = $this->model_catalog_blog_category->getCategories($blog_category_id);
+		
+			if((int)$this->request->get['blogpath'] == 20){
+				$results1 = array($this->model_catalog_blog_category->getCategory(20));
+				$results1[0]['name'] = "Всё";
+				$results2 = $this->model_catalog_blog_category->getCategories(20);
+				$results = array_merge($results1,$results2);
+				if((int)$this->request->get['blogpath'] == 20 AND $blog_category_id != 20){
+					$this->request->get['blogpath'] = str_replace('_'.$blog_category_id,'', $this->request->get['blogpath']);
+				}
+			}else{
+				$results = $this->model_catalog_blog_category->getCategories($blog_category_id);
+			}
+			
 
 			foreach ($results as $result) {
 				$filter_data = array(
@@ -181,8 +193,28 @@ class ControllerProductBlogCategory extends Controller {
 					'products'			=> $prods,
 					'keyword' => $result['keyword'] ,
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_blog_product->getTotalProducts($filter_data) . ')' : ''),
+					'name_no_prod' => $result['name'],
 					'href' => $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id'] . $url)
 				);
+			}
+
+			if((int)$this->request->get['blogpath'] == 20 AND $blog_category_id != 20){
+				
+				$tmp = explode('_', $this->request->get['blogpath']);
+				$tmp_blog_category_id = (isset($tmp[1])) ? (int)$tmp[1] : $blog_category_id;
+				
+					$results = $this->model_catalog_blog_category->getCategories($tmp_blog_category_id);
+				
+					foreach ($results as $result) {
+						$data['categories1'][] = array(
+							'blog_category_id' => $result['blog_category_id'] ,
+							'products'			=> $prods,
+							'keyword' => $result['keyword'] ,
+							'name_no_prod' => $result['name'],
+							'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_blog_product->getTotalProducts($filter_data) . ')' : ''),
+							'href' => $this->url->link('product/blog_category', 'blogpath=20' . '_' . $tmp_blog_category_id . '_' . $result['blog_category_id'] . $url)
+						);
+					}
 			}
 
 			
@@ -496,6 +528,7 @@ class ControllerProductBlogCategory extends Controller {
 			$data['calculator'] = $this->load->controller('calculator/calculator');
 			unset($this->request->get['calculator_json']);
 			
+
 			
 			
 			if($category_info['template'] != ''){
@@ -601,6 +634,7 @@ class ControllerProductBlogCategory extends Controller {
 			}
 		}
 
+		
 		// ====================================
 			
 

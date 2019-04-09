@@ -138,7 +138,11 @@
 
 <?php
 $page = str_replace( $base, '', $link['href'] );
-if ( in_array( $page, array('root', 'fundament', '') ) ) {
+
+if ( strpos($_SERVER['REQUEST_URI'], "stroitelstvo_domov") !== false )
+  $page = 'stroitelstvo_domov';
+
+if ( in_array( $page, array('root', 'fundament', 'stroitelstvo_domov', '') ) ) {
   $class .= ' no-grey-line';
 }
 ?>
@@ -193,18 +197,15 @@ $bottom_menu = array(
 );
 
 $logo = '/image/catalog/ROOFER_LOGO_1.svg';
-?>
 
-<?php
-$header_type = 'big';
 $header_class = '';
-if ( isset($header_type) && $header_type != '' ) {
-  $header_class = 'header--'.$header_type;
+if ( $page == 'stroitelstvo_domov' ) {
+  $header_class = 'header--big';
 }
 ?>
 
   <header class="site__header header <?php echo $header_class; ?>">
-    <?php if ( isset($header_type) && $header_type == 'big' ) { ?>
+    <?php if ( $page == 'stroitelstvo_domov' ) { ?>
     <div class="header__top">
       <div class="container">
         <div class="row">
@@ -476,4 +477,3 @@ if ( isset($header_type) && $header_type != '' ) {
 
   <div class="site__content">
 
-  <?php include dirname(__FILE__, 2).'/parts/project_cat.tpl'; ?>

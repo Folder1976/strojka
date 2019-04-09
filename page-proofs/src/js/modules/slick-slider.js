@@ -115,4 +115,49 @@ $('.js-slider').each(function(idx){
 });
 
 
+// слайдер для страници /stroitelstvo_domov
+function sliderProjectInit(sId){
+  $('#' + sId).find('.pslider__list').slick({
+    dots: false,
+    appendArrows: '#' + sId + ' .pslider__arrows',
+    prevArrow: '#' + sId + ' .pslider__arrow--prev',
+    nextArrow: '#' + sId + ' .pslider__arrow--next',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+  });
+}
+
+
+$('.js-project-slider').each(function(idx){
+  var sId = $(this).attr('id');
+  if ( ! sId ) {
+    sId = 'jsp-' + idx;
+    $(this).attr('id', sId);
+  }
+
+  sliderProjectInit(sId);
+});
+
+
+// большой слайдер для страници /stroitelstvo_domov
+$('.js-project-slider-big .project-slider-big__list').slick({
+  dots: false,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: false,
+  asNavFor: '.project-slider-big__nav',
+});
+
+$('.js-project-slider-big .project-slider-big__nav').slick({
+  dots: false,
+  slidesToShow: 6,
+  slidesToScroll: 1,
+  autoplay: false,
+  vertical: true,
+  asNavFor: '.project-slider-big__list',
+});
+
+
+
 

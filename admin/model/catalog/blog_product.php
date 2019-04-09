@@ -366,7 +366,7 @@ class ModelCatalogBlogProduct extends Model {
 	}
 
 	public function getProducts($data = array()) {
-		$sql = "SELECT * FROM " . DB_PREFIX . "blog_product p
+		$sql = "SELECT p.*, pd.*, p2c.blog_category_id FROM " . DB_PREFIX . "blog_product p
 		LEFT JOIN " . DB_PREFIX . "blog_product_description pd ON (p.blog_product_id = pd.blog_product_id)
 		LEFT JOIN " . DB_PREFIX . "blog_product_to_category p2c ON (p.blog_product_id = p2c.blog_product_id) 
 		WHERE pd.language_id = '" . (int)$this->config->get('config_language_id') . "'";

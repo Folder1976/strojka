@@ -9,6 +9,7 @@ if (isset($_POST['phone']) and $_POST['phone'] != '' and isset($_POST['name']) a
 		return $arr;
 	}
 	
+		
 	$_POST = clean_user_data($_POST);
 	
 	$mail_bcc = $mail_to = $mail_from = 'folder.list@gmail.com';
@@ -17,7 +18,26 @@ if (isset($_POST['phone']) and $_POST['phone'] != '' and isset($_POST['name']) a
 	//echo '<pre>'; printf(var_dump($_POST));
 	//die();
 	
-	if(isset($_POST['customer_price'])){
+	if(isset($_POST['wanted_home'])){
+		
+		$mail_subject = 'Хочу такой дом!';
+	
+		$mail_message = '
+			<html>
+				<head>
+					<title>'.$mail_subject.'</title>
+				</head>
+				<body>
+					<b>Контактные данные</b><br>
+					Имя: <b>'.$_POST['name'].'</b><br>
+					Телефон: <b>'.$_POST['phone'].'</b><br>
+					E-mail: <b>'.$_POST['email'].'</b><br>
+					Сообщение:<br><b>'.$_POST['comment'].'</b>
+				</body>
+			</html>';
+	
+		
+	}elseif(isset($_POST['customer_price'])){
 		
 		$mail_subject = 'Торговаться!';
 	

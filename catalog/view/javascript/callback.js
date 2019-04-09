@@ -12,7 +12,7 @@ $(function () {
         item_cost_num = +item_cost_str.replace(/[^0-9.]/g, '').slice(0, -1);
        //debugger;
                 
-                var request = $.get('http://'+window.location.hostname+'/catalog/controller/callback/callback.php', function (data) {
+                var request = $.get('https://'+window.location.hostname+'/catalog/controller/callback/callback.php', function (data) {
                     //console.log(data);
                     $('#order-form').remove();
                     $('body').prepend(data).addClass('overflow-hidden');
@@ -74,7 +74,59 @@ $(function () {
         
         data['currency'] = $('.curent_currency').data('code');
         
-        $.post('http://'+window.location.hostname+'/catalog/controller/callback/sendmail.php', data, function (response) {
+        $.post('https://'+window.location.hostname+'/catalog/controller/callback/sendmail.php', data, function (response) {
+            if (response['success']) {
+                   
+                //alert('Заявка принята. В ближайшее время мы с вами свяжемся.');
+                show_modal_msg('Заявка принята. В ближайшее время мы с вами свяжемся.')
+                $('.close-button').trigger('click');
+            }else{
+                
+                show_modal_msg('<font color="red">'+response['error']+'</font>');    
+            }
+            }, 'json');
+        });
+  
+
+    // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+    // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+   // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+    // = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+    $('.uptocall-mini-phone2').click(function (e) {
+        e.preventDefault();
+                  
+                var request = $.get('https://'+window.location.hostname+'/catalog/controller/callback/callback2.php', function (data) {
+                    //console.log(data);
+                    $('body').prepend(data).addClass('overflow-hidden');
+                    })
+                .done(function() { console.log("second success"); })
+                .fail(function() { console.log("error"); })
+                .always(function() { console.log("finished"); });
+               
+                //console.log(window.location.hostname);
+                
+    });
+    
+    $(document).on('click', '#order-form .close-button', function () {
+        $('#order-form').remove();		$('body').removeClass('overflow-hidden');
+    });
+    
+    $(document).on('submit', '#order-form form', function (e) {
+        e.preventDefault();
+        var data = {};
+        data['product'] = $('#order-form .name').text();
+        
+        $('#order-form [name]').each(function () {
+            data[$(this).attr('name')] = $(this).val();
+        });
+        
+        $('#order-form [type="submit"]').text('Отправка…');
+        
+        data['currency'] = $('.curent_currency').data('code');
+        
+        $.post('https://'+window.location.hostname+'/catalog/controller/callback/sendmail.php', data, function (response) {
+            
+            //console.log(response);
             if (response['success']) {
                    
                 //alert('Заявка принята. В ближайшее время мы с вами свяжемся.');
@@ -102,7 +154,7 @@ $(function () {
         item_cost_num = +item_cost_str.replace(/[^0-9.]/g, '').slice(0, -1);
        //debugger;
                 
-                var request = $.get('http://'+window.location.hostname+'/catalog/controller/callback/callback1.php', function (data) {
+                var request = $.get('https://'+window.location.hostname+'/catalog/controller/callback/callback1.php', function (data) {
                     //console.log(data);
                     $('#order-form1').remove();
                     $('body').prepend(data).addClass('overflow-hidden');
@@ -165,7 +217,7 @@ $(function () {
         
         data['currency'] = $('.curent_currency').data('code');
         
-        $.post('http://'+window.location.hostname+'/catalog/controller/callback/sendmail.php', data, function (response) {
+        $.post('https://'+window.location.hostname+'/catalog/controller/callback/sendmail.php', data, function (response) {
             
             console.log(response);
             
@@ -181,4 +233,3 @@ $(function () {
 
 
 });
-

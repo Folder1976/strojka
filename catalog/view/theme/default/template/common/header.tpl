@@ -188,7 +188,7 @@ $bottom_menu = array(
   ),
   array (
     'name' => 'строительство домов',
-    'href' => '#',
+    'href' => '/stroitelstvo_domov',
   ),
 );
 
@@ -349,7 +349,7 @@ if ( isset($header_type) && $header_type != '' ) {
 
               </ul>
               <!-- <div class="header__top-text" id="rst_phone"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div> -->
-        <div class="header__top-text"><b>работаем по москве и мо <a  id="rst_phone" href="tel:84952350330" style="color: red;">8 (495) 235-03-30</a></b></div>
+              <div class="header__top-text"><b>работаем по москве и мо <a  id="rst_phone" href="tel:84952350330" style="color: red;">8 (495) 235-03-30</a></b></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-5 col-md-3">

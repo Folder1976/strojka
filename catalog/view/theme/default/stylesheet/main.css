@@ -6207,6 +6207,58 @@ ol li {
               transform: rotate(-45deg);
       right: 10px; }
 
+.pslider__dots .slick-dots {
+  position: static; }
+
+.pslider__dots .slick-dots li {
+  display: block;
+  margin: 0;
+  height: auto;
+  width: 100%;
+  border: 10px solid #fbbe18; }
+  .pslider__dots .slick-dots li:last-child {
+    padding-bottom: 0; }
+  .pslider__dots .slick-dots li.slick-active {
+    border-color: #fff; }
+
+.pslider__dot {
+  position: relative;
+  display: block; }
+  .pslider__dot .icon {
+    position: absolute;
+    z-index: 10;
+    height: 60px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    -webkit-transform: translate(-50%, -50%) scale(0);
+        -ms-transform: translate(-50%, -50%) scale(0);
+            transform: translate(-50%, -50%) scale(0);
+    fill: #fbbe18; }
+  .pslider__dot:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    opacity: 0; }
+  .pslider__dot:hover {
+    opacity: 1; }
+    .pslider__dot:hover .icon {
+      -webkit-transform: translate(-50%, -50%) scale(1);
+          -ms-transform: translate(-50%, -50%) scale(1);
+              transform: translate(-50%, -50%) scale(1); }
+    .pslider__dot:hover:before {
+      opacity: 1; }
+
 .pslider:hover .pslider__arrow {
   opacity: 1; }
 
@@ -6222,12 +6274,34 @@ ol li {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0; }
+    bottom: 0;
+    overflow: auto;
+    background-color: #fbbe18; }
   .project-slider-big__list {
-    width: 100%;
-    margin-left: 185px; }
+    width: 100%; }
     .project-slider-big__list img {
       width: 100%; }
+
+.project-single-info {
+  width: -webkit-calc(100% - 185px);
+  width: calc(100% - 185px);
+  margin-left: 185px;
+  position: relative; }
+  .project-single-info__header {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0; }
+  .project-single-info__footer {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+  .project-single-info__parameters .icon {
+    width: 36px;
+    height: 36px; }
 
 .text-center {
   text-align: center; }

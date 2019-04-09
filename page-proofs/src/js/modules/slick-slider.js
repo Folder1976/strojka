@@ -141,21 +141,43 @@ $('.js-project-slider').each(function(idx){
 
 
 // большой слайдер для страници /stroitelstvo_domov
+// $('.js-project-slider-big .project-slider-big__list').slick({
+//   dots: false,
+//   slidesToShow: 1,
+//   slidesToScroll: 1,
+//   autoplay: false,
+//   infinite: false,
+//   asNavFor: '.project-slider-big__nav',
+//   appendArrows: '.pslider__arrows',
+//   prevArrow: '.pslider__arrow--prev',
+//   nextArrow: '.pslider__arrow--next',
+// });
+
+// $('.js-project-slider-big .project-slider-big__nav').slick({
+//   dots: false,
+//   slidesToShow: 6,
+//   slidesToScroll: 1,
+//   autoplay: false,
+//   infinite: false,
+//   vertical: true,
+//   asNavFor: '.project-slider-big__list',
+// });
+
 $('.js-project-slider-big .project-slider-big__list').slick({
-  dots: false,
+  dots: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: false,
-  asNavFor: '.project-slider-big__nav',
-});
-
-$('.js-project-slider-big .project-slider-big__nav').slick({
-  dots: false,
-  slidesToShow: 6,
-  slidesToScroll: 1,
-  autoplay: false,
-  vertical: true,
-  asNavFor: '.project-slider-big__list',
+  infinite: false,
+  // asNavFor: '.project-slider-big__nav',
+  appendArrows: '.pslider__arrows',
+  prevArrow: '.pslider__arrow--prev',
+  nextArrow: '.pslider__arrow--next',
+  appendDots: '.pslider__dots',
+  customPaging: function (slider, i) {
+    var image = $(slider.$slides[i]).data('image');
+    return '<a class="pslider__dot"><img src="'+image+'" alt="" /><svg class="icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#eye"></use></svg></a>';
+  },
 });
 
 

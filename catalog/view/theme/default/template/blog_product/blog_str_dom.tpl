@@ -7,11 +7,12 @@ $tmp_images = [
   '/catalog/view/theme/default/img/tmpimg/projects/foto-3.jpg',
   '/catalog/view/theme/default/img/tmpimg/projects/foto-4.jpg',
   '/catalog/view/theme/default/img/tmpimg/projects/foto-5.jpg',
+  '/catalog/view/theme/default/img/tmpimg/projects/foto-5.jpg',
 ];
 ?>
 
 
-<?php if ( count($images) <= 6 ) { ?>
+<?php if ( count($images) <= 3 ) { ?>
 <style>
 .project-slider-big__nav .slick-track {
     transform: none !important;
@@ -24,14 +25,28 @@ $tmp_images = [
   <div class="row">
     <div class="project-slider-big js-project-slider-big">
       <div class="project-slider-big__nav">
-        <?php foreach ($tmp_images as $image) { ?>
-        <div class="img--cover"><img src="<?php echo $image; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
-        <?php } ?>
+        <div class="pslider__dots"></div>
+        
+        <?php // foreach ($tmp_images as $image) { ?>
+        <!-- <div class="img--cover"><img src="<?php echo $image; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div> -->
+        <?php //} ?>
       </div>
       <div id="content" class="project-single-info">
+        <div class="project-slider-big__arrows">
+          <div class="pslider__arrow pslider__arrow--prev"></div>
+          <div class="pslider__arrow pslider__arrow--next"></div>
+        </div>
+
+        <div class="project-slider-big__list">
+          <?php foreach ($tmp_images as $image) { ?>
+            <div class="img--cover" data-image="<?php echo $image; ?>"><img src="<?php echo $image; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
+            <?php } ?>
+        </div>
+
         <div class="project-single-info__header">
           <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
         </div>
+
         <div class="project-single-info__footer">
           <ul class="project-single-info__parameters">
             <?php if ( $ean ) { ?>
@@ -61,12 +76,6 @@ $tmp_images = [
             </li>
             <?php } ?>
           </ul>
-        </div>
-        
-        <div class="project-slider-big__list">
-          <?php foreach ($tmp_images as $image) { ?>
-            <div class="img--cover"><img src="<?php echo $image; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
-            <?php } ?>
         </div>
       </div>
     </div>

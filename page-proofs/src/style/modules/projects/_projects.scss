@@ -252,6 +252,69 @@
   &__list {}
 }
 
+.pslider__dots .slick-dots {
+  position: static;
+  // padding: 10px;
+}
+.pslider__dots .slick-dots li {
+  display: block;
+  margin: 0;
+  height: auto;
+  width: 100%;
+  border: 10px solid $primary_color;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  &.slick-active {
+    border-color: #fff;
+  }
+}
+
+.pslider__dot {
+  position: relative;
+  display: block;
+
+  .icon {
+    position: absolute;
+    z-index: 10;
+    height: 60px;
+    width: 60px;
+    top: 50%;
+    left: 50%;
+    transition: all .3s;
+    transform: translate(-50%, -50%) scale(0);
+    fill: $primary_color;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,.5);
+    transition: all .3s;
+    opacity: 0;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    .icon {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    &:before {
+      opacity:1
+    }
+  }
+}
+
 .pslider:hover .pslider__arrow {
   opacity: 1;
 }
@@ -274,10 +337,11 @@
     top: 0;
     left: 0;
     bottom: 0;
+    overflow: auto;
+    background-color: $primary_color;
   }
   &__list {
     width: 100%;
-    margin-left: 185px;
 
     img {
       width: 100%;
@@ -287,9 +351,30 @@
 
 
 .project-single-info {
-  &__header {}
-  &__footer {}
-  &__parameters {}
+  width: calc(100% - 185px);
+  margin-left: 185px;
+  position: relative;
+
+  &__header {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  &__footer {
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  &__parameters {
+    .icon {
+      width: 36px;
+      height: 36px;
+    }
+  }
 }
 
 

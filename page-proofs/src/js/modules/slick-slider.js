@@ -169,6 +169,7 @@ $('.js-project-slider-big .project-slider-big__list').slick({
   slidesToScroll: 1,
   autoplay: false,
   infinite: false,
+  // adaptiveHeight: true,
   // asNavFor: '.project-slider-big__nav',
   appendArrows: '.pslider__arrows',
   prevArrow: '.pslider__arrow--prev',

@@ -27,7 +27,7 @@ foreach ($products as $key => $value) {
     <div class="row">
       <div class="col-md-3">
         <h1 class="section-title">проекты</h1>
-        <a href="#"><svg class="icon project-cat-header-location"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#location2"></use></svg><span class="project-cat__link"> На карте</span></a>
+        <!-- <a href="#"><svg class="icon project-cat-header-location"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#location2"></use></svg><span class="project-cat__link"> На карте</span></a> -->
       </div>
       <div class="col-md-6">
         <?php if ( isset($categories) && count($categories) > 0 ) { ?>
@@ -39,7 +39,7 @@ foreach ($products as $key => $value) {
         <?php } ?>
       </div>
       <div class="col-md-3 text-right-md text-right-lg">
-        <a href="#get-call" class="project-cat__link uptocall-mini-phone2" data-effect="mfp-zoom-in">Заказать звонок</a>
+        <a href="#get-consultation" class="project-cat__link mf-popup" data-effect="mfp-zoom-in">Заказать звонок</a>
       </div>
     </div>
   </div>

@@ -4833,6 +4833,9 @@ a.btn {
   a.btn--black {
     background-color: #000;
     color: #fff; }
+  .btn--ttn,
+  a.btn--ttn {
+    text-transform: none; }
   .btn--transparent,
   a.btn--transparent {
     border-color: transparent;
@@ -6267,41 +6270,127 @@ ol li {
   width: 100%; }
 
 .project-slider-big {
-  position: relative; }
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto; }
   .project-slider-big__nav {
-    width: 185px;
-    height: 100%;
+    width: 18.5rem;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-color: #fbbe18; }
+    @media screen and (max-width: 768px) {
+      .project-slider-big__nav {
+        position: static;
+        width: 100%; } }
   .project-slider-big__list {
     width: 100%; }
+    .project-slider-big__list.slick-dotted.slick-slider {
+      margin-bottom: 0; }
     .project-slider-big__list img {
       width: 100%; }
 
 .project-single-info {
-  width: -webkit-calc(100% - 185px);
-  width: calc(100% - 185px);
-  margin-left: 185px;
+  margin-left: 18.5rem;
   position: relative; }
+  @media screen and (max-width: 768px) {
+    .project-single-info {
+      margin-left: 0; } }
   .project-single-info__header {
     position: absolute;
     z-index: 1;
     left: 0;
     right: 0;
-    top: 0; }
+    top: 0;
+    padding: 20px 15px 0 30px; }
+  .project-single-info__header-call {
+    float: right;
+    color: #000;
+    font-size: 16px;
+    text-decoration: underline; }
+  .project-single-info__header-back {
+    color: #000;
+    font-size: 16px;
+    text-decoration: underline; }
   .project-single-info__footer {
     position: absolute;
     z-index: 1;
     left: 0;
     right: 0;
-    bottom: 0; }
-  .project-single-info__parameters .icon {
-    width: 36px;
-    height: 36px; }
+    bottom: 0;
+    padding: 0 15px 30px 30px; }
+    @media screen and (max-width: 560px) {
+      .project-single-info__footer {
+        position: static; } }
+    @media screen and (max-width: 560px) {
+      .project-single-info__footer {
+        padding: 0 10px; } }
+  .project-single-info__footer-btns {
+    float: right; }
+    .project-single-info__footer-btns > * {
+      float: left;
+      margin-left: 30px; }
+      @media screen and (max-width: 992px) {
+        .project-single-info__footer-btns > * {
+          float: none; } }
+      @media screen and (max-width: 560px) {
+        .project-single-info__footer-btns > * {
+          margin-left: 0;
+          margin-bottom: 10px; } }
+    @media screen and (max-width: 560px) {
+      .project-single-info__footer-btns {
+        float: none; } }
+    .project-single-info__footer-btns .btn {
+      text-transform: none; }
+  .project-single-info__parameters {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    position: absolute;
+    bottom: 30px;
+    left: 30px; }
+    @media screen and (max-width: 560px) {
+      .project-single-info__parameters {
+        position: static;
+        width: 100%;
+        -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+                justify-content: space-between;
+        margin: 1rem; } }
+    .project-single-info__parameters .icon {
+      width: 3.6rem;
+      height: 3.6rem;
+      margin-right: 1rem; }
+    .project-single-info__parameters li {
+      display: inline-block;
+      margin-right: 2rem;
+      font-size: 1.6rem;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .project-single-info__parameters li:last-child {
+        margin-right: 0; }
+
+@media screen and (max-width: 768px) {
+  .pslider__dots .slick-dots {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+  .pslider__dots .slick-dots li {
+    width: 18rem; } }
 
 .text-center {
   text-align: center; }

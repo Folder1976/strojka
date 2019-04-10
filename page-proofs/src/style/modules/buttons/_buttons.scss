@@ -68,6 +68,10 @@ a.btn {
     color: #fff;
   }
 
+  &--ttn {
+    text-transform: none;
+  }
+
   &--transparent {
     border-color: transparent;
     background-color: transparent;

@@ -256,6 +256,7 @@
   position: static;
   // padding: 10px;
 }
+
 .pslider__dots .slick-dots li {
   display: block;
   margin: 0;
@@ -330,18 +331,31 @@
 
 .project-slider-big {
   position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+
   &__nav {
-    width: 185px;
-    height: 100%;
+    width: 18.5rem;
     position: absolute;
     top: 0;
     left: 0;
     bottom: 0;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-color: $primary_color;
+
+    @media screen and (max-width: $bs_break_xs) {
+      position: static;
+      width: 100%;
+    }
+
   }
   &__list {
     width: 100%;
+
+    &.slick-dotted.slick-slider {
+      margin-bottom: 0;
+    }
 
     img {
       width: 100%;
@@ -349,11 +363,13 @@
   }
 }
 
-
 .project-single-info {
-  width: calc(100% - 185px);
-  margin-left: 185px;
+  margin-left: 18.5rem;
   position: relative;
+
+  @media screen and (max-width: $bs_break_xs) {
+    margin-left: 0;
+  }
 
   &__header {
     position: absolute;
@@ -361,20 +377,106 @@
     left: 0;
     right: 0;
     top: 0;
+    padding: 20px 15px 0 30px;
   }
+
+  &__header-call {
+    float: right;
+    color: #000;
+    font-size: 16px;
+    text-decoration: underline;
+  }
+
+  &__header-back {
+    color: #000;
+    font-size: 16px;
+    text-decoration: underline;
+  }
+
   &__footer {
     position: absolute;
     z-index: 1;
     left: 0;
     right: 0;
     bottom: 0;
+    padding: 0 15px 30px 30px;
+    @media screen and (max-width: $break_xs) {
+      position: static;
+    }
+    @media screen and (max-width: $break_xs) {
+      padding: 0 10px;
+    }
   }
+
+  &__footer-btns {
+    float: right;
+
+    & > * {
+      float: left;
+      margin-left: 30px;
+
+      @media screen and (max-width: $bs_break_sm) {
+        float: none;
+      }
+
+      @media screen and (max-width: $break_xs) {
+        margin-left: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media screen and (max-width: $break_xs) {
+      float: none;
+    }
+
+    .btn {
+      text-transform: none;
+    }
+  }
+
   &__parameters {
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, .8);
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+
+    @media screen and (max-width: $break_xs) {
+      position: static;
+      width: 100%;
+      justify-content: space-between;
+      margin: 1rem;
+    }
+
     .icon {
-      width: 36px;
-      height: 36px;
+      width: 3.6rem;
+      height: 3.6rem;
+      margin-right: 1rem;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 2rem;
+      font-size: 1.6rem;
+      display: flex;
+      align-items: center;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
 
 
+@media screen and (max-width: $bs_break_xs) {
+  .pslider__dots .slick-dots {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+  .pslider__dots .slick-dots li {
+    width: 18rem;
+  }
+}

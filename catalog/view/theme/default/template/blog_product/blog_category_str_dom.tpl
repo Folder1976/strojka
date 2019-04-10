@@ -131,8 +131,6 @@ foreach ($products as $key => $value) {
       </div>
     </div>
   </div>
-
-
 <?php } ?>
 
 <?php echo $footer; ?>

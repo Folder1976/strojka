@@ -190,11 +190,24 @@ $bottom_menu = array(
     'name' => 'проектирование и дизайн',
     'href' => '/krovlya/blog_roof_project',
   ),
-  array (
+  // array (
+  //   'name' => 'строительство домов',
+  //   // 'name' => 'строительство загородных домов',
+  //   'href' => '/stroitelstvo-kamennyh-domov',
+  // ),
+);
+
+if ( $page == 'stroitelstvo-kamennyh-domov' ) {
+  $bottom_menu[] = array(
     'name' => 'строительство домов',
     'href' => '/stroitelstvo-kamennyh-domov',
-  ),
-);
+  );
+} else {
+  $bottom_menu[] = array(
+    'name' => 'строительство загородных домов',
+    'href' => '/stroitelstvo-kamennyh-domov',
+  );
+}
 
 $logo = '/image/catalog/ROOFER_LOGO_1.svg';
 
@@ -209,23 +222,25 @@ if ( $page == 'stroitelstvo-kamennyh-domov' ) {
     <div class="header__top">
       <div class="container">
         <div class="row">
-          <div class="col-xs-3 col-sm-1">
-            <div class="header__logo logo">
-              <?php if ($logo) { ?>
-              <a href="<?php echo $home; ?>" class="logo__link"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="logo__img" /></a>
-              <?php } else { ?>
-              <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="col-xs-9 col-sm-11">
-            <div class="header__inner">
-              <!-- <div class="header__top-text" id="rst_phone"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div> -->
-              <div class="header__top-text"><span>работаем по москве и мо </span><a  id="rst_phone" href="tel:84952350330">8 (495) 235-03-30</a></div>
-              <div class="header__cart" id="cart_wrapper">
-                <a href="#menu-prod" class="header__cart-btn mf-popup" data-effect="mfp-zoom-in">Товары</a>
-                <a href="#menu-serv" class="header__cart-btn mf-popup" data-effect="mfp-zoom-in">Услуги</a>
-                <?php echo $cart; ?>
+          <div class="col-sm-12">
+            <div class="header__row">
+              <div class="header__col-logo">
+                <div class="header__logo logo">
+                  <?php if ($logo) { ?>
+                  <a href="<?php echo $home; ?>" class="logo__link"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="logo__img" /></a>
+                  <?php } else { ?>
+                  <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
+                  <?php } ?>
+                </div>
+              </div>
+              <div class="header__inner">
+                <!-- <div class="header__top-text" id="rst_phone"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div> -->
+                <div class="header__top-text"><span>работаем по москве и мо </span><a  id="rst_phone" href="tel:84952350330">8 (495) 235-03-30</a></div>
+                <div class="header__cart" id="cart_wrapper">
+                  <a href="#menu-prod" class="header__cart-btn mf-popup" data-effect="mfp-zoom-in">Товары</a>
+                  <a href="#menu-serv" class="header__cart-btn mf-popup" data-effect="mfp-zoom-in">Услуги</a>
+                  <?php echo $cart; ?>
+                </div>
               </div>
             </div>
           </div>
@@ -235,72 +250,75 @@ if ( $page == 'stroitelstvo-kamennyh-domov' ) {
     <div class="header__bottom">
       <div class="container">
         <div class="row">
-          <div class="col-xs-3 col-sm-1"></div>
-          <div class="col-xs-9 col-sm-11">
-            <div class="header__mob-menu-btn mob-menu__btn">
-              <span></span>
-              <span></span>
-              <span></span>
+          <div class="col-sm-12">
+            <div class="header__row">
+              <div class="header__col-logo"></div>
+              <div class="header__inner">
+                <div class="header__mob-menu-btn mob-menu__btn">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <ul class="header__bottom-menu js-mob-menu">
+
+                  <?php
+                  foreach ($top_menu as $mitem) {
+                    if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
+                      echo '<li class="dropdown"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a>';
+                      echo '<ul class="dropdown-menu">';
+
+                      foreach ( $mitem['children'] as $child) {
+
+                        if ( isset($child['children']) && count($child['children']) > 0 ) {
+                          echo '<li class="dropdown"><a href="'.$child['href'].'">'.$child['name'].'</a>';
+                          echo '<ul class="dropdown-menu dropdown-menu-2">';
+                          foreach ( $child['children'] as $ch) {
+                            echo '<li><a href="'.$ch['href'].'">'.$ch['name'].'</a></li>';
+                          }
+                          echo '</ul></li>';
+                        } else {
+                          echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
+                        }
+                      }
+
+                      echo '</ul></li>';
+                    } else {
+                      echo '<li><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></li>';
+                    }
+                  }
+                  ?>
+
+                  <?php
+                  foreach ($bottom_menu as $mitem) {
+                    if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
+                      echo '<li class="dropdown"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a>';
+                      echo '<ul class="dropdown-menu">';
+
+                      foreach ( $mitem['children'] as $child) {
+
+                        if ( isset($child['children']) && count($child['children']) > 0 ) {
+                          echo '<li class="dropdown"><a href="'.$child['href'].'">'.$child['name'].'</a>';
+                          echo '<ul class="dropdown-menu dropdown-menu-2">';
+                          foreach ( $child['children'] as $ch) {
+                            echo '<li><a href="'.$ch['href'].'">'.$ch['name'].'</a></li>';
+                          }
+                          echo '</ul></li>';
+                        } else {
+                          echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
+                        }
+                      }
+
+                      echo '</ul></li>';
+                    } else {
+                      echo '<li><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></li>';
+                    }
+                  }
+                  ?>
+
+                </ul>
+              </div>
             </div>
-            <ul class="header__bottom-menu js-mob-menu">
-
-              <?php
-              foreach ($top_menu as $mitem) {
-                if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
-                  echo '<li class="dropdown"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a>';
-                  echo '<ul class="dropdown-menu">';
-
-                  foreach ( $mitem['children'] as $child) {
-
-                    if ( isset($child['children']) && count($child['children']) > 0 ) {
-                      echo '<li class="dropdown"><a href="'.$child['href'].'">'.$child['name'].'</a>';
-                      echo '<ul class="dropdown-menu dropdown-menu-2">';
-                      foreach ( $child['children'] as $ch) {
-                        echo '<li><a href="'.$ch['href'].'">'.$ch['name'].'</a></li>';
-                      }
-                      echo '</ul></li>';
-                    } else {
-                      echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
-                    }
-                  }
-
-                  echo '</ul></li>';
-                } else {
-                  echo '<li><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></li>';
-                }
-              }
-              ?>
-
-              <?php
-              foreach ($bottom_menu as $mitem) {
-                if ( isset($mitem['children']) && count($mitem['children']) > 0 ) {
-                  echo '<li class="dropdown"><a href="'.$mitem['href'].'">'.$mitem['name'].'</a>';
-                  echo '<ul class="dropdown-menu">';
-
-                  foreach ( $mitem['children'] as $child) {
-
-                    if ( isset($child['children']) && count($child['children']) > 0 ) {
-                      echo '<li class="dropdown"><a href="'.$child['href'].'">'.$child['name'].'</a>';
-                      echo '<ul class="dropdown-menu dropdown-menu-2">';
-                      foreach ( $child['children'] as $ch) {
-                        echo '<li><a href="'.$ch['href'].'">'.$ch['name'].'</a></li>';
-                      }
-                      echo '</ul></li>';
-                    } else {
-                      echo '<li><a href="'.$child['href'].'">'.$child['name'].'</a></li>';
-                    }
-                  }
-
-                  echo '</ul></li>';
-                } else {
-                  echo '<li><a href="'.$mitem['href'].'">'.$mitem['name'].'</a></li>';
-                }
-              }
-              ?>
-
-            </ul>
           </div>
-          <div class="hidden-xs col-sm-3"></div>
         </div>
       </div>
     </div>

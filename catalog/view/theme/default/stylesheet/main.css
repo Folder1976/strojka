@@ -4183,16 +4183,23 @@ hr,
 .header--big .logo__link:hover {
   opacity: 1; }
 
-.header--big .header__logo {
-  background-color: #fbbe18; }
-  .header--big .header__logo:hover {
-    opacity: .7; }
-  @media screen and (max-width: 992px) {
-    .header--big .header__logo {
-      background-color: transparent; } }
+.header--big .header__row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around; }
+
+.header--big .header__col-logo {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 120px;
+          flex: 0 0 120px; }
 
 .header--big .header__inner {
-  font-size: 2.5rem; }
+  font-size: 2.5rem;
+  width: 100%;
+  padding: 0;
+  padding-left: 15px; }
   @media screen and (max-width: 1200px) {
     .header--big .header__inner {
       padding: 0; } }
@@ -4255,6 +4262,9 @@ hr,
 
 .header--big .header-cart__text {
   font-size: 12px; }
+
+.header--big .header__bottom-menu {
+  width: 100%; }
 
 .header--big .header__bottom-menu a {
   font-size: 16px;

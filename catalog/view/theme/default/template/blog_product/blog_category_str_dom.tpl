@@ -1,27 +1,5 @@
 <?php echo $header; ?>
 
-<?php
-// Временно: заполняем массив тестовыми фотками
-$tmp_images = [
-  '/catalog/view/theme/default/img/tmpimg/projects/foto-1.jpg',
-  '/catalog/view/theme/default/img/tmpimg/projects/foto-2.jpg',
-  '/catalog/view/theme/default/img/tmpimg/projects/foto-3.jpg',
-  '/catalog/view/theme/default/img/tmpimg/projects/foto-4.jpg',
-  '/catalog/view/theme/default/img/tmpimg/projects/foto-5.jpg',
-];
-
-foreach ($products as $key => $value) {
-  shuffle($tmp_images);
-  $products[$key]['images'] = $tmp_images;
-}
-?>
-
-
-
-
-
-
-
 <div class="project-cat-header">
   <div class="container-fluid">
     <div class="row">
@@ -39,7 +17,7 @@ foreach ($products as $key => $value) {
         <?php } ?>
       </div>
       <div class="col-md-3 text-right-md text-right-lg">
-        <a href="#get-consultation" class="project-cat__link mf-popup" data-effect="mfp-zoom-in">Заказать звонок</a>
+        <a href="#get-consultation" class="project-cat__link uptocall-mini-phone2" data-effect="mfp-zoom-in">Заказать звонок</a>
       </div>
     </div>
   </div>
@@ -120,7 +98,7 @@ foreach ($products as $key => $value) {
                 <?php foreach ($product['images'] as $image) { ?>
                   <div class="pslider__item pslider-item">
 
-                    <div class="pslider-item__img img--cover"><img src="<?php echo $image; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
+                    <div class="pslider-item__img img--cover"><img src="<?php echo $image['image']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>
                   </div>
                 <?php } ?>
               </div>
@@ -134,4 +112,5 @@ foreach ($products as $key => $value) {
 <?php } ?>
 
 <?php echo $footer; ?>
+
 

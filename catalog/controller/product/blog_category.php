@@ -188,13 +188,18 @@ class ControllerProductBlogCategory extends Controller {
 					$prods[$b_product_id]['href'] = $this->url->link('product/blog_product', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id']. '&blog_product_id=' . $value['blog_product_id']);
 				}
 				
+				if($this->request->get['blogpath'] == $result['blog_category_id'] ){
+					$href = $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . $url);
+				}else{
+					$href = $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id'] . $url);
+				}
 				$data['categories'][] = array(
 					'blog_category_id' => $result['blog_category_id'] ,
 					'products'			=> $prods,
 					'keyword' => $result['keyword'] ,
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_blog_product->getTotalProducts($filter_data) . ')' : ''),
 					'name_no_prod' => $result['name'],
-					'href' => $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id'] . $url)
+					'href' => $href
 				);
 			}
 
@@ -269,8 +274,17 @@ class ControllerProductBlogCategory extends Controller {
 					$short_description = strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'));
 				}
 			
-			
-				
+				$images = array();
+				if((int)$this->request->get['blogpath'] == 20){
+					
+					$images = $this->model_catalog_blog_product->getProductImages($result['blog_product_id']);
+					foreach($images as $index => $row){
+						$images[$index]['image'] = $this->model_tool_image->resize($row['image'], 800,565);
+						//$images[$index]['image'] = '/image/'.$row['image'];
+					}
+				}
+			   
+
 				$data['products1'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
 					'sku'  => $result['sku'],
@@ -282,6 +296,7 @@ class ControllerProductBlogCategory extends Controller {
 					'date_added'  => date('d.m.Y', strtotime($result['date_available'])),
 					'name'        => $result['name'],
 					'description' => $short_description,
+					'images'	  => $images,
 					'price'       => $price,
 					'special'     => $special,
 					'tax'         => $tax,
@@ -348,9 +363,18 @@ class ControllerProductBlogCategory extends Controller {
 					$short_description = strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8'));
 				}
 
-				
-				
-
+				$images = array();
+				if((int)$this->request->get['blogpath'] == 20){
+					
+					$images = $this->model_catalog_blog_product->getProductImages($result['blog_product_id']);
+					
+					foreach($images as $index => $row){
+						$images[$index]['image'] = $this->model_tool_image->resize($row['image'], 800,565);
+						//$images[$index]['image'] = '/image/'.$row['image'];
+					}
+				}
+			   
+		
 				$data['products'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
 					'sku'  => $result['sku'],
@@ -359,6 +383,7 @@ class ControllerProductBlogCategory extends Controller {
 					'jan'  => $result['jan'],
 					'isbn'  => $result['isbn'],
 					//'date_added'  => $result['date_added'],
+					'images'	  => $images,
 					'thumb'       => $image,
 					'date_added'  => date('d.m.Y', strtotime($result['date_available'])),
 					'name'        => $result['name'],
@@ -372,7 +397,6 @@ class ControllerProductBlogCategory extends Controller {
 				);
 			}
 
-			
 			
 			$url = '';
 
@@ -703,3 +727,4 @@ class ControllerProductBlogCategory extends Controller {
 		}
 	}
 }
+

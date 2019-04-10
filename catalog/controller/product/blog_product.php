@@ -465,6 +465,16 @@ class ControllerProductBlogProduct extends Controller {
 				} else {
 					$rating = false;
 				}
+				
+				$images = array();
+				if((int)$this->request->get['blogpath'] == 20){
+					
+					$images = $this->model_catalog_blog_product->getProductImages($result['blog_product_id']);
+					foreach($images as $index => $row){
+						$images[$index]['image'] = $this->model_tool_image->resize($row['image'], 400,283);
+						//$images[$index]['image'] = '/image/'.$row['image'];
+					}
+				}
 
 				$data['products'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
@@ -474,7 +484,7 @@ class ControllerProductBlogProduct extends Controller {
 					'jan'  => $result['jan'],
 					'isbn'  => $result['isbn'],
 					'date_added'  => $result['date_added'],
-				
+					'images'	  => $images,
 					'name'        => $result['name'],
 					'description' => utf8_substr(strip_tags(html_entity_decode($result['description'], ENT_QUOTES, 'UTF-8')), 0, $this->config->get($this->config->get('config_theme') . '_product_description_length')) . '..',
 					'price'       => $price,
@@ -804,3 +814,4 @@ class ControllerProductBlogProduct extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 }
+

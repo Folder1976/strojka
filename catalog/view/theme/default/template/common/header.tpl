@@ -139,10 +139,10 @@
 <?php
 $page = str_replace( $base, '', $link['href'] );
 
-if ( strpos($_SERVER['REQUEST_URI'], "stroitelstvo_domov") !== false )
-  $page = 'stroitelstvo_domov';
+if ( strpos($_SERVER['REQUEST_URI'], "stroitelstvo-kamennyh-domov") !== false )
+  $page = 'stroitelstvo-kamennyh-domov';
 
-if ( in_array( $page, array('root', 'fundament', 'stroitelstvo_domov', '') ) ) {
+if ( in_array( $page, array('root', 'fundament', 'stroitelstvo-kamennyh-domov', '') ) ) {
   $class .= ' no-grey-line';
 }
 ?>
@@ -192,20 +192,20 @@ $bottom_menu = array(
   ),
   array (
     'name' => 'строительство домов',
-    'href' => '/stroitelstvo_domov',
+    'href' => '/stroitelstvo-kamennyh-domov',
   ),
 );
 
 $logo = '/image/catalog/ROOFER_LOGO_1.svg';
 
 $header_class = '';
-if ( $page == 'stroitelstvo_domov' ) {
+if ( $page == 'stroitelstvo-kamennyh-domov' ) {
   $header_class = 'header--big';
 }
 ?>
 
   <header class="site__header header <?php echo $header_class; ?>">
-    <?php if ( $page == 'stroitelstvo_domov' ) { ?>
+    <?php if ( $page == 'stroitelstvo-kamennyh-domov' ) { ?>
     <div class="header__top">
       <div class="container">
         <div class="row">

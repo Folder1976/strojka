@@ -37,7 +37,7 @@
         <div class="project-single-info__header">
           <a href="#get-call" class="project-single-info__header-call uptocall-mini-phone2" data-effect="mfp-zoom-in">Заказать звонок</a>
           <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
-          <a href="<?php echo end($breadcrumbs)["href"]; ?>" class="project-single-info__header-back">< Назад</a>
+          <a href="<?php echo $breadcrumbs[count($breadcrumbs)-2]['href']; ?>" class="project-single-info__header-back">< Назад</a>
         </div>
 
         <div class="project-single-info__footer">

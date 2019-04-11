@@ -510,8 +510,6 @@ window.onload = init;
 <script type="text/javascript">(function (w, d) {w.amo_pixel_token = 'p1Ip4iB8yqaEyXU9HPmcTDaw7q1RRL6mUaHuC/LooNrqSeY04xnhWLPuy1xGf9Wy';var s = document.createElement('script'), f = d.getElementsByTagName('script')[0];s.id = 'amo_pixel_js';s.type = 'text/javascript';s.async = true;s.src = 'http://dp-front-int-balancer.serversru.production.dp.amosrv.ru/pixel/js/tracker/pixel.js?token=' + w.amo_pixel_token;f.parentNode.insertBefore(s, f);})(window, document);</script>
 
 
-<script src="https://mssg.me/widget/rooferr" async></script>
-
 
 
 <script>
@@ -522,6 +520,29 @@ window.onload = init;
     var js = d.createElement(s); js.charset="UTF-8"; js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
 })(window, document, 'script', 'cloud.roistat.com', 'c556467d53b3f18180b20850d83ab690');
 </script>
+
+
+<!-- BEGIN JIVOSITE CODE {literal} -->
+<script type='text/javascript'>
+(function(){ var widget_id = 'ebsfXV6gIi';var d=document;var w=window;function l(){
+  var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;
+  s.src = '//code.jivosite.com/script/widget/'+widget_id
+    ; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}
+  if(d.readyState=='complete'){l();}else{if(w.attachEvent){w.attachEvent('onload',l);}
+  else{w.addEventListener('load',l,false);}}})();
+</script>
+<!-- {/literal} END JIVOSITE CODE -->
+
+<!-- BEGIN JIVOSITE INTEGRATION WITH ROISTAT -->
+<script>
+(function(w, d, s, h) {
+    var p = d.location.protocol == "https:" ? "https://" : "http://";
+    var u = "/static/marketplace/JivoSite/script.js";
+    var js = d.createElement(s); js.async = 1; js.src = p+h+u; var js2 = d.getElementsByTagName(s)[0]; js2.parentNode.insertBefore(js, js2);
+    })(window, document, 'script', 'cloud.roistat.com');
+</script>
+<!-- END JIVOSITE INTEGRATION WITH ROISTAT -->
+
 
 
 </body></html>

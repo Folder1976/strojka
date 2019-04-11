@@ -381,6 +381,7 @@
   margin-left: 18.5rem;
   position: relative;
   height: 100%;
+  cursor: none;
 
   @media screen and (max-width: $bs_break_xs) {
     margin-left: 0;
@@ -485,6 +486,31 @@
       }
     }
   }
+}
+
+.psblider__cursor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 150;
+  transform: translate(-50%, -50%);
+
+  &--next {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+}
+.psblider__cursor-icon {
+  display: block;
+  width: 26px;
+  height: 84px;
+  stroke: #fff;
+  stroke-width: 3;
+  opacity: 0;
+  transition: all .3s;
+}
+
+.project-single-info:hover .psblider__cursor-icon {
+  opacity: 1;
 }
 
 

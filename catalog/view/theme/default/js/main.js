@@ -190,34 +190,12 @@ $('.js-project-slider').each(function(idx){
 
 
 // большой слайдер для страници /stroitelstvo_domov
-// $('.js-project-slider-big .project-slider-big__list').slick({
-//   dots: false,
-//   slidesToShow: 1,
-//   slidesToScroll: 1,
-//   autoplay: false,
-//   infinite: false,
-//   asNavFor: '.project-slider-big__nav',
-//   appendArrows: '.pslider__arrows',
-//   prevArrow: '.pslider__arrow--prev',
-//   nextArrow: '.pslider__arrow--next',
-// });
-
-// $('.js-project-slider-big .project-slider-big__nav').slick({
-//   dots: false,
-//   slidesToShow: 6,
-//   slidesToScroll: 1,
-//   autoplay: false,
-//   infinite: false,
-//   vertical: true,
-//   asNavFor: '.project-slider-big__list',
-// });
-
 $('.js-project-slider-big .project-slider-big__list').slick({
   dots: true,
   slidesToShow: 1,
   slidesToScroll: 1,
   autoplay: false,
-  infinite: false,
+  infinite: true,
   // adaptiveHeight: true,
   // asNavFor: '.project-slider-big__nav',
   appendArrows: '.psblider__arrows',
@@ -230,9 +208,54 @@ $('.js-project-slider-big .project-slider-big__list').slick({
   },
 });
 
+// переключаем на слайд с "планировкой"
 $('.js-psb-goto').on('click', function(){
   var num = $(this).data('plan');
   $('.js-project-slider-big .project-slider-big__list')[0].slick.slickGoTo(parseInt(num));
+});
+
+// стрелка для листания слайдов
+$('.project-slider-big__list').mousemove(function(e){
+  var cursor = $('.psblider__cursor');
+
+  // положение элемента
+  var pos = $(this).offset();
+  var elem_left = pos.left;
+  var elem_top = pos.top;
+  // положение курсора внутри элемента
+  var Xinner = e.pageX - elem_left;
+  var Yinner = e.pageY - elem_top;
+  // console.log("X: " + Xinner + " Y: " + Yinner); // вывод результата в консоль
+  // console.log($(this).width(), $(this).width()/2);
+
+  cursor.css({'top': Yinner, 'left': Xinner });
+
+  // меняем направление стрелки в зависимости от положения
+  if ( Xinner > $(this).width()/2) {
+    cursor.addClass('psblider__cursor--next')
+  } else {
+    cursor.removeClass('psblider__cursor--next')
+  }
+});
+
+// переключение слайдов при клике на стрелку
+$('.psblider__cursor').on('click', function(e){
+  var parent = $('.project-slider-big__list');
+  var slider = $('.js-project-slider-big .project-slider-big__list')[0].slick;
+  // положение элемента
+  var pos = parent.offset();
+  var elem_left = pos.left;
+  var elem_top = pos.top;
+  // положение курсора внутри элемента
+  var Xinner = e.pageX - elem_left;
+  var Yinner = e.pageY - elem_top;
+
+  // зависимости от положения "курсора" переключаем слайд
+  if ( Xinner > parent.width()/2) {
+    slider.slickNext(e);
+  } else {
+    slider.slickPrev(e);
+  }
 });
 
 

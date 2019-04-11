@@ -9,6 +9,12 @@
           <div class="psblider__arrow psblider__arrow--next"></div>
         </div>
 
+        <div class="psblider__cursor">
+          <svg class="psblider__cursor-icon">
+            <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#slide-prev"></use>
+          </svg>
+        </div>
+
         <div class="project-slider-big__list">
           <?php foreach ($images as $image) { ?>
             <div class="img--cover" data-image="<?php echo $image['popup']; ?>"><img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>"></div>

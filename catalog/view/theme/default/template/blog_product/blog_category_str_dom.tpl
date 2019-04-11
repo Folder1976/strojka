@@ -17,7 +17,7 @@
         <?php } ?>
       </div>
       <div class="col-md-3 text-right-md text-right-lg">
-        <a href="#get-consultation" class="project-cat__link uptocall-mini-phone2" data-effect="mfp-zoom-in">Заказать звонок</a>
+        <a href="#get-consultation" class="project-cat__link mf-popup" data-effect="mfp-zoom-in">Заказать звонок</a>
       </div>
     </div>
   </div>
@@ -110,6 +110,28 @@
     </div>
   </div>
 <?php } ?>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pagination-wrap">
+        <div class=""><?php echo $pagination; ?></div>
+        <div class="form-group input-group input-group-sm limit-per-page">
+          <label for="input-limit"><?php echo $text_limit; ?></label>
+          <select id="input-limit" class="form-control" onchange="location = this.value;">
+            <?php foreach ($limits as $limits) { ?>
+            <?php if ($limits['value'] == $limit) { ?>
+            <option value="<?php echo $limits['href']; ?>" selected="selected"><?php echo $limits['text']; ?></option>
+            <?php } else { ?>
+            <option value="<?php echo $limits['href']; ?>"><?php echo $limits['text']; ?></option>
+            <?php } ?>
+            <?php } ?>
+          </select>
+        </div>
+      </div> 
+    </div>
+  </div>
+</div>
 
 <?php echo $footer; ?>
 

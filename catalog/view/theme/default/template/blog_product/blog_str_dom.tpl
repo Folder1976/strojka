@@ -1,31 +1,12 @@
 <?php echo $header; ?>
 
-<?php
-// $images = [
-//   ['popup' => '/catalog/view/theme/default/img/tmpimg/projects/foto-1.jpg'],
-//   ['popup' => '/catalog/view/theme/default/img/tmpimg/projects/foto-2.jpg'],
-//   ['popup' => '/catalog/view/theme/default/img/tmpimg/projects/foto-3.jpg'],
-//   ['popup' => '/catalog/view/theme/default/img/tmpimg/projects/foto-4.jpg'],
-//   ['popup' => '/catalog/view/theme/default/img/tmpimg/projects/foto-5.jpg'],
-// ];
-?>
-
-
-<?php if ( count($images) <= 3 ) { ?>
-<style>
-.project-slider-big__nav .slick-track {
-    transform: none !important;
-}
-</style>
-<?php } ?>
-
 <div class="container-fluid">
   <div class="row">
     <div class="project-slider-big js-project-slider-big">
       <div id="content" class="project-single-info">
-        <div class="project-slider-big__arrows">
-          <div class="pslider__arrow pslider__arrow--prev"></div>
-          <div class="pslider__arrow pslider__arrow--next"></div>
+        <div class="psblider__arrows">
+          <div class="psblider__arrow psblider__arrow--prev"></div>
+          <div class="psblider__arrow psblider__arrow--next"></div>
         </div>
 
         <div class="project-slider-big__list">
@@ -35,7 +16,7 @@
         </div>
 
         <div class="project-single-info__header">
-          <a href="#get-consultation" class="project-single-info__header-call uptocall-mini-phone2" data-effect="mfp-zoom-in">Заказать звонок</a>
+          <a href="#get-consultation" class="project-single-info__header-call mf-popup" data-effect="mfp-zoom-in">Заказать звонок</a>
           <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
           <a href="<?php echo $breadcrumbs[count($breadcrumbs)-2]['href']; ?>" class="project-single-info__header-back">< Назад</a>
         </div>
@@ -71,7 +52,7 @@
           </ul>
 
           <div class="project-single-info__footer-btns">
-            <a href="#get-call" class="btn btn--black btn--bdrs0 uptocall-mini-phone2" data-effect="mfp-zoom-in">Планировка</a>
+            <button class="btn btn--black btn--bdrs0 js-psb-goto" data-plan="<?php echo $minimum-1; ?>">Планировка</button>
             <a href="#get-call" class="btn btn--orange btn--bdrs0 uptocall-mini-phone2" data-effect="mfp-zoom-in">Хочу такой дом</a>
           </div>
         </div>
@@ -165,44 +146,6 @@
 
 
 
-<?php if (false) { ?>
-<div class="container">
-  <div class="row" id="content">
-
-    <div class="col-md-12">
-
-      <?php if ( $images ) { ?>
-        <?php foreach ($images as $image) { ?>
-          <div class="img-stages">
-            <div class="img-stages__title"><?php echo $image['text1']; ?></div>
-            <div class="img-stages__img">
-              <img src="<?php echo $image['popup']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
-            </div>
-            <div class="img-stages__text"><?php echo $image['text2']; ?></div>
-          </div>
-        <?php } ?>
-      <?php } ?>
-
-      <br>
-      <br>
-      <?php if ( $products && count($products) > 0 ) { ?>
-        <div class="h3-title">Еще отзывы</div>
-
-        <ul class="company-works-list">
-          <?php foreach ($products as $pr) { ?>
-            <li>
-              <a href="<?php echo $pr['href']; ?>"><?php echo $pr['date_added'].' '.$pr['isbn']; ?></a>
-            </li>
-          <?php } ?>
-        </ul>
-      <?php } ?>
-
-    </div>
-
-  </div>
-
-</div>
-<?php } ?>
 
 <?php echo $footer; ?>
 

@@ -220,14 +220,19 @@ $('.js-project-slider-big .project-slider-big__list').slick({
   infinite: false,
   // adaptiveHeight: true,
   // asNavFor: '.project-slider-big__nav',
-  appendArrows: '.pslider__arrows',
-  prevArrow: '.pslider__arrow--prev',
-  nextArrow: '.pslider__arrow--next',
+  appendArrows: '.psblider__arrows',
+  prevArrow: '.psblider__arrow--prev',
+  nextArrow: '.psblider__arrow--next',
   appendDots: '.pslider__dots',
   customPaging: function (slider, i) {
     var image = $(slider.$slides[i]).data('image');
     return '<a class="pslider__dot"><img src="'+image+'" alt="" /><svg class="icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#eye"></use></svg></a>';
   },
+});
+
+$('.js-psb-goto').on('click', function(){
+  var num = $(this).data('plan');
+  $('.js-project-slider-big .project-slider-big__list')[0].slick.slickGoTo(parseInt(num));
 });
 
 

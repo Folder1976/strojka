@@ -19,7 +19,7 @@ $services = array(
     'title' => 'Строительство загородных домов',
     'desc' => 'Да, это мы тоже делаем. Качественно, быстро и за разумные деньги.',
     'foto' => 'catalog/view/theme/default/img/tmpimg/serv-3.jpg',
-    'href' => ''
+    'href' => HTTP_SERVER.'stroitelstvo-kamennyh-domov'
   ),
 );
 

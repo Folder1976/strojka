@@ -334,7 +334,7 @@
   position: relative;
   // max-width: 1400px;
   margin: 0 auto;
-  height: 100vh;
+  height: calc(100vh - 97px);
 
   &__nav {
     width: 18.5rem;
@@ -360,7 +360,7 @@
     }
 
     .slick-slide {
-      height: 100vh;
+      height: calc(100vh - 97px);
       width: 100%;
       position: relative;
       overflow: hidden;
@@ -399,6 +399,7 @@
     float: right;
     color: #000;
     font-size: 16px;
+    font-weight: 900;
     text-decoration: underline;
   }
 
@@ -406,6 +407,7 @@
     color: #000;
     font-size: 16px;
     text-decoration: underline;
+    font-weight: 900;
   }
 
   &__footer {

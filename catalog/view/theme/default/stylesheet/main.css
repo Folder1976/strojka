@@ -6283,7 +6283,8 @@ ol li {
 .project-slider-big {
   position: relative;
   margin: 0 auto;
-  height: 100vh; }
+  height: -webkit-calc(100vh - 97px);
+  height: calc(100vh - 97px); }
   .project-slider-big__nav {
     width: 18.5rem;
     position: absolute;
@@ -6302,7 +6303,8 @@ ol li {
     .project-slider-big__list.slick-dotted.slick-slider {
       margin-bottom: 0; }
     .project-slider-big__list .slick-slide {
-      height: 100vh;
+      height: -webkit-calc(100vh - 97px);
+      height: calc(100vh - 97px);
       width: 100%;
       position: relative;
       overflow: hidden; }
@@ -6334,11 +6336,13 @@ ol li {
     float: right;
     color: #000;
     font-size: 16px;
+    font-weight: 900;
     text-decoration: underline; }
   .project-single-info__header-back {
     color: #000;
     font-size: 16px;
-    text-decoration: underline; }
+    text-decoration: underline;
+    font-weight: 900; }
   .project-single-info__footer {
     position: absolute;
     z-index: 1;

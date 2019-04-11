@@ -59,7 +59,7 @@
 
           <div class="project-single-info__footer-btns">
             <button class="btn btn--black btn--bdrs0 js-psb-goto" data-plan="<?php echo $minimum-1; ?>">Планировка</button>
-            <a href="#get-call" class="btn btn--orange btn--bdrs0 uptocall-mini-phone2" data-effect="mfp-zoom-in">Хочу такой дом</a>
+            <a href="#get-consultation" class="btn btn--orange btn--bdrs0 mf-popup" data-effect="mfp-zoom-in">Хочу такой дом</a>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@
 
 <div class="container">
   <div class="row text-center" style="margin: 5rem auto 3rem">
-    <a href="#get-call" class="btn btn--dib btn--black btn--bdrs0 uptocall-mini-phone2 btn--ttn" data-effect="mfp-zoom-in">Узнать стоимость проекта</a>
+    <a href="#get-consultation" class="btn btn--dib btn--black btn--bdrs0 mf-popup btn--ttn" data-effect="mfp-zoom-in">Узнать стоимость проекта</a>
   </div>
 </div>
 

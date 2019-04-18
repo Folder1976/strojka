@@ -1,6 +1,6 @@
 <?php
 // временно:
-$logo = '/image/catalog/ROOFER_LOGO_1.svg';
+$logo = '/image/catalog/ROOFER_LOGO_1.jpg';
 $name = 'Your Store';
 $home = '/';
 ?>

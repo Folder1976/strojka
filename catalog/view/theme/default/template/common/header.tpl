@@ -69,7 +69,7 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "url": "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>",
-    "logo": "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>/image/catalog/ROOFER_LOGO_1.svg"
+    "logo": "<?php echo $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST']; ?>/image/catalog/ROOFER_LOGO_1.jpg"
 }
 </script>
 <script type="application/ld+json">
@@ -221,7 +221,7 @@ if ( $page == 'stroitelstvo-kamennyh-domov' ) {
   );
 }
 
-$logo = '/image/catalog/ROOFER_LOGO_1.svg';
+// $logo = '/image/catalog/ROOFER_LOGO_1.svg';
 
 $header_class = '';
 if ( $page == 'stroitelstvo-kamennyh-domov' ) {

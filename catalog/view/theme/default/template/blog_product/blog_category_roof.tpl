@@ -83,6 +83,18 @@ $reasons_to_order = array(
   <div class="container">
     <div class="row">
       <div class="col-md-11 col-md-offset-1">
+        
+        <?php if (false) { ?>
+        <div class="special-offer">
+          <div class="special-offer__title">Специальное пердложение <span class="special-offer__date">До 20 Апреля</span></div>
+          <div class="special-offer__content">
+            <div class="special-offer__discount">7%</div>
+            <div class="special-offer__text">При заказе работ с материалом <b>Вы получите</b></div>
+            <div class="special-offer__discount-text">Дополнительную скидку от:</div>
+          </div>
+        </div>
+        <?php } ?>
+
         <div class="section-home-top__content">
           <h1 class="site-title">Cтроительство крыш в москве и области под ключ за 10 дней</h1>
           <div class="section-home-top__desc">
@@ -100,10 +112,10 @@ $reasons_to_order = array(
       <div class="row">
         <div class="col-lg-8 col-lg-offset-4 col-sm-10 col-sm-offset-2">
           <ul class="ul-list ul-list--white">
-            <li>Без звонков в офис</li>
-            <li>Без выездов на замер</li>
-            <li>Онлайн расчёт с точностью 92%</li>
-            <li>Онлайн трансляция работ</li>
+            <li>Приступим к работе в течение 2-х дней</li>
+            <li>Смету фиксируем и цены не вырастут</li>
+            <li>Выкупаем оставшийся материал</li>
+            <li>Гарантия на работы 5 лет</li>
           </ul>
         </div>
       </div>

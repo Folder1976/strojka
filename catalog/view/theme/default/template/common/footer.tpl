@@ -58,8 +58,8 @@ $home = '/';
       <form id="lmagnet__form" method="post" action="/index.php?route=account/universalform" class="lmagnet__form">
         <input type="hidden" name="formname" value="lead-magnet">
         <div class="form-group form-group--center">
-          <input type="text" class="input input--phone" value="" name="phone" placeholder="Ваш телефон">
-          <input type="email" class="input" value="" name="email" placeholder="Ваш e-mail">
+          <input type="text" class="input input--phone" value="" name="phone" placeholder="Ваш телефон" required>
+          <input type="email" class="input" value="" name="email" placeholder="Ваш e-mail" required>
           <input type="button" class="btn btn--black" value="получить" id="lead-magnet-send">
         </div>
         <div class="form-group">
@@ -141,6 +141,11 @@ $home = '/';
         });
       }
   $('#lead-magnet-send').on('click', function() {
+
+    if ( $('#lmagnet__form input[name=phone]').val() == '' || $('#lmagnet__form input[name=email]').val() == '' ) {
+      $('#mf-lead-magnet .msg').text('Введите корректные данные').css({'color': 'red', 'text-align': 'center'});
+      return;
+    }
    
     $.ajax({
       url: '/index.php?route=account/universalform',

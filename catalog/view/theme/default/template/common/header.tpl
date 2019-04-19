@@ -132,7 +132,6 @@
 /></noscript>
 <!-- End Facebook Pixel Code -->
 
-<script type="text/javascript">(function (w, d) {w.amo_pixel_token = 'p1Ip4iB8yqaEyXU9HPmcTDaw7q1RRL6mUaHuC/LooNrqSeY04xnhWLPuy1xGf9Wy';var s = document.createElement('script'), f = d.getElementsByTagName('script')[0];s.id = 'amo_pixel_js';s.type = 'text/javascript';s.async = true;s.src = 'http://dp-front-int-balancer.serversru.production.dp.amosrv.ru/pixel/js/tracker/pixel.js?token=' + w.amo_pixel_token;f.parentNode.insertBefore(s, f);})(window, document);</script>
 
 
 <!-- Global site tag (gtag.js) - Google Ads: 760201733 -->
@@ -380,7 +379,7 @@ if ( $page == 'stroitelstvo-kamennyh-domov' ) {
 
               </ul>
               <!-- <div class="header__top-text" id="rst_phone"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div> -->
-              <div class="header__top-text"><b>работаем по москве и мо <a clsss="rst_phone" href="tel:84952350330" style="color: red;">8 (495) 235-03-30</a></b></div>
+              <div class="header__top-text"><b>работаем по москве и мо <a class="rst_phone" href="tel:84952350330" style="color: red;">8 (495) 235-03-30</a></b></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-5 col-md-3">

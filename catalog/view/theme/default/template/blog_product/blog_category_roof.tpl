@@ -384,7 +384,7 @@ document.addEventListener("DOMContentLoaded", function() {
           <p class="section-calculate-the-cost__p">Затратив на расчеты всего лишь минуту, заказчик определит сметную стоимость планируемых работ! Здесь же, на сайте можно изложить персональный заказ с перечнем планируемых монтажных или реставрационных работ и количеством требуемых стройматериалов. Обратная связь посредством электронной почты.</p><br><a class="btn btn--black btn--dib" href="/online-calc" target="_blank">сделать расчёт за 50 секунд</a>
           <br>
           <br>
-          <p class="section-calculate-the-cost__p--small">Или закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" style="white-space: nowrap;" id="rst_phone"><?php echo $telephone; ?></a></b></p>
+          <p class="section-calculate-the-cost__p--small">Или закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" style="white-space: nowrap;" class="rst_phone"><?php echo $telephone; ?></a></b></p>
         </div>
       </div>
     </div>
@@ -571,7 +571,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <p>Закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" id="rst_phone"><?php echo $telephone; ?></a></b></p>
+        <p>Закажите бесплатную консультацию нашего технолога по телефону <b> <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" class="rst_phone"><?php echo $telephone; ?></a></b></p>
       </div>
     </div>
   </div>
@@ -672,7 +672,7 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="section-subtitle">Среднее время расчета - 1 минута. Вы сразу получаете стоимость сметы. И при желании можете оформить индивидуальное предложение с подробным перечнем материалов и работ себе на почту.</div>
         <a href="/online-calc" class="btn btn--black btn--dib">сделать расчёт за 50 секунд</a>
 
-        <p><br><br>Или закажите бесплатную консультацию<br>нашего технолога по телефону <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" id="rst_phone"><?php echo $telephone; ?></a></p>
+        <p><br><br>Или закажите бесплатную консультацию<br>нашего технолога по телефону <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" class="rst_phone"><?php echo $telephone; ?></a></p>
       </div>
     </div>
   </div>

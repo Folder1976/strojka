@@ -360,7 +360,7 @@ $('#msg_send').on('click', function() {
                 <div class="footer__title">Наш адрес</div>
                 <p><?php echo $address; ?></p>
                 <!-- <p>Тел.: <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>" style="white-space: nowrap;"><?php echo $telephone; ?></a></p> -->
-				<p>Тел.: <a id="rst_phone_f" href="tel:84952350330">8 (495) 235-03-30</a></p>
+				<p>Тел.: <a class="rst_phone_f" href="tel:84952350330">8 (495) 235-03-30</a></p>
               </div>
               <div class="col-md-6">
                 <div class="footer__title">мы в соц. сетях</div>

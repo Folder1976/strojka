@@ -247,7 +247,7 @@ if ( $page == 'stroitelstvo-kamennyh-domov' ) {
               </div>
               <div class="header__inner">
                 <!-- <div class="header__top-text" id="rst_phone"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div> -->
-                <div class="header__top-text"><span>работаем по москве и мо </span><a  id="rst_phone" href="tel:84952350330">8 (495) 235-03-30</a></div>
+                <div class="header__top-text"><span>работаем по москве и мо </span><a class="rst_phone" href="tel:84952350330">8 (495) 235-03-30</a></div>
                 <div class="header__cart" id="cart_wrapper">
                   <a href="#menu-prod" class="header__cart-btn mf-popup" data-effect="mfp-zoom-in">Товары</a>
                   <a href="#menu-serv" class="header__cart-btn mf-popup" data-effect="mfp-zoom-in">Услуги</a>
@@ -380,7 +380,7 @@ if ( $page == 'stroitelstvo-kamennyh-domov' ) {
 
               </ul>
               <!-- <div class="header__top-text" id="rst_phone"><b>работаем по москве и мо <a href="tel:<?php echo preg_replace('/[^0-9+]/', '', $telephone); ?>"><?php echo $telephone; ?></a></b></div> -->
-              <div class="header__top-text"><b>работаем по москве и мо <a  id="rst_phone" href="tel:84952350330" style="color: red;">8 (495) 235-03-30</a></b></div>
+              <div class="header__top-text"><b>работаем по москве и мо <a clsss="rst_phone" href="tel:84952350330" style="color: red;">8 (495) 235-03-30</a></b></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-5 col-md-3">

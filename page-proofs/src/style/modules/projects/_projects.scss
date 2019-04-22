@@ -336,6 +336,10 @@
   margin: 0 auto;
   height: calc(100vh - 97px);
 
+  @media screen and (max-width: $bs_break_xs) {
+    height: auto;
+  }
+
   &__nav {
     width: 18.5rem;
     position: absolute;
@@ -449,6 +453,11 @@
 
     .btn {
       text-transform: none;
+
+      @media screen and (max-width: $bs_break_md) {
+        width: 100%;
+        margin-left: 0;
+      }
     }
   }
 
@@ -463,6 +472,7 @@
 
     @media screen and (max-width: $break_xs) {
       position: static;
+      display: flex;
       width: 100%;
       justify-content: space-between;
       margin: 1rem;

@@ -1,0 +1,17 @@
+.footer {
+  border-top: 1px solid #ccc;
+  padding: 1rem 0;
+  text-align: center;
+
+  &__link {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    color: $primary_color;
+    text-decoration: none;
+    font-size: 2.4rem;
+    font-weight: 700;
+    padding: 3rem 0;
+  }
+}
+

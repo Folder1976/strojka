@@ -1,0 +1,87 @@
+section#about.section.s-about
+  .container
+    .section__title-wrap
+      h2.section__title Accordion
+      //- p.section__sub-title
+
+    .accordion
+      .accordion__title
+        h3 accordion 1 title
+      .accordion__panel
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda animi quam voluptates, quidem. Quaerat mollitia praesentium autem laboriosam fugiat eius minus totam, porro molestiae commodi maiores dolores at pariatur harum dolorem enim vel sint delectus excepturi debitis similique, dolore. Dicta, beatae quae accusamus unde vero consequatur repellat, dolorum et animi.
+
+    .accordion
+      .accordion__title
+        h3 accordion 2 title
+      .accordion__panel
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus nobis omnis necessitatibus molestias, iste fuga inventore tempore quis voluptatibus deleniti qui temporibus debitis expedita eveniet consequatur earum itaque esse provident animi, facere, recusandae. Incidunt quaerat omnis maxime voluptas recusandae non vitae deserunt dignissimos blanditiis architecto, fugiat earum laudantium, ducimus harum atque quo voluptatibus est praesentium dicta iste velit id. Esse nesciunt deserunt sapiente aliquam praesentium corporis recusandae illo, error, porro incidunt molestiae est enim illum eveniet ipsum aspernatur neque similique. Illo molestiae rerum ipsa iure, ab cupiditate? Rerum, excepturi, sed!
+
+    .accordion
+      .accordion__title
+        h3 accordion 3 title
+      .accordion__panel
+        p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, optio?
+
+
+  .container
+    .section__title-wrap
+      h2.section__title Tabs
+
+    .tabs
+      ul.tabs__links
+        li.tab__link.is-active(data-tab="tab-1") tab 1
+        li.tab__link(data-tab="tab-2") tab 2
+        li.tab__link(data-tab="tab-3") tab 3
+
+      #tab-1.tab__content.is-active
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo illum sint vero illo exercitationem cumque, nulla eius quos excepturi maxime temporibus ducimus commodi, perferendis consequuntur rem ullam amet eveniet molestias, animi. Eos tempore rerum porro unde alias ut officia commodi.
+      #tab-2.tab__content
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur explicabo fugiat facilis quae placeat suscipit, animi sit. Dolorum dicta reprehenderit dolore tempora, quisquam doloremque ullam, blanditiis quibusdam, omnis magnam molestiae quasi deserunt consequatur vitae fugit iure! Ea libero, necessitatibus. Quos nam consequuntur laborum neque nostrum aliquam, maiores inventore veritatis dolore tempora in. Sunt, qui, ea. Tenetur non laboriosam dolor placeat consectetur eos mollitia praesentium perspiciatis, optio quia iusto hic, voluptatum?
+      #tab-3.tab__content
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod voluptatum, quaerat harum minus. Laboriosam porro debitis a nulla adipisci hic.
+
+
+  .container
+    .section__title-wrap
+      h2.section__title slider
+
+    .slider
+      .slider__item
+        img.slider__img(src="https://picsum.photos/200/300/?random&image=0", alt="slider__img")
+      .slider__item
+        img.slider__img(src="https://picsum.photos/200/300/?random&image=1", alt="slider__img")
+      .slider__item
+        img.slider__img(src="https://picsum.photos/200/300/?random&image=2", alt="slider__img")
+      .slider__item
+        img.slider__img(src="https://picsum.photos/200/300/?random&image=3", alt="slider__img")
+      .slider__item
+        img.slider__img(src="https://picsum.photos/200/300/?random&image=4", alt="slider__img")
+      .slider__item
+        img.slider__img(src="https://picsum.photos/200/300/?random&image=5", alt="slider__img")
+
+
+
+
+  .container
+    .section__title-wrap
+      h2.section__title Magnific popup
+
+    div
+      a.mf-popup(href="#test-form", data-effect="mfp-zoom-in") Open MFP form
+
+      #test-form.mf-popup-block.mfp-hide.mfp-with-anim
+        h3 MFP title
+        p MFP text
+
+
+  .container
+    .section__title-wrap
+      h2.section__title Masked input
+
+    div
+      input.input.input--phone(placeholder="+__ (___) ___-__-__")
+
+  .container
+    .section__icons
+      +icon('email','icon')
+      +icon('whatsapp','icon')

@@ -1,0 +1,27 @@
+.site-title,
+.site-subtitle {
+  font-size: 3.4rem;
+  font-weight: 900;
+  color: #000;
+
+  @media screen and (max-width: $break_xs) {
+    font-size: 2.8rem;
+  }
+}
+
+.site-subtitle {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.section-title {
+  color: #a9a9a9;
+  font-size: 2.4rem;
+  font-weight: bold;
+  letter-spacing: 0.04rem;
+  margin-bottom: 3rem;
+
+  &--black {
+    color: #000;
+  }
+}

@@ -1,0 +1,160 @@
+@import './utils/_fonts';
+@import './utils/_vars';
+@import './utils/_smart-grid';
+@import './utils/_mixins';
+@import './utils/_libs';
+
+
+html {
+  font-size: 10px;
+
+  @media screen and (max-width: $break_md) {
+    font-size: 9px;
+  }
+
+  @media screen and (max-width: $break_sm) {
+    font-size: 8.5px;
+  }
+
+  @media screen and (max-width: $break_xs) {
+    font-size: 8px;
+  }
+}
+
+body {
+  font-family: $global_ff1;
+  font-size: 1.4rem;
+  color: $color_text;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  border-style: none;
+  height: auto;
+}
+
+// textarea:focus,
+// input:focus {
+//   outline: none;
+// }
+
+a {
+  transition: all .3s;
+  &:hover {
+    opacity: .7;
+  }
+}
+
+p {
+  color: $color_text;
+  font-size: 1.6rem;
+}
+
+// hr {
+//   display: block;
+//   height: 1px;
+//   border: 0;
+//   border-top: 1px solid $primary_color;
+//   margin: 0 auto;
+//   padding: 0;
+// }
+
+
+.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  &__header {}
+  &__content {
+    flex-grow: 1;
+  }
+  &__footer {}
+}
+
+
+.container {
+  @include wrapper();
+}
+
+.row {
+  @include row-flex();
+}
+
+// .col {
+//   @include col();
+//   @include size(12);
+// }
+
+// .col-10-center {
+//   @include col();
+//   @include shift(1);
+//   @include shift-lg(0);
+//   @include size(10);
+//   @include size-lg(12);
+// }
+
+// .col-8-center {
+//   @include col();
+//   @include shift(2);
+//   @include shift-md(0);
+//   @include size(8);
+//   @include size-md(12);
+// }
+
+
+// .text-center {
+//   text-align: center;
+// }
+// .text-right {
+//   text-align: right;
+// }
+// .text-left {
+//   text-align: left;
+// }
+
+// .pos-relative {
+//   position: relative;
+// }
+
+.fz2rem {
+  font-size: 2rem;
+}
+
+
+// pngSprite
+// [class*="ico-"] {
+//   display: inline-block;
+//   vertical-align: middle;
+// }
+// @import './utils/sprite';
+// @include sprites($spritesheet-sprites);
+
+
+
+
+
+
+//Модули
+@import "./modules/_modules";
+
+
+/******************** СТРАНИЦЫ ********************/
+// Главная страница
+@import './pages/index/_index';
+
+

@@ -1,0 +1,133 @@
+.btn,
+a.btn {
+  display: block;
+  cursor: pointer;
+  transition: all .3s;
+  text-decoration: none;
+
+  color: #000;
+  background-color: #fff;
+  border: 1px solid #000;
+  // border-radius: 4px;
+
+  font-size: 1.8rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  
+  &:hover {
+    opacity: .8;
+  }
+
+  &--dib {
+    display: inline-block;
+  }
+
+  &--bold {
+    font-weight: 900;
+  }
+
+  &--bdrs0 {
+    border-radius: 0;
+  }
+
+  &--w100 {
+    width: 100%;
+  }
+
+  &--small {
+    font-size: 1.6rem;
+    text-transform: none;
+    padding: 5px;
+    text-align: center;
+    border: 0;
+    background-color: transparent;
+    margin: 5px auto;
+
+    &:hover {
+      background-color: #f00;
+      color: #fff;
+    }
+  }
+
+  &--orange {
+    background-color: $primary_color;
+    border-color: $primary_color;
+  }
+
+  &--hover-orange:hover {
+    background-color: $primary_color;
+    border-color: $primary_color;
+    color: #1a1d20;
+    opacity: 1;
+  }
+
+  &--black {
+    background-color: #000;
+    color: #fff;
+  }
+
+  &--ttn {
+    text-transform: none;
+  }
+
+  &--transparent {
+    border-color: transparent;
+    background-color: transparent;
+    &:hover {
+      border-color: #000;
+    }
+  }
+
+  &--take-test {
+    display: inline-block;
+    background-color: $primary_color;
+    border-color: $primary_color;
+    border-radius: 0;
+    font-size: 1.6rem;
+    font-weight: 900;
+    padding: 1.2rem 2rem;
+
+    &:hover {
+      color: #fff;
+      background-color: #000;
+      border-color: #000;
+      opacity: 1;
+    }
+  }
+
+  &--buy {
+    &:hover {
+      color: #000;
+      background-color: $primary_color;
+      border-color: $primary_color;
+      opacity: 1;
+    }
+  }
+
+  &--buy-click {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-decoration: underline;
+    text-transform: none;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &.in_cart {
+    background-color: #01ae01;
+    border-color: #01ae01;
+  }
+}
+
+.btn-primary {
+  &:hover {
+    background-color: $primary_color;
+    color: #000;
+  }
+}

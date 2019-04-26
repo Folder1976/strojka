@@ -1,0 +1,62 @@
+$font-path: '../fonts';
+
+
+// @font-face {
+//   font-family: 'Futura';
+//   src: url('#{$font-path}/');
+//   src: url('#{$fa-font-path}/furuta.eot') format('embedded-opentype'),
+//     // url('#{$font-path}/furuta.woff2') format('woff2'),
+//     url('#{$font-path}/furuta.woff') format('woff'),
+//     url('#{$font-path}/furuta.ttf') format('truetype'),
+//     url('#{$font-path}/furuta.svg') format('svg');
+//   font-weight: normal;
+//   font-style: normal;
+// }
+
+
+@font-face {
+  font-family: 'Museo Sans Cyrillic';
+  src: url('#{$font-path}/MuseoSansCyrillic-900.woff2') format('woff2'),
+    url('#{$font-path}/MuseoSansCyrillic-900.woff') format('woff'),
+    url('#{$font-path}/MuseoSansCyrillic-900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans Cyrillic';
+  src: url('#{$font-path}/MuseoSansCyrillic-700.woff2') format('woff2'),
+    url('#{$font-path}/MuseoSansCyrillic-700.woff') format('woff'),
+    url('#{$font-path}/MuseoSansCyrillic-700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+// @font-face {
+//   font-family: 'Museo Sans Cyrillic';
+//   src: url('#{$font-path}/MuseoSansCyrillic-500.woff2') format('woff2'),
+//     url('#{$font-path}/MuseoSansCyrillic-500.woff') format('woff'),
+//     url('#{$font-path}/MuseoSansCyrillic-500.ttf') format('truetype');
+//   font-weight: 500;
+//   font-style: normal;
+// }
+
+@font-face {
+  font-family: 'Museo Sans Cyrillic';
+  src: url('#{$font-path}/MuseoSansCyrillic-300.woff2') format('woff2'),
+    url('#{$font-path}/MuseoSansCyrillic-300.woff') format('woff'),
+    url('#{$font-path}/MuseoSansCyrillic-300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans Cyrillic';
+  src: url('#{$font-path}/MuseoSansCyrillic-100.woff2') format('woff2'),
+    url('#{$font-path}/MuseoSansCyrillic-100.woff') format('woff'),
+    url('#{$font-path}/MuseoSansCyrillic-100.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+

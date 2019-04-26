@@ -1,0 +1,145 @@
+.submenu {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 0;
+  min-width: 300px;
+  background: $primary_color;
+  padding: 10px;
+
+  .menu__item {
+    padding: 5px;
+    display: block;
+  }
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  justify-content: space-around;
+  letter-spacing: 0.34px;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+
+  @media screen and (max-width: $break_lg) {
+    flex-direction: column;
+    text-align: left;
+    background: #1a8ea1;
+    max-width: 320px;
+    margin-left: auto;
+    padding: 10px 20px;
+  }
+
+  &__item {
+    margin-right: 15px;
+    position: relative;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &--active {}
+
+    &--has-children {}
+
+    &:hover {
+      .submenu {
+        display: block;
+      }
+    }
+  }
+
+  &__child-icon {
+    width: 14px;
+    height: 14px;
+    fill: $primary_color;
+    position: relative;
+    top: 2px;
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    @media screen and (max-width: $break_lg) {
+      padding: 5px 0;
+      display: block;
+    }
+
+    span {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+
+.mob-menu__btn {
+  display: none;
+  width: 32px;
+  height: 32px;
+  // margin-left: auto;
+  cursor: pointer;
+  transition: all .3s;
+  position: relative;
+
+  &:hover {
+    span {
+      background: $primary_color;
+    }
+  }
+
+  span {
+    display: block;
+    height: 2px;
+    width: 32px;
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+    transition: all .2s;
+
+    &:nth-child(1){
+      top: 6px;
+    }
+    &:nth-child(2){
+      top: 50%;
+      margin-top: -1px;
+    }
+    &:nth-child(3){
+      bottom: 6px;
+    }
+  }
+
+  &.is-open {
+    span {
+      &:nth-child(1){
+        transform: rotate(45deg);
+        top: 50%;
+        margin-top: -1px;
+      }
+      &:nth-child(2){
+        display: none;
+      }
+      &:nth-child(3){
+        transform: rotate(-45deg);
+        top: 50%;
+        margin-top: -1px;
+      }
+    }
+
+    & .menu,
+    & + div .menu {
+      display: block;
+    }
+  }
+
+  @media screen and (max-width: $break_lg) {
+    display: block;
+    position: relative;
+    z-index: 10;
+  }
+}
+

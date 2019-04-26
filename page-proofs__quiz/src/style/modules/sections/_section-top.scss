@@ -1,0 +1,67 @@
+.s-top {
+  background: transparent url("../img/back_shtab2white.jpg") no-repeat center bottom;
+  background-size: cover;
+
+  @media screen and (max-width: $break_md) {
+    text-align: center;
+  }
+
+  .container {
+    @include clearfix();
+  }
+
+  &__text {
+    max-width: 68%;
+    float: left;
+
+    @include clearfix();
+
+    @media screen and (max-width: $break_md) {
+      max-width: none;
+      float: none;
+    }
+  }
+
+  &__image {
+    width: 695px;
+    height: 522px;
+    background-image: url("../img/sistema-kryishi-8.jpg");
+    background-position: center center;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: auto;
+
+    @media screen and (max-width: $break_lg) {
+      width: 490px;
+      height: 366px;
+    }
+
+    @media screen and (max-width: $break_md) {
+      width: 441px;
+      height: 302px;
+      margin-right: auto;
+    }
+
+    @media screen and (max-width: $break_sm) {
+      width: 291px;
+      height: 188px;
+    }
+  }
+
+  p {
+    max-width: 60%;
+    font-size: 1.8rem;
+    margin: 5rem 0;
+
+    @media screen and (max-width: $break_md) {
+      max-width: none;
+      margin: 3rem 0;
+    }
+
+    span {
+      color: $color_red;
+    }
+  }
+}
+

@@ -1,0 +1,9 @@
+mixin icon(name,mod)
+  - mod = mod || ''
+  svg(class="icon icon-" + name + ' ' + mod)
+    use(xlink:href="img/sprite/symbol/sprite.svg#" + name)
+
+
+mixin pngicon(name,mod)
+  - mod = mod || ''
+  i(class="ico-" + name + ' ' + mod)

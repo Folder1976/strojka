@@ -1,0 +1,23 @@
+{
+  "navPages": {
+    "Home" : {
+      "href": "main.html"
+    },
+
+    "Test" : {
+      "href": "list.html",
+      "submenu": {
+        "submenu1": {
+          "href": "submenu1.html"
+        },
+        "submenu2": {
+          "href": "submenu2.html"
+        }
+      }
+    },
+
+    "About" : {
+      "href": "about.html"
+    }
+  }
+}

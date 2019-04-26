@@ -1,0 +1,65 @@
+.header {
+  padding: 1.5rem 0;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+
+    & > * {
+      text-align: center;
+
+      &:first-child {
+        text-align: left;
+        @media screen and (max-width: $break_xs) { text-align: center; }
+      }
+
+      &:last-child {
+        text-align: right;
+        @media screen and (max-width: $break_xs) { text-align: center; }
+      }
+    }
+
+    @media screen and (max-width: $break_xs) {
+      flex-direction: column;
+
+      & > * + * {
+        margin-top: 2rem;
+      }
+    }
+
+
+  }
+
+  &__logo {}
+
+  &__email {
+    text-decoration: none;
+
+    @media screen and (max-width: $break_xs) {
+      display: none;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__phonne {}
+}
+
+
+.header-block {
+  text-decoration: none;
+
+  &__title {
+    color: #000;
+    font-size: 2.6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &__text {
+    color: #545454;
+    font-size: 1.4rem;
+  }
+}

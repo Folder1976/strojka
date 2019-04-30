@@ -1,0 +1,18 @@
+.section-home-actions {
+  text-align: center;
+
+  &__content {
+    border: 1rem solid $primary_color;
+    padding: 2rem;
+  }
+
+  &__title {
+    position: absolute;
+    top: -2.5rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 2rem;
+  }
+}

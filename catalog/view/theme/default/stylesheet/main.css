@@ -4833,6 +4833,10 @@ a.btn {
   a.btn--orange {
     background-color: #fbbe18;
     border-color: #fbbe18; }
+  .btn--green,
+  a.btn--green {
+    background-color: #29a81a;
+    border-color: #29a81a; }
   .btn--hover-orange:hover,
   a.btn--hover-orange:hover {
     background-color: #fbbe18;
@@ -7241,6 +7245,22 @@ ol li {
     font-weight: 300;
     line-height: 14px;
     text-decoration: underline; }
+
+.section-home-actions {
+  text-align: center; }
+  .section-home-actions__content {
+    border: 1rem solid #fbbe18;
+    padding: 2rem; }
+  .section-home-actions__title {
+    position: absolute;
+    top: -2.5rem;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+        -ms-transform: translate(-50%, 0);
+            transform: translate(-50%, 0);
+    display: inline-block;
+    background-color: #fff;
+    padding: 0 2rem; }
 
 .information-contact .section-title {
   margin-bottom: 2rem; }

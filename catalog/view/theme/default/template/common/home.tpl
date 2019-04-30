@@ -83,6 +83,9 @@ $reviews_slider = array(
             <p>Выполняем работы на загородных<br>домах и коммерческой недвижимости</p>
             <a href="#get-consultation" class="btn btn--orange btn--dib btn--bold mf-popup" data-effect="mfp-zoom-in">получить консультацию</a>
           </div>
+          <div class="section-home-top__desc" style="margin-top: 10px;">
+            <a href="https://izzi.ru/INFHbBK" class="btn btn--green btn--dib btn--bold">Написать в WhatsApp</a>
+          </div>
         </div>
       </div>
     </div>
@@ -232,6 +235,19 @@ document.addEventListener("DOMContentLoaded", function() {
           <p><br></p>
           <p>Заинтересованы в большем объеме работ и компании, ведь при этом задействуются весь штат специалистов, что может повлечь за собой скидки при определении полной стоимости контракта. Но главное – при этом облегчается функция контроля за качеством произведенных работ.</p>
           <p>Компания «Руфер» готова предоставить такие условия своим заказчикам!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-home-actions">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-home-actions__content">
+          <h3 class="section-title section-home-actions__title">Акция</h3>
+          <img src="/image/catalog/ban/2019.05.09.jpg" alt="9 мая">
         </div>
       </div>
     </div>

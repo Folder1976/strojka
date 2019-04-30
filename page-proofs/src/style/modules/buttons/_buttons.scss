@@ -56,6 +56,11 @@ a.btn {
     border-color: $primary_color;
   }
 
+  &--green {
+    background-color: #29a81a;
+    border-color: #29a81a;
+  }
+
   &--hover-orange:hover {
     background-color: $primary_color;
     border-color: $primary_color;

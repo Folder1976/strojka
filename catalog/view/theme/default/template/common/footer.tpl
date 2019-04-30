@@ -367,7 +367,7 @@ $('#msg_send').on('click', function() {
                 <ul class="footer__social">
                   <li><a href="https://vk.com/roofferr"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#vk-logo"></use></svg></a></li>
                   <li><a href="https://www.facebook.com/Руфер-2013173762310831/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#facebook-logo"></use></svg></a></li>
-                  <li><a href="https://www.instagram.com/roofer_ru/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#instagram-logo"></use></svg></a></li>
+                  <li><a href="https://www.instagram.com/rooferr.ru/"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#instagram-logo"></use></svg></a></li>
                   <li><a href="http://t.me/Rooferr_bot"><svg class="icon icon-facebook-logo footer__social-icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#telegram-logo"></use></svg></a></li>
                 </ul>
               </div>

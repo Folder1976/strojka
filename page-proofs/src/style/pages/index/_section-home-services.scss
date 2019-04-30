@@ -1,0 +1,82 @@
+.section-home-services {}
+
+.service-home-list {
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 3rem;
+
+  @media screen and (max-width: $bs_break_md) {
+    grid-template-columns: repeat(3, 1fr);    
+  }
+
+  @media screen and (max-width: $bs_break_xs) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 470px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.service-home-item {
+  border: 1px solid $primary_color;
+
+  @media screen and (max-width: $bs_break_xs) {
+    max-width: 250px;
+    margin: 0 auto;
+  }
+
+  &__image-wrap {
+    width: 100%;
+    height: 17rem;
+
+    img {
+      width: 100%;
+    }
+  }
+  
+  &__header {
+    padding: 1rem;
+    background-color: $primary_color;
+    min-height: 7.5rem;
+  }
+
+  &__footer {
+    padding: 1rem;
+  }
+
+  &__title {
+    font-size: 1.8rem;
+    min-height: 1.4em;
+  }
+
+  &__name {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  &__price {
+    font-size: 1.8rem;
+    font-weight: 700;
+
+    span {
+      font-weight: 400;
+      font-size: 2.4rem;
+    }
+  }
+
+  &__link-more {
+    color: #000;
+    text-decoration: none;
+    font-size: 1.6rem;
+    border-bottom: 1px dotted;
+    transition: all .3s;
+
+    &:hover {
+      color: #000;
+      text-decoration: none;
+      border-bottom-style: solid;
+    }
+  }
+}

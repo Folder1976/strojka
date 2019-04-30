@@ -225,6 +225,111 @@ document.addEventListener("DOMContentLoaded", function() {
 </section>
 
 
+<?php
+$home_services_list = array(
+  array(
+    "title" => "Монтаж",
+    "name" => "Металочерепицы",
+    "image" => "/image/catalog/services/serv-1.jpg",
+    "price" => "360",
+    "ediz" => "р/м2",
+    "href" => "#"
+  ),
+  array(
+    "title" => "Монтаж",
+    "name" => "Мягкой черепицы",
+    "image" => "/image/catalog/services/serv-2.jpg",
+    "price" => "360",
+    "ediz" => "р/м2",
+    "href" => "#"
+  ),
+  array(
+    "title" => "Монтаж",
+    "name" => "Керамочерепицы",
+    "image" => "/image/catalog/services/serv-3.jpg",
+    "price" => "800",
+    "ediz" => "р/м2",
+    "href" => "#"
+  ),
+  array(
+    "title" => "Монтаж",
+    "name" => "Водосточной системы",
+    "image" => "/image/catalog/services/serv-4.jpg",
+    "price" => "350",
+    "ediz" => "р/п.м",
+    "href" => "#"
+  ),
+  array(
+    "title" => "",
+    "name" => "Утепление кровли",
+    "image" => "/image/catalog/services/serv-5.jpg",
+    "price" => "300",
+    "ediz" => "р/м2",
+    "href" => "#"
+  ),
+  array(
+    "title" => "Монтаж",
+    "name" => "Мансардных окон",
+    "image" => "/image/catalog/services/serv-6.jpg",
+    "price" => "5000",
+    "ediz" => "шт",
+    "href" => "#"
+  ),
+  array(
+    "title" => "Замена и",
+    "name" => "Ремонт крыши",
+    "image" => "/image/catalog/services/serv-7.jpg",
+    "price" => "1000",
+    "ediz" => "р/м2",
+    "href" => "#"
+  ),
+  array(
+    "title" => "Подшив",
+    "name" => "Карнизов крыши",
+    "image" => "/image/catalog/services/serv-8.jpg",
+    "price" => "400",
+    "ediz" => "р/п.м",
+    "href" => "#"
+  ),
+);
+?>
+
+
+
+<section class="section section-home-services">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="section-title">Наши цены</h3>
+      </div>
+
+      <div class="col-md-12">
+        <div class="service-home-list">
+        <?php foreach ($home_services_list as $service) { ?>
+          <div class="service-home-item">
+            <div class="service-home-item__image-wrap img--cover">
+              <img src="<?php echo $service['image'] ?>" alt="<?php echo $service['title'].' '.$service['name'] ?>" class="service-home-item__image">
+            </div>
+            <div class="service-home-item__header">
+              <div class="service-home-item__title"><?php echo $service['title'] ?></div>
+              <div class="service-home-item__name"><?php echo $service['name'] ?></div>
+            </div>
+            <div class="service-home-item__footer">
+              <div class="service-home-item__price">От <span><?php echo $service['price'] ?></span> <?php echo $service['ediz'] ?></div>
+              <!-- <a href="<?php echo $service['href'] ?>" class="service-home-item__link-more">Подробнее</a> -->
+            </div>
+          </div>
+        <?php } ?>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
 <section class="section section-text-2-col">
   <div class="container">
     <div class="row">

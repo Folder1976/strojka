@@ -164,7 +164,9 @@ $('.js-slider').each(function(idx){
 });
 
 
-// слайдер для страници /stroitelstvo_domov
+/*
+ * слайдер для страницы /stroitelstvo_domov
+ */
 function sliderProjectInit(sId){
   $('#' + sId).find('.pslider__list').slick({
     dots: false,
@@ -189,7 +191,9 @@ $('.js-project-slider').each(function(idx){
 });
 
 
-// большой слайдер для страници /stroitelstvo_domov
+/*
+ * большой слайдер для страници /stroitelstvo_domov
+ */
 $('.js-project-slider-big .project-slider-big__list').slick({
   dots: true,
   slidesToShow: 1,
@@ -256,6 +260,25 @@ $('.psblider__cursor').on('click', function(e){
   } else {
     slider.slickPrev(e);
   }
+});
+
+
+
+
+/*
+ * слайдер для главной страницы
+ */
+
+
+$('#home-top-slider').slick({
+  dots: false,
+  arrows: false,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  // centerMode: true,
+  autoplay: true,
+  fade: true,
+  autoplaySpeed: 7000,
 });
 
 

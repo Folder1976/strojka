@@ -71,38 +71,53 @@ $reviews_slider = array(
 
 
 <section class="section section--p0 section-home-top">
-  <div class="section-home-top__bg-house"><div class="cont"></div></div>
-  <div class="section-home-top__bg-clouds"></div>
-  <div class="section-home-top__list-bg"></div>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="section-home-top__content">
-          <h1 class="site-title">Монтаж и строительство<br>скатной кровли под ключ.<br>Возведение мансард.</h1>
-          <div class="section-home-top__desc">
-            <p>Выполняем работы на загородных<br>домах и коммерческой недвижимости</p>
-            <a href="#get-consultation" class="btn btn--orange btn--dib btn--bold mf-popup" data-effect="mfp-zoom-in">получить консультацию</a>
-          </div>
-          <div class="section-home-top__desc" style="margin-top: 10px;">
-            <a href="https://izzi.ru/INFHbBK" class="btn btn--green btn--dib btn--bold">Написать в WhatsApp</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div id="home-top-slider" class="home-top-slider">
 
-  <div class="section-home-top__list">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9 col-lg-offset-3 ">
-          <ul class="ul-list">
-            <li>Работаем с 15 сертифицированными поставщиками</li>
-            <li>Специалисты по кровле и фасаду граждане РФ и РБ, с опытом от 5 лет</li>
-            <li>Работаем с объектами жилой и коммерческой недвижимости как в черте города так и за его пределами</li>
-          </ul>
+    <div class="home-top-slider__item">
+      <div class="home-top-slider__content">
+        <div class="section-home-top__bg-house"><div class="cont"></div></div>
+        <div class="section-home-top__bg-clouds"></div>
+        <div class="section-home-top__list-bg"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="section-home-top__content">
+                <h1 class="site-title">Монтаж и строительство<br>скатной кровли под ключ.<br>Возведение мансард.</h1>
+                <div class="section-home-top__desc">
+                  <p>Выполняем работы на загородных<br>домах и коммерческой недвижимости</p>
+                  <a href="#get-consultation" class="btn btn--orange btn--dib btn--bold mf-popup" data-effect="mfp-zoom-in">получить консультацию</a>
+                </div>
+                <div class="section-home-top__desc" style="margin-top: 10px;">
+                  <a href="https://izzi.ru/INFHbBK" class="btn btn--green btn--dib btn--bold">Написать в WhatsApp</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-home-top__list">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9 col-lg-offset-3 ">
+                <ul class="ul-list">
+                  <li>Работаем с 15 сертифицированными поставщиками</li>
+                  <li>Специалисты по кровле и фасаду граждане РФ и РБ, с опытом от 5 лет</li>
+                  <li>Работаем с объектами жилой и коммерческой недвижимости как в черте города так и за его пределами</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <div class="home-top-slider__item home-top-slider__item--image">
+      <div class="home-top-slider__content">
+        <img src="/image/catalog/ban/2019.05.09.jpg" alt="9 мая" class="home-top-slider__image">
+      </div>
+    </div>
+
+
   </div>
 </section>
 

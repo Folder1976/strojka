@@ -12,7 +12,7 @@ $home = '/';
 <footer class="footer">
 
   <?php // lead-magnet ?>
-  <?php if ( !isset($_COOKIE["lmagnet"]) ) { ?>
+  <?php if(false){ //( !isset($_COOKIE["lmagnet"]) ) { ?>
   <div id="mf-lead-magnet" class="mf-popup-block mf-lead-magnet mfp-hide mfp-with-anim lmagnet">
     <div class="lmagnet__top-black">
       <h3 class="lmagnet__title">Проверенная технология с пошаговой иструкцией от лидеров рынка кровельного строительства!</h3>

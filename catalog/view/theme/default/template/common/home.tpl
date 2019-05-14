@@ -111,11 +111,13 @@ $reviews_slider = array(
       </div>
     </div>
 
+    <?php if (false) { ?>
     <div class="home-top-slider__item home-top-slider__item--image">
       <div class="home-top-slider__content">
         <img src="/image/catalog/ban/2019.05.09.jpg" alt="9 мая" class="home-top-slider__image">
       </div>
     </div>
+    <?php } ?>
 
 
   </div>

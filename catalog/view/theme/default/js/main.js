@@ -165,7 +165,7 @@ $('.js-slider').each(function(idx){
 
 
 /*
- * слайдер для страницы /stroitelstvo_domov
+ * слайдер для страницы /stroitelstvo-kamennyh-domov
  */
 function sliderProjectInit(sId){
   $('#' + sId).find('.pslider__list').slick({
@@ -192,7 +192,7 @@ $('.js-project-slider').each(function(idx){
 
 
 /*
- * большой слайдер для страници /stroitelstvo_domov
+ * большой слайдер для страници /stroitelstvo-kamennyh-domov
  */
 $('.js-project-slider-big .project-slider-big__list').slick({
   dots: true,
@@ -268,8 +268,6 @@ $('.psblider__cursor').on('click', function(e){
 /*
  * слайдер для главной страницы
  */
-
-
 $('#home-top-slider').slick({
   dots: false,
   arrows: false,
@@ -279,6 +277,71 @@ $('#home-top-slider').slick({
   autoplay: true,
   fade: true,
   autoplaySpeed: 7000,
+});
+
+
+/*
+ * слайдер для страницы "Отзывы"
+ */
+var rtsList = [];
+
+// (вкладка "Крыши ДО и ПОСЛЕ")
+function reviewsSliderTab1(sId){
+  rtsList[sId] = $('#' + sId).find('.reviews-slider__list').slick({
+    dots: false,
+    appendArrows: '#' + sId + ' .reviews-slider__arrows',
+    prevArrow: '#' + sId + ' .reviews-slider__arrow--prev',
+    nextArrow: '#' + sId + ' .reviews-slider__arrow--next',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+  });
+}
+
+$('.js-reviews-tab1').each(function(idx){
+  var sId = $(this).attr('id');
+  if ( ! sId ) {
+    sId = 'rts-' + idx;
+    $(this).attr('id', sId);
+  }
+
+  reviewsSliderTab1(sId);
+});
+
+// (вкладка "Текстовые отзывы")
+function reviewsSliderTab2(sId){
+  rtsList[sId] = $('#' + sId).find('.reviews-slider__list').slick({
+    dots: true,
+    appendArrows: '#' + sId + ' .reviews-slider__arrows',
+    prevArrow: '#' + sId + ' .reviews-slider__arrow--prev',
+    nextArrow: '#' + sId + ' .reviews-slider__arrow--next',
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false,
+    adaptiveHeight: true,
+  });
+}
+
+$('.js-reviews-tab2').each(function(idx){
+  var sId = $(this).attr('id');
+  if ( ! sId ) {
+    sId = 'rts2-' + idx;
+    $(this).attr('id', sId);
+  }
+
+  reviewsSliderTab2(sId);
+});
+
+// если на вкладке есть слайдер, то обновляем его
+$('.tabs').on('click', '.tab__link', function(){
+  var tabId = $(this).data('tab');
+  var slider = $('#' + tabId).find('.reviews-slider');
+  if ( slider.length > 0 ) {
+    var sId = slider.attr('id');
+    rtsList[sId][0].slick.slickGoTo( 1 );
+    rtsList[sId][0].slick.slickGoTo( 0 );
+  }
+  $( window ).resize();
 });
 
 

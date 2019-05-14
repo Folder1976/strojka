@@ -31,6 +31,15 @@
   }
 }
 
+.section-title__icon {
+  fill: $primary_color;
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
 .section-subtitle {
   font-size: 1.8rem;
   font-weight: 300;

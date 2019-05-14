@@ -1,0 +1,232 @@
+.page-reviews {
+  .section-title {
+    margin: 20px 0;
+  }
+}
+
+.review-row {
+  margin-bottom: 7.5rem;
+}
+
+.reviews-slider {
+  border: 2px solid $primary_color;
+  position: relative;
+  z-index: 2;
+
+  &__arrows {}
+  &__arrow {
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 7px rgba(0,0,0,.35);
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    margin-top: -3rem;  
+    cursor: pointer;
+    text-align: center;
+    transition: all .3s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      border: solid black;
+      border-width: 0 2px 2px 0;
+      border-color: $primary_color;
+      display: inline-block;
+      padding: .5rem;
+      top: 50%;
+      margin-top: -.5rem;
+      margin-left: -.5rem;
+      z-index: 2;
+    }
+
+    &:hover {
+      opacity: .8;
+    }
+
+    &--prev {
+      left: -3rem;
+      &:before {
+        transform: rotate(135deg);
+      }
+
+      @media screen and (max-width: $bs_break_xs) {
+        left: 1rem;
+      }
+    }
+    &--next {
+      right: -3rem;
+      &:before {
+        transform: rotate(-45deg);
+      }
+
+      @media screen and (max-width: $bs_break_xs) {
+        right: 1rem;
+      }
+    }
+  }
+
+  &__list {}
+
+  &__item {}
+  
+}
+
+.reviews-slider--text {
+  font-size: 1.8rem;
+  border: none;
+  box-shadow: 0 8px 23px rgba(0,0,0,.17);
+  position: relative;
+  border-radius: 5px;
+  z-index: 1;
+
+  &:after {
+    content: "";
+    position: absolute;
+    z-index: -10;
+    top: 15px;
+    left: 3%;
+    height: 100%;
+    left: 15px;
+    right: 15px;
+    background: rgba(255,255,255,.4);
+    box-shadow: 0 8px 23px rgba(0,0,0,.17);
+    border-radius: 5px;
+  }
+
+  .reviews-slider__item {
+    padding: 35px 40px;
+    // box-shadow: 0 8px 23px rgba(0,0,0,.17);
+    background: #fff;
+    border-radius: 5px;
+  }
+
+  .reviews-slider__image {
+    float: left;
+    width: 13.7rem;
+    img {
+      border-radius: 50%;
+      margin-bottom: 30px;
+    }
+  }
+
+  .reviews-slider__quotes {
+    display: block;
+    height: 80px;
+    width: 86px;
+    fill: $primary_color;
+    margin: 0 auto;
+  }
+
+  .reviews-slider__content {
+    margin-left: 17rem;
+  }
+
+  .reviews-slider__date {
+    float: right;
+  }
+
+  .reviews-slider__name {
+    margin-bottom: 3rem;
+  }
+
+  .reviews-slider__title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+  }
+
+  .reviews-slider__text {}
+
+  .slick-dots li button {
+    width: 5px;
+    height: 5px;
+    background: #518DDF;
+    border: 2px solid rgba(81,141,223,0);
+    opacity: .5;
+  }
+  .slick-dots li.slick-active button {
+    opacity: 1;
+    border: 2px solid rgba(81,141,223,.25);
+  }
+}
+
+
+.review-tab1-block {
+  position: relative;
+  z-index: 1;
+  border: 2px solid $primary_color;
+  margin: 7rem 0 0 -32px;
+  padding: 5rem 7rem 4rem;
+  font-size: 1.8rem;
+  font-weight: 300;
+
+  @media screen and (max-width: $bs_break_sm) {
+    margin-left: 0;
+    margin-top: 0;
+  }
+
+  @media screen and (max-width: $break_xs) {
+    padding: 3rem;
+  }
+
+  &__client-foto {
+    position: absolute;
+    top: -7rem;
+    right: 7rem;
+    z-index: 1;
+
+    @media screen and (max-width: $bs_break_md) {
+      right: 0;
+    }
+
+    @media screen and (max-width: $bs_break_sm) {
+      position: static;
+      float: right;
+      margin-bottom: 2rem;
+    }
+
+    @media screen and (max-width: $break_xs) {
+      float: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    img {
+      border-radius: 50%;
+      border: 1px solid $primary_color;
+    }
+  }
+
+  &__client-name {
+    margin-bottom: 4rem;
+  }
+
+  &__text {
+    margin-bottom: 5rem;
+  }
+
+  &__list {
+    li {
+      display: block;
+      border-bottom: 1px solid #898989;
+      padding: 5px 0;
+    }
+  }
+  &__list-icon {
+    float: left;
+    .icon {
+      height: 2.8rem;
+      width: 3.5rem;
+      fill: $primary_color;
+    }
+  }
+  &__list-text {
+    text-align: right;
+  }
+
+}
+

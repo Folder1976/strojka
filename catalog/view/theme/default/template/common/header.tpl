@@ -146,8 +146,6 @@
 
 
 
-<script async src="https://stats.lptracker.ru/code/new/67713"></script>
-
 
 </head>
 

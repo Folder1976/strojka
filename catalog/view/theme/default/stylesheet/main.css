@@ -7329,6 +7329,20 @@ ol li {
     .reviews-slide__info-list {
       margin-left: 30px; } }
 
+.section-reviews-audio__item {
+  margin-bottom: 20px; }
+  .section-reviews-audio__item:last-child {
+    margin-bottom: 0; }
+
+.section-reviews-audio__title {
+  font-size: 1.7rem;
+  padding: 2rem 1rem;
+  font-weight: 700;
+  border-radius: 5px 5px 0 0;
+  background: #fafafa; }
+  .section-reviews-audio__title span {
+    font-weight: 300; }
+
 .product-catalog {
   background: #fbbe18;
   display: grid;

@@ -82,7 +82,7 @@ $reviews_slider = array(
           <div class="row">
             <div class="col-md-12">
               <div class="section-home-top__content">
-                <h1 class="site-title">Монтаж и строительство<br>скатной кровли под ключ.<br>Возведение мансард.</h1>
+                <h1 class="site-title">Монтаж и строительство<br>скатной кровли под ключ<br>в Москве и МО</h1>
                 <div class="section-home-top__desc">
                   <p>Выполняем работы на загородных<br>домах и коммерческой недвижимости</p>
                   <a href="#get-consultation" class="btn btn--orange btn--dib btn--bold mf-popup" data-effect="mfp-zoom-in">получить консультацию</a>
@@ -554,20 +554,15 @@ $home_services_list = array(
 <?php
 $rev_audio = array(
   array(
-    'title' => '«Не ожидал, что будет так быстро!»',
-    'author' => 'Юрий',
-    'iframe' => '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/569107614&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>'
+    'title' => '«Отзыв»',
+    'author' => 'Евгений',
+    'iframe' => '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/621967221&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>'
   ),
   array(
-    'title' => '«Спасибо большое за Вашу работу, за человеческое отношение»',
-    'author' => 'Абгар',
-    'iframe' => '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/569113230&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>'
+    'title' => '«Отзыв»',
+    'author' => 'Евгения',
+    'iframe' => '<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/621967224&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>'
   ),
-  array(
-    'title' => '«TEST»',
-    'author' => 'Тест',
-    'iframe' => '<iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/293066859&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>'
-  )
 );
 ?>
 
@@ -577,7 +572,7 @@ $rev_audio = array(
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="section-title">Отзывы</div>
+        <div class="section-title">Что о нас говорят наши клиенты</div>
         <div class="section-subtitle text-gray">Более 350 пложительных отзывов, вот некоторые из них</div>
 
         <div class="section-reviews-audio__list">

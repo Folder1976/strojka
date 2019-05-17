@@ -248,7 +248,7 @@ $home_services_list = array(
     "title" => "Монтаж",
     "name" => "Металочерепицы",
     "image" => "/image/catalog/services/serv-1.jpg",
-    "price" => "360",
+    "price" => "190",
     "ediz" => "р/м2",
     "href" => "#"
   ),
@@ -256,7 +256,7 @@ $home_services_list = array(
     "title" => "Монтаж",
     "name" => "Мягкой черепицы",
     "image" => "/image/catalog/services/serv-2.jpg",
-    "price" => "360",
+    "price" => "220",
     "ediz" => "р/м2",
     "href" => "#"
   ),
@@ -272,7 +272,7 @@ $home_services_list = array(
     "title" => "Монтаж",
     "name" => "Водосточной системы",
     "image" => "/image/catalog/services/serv-4.jpg",
-    "price" => "350",
+    "price" => "300",
     "ediz" => "р/п.м",
     "href" => "#"
   ),
@@ -280,7 +280,7 @@ $home_services_list = array(
     "title" => "",
     "name" => "Утепление кровли",
     "image" => "/image/catalog/services/serv-5.jpg",
-    "price" => "300",
+    "price" => "280",
     "ediz" => "р/м2",
     "href" => "#"
   ),
@@ -304,7 +304,7 @@ $home_services_list = array(
     "title" => "Подшив",
     "name" => "Карнизов крыши",
     "image" => "/image/catalog/services/serv-8.jpg",
-    "price" => "400",
+    "price" => "200",
     "ediz" => "р/п.м",
     "href" => "#"
   ),

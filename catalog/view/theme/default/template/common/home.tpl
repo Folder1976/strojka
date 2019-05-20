@@ -363,6 +363,7 @@ $home_services_list = array(
   </div>
 </section>
 
+<?php if (false) { ?>
 <section class="section section-home-actions">
   <div class="container">
     <div class="row">
@@ -375,6 +376,7 @@ $home_services_list = array(
     </div>
   </div>
 </section>
+<?php } ?>
 
 
 <section class="section section-calc">

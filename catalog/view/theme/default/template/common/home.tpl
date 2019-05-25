@@ -250,7 +250,21 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-1.jpg",
     "price" => "190",
     "ediz" => "р/м2",
-    "href" => "#"
+    "popap-id" => "hsl-1",
+    "popap-title" => "Металочерепица",
+    "popap" => array(
+      array(
+        "title" => "Строительство крыши",
+        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
+        "price" => "900",
+        "ediz" => "р/м<sup>2</sup>",
+      ), array(
+        "title" => "Замена кровли",
+        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
+        "price" => "600",
+        "ediz" => "р/м<sup>2</sup>",
+      ),
+    ),
   ),
   array(
     "title" => "Монтаж",
@@ -258,7 +272,21 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-2.jpg",
     "price" => "220",
     "ediz" => "р/м2",
-    "href" => "#"
+    "popap-id" => "hsl-2",
+    "popap-title" => "Мягкая черепица",
+    "popap" => array(
+      array(
+        "title" => "Строительство крыши",
+        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "OSB - плита", "Подкладочный ковер", "Кровля с доборными элементами"),
+        "price" => "1200",
+        "ediz" => "р/м<sup>2</sup>",
+      ), array(
+        "title" => "Замена кровли",
+        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "OSB - плита", "Подкладочный ковер", "Кровля с доборными элементами"),
+        "price" => "900",
+        "ediz" => "р/м<sup>2</sup>",
+      ),
+    ),
   ),
   array(
     "title" => "Монтаж",
@@ -266,7 +294,7 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-3.jpg",
     "price" => "800",
     "ediz" => "р/м2",
-    "href" => "#"
+    // "popap-id" => "hsl-3"
   ),
   array(
     "title" => "Монтаж",
@@ -274,7 +302,21 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-4.jpg",
     "price" => "300",
     "ediz" => "р/п.м",
-    "href" => "#"
+    "popap-id" => "hsl-4",
+    "popap-title" => "Керамическая черепица",
+    "popap" => array(
+      array(
+        "title" => "Строительство крыши",
+        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
+        "price" => "1850",
+        "ediz" => "р/м<sup>2</sup>",
+      ), array(
+        "title" => "Замена кровли",
+        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
+        "price" => "1500",
+        "ediz" => "р/м<sup>2</sup>",
+      ),
+    ),
   ),
   array(
     "title" => "",
@@ -282,7 +324,16 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-5.jpg",
     "price" => "280",
     "ediz" => "р/м2",
-    "href" => "#"
+    "popap-id" => "hsl-5",
+    "popap-title" => "Утепление кровли",
+    "popap" => array(
+      array(
+        "title" => "Утепление кровли",
+        "items" => array("Черновой потолок", "Пароизоляция", "Утепление 150мм"),
+        "price" => "300",
+        "ediz" => "р/м<sup>2</sup>",
+      ),
+    ),
   ),
   array(
     "title" => "Монтаж",
@@ -290,7 +341,7 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-6.jpg",
     "price" => "5000",
     "ediz" => "шт",
-    "href" => "#"
+    // "popap-id" => "hsl-6"
   ),
   array(
     "title" => "Замена и",
@@ -298,7 +349,7 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-7.jpg",
     "price" => "1000",
     "ediz" => "р/м2",
-    "href" => "#"
+    // "popap-id" => "hsl-7"
   ),
   array(
     "title" => "Подшив",
@@ -306,7 +357,7 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-8.jpg",
     "price" => "200",
     "ediz" => "р/п.м",
-    "href" => "#"
+    // "popap-id" => "hsl-8"
   ),
 );
 ?>
@@ -325,16 +376,56 @@ $home_services_list = array(
         <?php foreach ($home_services_list as $service) { ?>
           <div class="service-home-item">
             <div class="service-home-item__image-wrap img--cover">
-              <img src="<?php echo $service['image'] ?>" alt="<?php echo $service['title'].' '.$service['name'] ?>" class="service-home-item__image">
+              <img src="<?php echo $service['image']; ?>" alt="<?php echo $service['title'].' '.$service['name']; ?>" class="service-home-item__image">
             </div>
             <div class="service-home-item__header">
-              <div class="service-home-item__title"><?php echo $service['title'] ?></div>
-              <div class="service-home-item__name"><?php echo $service['name'] ?></div>
+              <div class="service-home-item__title"><?php echo $service['title']; ?></div>
+              <div class="service-home-item__name"><?php echo $service['name']; ?></div>
             </div>
             <div class="service-home-item__footer">
-              <div class="service-home-item__price">От <span><?php echo $service['price'] ?></span> <?php echo $service['ediz'] ?></div>
-              <!-- <a href="<?php echo $service['href'] ?>" class="service-home-item__link-more">Подробнее</a> -->
+              <div class="service-home-item__price">От <span><?php echo $service['price']; ?></span> <?php echo $service['ediz']; ?></div>
+              <?php if ( isset($service['popap-id']) && $service['popap-id'] != '' ) { ?>
+                <a href="#<?php echo $service['popap-id']; ?>" class="service-home-item__link-more mf-popup" data-effect="mfp-zoom-in">Подробнее</a>
+              <?php } ?>
             </div>
+
+            <?php if ( isset($service['popap-id']) && $service['popap-id'] != '' ) { ?>
+              <div class="service-home-item__popap service-home-item-popap">
+                <div id="<?php echo $service['popap-id']; ?>" class="mf-popup-block mf-home-services mfp-hide mfp-with-anim">
+
+                  <?php if ( isset($service['popap-title']) && $service['popap-title'] != '' ) { ?>
+                    <h3 class="mf-title"><?php echo $service['popap-title']; ?></h3>
+                  <?php } ?>
+
+                  <?php if ( isset($service['popap']) && count($service['popap']) > 0 ) { ?>
+                  <div class="service-home-item-popap__list">
+                    <?php foreach ($service['popap'] as $value) { ?>
+                      <div class="service-home-item-popap__item">
+                        <div class="service-home-item-popap__title"><?php echo $value['title']; ?></div>
+
+                        <?php if ( isset($value['items']) && count($value['items'])>0 ) { ?>
+                        <ul class="service-home-item-popap__items">
+                          <?php foreach ($value['items'] as $v) { ?>
+                            <li><?php echo $v; ?></li>
+                          <?php } ?>
+                        </ul>
+                        <?php } ?>
+
+                        <div class="service-home-item-popap__price">
+                          <svg class="icon service-home-item-popap__price-icon">
+                            <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#coins"></use>
+                          </svg>
+                          Стоимость: <?php echo $value['price']; ?><span><?php echo $value['ediz']; ?></span>
+                        </div>
+                      </div>
+                    <?php } ?>
+                  </div>
+                  <?php } ?>
+
+                </div>
+              </div>
+            <?php } ?>
+
           </div>
         <?php } ?>
         </div>

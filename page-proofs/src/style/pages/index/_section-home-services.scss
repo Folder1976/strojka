@@ -80,3 +80,83 @@
     }
   }
 }
+
+
+.mf-home-services {
+  padding: 0;
+  // background-color: transparent;
+
+  .mf-title {
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem;
+  }
+}
+
+.service-home-item-popap {
+  &__list {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 -3rem;
+
+    @media screen and (max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  &__item {
+    width: 100%;
+    max-width: 32rem;
+    margin: 0 3rem;
+    padding-bottom: 2.5rem;
+
+    @media screen and (max-width: 500px) {
+      margin-bottom: 4rem;
+    }
+  }
+  &__title {
+    color: #3C3C3C;
+    font-size: 1.9rem;
+    font-weight: 700;
+    line-height: 1.2em;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid $primary_color;
+  }
+  &__items {
+    padding: 0 3rem 1rem;
+    li {
+      font-size: 1.5rem;
+      line-height: 3em;
+      color: #808080;
+      text-align: center;
+      border-bottom: 1px dotted #ccc;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+  &__price-icon {
+    width: 4rem;
+    height: 4rem;
+    margin-right: 10px;
+  }
+  &__price {
+    color: #3C3C3C;
+    font-size: 2rem;
+    line-height: 3rem;
+    background: $primary_color;
+    padding: 1.5rem 3rem;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+}

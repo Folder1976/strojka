@@ -7458,6 +7458,81 @@ ol li {
       text-decoration: none;
       border-bottom-style: solid; }
 
+.mf-home-services {
+  padding: 0; }
+  .mf-home-services .mf-title {
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem; }
+
+.service-home-item-popap__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 0 -3rem; }
+  @media screen and (max-width: 500px) {
+    .service-home-item-popap__list {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; } }
+
+.service-home-item-popap__item {
+  width: 100%;
+  max-width: 32rem;
+  margin: 0 3rem;
+  padding-bottom: 2.5rem; }
+  @media screen and (max-width: 500px) {
+    .service-home-item-popap__item {
+      margin-bottom: 4rem; } }
+
+.service-home-item-popap__title {
+  color: #3C3C3C;
+  font-size: 1.9rem;
+  font-weight: 700;
+  line-height: 1.2em;
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #fbbe18; }
+
+.service-home-item-popap__items {
+  padding: 0 3rem 1rem; }
+  .service-home-item-popap__items li {
+    font-size: 1.5rem;
+    line-height: 3em;
+    color: #808080;
+    text-align: center;
+    border-bottom: 1px dotted #ccc; }
+    .service-home-item-popap__items li:last-child {
+      border-bottom: none; }
+    .service-home-item-popap__items li span {
+      font-weight: 700; }
+
+.service-home-item-popap__price-icon {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 10px; }
+
+.service-home-item-popap__price {
+  color: #3C3C3C;
+  font-size: 2rem;
+  line-height: 3rem;
+  background: #fbbe18;
+  padding: 1.5rem 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center; }
+  .service-home-item-popap__price span {
+    font-size: 1.5rem; }
+
 .information-contact .section-title {
   margin-bottom: 2rem; }
 

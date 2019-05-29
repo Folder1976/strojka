@@ -260,7 +260,7 @@ $home_services_list = array(
         "ediz" => "р/м<sup>2</sup>",
       ), array(
         "title" => "Замена кровли",
-        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
+        "items" => array("Демонтаж старой кровли", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
         "price" => "600",
         "ediz" => "р/м<sup>2</sup>",
       ),
@@ -282,7 +282,7 @@ $home_services_list = array(
         "ediz" => "р/м<sup>2</sup>",
       ), array(
         "title" => "Замена кровли",
-        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "OSB - плита", "Подкладочный ковер", "Кровля с доборными элементами"),
+        "items" => array("Демонтаж старой кровли", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "OSB - плита", "Подкладочный ковер", "Кровля с доборными элементами"),
         "price" => "900",
         "ediz" => "р/м<sup>2</sup>",
       ),
@@ -294,7 +294,21 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-3.jpg",
     "price" => "800",
     "ediz" => "р/м2",
-    // "popap-id" => "hsl-3"
+    "popap-id" => "hsl-3",
+        "popap-title" => "Керамическая черепица",
+        "popap" => array(
+          array(
+            "title" => "Строительство крыши",
+            "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
+            "price" => "1850",
+            "ediz" => "р/м<sup>2</sup>",
+          ), array(
+            "title" => "Замена кровли",
+            "items" => array("Демонтаж старой кровли", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
+            "price" => "1500",
+            "ediz" => "р/м<sup>2</sup>",
+          ),
+        ),
   ),
   array(
     "title" => "Монтаж",
@@ -302,21 +316,6 @@ $home_services_list = array(
     "image" => "/image/catalog/services/serv-4.jpg",
     "price" => "300",
     "ediz" => "р/п.м",
-    "popap-id" => "hsl-4",
-    "popap-title" => "Керамическая черепица",
-    "popap" => array(
-      array(
-        "title" => "Строительство крыши",
-        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
-        "price" => "1850",
-        "ediz" => "р/м<sup>2</sup>",
-      ), array(
-        "title" => "Замена кровли",
-        "items" => array("Стропильная система", "Гидроизоляция", "Контробрешетка", "Шаговая обрешетка", "Кровля с доборными элементами"),
-        "price" => "1500",
-        "ediz" => "р/м<sup>2</sup>",
-      ),
-    ),
   ),
   array(
     "title" => "",
@@ -350,6 +349,7 @@ $home_services_list = array(
     "price" => "1000",
     "ediz" => "р/м2",
     // "popap-id" => "hsl-7"
+    "href" => "/krovlya/remont-krovli"
   ),
   array(
     "title" => "Подшив",
@@ -386,6 +386,8 @@ $home_services_list = array(
               <div class="service-home-item__price">От <span><?php echo $service['price']; ?></span> <?php echo $service['ediz']; ?></div>
               <?php if ( isset($service['popap-id']) && $service['popap-id'] != '' ) { ?>
                 <a href="#<?php echo $service['popap-id']; ?>" class="service-home-item__link-more mf-popup" data-effect="mfp-zoom-in">Подробнее</a>
+              <?php } elseif ( isset($service['href']) && $service['href'] != '' ) { ?>
+                <a href="<?php echo $service['href']; ?>" class="service-home-item__link-more">Подробнее</a>
               <?php } ?>
             </div>
 

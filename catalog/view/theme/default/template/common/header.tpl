@@ -197,7 +197,8 @@ $top_menu = array(
   ),
   array (
     'name' => 'Блог',
-    'href' => '/blog',
+    // 'href' => '/blog',
+    'href' => 'https://www.instagram.com/rooferr.ru/',
   ),
 );
 $bottom_menu = array(

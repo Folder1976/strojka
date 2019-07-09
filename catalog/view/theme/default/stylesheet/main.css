@@ -5923,6 +5923,49 @@ ol li {
       border-bottom: 1px solid #000;
       margin-top: 4rem; }
 
+.remont__top-bg {
+  width: 100%;
+  height: auto;
+  background: url("/image/catalog/remont/bg.jpg");
+  background-position: center top;
+  position: relative; }
+  .remont__top-bg .section-title {
+    font-size: 3rem;
+    text-transform: none;
+    padding: 120px 0 30px 20px; }
+
+.remont__form {
+  width: 270px;
+  padding: 15px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-color: #fbbe18;
+  position: absolute;
+  right: 15px;
+  top: 30px; }
+
+.remont-form > *:not(:last-child) {
+  margin-bottom: 10px; }
+
+.remont-form__title {
+  font-size: 18px; }
+
+.remont-form__input {
+  font-size: 16px;
+  padding: 5px;
+  width: 100%; }
+
+.remont-form__label {
+  font-size: 11px;
+  cursor: pointer; }
+  .remont-form__label input {
+    margin-right: 5px; }
+
+.remont-form__btn {
+  font-size: 16px;
+  padding: 5px;
+  width: 100%; }
+
 .list-category {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

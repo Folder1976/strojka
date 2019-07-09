@@ -59,7 +59,7 @@ $news = array();
       </div>
 
       <?php if ($description) { ?>
-        <div class="description content-style"><?php echo $description; ?></div>
+        <div class="description"><?php echo $description; ?></div>
       <?php } ?>
 
 

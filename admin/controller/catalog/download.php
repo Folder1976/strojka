@@ -448,6 +448,7 @@ class ControllerCatalogDownload extends Controller {
 				// Allowed file extension types
 				$allowed = array();
 
+				
 				$extension_allowed = preg_replace('~\r?\n~', "\n", $this->config->get('config_file_ext_allowed'));
 
 				$filetypes = explode("\n", $extension_allowed);
@@ -455,11 +456,14 @@ class ControllerCatalogDownload extends Controller {
 				foreach ($filetypes as $filetype) {
 					$allowed[] = trim($filetype);
 				}
+				
+					
 
 				if (!in_array(strtolower(substr(strrchr($filename, '.'), 1)), $allowed)) {
 					$json['error'] = $this->language->get('error_filetype');
 				}
-
+				
+			
 				// Allowed file mime types
 				$allowed = array();
 
@@ -471,6 +475,7 @@ class ControllerCatalogDownload extends Controller {
 					$allowed[] = trim($filetype);
 				}
 
+				
 				if (!in_array($this->request->files['file']['type'], $allowed)) {
 					$json['error'] = $this->language->get('error_filetype');
 				}

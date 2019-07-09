@@ -95,6 +95,9 @@ $('#button-upload').on('click', function() {
 					$('#button-upload').button('reset');
 				},	
 				success: function(json) {
+          
+          //console.log(json);
+          
 					if (json['error']) {
 						alert(json['error']);
 					}

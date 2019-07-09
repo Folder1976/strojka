@@ -80,7 +80,7 @@ class ControllerProductBlogCategory extends Controller {
 
 				if ($category_info) {
 					$data['breadcrumbs'][] = array(
-						'text' => $category_info['name'],
+						'text' => html_entity_decode(str_replace('mutli', '', $category_info['name']), ENT_QUOTES, 'UTF-8'),
 						'href' => $this->url->link('product/blog_category', 'blogpath=' . $path . $url)
 					);
 				}
@@ -98,8 +98,12 @@ class ControllerProductBlogCategory extends Controller {
 			$this->document->setDescription($category_info['meta_description']);
 			$this->document->setKeywords($category_info['meta_keyword']);
 
-			$data['heading_title'] = $category_info['name'];
+			
+			$category_info['name'] = str_replace('mutli', '', $category_info['name']);
+			$category_info['name'] = html_entity_decode($category_info['name'],  ENT_QUOTES, 'UTF-8');
 
+			$data['heading_title'] = $category_info['name'];
+			
 			$data['text_refine'] = $this->language->get('text_refine');
 			$data['text_empty'] = $this->language->get('text_empty');
 			$data['text_quantity'] = $this->language->get('text_quantity');
@@ -155,7 +159,20 @@ class ControllerProductBlogCategory extends Controller {
 			$data['categories'] = array();
 
 		
-			if((int)$this->request->get['blogpath'] == 20){
+			if((int)$this->request->get['blogpath'] == 26){
+				
+				$results1 = array();
+				
+				//if((int)$this->request->get['blogpath'] == 26 AND $blog_category_id != 26){
+					$results1 = array($this->model_catalog_blog_category->getCategory(26));
+					$results1[0]['name'] = str_replace('mutli','', $results1[0]['name']);
+				//}					
+					$results2 = $this->model_catalog_blog_category->getCategories(26);
+					$results = array_merge($results1,$results2);
+				if((int)$this->request->get['blogpath'] == 26 AND $blog_category_id != 26){
+					$this->request->get['blogpath'] = str_replace('_'.$blog_category_id,'', $this->request->get['blogpath']);
+				}
+			}elseif((int)$this->request->get['blogpath'] == 20){
 				$results1 = array($this->model_catalog_blog_category->getCategory(20));
 				$results1[0]['name'] = "Всё";
 				$results2 = $this->model_catalog_blog_category->getCategories(20);
@@ -193,12 +210,20 @@ class ControllerProductBlogCategory extends Controller {
 				}else{
 					$href = $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id'] . $url);
 				}
+
+				if ($result['image']) {
+					$image = $this->model_tool_image->resize($result['image'], 120, 120);
+				} else {
+					$image = $this->model_tool_image->resize('placeholder.png', 120, 120);
+				}
+				
 				$data['categories'][] = array(
 					'blog_category_id' => $result['blog_category_id'] ,
 					'products'			=> $prods,
+					'image'			=> $image,
 					'keyword' => $result['keyword'] ,
-					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_blog_product->getTotalProducts($filter_data) . ')' : ''),
-					'name_no_prod' => $result['name'],
+					'name' => html_entity_decode($result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_blog_product->getTotalProducts($filter_data) . ')' : ''),  ENT_QUOTES, 'UTF-8'),
+					'name_no_prod' => html_entity_decode($result['name'],  ENT_QUOTES, 'UTF-8'),
 					'href' => $href
 				);
 			}
@@ -211,6 +236,7 @@ class ControllerProductBlogCategory extends Controller {
 					$results = $this->model_catalog_blog_category->getCategories($tmp_blog_category_id);
 				
 					foreach ($results as $result) {
+						
 						$data['categories1'][] = array(
 							'blog_category_id' => $result['blog_category_id'] ,
 							'products'			=> $prods,
@@ -374,6 +400,37 @@ class ControllerProductBlogCategory extends Controller {
 					}
 				}
 			   
+				if((int)$this->request->get['blogpath'] == 26){
+					
+					$images = $this->model_catalog_blog_product->getProductImages($result['blog_product_id']);
+					
+					foreach($images as $index => $row){
+						$images[$index]['image'] = $this->model_tool_image->resize($row['image'], 800,800);
+						//$images[$index]['image'] = '/image/'.$row['image'];
+					}
+				}
+			   
+			   	$product_downloads = $this->model_catalog_blog_product->getProductDownloads($result['blog_product_id']);
+
+				$data_product_downloads = array();
+				$this->load->model("catalog/download");
+				
+				foreach ($product_downloads as $download_id) {
+					$download_info = $this->model_catalog_download->getDownload($download_id);
+		
+					@unlink(DIR_USER_DOWNLOAD.$download_info['mask']);
+					copy(DIR_DOWNLOAD.$download_info['filename'], DIR_USER_DOWNLOAD.$download_info['mask']);
+					chmod(DIR_USER_DOWNLOAD.$download_info['mask'], 777);
+					
+					if ($download_info) {
+						$data_product_downloads[] = array(
+							'download_id' => $download_info['download_id'],
+							'name'        => $download_info['name'],
+							'href'        => HTTPS_SERVER.'download/'.$download_info['mask'],
+						);
+					}
+				}
+
 		
 				$data['products'][] = array(
 					'blog_product_id'  => $result['blog_product_id'],
@@ -382,11 +439,13 @@ class ControllerProductBlogCategory extends Controller {
 					'ean'  => $result['ean'],
 					'jan'  => $result['jan'],
 					'isbn'  => $result['isbn'],
+					'downloads'  => $data_product_downloads,
 					//'date_added'  => $result['date_added'],
 					'images'	  => $images,
 					'thumb'       => $image,
 					'date_added'  => date('d.m.Y', strtotime($result['date_available'])),
 					'name'        => $result['name'],
+					'quantity'        => $result['quantity'],
 					'description' => $short_description,
 					'price'       => $price,
 					'special'     => $special,
@@ -727,4 +786,3 @@ class ControllerProductBlogCategory extends Controller {
 		}
 	}
 }
-

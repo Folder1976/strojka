@@ -1262,7 +1262,7 @@ class ControllerCatalogBlogProduct extends Controller {
 
 		if (isset($this->request->post['product_download'])) {
 			$product_downloads = $this->request->post['product_download'];
-		} elseif (isset($this->request->get['product_id'])) {
+		} elseif (isset($this->request->get['blog_product_id'])) {
 			$product_downloads = $this->model_catalog_blog_product->getProductDownloads($this->request->get['blog_product_id']);
 		} else {
 			$product_downloads = array();
@@ -1281,6 +1281,7 @@ class ControllerCatalogBlogProduct extends Controller {
 			}
 		}
 
+		
 		if (isset($this->request->post['product_related'])) {
 			$products = $this->request->post['product_related'];
 		} elseif (isset($this->request->get['blog_product_id'])) {

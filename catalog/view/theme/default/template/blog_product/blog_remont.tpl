@@ -41,8 +41,9 @@ $news = array();
         <form id="remont-form" class="remont__form remont-form" method="post" action="/index.php?route=account/universalform">
           <input type="hidden" name="formname" value="remont-form">
           <div class="remont-form__title">Получите консультацию</div>
-          <input type="text" class="remont-form__input" placeholder="Телефон">
-          <label class="remont-form__label"><input type="checkbox">С <a href="/privacy">политикой конфиденциальности</a> ознакомлен</label>
+          <input type="text" name="telephone" class="remont-form__input" placeholder="Телефон">
+          <input type="hidden" name="name" value="Получите консультацию">
+          <label class="remont-form__label"><input type="checkbox" name="agree" >С <a href="/privacy">политикой конфиденциальности</a> ознакомлен</label>
           <input type="submit" id="remont-form-send" class="btn remont-form__btn" value="Получить">
           <div class="msg"></div>
         </form>
@@ -174,7 +175,7 @@ $("#remont-form").submit(function(e){
   $.ajax({
     url: '/index.php?route=account/universalform',
     type: 'post',
-    data: $('#remont-form input[type=text], #remont-form input[type=checkbox]:checked, #remont-form input[type=email]'),
+    data: $('#remont-form input[type=text],#remont-form input[type=hidden], #remont-form input[type=checkbox]:checked, #remont-form input[type=email]'),
     dataType: 'json',
     beforeSend: function() {
       $('#remont-form-send').button('loading');
@@ -217,4 +218,5 @@ $("#remont-form").submit(function(e){
 
 
 <?php echo $footer; ?>
+
 

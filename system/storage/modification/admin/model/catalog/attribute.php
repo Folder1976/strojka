@@ -6,13 +6,6 @@ class ModelCatalogAttribute extends Model {
 		$attribute_id = $this->db->getLastId();
 
 
-				// attribute_image * * * Start
-				if(isset($data['image'])) {
-					$this->db->query("UPDATE " . DB_PREFIX . "attribute SET image = '" . $data['image'] . "' WHERE attribute_id = '" . (int)$attribute_id . "'");
-				}
-				// attribute_image * * * End
-					  
-
 				// attribute_filter * * * Start
 				if(isset($data['sort_order_filter']) AND isset($data['isfilter'])) {
 					$this->db->query("UPDATE " . DB_PREFIX . "attribute SET sort_order_filter = '" . (int)$data['sort_order_filter'] . "', isfilter = '" . (int)$data['isfilter'] . "' WHERE attribute_id = '" . (int)$attribute_id . "'");
@@ -31,13 +24,6 @@ class ModelCatalogAttribute extends Model {
 
 		$this->db->query("DELETE FROM " . DB_PREFIX . "attribute_description WHERE attribute_id = '" . (int)$attribute_id . "'");
 
-
-				// attribute_image * * * Start
-				if(isset($data['image'])) {
-					$this->db->query("UPDATE " . DB_PREFIX . "attribute SET image = '" . $data['image'] . "' WHERE attribute_id = '" . (int)$attribute_id . "'");
-				}
-				// attribute_image * * * End
-					  
 
 				// attribute_filter * * * Start
 				if(isset($data['sort_order_filter']) AND isset($data['isfilter'])) {

@@ -176,6 +176,22 @@ class ControllerCommonColumnLeft extends Controller {
 					'children' => $catalog
 				);		
 			}
+		//ftp://DimaStrojka/public_html/catalog/controller/calculator/calculator.php
+			$catalog = array();
+				$catalog[] = array(
+					'name'	   => 'Настройки калькулятора',
+					'href'     => $this->url->link('calculator/calculator', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);
+				$data['menus'][] = array(
+					'id'       => 'menu-catalog',
+					'icon'	   => 'fa-tags', 
+					'name'	   => 'Калькулятор',
+					'href'     => '',
+					'children' => $catalog
+				);		
+				
+	
 			
 	
 			// Extension
@@ -201,6 +217,13 @@ class ControllerCommonColumnLeft extends Controller {
 				$extension[] = array(
 					'name'	   => $this->language->get('text_extension'),
 					'href'     => $this->url->link('extension/extension', 'token=' . $this->session->data['token'], true),
+					'children' => array()
+				);
+			}
+				if ($this->user->hasPermission('access', 'extension/extension')) {		
+				$extension[] = array(
+					'name'	   => 'Генерить СайтМап',
+					'href'     => '/index.php?route=extension/feed/google_sitemap',
 					'children' => array()
 				);
 			}

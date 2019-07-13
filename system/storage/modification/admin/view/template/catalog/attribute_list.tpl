@@ -51,11 +51,6 @@
                     <a href="<?php echo $sort_sort_order; ?>"><?php echo $column_sort_order; ?></a>
                     <?php } ?></td>
 
-				<!-- attribute_image * * * Start -->
-				<td class="text-right">Картинка</td>
-				<!-- attribute_image * * * End -->
-					  
-
 				<!-- attribute_filter * * * Start -->
 				<td class="text-right">Фильтр</td><td class="text-right">Фильтр сорт</td>
 				<!-- attribute_filter * * * End -->
@@ -80,11 +75,6 @@
 				<td class="text-right"><?php echo ($attribute['isfilter']) ? 'ДА':''; ?></td>
 				<td class="text-right"><?php echo $attribute['sort_order_filter']; ?></td>
 				<!-- attribute_filter * * * End -->
-					  
-
-				<!-- attribute_image * * * Start -->
-				<td class="text-right"><img src="/image/<?php echo $attribute['image']; ?>"></td>
-				<!-- attribute_image * * * End -->
 					  
                   <td class="text-right"><a href="<?php echo $attribute['edit']; ?>" data-toggle="tooltip" title="<?php echo $button_edit; ?>" class="btn btn-primary"><i class="fa fa-pencil"></i></a></td>
                 </tr>

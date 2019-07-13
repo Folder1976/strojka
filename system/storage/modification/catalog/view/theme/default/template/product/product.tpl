@@ -42,14 +42,43 @@ if(!isset($_COOKIE['IdProduto'])){
 ?>
 
 
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Product",
+  "name": "<?php echo $heading_title; ?>",
+  <?php if ($thumb) { ?>
+    "image": "<?php echo $thumb; ?>",
+  <?php } ?>
+  "brand": "<?php echo $manufacturer; ?>",
+  "description": "<?php echo $heading_title; ?>",
+  "sku": "<?php echo $minimum; ?>",
+  "url": "<?php echo $share; ?>",
+  "offers": {
+    "@type": "Offer",
+    "availability": "http://schema.org/InStock",
+    <?php if (!$special) { ?>
+      "price": "<?php echo floatval($price); ?>",
+    <?php } else { ?>
+      "price": "<?php echo floatval($special); ?>",
+    <?php } ?>
+    "url": "<?php echo $share; ?>",
+    "priceCurrency": "руб."
+  }
+}
+</script>
+
+
 <div class="container">
 
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-9">
-      <ul class="breadcrumb">
+      <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <?php $ListItem_pos = 1; ?>
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem"><a href="<?php echo $breadcrumb['href']; ?>" itemprop="item"><span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a><meta itemprop="position" content="<?php echo $ListItem_pos++; ?>" /></li>
         <?php } ?>
       </ul>
     </div>
@@ -102,7 +131,8 @@ if(!isset($_COOKIE['IdProduto'])){
                 <div class="prod-info__price"><?php echo $price; ?></div>
               <?php } else { ?>
                 <div class="prod-info__price"><?php echo $special; ?></div>
-                <div class="prod-info__olp-price"><?php echo $price; ?></div>
+                <div class="prod-info__olp-price" style="text-decoration: line-through;"><?php echo $price; ?></div>
+                <div class="product-layout__special-percent">[<?php echo (int)$persent;?>%]</div>
               <?php } ?>
             </div>
 
@@ -144,7 +174,11 @@ if(!isset($_COOKIE['IdProduto'])){
                     >Купить в 1 клик</button>
             </div>
             <div class="prod-info__col">
-              <button type="button" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--dib btn--buy">Поторговаться</button>
+              <button type="button" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--dib btn--buy uptocall-mini-phone1"
+                  data-src="<?php echo $thumb; ?>"
+                  data-name="<?php echo $heading_title; ?>"
+                  data-price="<?php echo $price; ?>"
+                >Поторговаться</button>
               <?php if($in_cart){ ?>
                 <button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn--black btn--dib btn--buy in_cart">В корзине</button>
               <?php }else{ ?>
@@ -170,11 +204,6 @@ if(!isset($_COOKIE['IdProduto'])){
             <tbody>
               <?php foreach ($attribute_group['attribute'] as $attribute) { ?>
               <tr>
-
-				<!-- attribute_image * * * Start -->
-				<!--td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td-->
-				<!-- attribute_image * * * End -->
-					  
                 <td><?php echo $attribute['name']; ?></td>
                 <td><?php echo $attribute['text']; ?></td>
               </tr>
@@ -232,7 +261,7 @@ if(!isset($_COOKIE['IdProduto'])){
               <?php if ($product['special']) { ?>
                 <div class="product-layout__special-price">
                   <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
-                  <div class="product-layout__special-percent">-50%</div>
+                  <div class="product-layout__special-percent">-<?php echo (int)$product['persent'];?>%</div>
                 </div>
               <?php } ?>
 
@@ -303,7 +332,7 @@ if(!isset($_COOKIE['IdProduto'])){
               <?php if ($product['special']) { ?>
                 <div class="product-layout__special-price">
                   <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
-                  <div class="product-layout__special-percent">-50%</div>
+                  <div class="product-layout__special-percent"><?php echo (int)$product['persent'];?>%</div>
                 </div>
               <?php } ?>
 
@@ -412,11 +441,6 @@ if(!isset($_COOKIE['IdProduto'])){
         <td colspan="3"><strong><?php echo $attribute_group['name']; ?></strong></td>
         <!-- attribute_image * * * End -->
             
-
-				<!-- attribute_image * * * Start -->
-				<td colspan="3"><strong><?php echo $attribute_group['name']; ?></strong></td>
-				<!-- attribute_image * * * End -->
-					  
                     <td colspan="2"><strong><?php echo $attribute_group['name']; ?></strong></td>
                   </tr>
                 </thead>
@@ -428,11 +452,6 @@ if(!isset($_COOKIE['IdProduto'])){
         <td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td>
         <!-- attribute_image * * * End -->
             
-
-				<!-- attribute_image * * * Start -->
-				<!--td><?php if($attribute['image']!=''){ ?><img src="<?php echo $attribute['image']; ?>"><?php } ?></td-->
-				<!-- attribute_image * * * End -->
-					  
                     <td><?php echo $attribute['name']; ?></td>
                     <td><?php echo $attribute['text']; ?></td>
                   </tr>
@@ -1041,5 +1060,7 @@ $(document).ready(function() {
 });
 //--></script>
 <?php echo $footer; ?>
+
+
 
 

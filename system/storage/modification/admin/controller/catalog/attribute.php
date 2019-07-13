@@ -128,21 +128,6 @@ class ControllerCatalogAttribute extends Controller {
 				}
 				// attribute_filter * * * End
 					  
-
-				// attribute_image * * * Start
-				$sql = "SELECT *  FROM information_schema.columns 
-							WHERE table_schema = '".DB_DATABASE."'
-							  AND table_name   = '" . DB_PREFIX . "attribute'
-							  AND column_name  = 'image'";
-							  
-				$r = $this->db->query($sql);
-				
-				if($r->num_rows == 0){
-					$sql = "ALTER TABLE " . DB_PREFIX . "attribute ADD COLUMN `image` TEXT CHARACTER SET utf8 COLLATE utf8_bin NOT NULL AFTER attribute_id;";
-					$this->db->query($sql);
-				}
-				// attribute_image * * * End
-					  
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
@@ -214,11 +199,6 @@ class ControllerCatalogAttribute extends Controller {
 				'isfilter'      => $result['isfilter'],
 				'sort_order_filter'      => $result['sort_order_filter'],
 				// attribute_filter * * * End
-					  
-
-				// attribute_image * * * Start
-				'image'      => $result['image'],
-				// attribute_image * * * End
 					  
 				'edit'            => $this->url->link('catalog/attribute/edit', 'token=' . $this->session->data['token'] . '&attribute_id=' . $result['attribute_id'] . $url, true)
 			);
@@ -395,30 +375,6 @@ class ControllerCatalogAttribute extends Controller {
 
 		$this->load->model('catalog/attribute_group');
 
-
-				// attribute_image * * * Start
-				if (isset($this->request->post['image'])) {
-					$data['image'] = $this->request->post['image'];
-				} elseif (!empty($attribute_info)) {
-					$data['image'] = $attribute_info['image'];
-				} else {
-					$data['image'] = '';
-				}
-				
-				$this->load->model('tool/image');
-
-				if (isset($this->request->post['image']) && is_file(DIR_IMAGE . $this->request->post['image'])) {
-					$data['thumb'] = $this->model_tool_image->resize($this->request->post['image'], 100, 100);
-				} elseif (!empty($attribute_info) && is_file(DIR_IMAGE . $attribute_info['image'])) {
-					$data['thumb'] = $this->model_tool_image->resize($attribute_info['image'], 100, 100);
-				} else {
-					$data['thumb'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-				}
-		
-				$data['placeholder'] = $this->model_tool_image->resize('no_image.png', 100, 100);
-
-				// attribute_image * * * End
-					  
 
 				// attribute_filter * * * Start
 				if (isset($this->request->post['isfilter'])) {

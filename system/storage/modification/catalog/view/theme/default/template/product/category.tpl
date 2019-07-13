@@ -5,9 +5,11 @@
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-9">
-      <ul class="breadcrumb">
+      <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+        <?php $ListItem_pos = 1; ?>
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-        <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+        <li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem"><a href="<?php echo $breadcrumb['href']; ?>" itemprop="item"><span itemprop="name"><?php echo $breadcrumb['text']; ?></span></a><meta itemprop="position" content="<?php echo $ListItem_pos++; ?>" /></li>
         <?php } ?>
       </ul>
     </div>
@@ -173,7 +175,7 @@
                     <?php if ($product['special']) { ?>
                       <div class="product-layout__special-price">
                         <div class="product-layout__olp-price"><?php echo $product['price']; ?></div>
-                        <div class="product-layout__special-percent">[-50%]</div>
+                        <div class="product-layout__special-percent">[<?php echo (int)$product['persent'];?>%]</div>
                       </div>
                     <?php } ?>
 
@@ -251,8 +253,7 @@
         <br>
       <?php } ?>
 
-
-      <?php if ( isset($videos) and count($videos) > 1 ) { ?>
+      <?php if ( isset($videos) and count($videos) > 0 ) { ?>
         <h3 class="h3-title" id="video">Видео</h3>
         <div class="row">
           <?php foreach($videos as $video){ ?>
@@ -262,8 +263,8 @@
         <br>
       <?php } ?>
 
-      <?php if ( isset($images) and count($images) > 1) { ?>
-        <h3 class="h3-title" id="images">Картинки</h3>
+      <?php if ( isset($images) and count($images) > 0) { ?>
+        <h3 class="h3-title" id="images">Примеры объектов</h3>
         <div class="row">
           <?php foreach($images as $image){ ?>
           <div class="col-sm-3"><img src="<?php echo $image['popup']; ?>" >
@@ -479,6 +480,7 @@
 
 
 <?php echo $footer; ?>
+
 
 
 

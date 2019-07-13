@@ -13,9 +13,7 @@ class ControllerCommonHeader extends Controller {
 				$data['analytics'][] = $this->load->controller('extension/analytics/' . $analytic['code'], $this->config->get($analytic['code'] . '_status'));
 			}
 		}
-
-		
-		
+	
 		
 		if ($this->request->server['HTTPS']) {
 			$server = $this->config->get('config_ssl');
@@ -124,7 +122,7 @@ class ControllerCommonHeader extends Controller {
 		// Menu
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/blog_category');
-
+		$this->load->model('catalog/blog_product');
 		$this->load->model('catalog/product');
 
 		$data['categories'] = array();
@@ -174,15 +172,26 @@ class ControllerCommonHeader extends Controller {
 				// Level 2
 				$children_data = array();
 
-				$children = $this->model_catalog_blog_category->getCategories($category['blog_category_id']);
+		
+				$filter_data = array(
+					'filter_category_id'  => $category['blog_category_id'],
+					'filter_sub_category' => true
+				);
+				
+				//echo '<pre>'; print_r(var_dump($filter_data));
+				$children_category = $this->model_catalog_blog_category->getCategories($category['blog_category_id']);
 
+				$children = $this->model_catalog_blog_product->getProducts($filter_data);
+				
 				foreach ($children as $child) {
-					$filter_data = array(
-						'filter_category_id'  => $child['blog_category_id'],
-						'filter_sub_category' => true
-					);
-
 					$children_data[] = array(
+						'name'  => $child['name'],
+						'href'  => $this->url->link('product/blog_product', 'blogpath=' . $category['blog_category_id'] . '&blog_product_id=' . $child['blog_product_id'])
+					);
+				}
+
+				foreach ($children_category as $child) {
+					$children_data_category[] = array(
 						'name'  => $child['name'],
 						'href'  => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'] . '_' . $child['blog_category_id'])
 					);
@@ -192,8 +201,9 @@ class ControllerCommonHeader extends Controller {
 				$data['blog_categories'][$category['blog_category_id']] = array(
 					'name'     => $category['name'],
 					'children' => $children_data,
+					'children_category' => $children_data_category,
 					'column'   => $category['column'] ? $category['column'] : 1,
-					'href'     => $this->url->link('product/blog_category', 'blogpath=' . $category['blog_category_id'])
+					'href'     => $this->url->link('product/blog_product', 'blogpath=' . $category['blog_category_id'])
 				);
 			}
 		}

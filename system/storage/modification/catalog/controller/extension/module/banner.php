@@ -26,7 +26,7 @@ class ControllerExtensionModuleBanner extends Controller {
 				// Category banners * * * End
 					  
 					'link'  => $result['link'],
-					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'])
+					'image' => $this->model_tool_image->resize($result['image'], $setting['width'], $setting['height'], 'category_image')
 				);
 			}
 		}

@@ -38,10 +38,8 @@ final class Loader {
 		// Sanitize the call
 		$route = preg_replace('/[^a-zA-Z0-9_\/]/', '', (string)$route);
 		
-		//echo '<br>'.'model/' . $route . '/before';
-		
 		// Trigger the pre events
-		//$this->registry->get('event')->trigger('model/' . $route . '/before', array(&$route));
+		$this->registry->get('event')->trigger('model/' . $route . '/before', array(&$route));
 		
 		if (!$this->registry->has('model_' . str_replace(array('/', '-', '.'), array('_', '', ''), $route))) {
 			$file  = DIR_APPLICATION . 'model/' . $route . '.php';
@@ -63,7 +61,7 @@ final class Loader {
 		}
 		
 		// Trigger the post events
-		//$this->registry->get('event')->trigger('model/' . $route . '/after', array(&$route));
+		$this->registry->get('event')->trigger('model/' . $route . '/after', array(&$route));
 	}
 
 	public function view($route, $data = array()) {
@@ -152,7 +150,7 @@ final class Loader {
 			$output = null;
 			
 			// Trigger the pre events
-			$result = false;//$registry->get('event')->trigger('model/' . $route . '/before', array(&$route, &$args, &$output));
+			$result = $registry->get('event')->trigger('model/' . $route . '/before', array(&$route, &$args, &$output));
 			
 			if ($result) {
 				return $result;
@@ -183,7 +181,7 @@ final class Loader {
 			}
 			
 			// Trigger the post events
-			$result = false;//$registry->get('event')->trigger('model/' . $route . '/after', array(&$route, &$args, &$output));
+			$result = $registry->get('event')->trigger('model/' . $route . '/after', array(&$route, &$args, &$output));
 			
 			if ($result) {
 				return $result;

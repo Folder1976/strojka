@@ -18,7 +18,7 @@
   <div class="row" id="content">
 
     <div class="col-md-9 col-md-push-3">
-      <h1 class="section-title text-left"><?php echo $heading_title; ?></h1>
+      <h1 class="section-title text-left"><?php echo $heading_title; ?>11</h1>
 
       <?php if ($description) { ?>
         <div class="description"><?php echo $description; ?></div>

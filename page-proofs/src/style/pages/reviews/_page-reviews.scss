@@ -2,6 +2,98 @@
   .section-title {
     margin: 20px 0;
   }
+
+  &__page-content {
+    padding-top: 30px;
+  }
+}
+
+.reviews-nav {
+  display: flex;
+  margin: 0 -15px 35px;
+
+  @media screen and (max-width: $bs_break_xs) {
+    flex-direction: column;
+    margin: 0 auto 20px;
+  }
+
+  &__link {
+    display: block;
+    text-align: center;
+    background: #fff;
+    border: 2px solid $primary_color;
+    margin: 0 1.5rem;
+    position: relative;
+    box-shadow: inset 0px 0px 0px 3px $primary_color;
+    padding: 5rem 1rem;
+    width: 100%;
+
+    @media screen and (max-width: $bs_break_xs) {
+      margin: 0;
+      padding: 10px;
+      text-align: left;
+      box-shadow: none;
+      border-color: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      height: 40px;
+      width: 2px;
+      background: transparent;
+      position: absolute;
+      z-index: 1;
+      top: 100%;
+      left: 50%;
+      margin-left: -1px;
+
+      @media screen and (max-width: $bs_break_xs) {
+        display: none;
+      }
+    }
+
+    &.is-active {
+      box-shadow: none;
+
+      @media screen and (max-width: $bs_break_xs) {
+        border-color: $primary_color
+      }
+
+      &:after {
+        background: $primary_color;
+      }
+    }
+  }
+
+  &__icon {
+    height: 10rem;
+    width: 100%;
+    fill: $primary_color;
+
+    @media screen and (max-width: $bs_break_xs) {
+      width: 6rem;
+      height: 6rem;
+      margin-right: 1rem;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__text {
+    color: #000;
+    font-weight: 900;
+    @media screen and (max-width: $bs_break_xs) {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+  }
 }
 
 .review-row {
@@ -107,6 +199,11 @@
   .reviews-slider__image {
     float: left;
     width: 13.7rem;
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+
     img {
       border-radius: 50%;
       margin-bottom: 30px;
@@ -123,6 +220,10 @@
 
   .reviews-slider__content {
     margin-left: 17rem;
+
+    @media screen and (max-width: $bs_break_xs) {
+      margin-left: 0;
+    }
   }
 
   .reviews-slider__date {
@@ -197,7 +298,10 @@
 
     img {
       border-radius: 50%;
-      border: 1px solid $primary_color;
+      // border: 1px solid $primary_color;
+      box-shadow: 0 0 7px rgba(0,0,0,.35);
+      width: 170px;
+      height: 170px;
     }
   }
 
@@ -230,3 +334,61 @@
 
 }
 
+.review-video-list {}
+.review-video-item {
+  margin-bottom: 30px;
+}
+
+
+.review-audio-list {}
+
+.review-audio-item {
+  min-height: 150px;
+  margin-bottom: 50px;
+
+  &__foto {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 0 8px 23px rgba(0,0,0,.17);
+    overflow: hidden;
+    float: left;
+  }
+
+  &__date {
+    margin-left: 160px;
+    font-size: 18px;
+    height: 34px;
+    color: #000;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  &__rating {
+    margin-left: 160px;
+    margin-bottom: 20px;
+
+    .rating {
+      display: inline-block;
+      color: $primary_color;
+    }
+  }
+
+  &__rating-title {
+    font-size: 18px;
+    font-weight: 900;
+    height: 34px;
+    color: #000;
+    margin-right: 20px;
+  }
+
+  &__audio {
+    margin-left: 160px;
+    border: 1px solid $primary_color;
+    font-size: 0;
+
+    audio {
+      width: 100%;
+    }
+  }
+}

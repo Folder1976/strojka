@@ -1,10 +1,11 @@
 <?php echo $header; ?>
 
-<div class="container">
+<!-- <pre><?php var_dump($categories); ?></pre> -->
+
+<div class="container page-reviews">
 
   <div class="row">
-    <div class="col-md-3"></div>
-    <div class="col-md-9">
+    <div class="col-md-12">
       <ul class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
         <?php $ListItem_pos = 1; ?>
         <?php foreach ($breadcrumbs as $breadcrumb) { ?>
@@ -17,22 +18,81 @@
 
   <div class="row" id="content">
 
-    <div class="col-md-9 col-md-push-3">
-      <h1 class="section-title text-left"><?php echo $heading_title; ?>11</h1>
+    <div class="col-md-12">
+      <h1 class="section-title text-left"><svg class="icon section-title__icon">
+          <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#reviews"></use>
+        </svg> <?php echo $heading_title; ?></h1>
 
-      <?php if ($description) { ?>
-        <div class="description"><?php echo $description; ?></div>
-      <?php } ?>
 
       <?php if ($categories) { ?>
-        <?php foreach ($categories as $category) { ?>
-		  <li><a href="<?php echo $category['href']; ?>">
-			<img class="img--cover" src="<?php echo $category['image']; ?>" alt="лого <?php echo $category['name_no_prod']; ?>">
-			<?php echo $category['name_no_prod']; ?></a></li>
-        <?php } ?>
+      <div class="tabs tabs--review">
+        <ul class="tabs__links">
+          <?php foreach ($categories as $category) { ?>
+            <?php if ($category['blog_category_id'] != 26 ) { ?>
+
+            <?php
+            switch ($category['blog_category_id']) {
+              case 30: // Крыши ДО и ПОСЛЕ
+                $icon = 'house';
+                break;
+
+              case 29: // Текстовые отзывы
+                $icon = 'reviews-text';
+                break;
+
+              case 28: // Видеоотзывы
+                $icon = 'reviews-video';
+                break;
+
+              case 27: // Отдел качества
+                $icon = 'review-quality-dep';
+                break;
+
+              default:
+                $icon = 'reviews';
+                break;
+            }
+            ?>
+
+            <li class="tab__link" data-tab="tab-$category['blog_category_id']">
+              <a href="<?php echo $category['href']; ?>">
+                <svg class="icon tab__link-icon">
+                  <use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#<?php echo $icon; ?>"></use>
+                </svg>
+                <div class="tab__link-text"><?php echo $category['name_no_prod']; ?></div>
+              </a>
+            </li>
+            <?php } ?>
+          <?php } ?>
+        </ul>
+
+        <div id="tab-1" class="tab__content tab-content is-active"></div>
+        <div id="tab-2" class="tab__content tab-content"></div>
+        <div id="tab-3" class="tab__content tab-content"></div>
+        <div id="tab-4" class="tab__content tab-content"></div>
+
+      </div>
       <?php } ?>
 
-      <?php if ($products) { ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <?php if (false){//($products) { ?>
 	  
 
 	  
@@ -63,7 +123,7 @@
         </div>
       <?php } ?>
 
-      <div class="pagination-wrap">
+     <!--  <div class="pagination-wrap">
         <div class=""><?php echo $pagination; ?></div>
         <div class="form-group input-group input-group-sm limit-per-page">
           <label for="input-limit"><?php echo $text_limit; ?></label>
@@ -81,22 +141,7 @@
 
       <hr class="hr--black">
       <br>
-
-    </div>
-
-    <div class="col-md-3 col-md-pull-9">
-      <?php // echo $column_left; ?>
-
-      <div class="seller">
-        <div class="seller__img">
-          <img src="catalog/view/theme/default/img/tmpimg/seller-foto.jpg" alt="Анна. Менеджер отдела продаж">
-        </div>
-        <div class="seller__name">Анна</div>
-        <div class="seller__post">Менеджер отдела продаж</div>
-        <div class="seller__text">— Помогу выбрать подходящую услугу для кровли.</div>
-        <p><a href="/online-calc">Калькулятор и составление КП</a></p>
-        <p><a href="#get-consultation" class="mf-popup" data-effect="mfp-zoom-in">Закажите замер по Москве и МО</a></p>
-      </div>
+ -->
     </div>
   </div>
 

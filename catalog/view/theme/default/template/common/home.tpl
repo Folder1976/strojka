@@ -247,6 +247,7 @@ $home_services_list = array(
   array(
     "title" => "Монтаж",
     "name" => "Металочерепицы",
+    "href" => "/services/montazh-metallocherepicy",
     "image" => "/image/catalog/services/serv-1.jpg",
     "price" => "190",
     "ediz" => "р/м2",
@@ -269,6 +270,7 @@ $home_services_list = array(
   array(
     "title" => "Монтаж",
     "name" => "Мягкой черепицы",
+    "href" => "/services/montazh-gibkoy-cherepicy",
     "image" => "/image/catalog/services/serv-2.jpg",
     "price" => "220",
     "ediz" => "р/м2",
@@ -291,6 +293,7 @@ $home_services_list = array(
   array(
     "title" => "Монтаж",
     "name" => "Керамочерепицы",
+    "href" => "/services/montazh-keramocherepica",
     "image" => "/image/catalog/services/serv-3.jpg",
     "price" => "800",
     "ediz" => "р/м2",
@@ -313,6 +316,7 @@ $home_services_list = array(
   array(
     "title" => "Монтаж",
     "name" => "Водосточной системы",
+    "href" => "/services/montazh-vodovtochnoi-sistemi",
     "image" => "/image/catalog/services/serv-4.jpg",
     "price" => "300",
     "ediz" => "р/п.м",
@@ -320,6 +324,7 @@ $home_services_list = array(
   array(
     "title" => "",
     "name" => "Утепление кровли",
+    "href" => "/services/uteplenie-kryshi",
     "image" => "/image/catalog/services/serv-5.jpg",
     "price" => "280",
     "ediz" => "р/м2",
@@ -337,6 +342,7 @@ $home_services_list = array(
   array(
     "title" => "Монтаж",
     "name" => "Мансардных окон",
+    "href" => "/services/montazh-mansardnyx-okon",
     "image" => "/image/catalog/services/serv-6.jpg",
     "price" => "5000",
     "ediz" => "шт",
@@ -345,6 +351,7 @@ $home_services_list = array(
   array(
     "title" => "Замена и",
     "name" => "Ремонт крыши",
+    "href" => "/services/remont-kryshi-chastnogo-doma",
     "image" => "/image/catalog/services/serv-7.jpg",
     "price" => "1000",
     "ediz" => "р/м2",
@@ -354,6 +361,7 @@ $home_services_list = array(
   array(
     "title" => "Подшив",
     "name" => "Карнизов крыши",
+    "href" => "/services/podshivka-svesov-kryshi",
     "image" => "/image/catalog/services/serv-8.jpg",
     "price" => "200",
     "ediz" => "р/п.м",
@@ -376,11 +384,13 @@ $home_services_list = array(
         <?php foreach ($home_services_list as $service) { ?>
           <div class="service-home-item">
             <div class="service-home-item__image-wrap img--cover">
-              <img src="<?php echo $service['image']; ?>" alt="<?php echo $service['title'].' '.$service['name']; ?>" class="service-home-item__image">
+              <a href="<?php echo $service['href']; ?>"><img src="<?php echo $service['image']; ?>" alt="<?php echo $service['title'].' '.$service['name']; ?>" class="service-home-item__image"></a>
             </div>
             <div class="service-home-item__header">
-              <div class="service-home-item__title"><?php echo $service['title']; ?></div>
-              <div class="service-home-item__name"><?php echo $service['name']; ?></div>
+              <a href="<?php echo $service['href']; ?>" style="color: #000;">
+                <div class="service-home-item__title"><?php echo $service['title']; ?></div>
+                <div class="service-home-item__name"><?php echo $service['name']; ?></div>
+              </a>
             </div>
             <div class="service-home-item__footer">
               <div class="service-home-item__price">От <span><?php echo $service['price']; ?></span> <?php echo $service['ediz']; ?></div>

@@ -203,6 +203,20 @@ class ControllerProductBlogCategory extends Controller {
 				$prods = $this->model_catalog_blog_product->getProducts($filter_data);
 				foreach($prods as $b_product_id => $value){
 					$prods[$b_product_id]['href'] = $this->url->link('product/blog_product', 'blogpath=' . $this->request->get['blogpath'] . '_' . $result['blog_category_id']. '&blog_product_id=' . $value['blog_product_id']);
+					
+					$images = array();
+					if((int)$this->request->get['blogpath'] == 26){
+						
+						$images = $this->model_catalog_blog_product->getProductImages($b_product_id);
+						foreach($images as $index => $row){
+							$images[$index]['image'] = $this->model_tool_image->resize($row['image'], 800,565);
+							//$images[$index]['image'] = '/image/'.$row['image'];
+						}
+						$prods[$b_product_id]['images'] = $images;
+					}
+					
+					$prods[$b_product_id]['description'] = html_entity_decode($prods[$b_product_id]['description'], ENT_QUOTES, 'UTF-8');
+		
 				}
 				
 				if($this->request->get['blogpath'] == $result['blog_category_id'] ){
@@ -217,7 +231,9 @@ class ControllerProductBlogCategory extends Controller {
 					$image = $this->model_tool_image->resize('placeholder.png', 120, 120);
 				}
 				
-				$data['categories'][] = array(
+			
+				
+				$data['categories'][$result['blog_category_id']] = array(
 					'blog_category_id' => $result['blog_category_id'] ,
 					'products'			=> $prods,
 					'image'			=> $image,
@@ -345,6 +361,12 @@ class ControllerProductBlogCategory extends Controller {
 				'limit'              => $limit
 			);
 
+			//Это отзывы
+			if($blog_category_id == 26){
+				$filter_data['limit'] = 1000;
+				$filter_data['start'] = 0;
+			}
+			
 			$product_total = $this->model_catalog_blog_product->getTotalProducts($filter_data);
 
 			$results = $this->model_catalog_blog_product->getProducts($filter_data);
@@ -456,6 +478,19 @@ class ControllerProductBlogCategory extends Controller {
 				);
 			}
 
+			if($blog_category_id == 26){
+				
+				$products = array();
+				
+				foreach($data['products'] as $row){
+					$products[$this->model_catalog_blog_product->getCategory($row['blog_product_id'])][] = $row;
+				}
+				
+				$data['products'] = array();
+				$data['products'] = $products;
+				
+			}
+			
 			
 			$url = '';
 
@@ -786,3 +821,4 @@ class ControllerProductBlogCategory extends Controller {
 		}
 	}
 }
+

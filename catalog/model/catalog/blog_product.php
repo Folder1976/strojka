@@ -410,6 +410,12 @@ class ModelCatalogBlogProduct extends Model {
 
 		return $query->rows;
 	}
+	public function getCategory($blog_product_id) {
+		$query = $this->db->query("SELECT blog_category_id FROM " . DB_PREFIX . "blog_product_to_category
+								  WHERE blog_product_id = '" . (int)$blog_product_id . "' LIMIT 1");
+
+		return (int)$query->row['blog_category_id'];
+	}
 
 	public function getTotalProducts($data = array()) {
 		$sql = "SELECT COUNT(DISTINCT p.blog_product_id) AS total";
@@ -535,3 +541,4 @@ class ModelCatalogBlogProduct extends Model {
 		}
 	}
 }
+

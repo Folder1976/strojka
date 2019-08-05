@@ -216,9 +216,34 @@ class ControllerProductBlogCategory extends Controller {
 					}
 					
 					$prods[$b_product_id]['description'] = html_entity_decode($prods[$b_product_id]['description'], ENT_QUOTES, 'UTF-8');
+					
+					
+					$product_downloads = $this->model_catalog_blog_product->getProductDownloads($b_product_id);
+
+					$data_product_downloads = array();
+					$this->load->model("catalog/download");
+					
+					foreach ($product_downloads as $download_id) {
+						$download_info = $this->model_catalog_download->getDownload($download_id);
+			
+						@unlink(DIR_USER_DOWNLOAD.$download_info['mask']);
+						copy(DIR_DOWNLOAD.$download_info['filename'], DIR_USER_DOWNLOAD.$download_info['mask']);
+						chmod(DIR_USER_DOWNLOAD.$download_info['mask'], 777);
+						
+						if ($download_info) {
+							$data_product_downloads[] = array(
+								'download_id' => $download_info['download_id'],
+								'name'        => $download_info['name'],
+								'href'        => HTTPS_SERVER.'download/'.$download_info['mask'],
+							);
+						}
+					}
+					
+					$prods[$b_product_id]['downloads'] = $data_product_downloads;
 		
 				}
-				
+	
+					
 				if($this->request->get['blogpath'] == $result['blog_category_id'] ){
 					$href = $this->url->link('product/blog_category', 'blogpath=' . $this->request->get['blogpath'] . $url);
 				}else{
@@ -428,6 +453,7 @@ class ControllerProductBlogCategory extends Controller {
 					
 					foreach($images as $index => $row){
 						$images[$index]['image'] = $this->model_tool_image->resize($row['image'], 800,800);
+						
 						//$images[$index]['image'] = '/image/'.$row['image'];
 					}
 				}

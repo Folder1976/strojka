@@ -37,7 +37,7 @@ $news = array();
 
     <div class="col-md-9 col-md-push-3">
       <div class="remont__top-bg">
-        <h1 class="section-title section-title--white text-left"><?php echo $heading_title; ?></h1>
+        <h2 class="section-title section-title--white text-left"><?php echo $heading_title; ?></h2>
         <form id="remont-form" class="remont__form remont-form" method="post" action="/index.php?route=account/universalform">
           <input type="hidden" name="formname" value="remont-form">
           <div class="remont-form__title">Получите консультацию</div>

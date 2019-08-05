@@ -5173,6 +5173,80 @@ ol li {
     .tab__content-title {
       font-size: 3.8rem; } }
 
+.tabs--review .tabs__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 -15px 35px; }
+  @media screen and (max-width: 768px) {
+    .tabs--review .tabs__links {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      margin: 0 auto; } }
+
+.tabs--review .tab__link {
+  text-align: center;
+  background: #fff;
+  border: 2px solid #fbbe18;
+  margin: 0 1.5rem;
+  position: relative;
+  display: block;
+  -webkit-box-shadow: inset 0px 0px 0px 3px #fbbe18;
+          box-shadow: inset 0px 0px 0px 3px #fbbe18;
+  padding: 5rem 1rem; }
+  @media screen and (max-width: 768px) {
+    .tabs--review .tab__link {
+      margin: 0;
+      padding: 10px;
+      text-align: left;
+      -webkit-box-shadow: none;
+              box-shadow: none;
+      border-color: transparent; } }
+  .tabs--review .tab__link:after {
+    content: "";
+    display: block;
+    height: 40px;
+    width: 2px;
+    background: transparent;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -1px; }
+    @media screen and (max-width: 768px) {
+      .tabs--review .tab__link:after {
+        display: none; } }
+  .tabs--review .tab__link.is-active {
+    -webkit-box-shadow: none;
+            box-shadow: none; }
+    @media screen and (max-width: 768px) {
+      .tabs--review .tab__link.is-active {
+        border-color: #fbbe18; } }
+    .tabs--review .tab__link.is-active:after {
+      background: #fbbe18; }
+
+.tabs--review .tab__link-icon {
+  height: 10rem;
+  width: 100%;
+  fill: #fbbe18; }
+  @media screen and (max-width: 768px) {
+    .tabs--review .tab__link-icon {
+      width: 6rem;
+      height: 6rem;
+      margin-right: 1rem;
+      display: inline-block;
+      vertical-align: middle; } }
+
+.tabs--review .tab__link-text {
+  color: #000;
+  font-weight: 900; }
+  @media screen and (max-width: 768px) {
+    .tabs--review .tab__link-text {
+      display: inline-block;
+      vertical-align: middle; } }
+
 .tab-content {
   padding: 0; }
   .tab-content__top {

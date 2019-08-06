@@ -10,7 +10,11 @@
     .section-title {
       font-size: 3rem;
       text-transform: none;
-      padding: 120px 0 30px 20px;
+      padding: 120px 300px 30px 20px;
+
+      @media screen and (max-width: $bs_break_xs) {
+        padding: 240px 20px 10px 20px;
+      }
     }
   }
 

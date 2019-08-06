@@ -37,7 +37,7 @@ $news = array();
 
     <div class="col-md-9 col-md-push-3">
       <div class="remont__top-bg">
-        <h2 class="section-title section-title--white text-left"><?php echo $heading_title; ?></h2>
+        <h1 class="section-title section-title--white text-left"><?php echo $ean; ?></h1>
         <form id="remont-form" class="remont__form remont-form" method="post" action="/index.php?route=account/universalform">
           <input type="hidden" name="formname" value="remont-form">
           <div class="remont-form__title">Получите консультацию</div>
@@ -56,22 +56,12 @@ $news = array();
         <div class="company-review-thumb"><img src="<?php echo $popup; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>" /></div>
       <?php } ?>
 
-      <div class="company-review-info">
-        <?php if ($upc) { ?>
-        <div class="company-review-info__time"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#clock-circular"></use></svg>Срок: <?php echo $upc; ?></div>
-        <?php } ?>
-        
-        <?php if ($ean) { ?>
-        <div class="company-review-info__area"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#area"></use></svg>Площадь: <?php echo $ean; ?></div>
-        <?php } ?>
-        
-        <?php if ($jan) { ?>
-        <div class="company-review-info__location"><svg class="icon company-review-info__icon"><use xlink:href="catalog/view/theme/default/img/sprite/symbol/sprite.svg#location"></use></svg>Место: <?php echo $jan; ?></div>
-        <?php } ?>
-      </div>
 
       <?php if ($description) { ?>
-        <div class="description content-style"><?php echo $description; ?></div>
+        <div class="description content-style">
+          <br><h2><?php echo $heading_title; ?></h2><br>
+          <?php echo $description; ?>
+        </div>
       <?php } ?>
 
 

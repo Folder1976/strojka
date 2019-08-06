@@ -5945,7 +5945,10 @@ ol li {
   .remont__top-bg .section-title {
     font-size: 3rem;
     text-transform: none;
-    padding: 120px 0 30px 20px; }
+    padding: 120px 300px 30px 20px; }
+    @media screen and (max-width: 768px) {
+      .remont__top-bg .section-title {
+        padding: 240px 20px 10px 20px; } }
 
 .remont__form {
   width: 270px;

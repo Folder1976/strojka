@@ -215,13 +215,14 @@ $bottom_menu = array(
     'name' => 'проектирование и дизайн',
     'href' => '/krovlya/blog_roof_project',
   ),
-  // array (
-  //   'name' => 'строительство домов',
-  //   // 'name' => 'строительство загородных домов',
-  //   'href' => '/stroitelstvo-kamennyh-domov',
-  // ),
+  array (
+    'name' => 'Отзывы',
+    'href' => '/reviews',
+  ),
 );
 
+
+/*
 if ( $page == 'stroitelstvo-kamennyh-domov' ) {
   $bottom_menu[] = array(
     'name' => 'строительство домов',
@@ -232,7 +233,7 @@ if ( $page == 'stroitelstvo-kamennyh-domov' ) {
     'name' => 'строительство загородных домов',
     'href' => '/stroitelstvo-kamennyh-domov',
   );
-}
+}*/
 
 // $logo = '/image/catalog/ROOFER_LOGO_1.svg';
 

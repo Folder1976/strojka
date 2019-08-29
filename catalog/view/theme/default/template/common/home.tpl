@@ -67,9 +67,49 @@ $reviews_slider = array(
 
 
 
+<section class="section section--p0 section-home-top-new">
+  <div class="container">
 
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="site-title">Монтаж и строительство<br>скатной кровли под ключ<br>в Москве и МО</h1>
+      </div>
+    </div>
 
+    <div class="row">
+      <div class="col-md-6">
+        <div class="iframe__container">
+          <iframe src="https://www.youtube.com/embed/d2leK24NPH4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
 
+      <div class="col-md-6">
+        <div class="section-home-top-new__list">
+          <ul class="ul-list ul-list--white">
+            <li>Работаем с 15 сертифицированными поставщиками</li>
+            <li>Специалисты по кровле и фасаду граждане РФ и РБ, с опытом от 5 лет</li>
+            <li>Работаем с объектами жилой и коммерческой недвижимости как в черте города так и за его пределами</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-home-top-new__desc">
+          <p>Выполняем работы на загородных домах и коммерческой недвижимости</p>
+        </div>
+        <div class="section-home-top-new__desc" style="margin-top: 10px;">
+          <a href="#get-consultation" class="btn btn--orange btn--dib btn--bold mf-popup" data-effect="mfp-zoom-in">получить консультацию</a>
+          <a href="https://izzi.ru/INFHbBK" class="btn btn--green btn--dib btn--bold">Написать в WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<?php if (false) { // старая top-секция ?>
 <section class="section section--p0 section-home-top">
   <div id="home-top-slider" class="home-top-slider">
 
@@ -122,6 +162,7 @@ $reviews_slider = array(
 
   </div>
 </section>
+<?php } ?>
 
 <section class="section section-take-test">
   <div class="container">
